@@ -14,13 +14,47 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css" >
+#main-wrapper {
+	width: 100%;
+	height: 650px;
+	z-index: 0;
+	overflow: hidden;
+	background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg');
+	background-size: cover;
+}
+
+
+#main-header{
+	width: 650px;
+	height: 260px;
+	background-color: rgba(0,0,0,0.3);
+	margin-top: 195px;
+	margin-left: 14%;
+	z-index: 1000;
+}
+
+#main-header-items{
+	width: 540px;
+	height: 154px;
+	position: relative;
+	top: 20%;
+	left: 8.5%;
+	background-color: black;
+	color: #ffffff;
+	z-index: 1000;
+}
+</style>
+
 </head>
 <body>
-<div id="back-image" style="width: 100%; height: 650px; z-index:0; overflow:hidden;
-	background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg'); ">
-	<div id="main-header" style="width: 650px; height: 260px; background-color: rgba(0,0,0,0.3); margin-top: 195px; margin-left: 14%;">
-		<div id="main-header-items" style="width: 540px; height: 154px; position: relative; top:20%; left:8.5%;  background-color: black;
-		color: #ffffff;">
+<div id="main-wrapper">
+	<div id="back-image1">
+	</div>
+	<div id="back-image2">
+	</div>
+	<div id="main-header" >
+		<div id="main-header-items">
 			<h1>Move1</h1>
 		</div>
 	</div>
@@ -40,12 +74,19 @@ var i = 0
 
 setInterval(function(){
 	
-	$("#back-image").css("background-image", "url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"+images[i]+".jpg)");
+	$("#main-wrapper").css("background-image", "url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"+images[i]+".jpg)");
+
+	
 	i = i+1;
 	if(i>4){
 		i=0;
-	}
-}, 10000);
+	};
+	
+	$("#main-wrapper").fadeOut(50, function () {
+        $(this).css("background-image", "url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"+images[i]+".jpg)");
+        $(this).fadeIn(50);
+    });
+}, 1000);
 
 </script>
 </body>
