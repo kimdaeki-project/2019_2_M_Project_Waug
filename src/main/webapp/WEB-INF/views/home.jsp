@@ -3,12 +3,13 @@
 <html>
 <head>
 	<title>Home</title>
+	
+<link rel="stylesheet" type="text/css" href="../resources/css/home.css">
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+<div id="back-image">
 
-<P>  The time on the server is ${serverTime}. </P>
+
+</div>
 </body>
 </html>
