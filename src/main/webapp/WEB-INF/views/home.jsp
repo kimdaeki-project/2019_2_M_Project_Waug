@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="back-image" style="width: 100%; height: 650px; z-index:0; overflow:hidden;
-	background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg'); ">
+	background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg'); background-size: cover;">
 	<div id="main-header" style="width: 650px; height: 260px; background-color: rgba(0,0,0,0.3); margin-top: 195px; margin-left: 14%;">
 		<div id="main-header-items" style="width: 540px; height: 154px; position: relative; top:20%; left:8.5%;  background-color: black;
 		color: #ffffff;">
