@@ -18,9 +18,10 @@
 	
 }
 
-#page_top{
+.wrapper-header{
 	width:100%;
 	border: 10px solid blue;
+	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/07/15/15316446659344.png?s=1900x450");
 }
 .container{
 	width: 1170px;
@@ -70,6 +71,10 @@
 	
 	max-width: 360px;
 }
+
+.catecory-nav{
+	width: 25%;
+}
 </style>
 <title>select_area_page</title>
 </head>
@@ -77,7 +82,7 @@
 	<div id = "wrapper">
 		<main>
 			<div id="wrapper_page">
-				<div id="page_top"><img alt="" src=""></div>
+				<div class="wrapper-header"><img alt="서울사진" src="url(https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/07/15/15316446659344.png?s=1900x450"></div>
 			
 				<div class="container">
 					<div class="row row_title row_title_margin">
