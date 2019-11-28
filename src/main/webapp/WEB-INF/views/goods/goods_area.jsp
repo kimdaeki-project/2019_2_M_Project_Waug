@@ -6,239 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
+<link href="../resources/css/area.css" rel="stylesheet"> 
+<link href="../resources/css/waug.css" rel="stylesheet">
 
-<style type="text/css">
-body{
-	box-sizing: border-box;
-	height: 100%;
-    font-family: 'Noto Sans KR', 'Noto Sans Korean', 'Roboto', 'Sans-serif';
-    color:#333;
-    line-height: 1.42857143;
-}
-div{
-	display: block;
-}
-#wrapper{
-	width: 100%;
-	border: 1px solid pink;	
-}
-
-#wrapper_page{
-	padding-top:50px;
-	padding-bottom: 50px;
-}
-
-.wrapper-header{
-
-	width:100%;
-	height:100%;
-	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/07/15/15316446659344.png?s=1900x450");
-	background-repeat:  no-repeat;
-	background-size: cover;
-	background-position: center center;
-	position: relative;
-	
-
-}
-.area-header-image{
-	height: 40vh;
-}
-
-.header-title{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 2;
-	
-}
-.header-title h1{
-	font-size: 64px;
-	font-weight: 500;
-	color: white;
-	
-}
-
-.theme_box{
-	width: 33.333333%;
-	padding: 12px;
-
-}
-
-.theme_box img{
-	border-radius: 4px;
-	display: block;
-	object-fit:cover;
-	width: 100%;
-	height: 220px;
-}
-
-.theme_info_box{
-	padding: 16px 6px 0 6px;
-}
-.row{
-	clear: both;
-	margin-left: -15px;
-	margin-right: -15px;
-	/* border: 1px solid black; */
-}
-.row-title{
-
-	text-align: left;
-	margin: 50px 0 12px 0px;
-	font-weight: 600;
-	font-size: 24px;
-	color: rgba(0,0,0,0.7);
-	letter-spacing: -0.3px;
-
-}
-
-.row-title-margin{
-	margin-top: 70px;
-	margin-bottom: 30px;
-	
-}
-.row-title .sub{
-	font-size: 15px;
-	font-weight: 400;
-	color: #9a9a9a;
-	margin: 2px 0 0 0;
-}
-img{
-	vertical-align: middle;
-}
-img .lazy{
-	max-height: 220px;
-	background-color: #f5f5f5;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat; 
-}
-
-.good-card-box{
-	
-	border-radius : 4px;
-	position: relative;
-
-	display:block;
-	cursor:pointer;
-	max-height:470px;
-	float: left;
-
-	width: 25%;
-	padding: 8px 12px 12px 12px !important;
-
-
-}
-.good-photo{
-	max-width: 100%;
-
-	border-radius : 4px;
-
-}
-.theme-text-info-box{
-	padding : 16px 6px 0 6px;
-}
-
-.theme-text-info-box .head{
-	color: #d91c84;
-	font-weight: 800;
-	font-size: 12px;
-	padding: 3px 0 6px 0;
-	text-align: left;
-}
-
-.good-info-content-box{
-	padding:12px 6px 0 6px;
-
-}
-.good-theme-title{
-
-	margin: 0;
-	color: #333333;
-	font-size: 15px;
-	font-weight: bold;
-	line-height: 1.3;
-	max-height: 2.6em;
-	text-align: left;
-	text-overflow: ellipsis;
-	letter-spacing: -0.3px;
-	
-}
-.good-title{
-
-	margin: 0;
-	color: #333333;
-	font-size: 17px;
-	font-weight: 900;
-	line-height: 1.3;
-	max-height: 2.6em;
-	text-align: left;
-	text-overflow: ellipsis;
-	letter-spacing: -0.3px;
-	
-}
-.good-default-text{
-	font-size: 13px;
-	font-weight: 400;
-	color: #888;
-	padding-top: 4px;
-
-}
-
-.today-use{
-	color: #d91c84;
-	font-weight: 700;
-	font-size: 12px;
-	padding: 3px 0 6px 0;
-	text-align: left;
-
-}
-.good-original-price{
-	font-size: 14px;
-	color: #999;
-	text-decoration: line-through;;
-}
-.good-discount-price{
-	font-weight: bold;
-	color: #333;
-	font-size: 16px;
-	font-family: 'Roboto','Sans-serif';
-}
-
-.good-booked{
-	display: flex;
-	font-weight: 600;
-	font-size: 12px;
-/* 	padding: 10px 0 5px 0;
- */	color: #999999;
-	line-height: 30px;
-}
-
-.good-wish{
-	position: absolute;
-	top: 24px;
-	right: 24px;
-	z-index: 2;
-	width: 24px;
-}
-
-
-.area_goods_space{
-	float: right;
-	width: 66.6666667%;
-	background-color: purple;
-}
-.m-good-card{
-	
-	max-width: 360px;
-}
-
-.category-nav{
-	max-width: 292.5px;
-
-}
-</style>
 <title>select_area_page</title>
 </head>
 <body>
@@ -385,7 +155,7 @@ img .lazy{
 					<p class="sub">새로운, 그리고 특별한 나만의 서울. 경험해보세요</p>
 					
 						<!-- 카테고리시작 -->
-						<div class="col-md-3 category-nav sticky" style="position: absolute; top: auto; border:1px solid black; height: 200px;">
+						<div class="col-md-3 category-nav sticky" style="position: absolute; top: auto; border:1px solid black;">
 						
 							<div>
 								<i class="fa fa-search"></i>
@@ -393,18 +163,21 @@ img .lazy{
 							
 							</div>
 							<div class="category-wrapper">
+							<span class="select2-container">
 								<select>
 									<option style="display:none" selected="selected">와그WAUG 추천</option>
 									<option>최신순</option>
 									<option>인기순</option>
 								</select>
+							</span>
 								
 								<div class="category-title">어떤 여행을 원하세요?</div>
-								<ul>
-									<li>
-										<div>
-											<img alt="" src="">
-											<a href="">레스토랑 $ 다이닝</a>
+								
+								<ul class="category-list">
+									<li class="category-children-space" onmouseover="openChildCategory" onmouseout="closeChildCategory">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/10.svg">
+											<a href="">레스토랑 & 다이닝</a>
 										</div>
 										
 										<div class="category-children">
@@ -417,7 +190,47 @@ img .lazy{
 										</div>
 										
 									</li>
-								
+									
+						
+									
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/4.svg">
+											<a href="">액티비티 & 체험</a>
+										</div>
+									</li>
+									
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/3.svg">
+											<a href="">현지 투어</a>
+										</div>
+									</li>
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/6.svg">
+											<a href="">어트랙션 & 공연</a>
+										</div>
+									</li>
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/2.svg">
+											<a href="">스파 & 라운지</a>
+										</div>
+									</li>
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/11.svg">
+											<a href="">교통 & 와이파이</a>
+										</div>
+									</li>
+									<li class="category-children-space">
+										<div id="catparent_10">
+											<img class="category-icon" src="../resources/images/cat_nav/1170.svg">
+											<a href="">특가여행</a>
+										</div>
+									</li>
+									
 								
 								</ul>
 							</div>
