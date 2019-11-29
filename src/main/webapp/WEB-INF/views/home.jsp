@@ -315,10 +315,10 @@
 				</div>
 				<div class="main-itemtitle-sub"></div>
 			</div>
-			<div class="swiper-list-container">
+			<div class="swiper-list-container container3">
 				<div
-					class="swiper-container content popularGood swiper-container-initialized swiper-container-horizontal">
-					<div class="swiper-wrapper"
+					class="swiper-container container3 content popularGood swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper container3"
 						style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 						<div
 							class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active"
@@ -334,8 +334,7 @@
 										오늘부터 사용가능 <img class="good-card-thunder-icon"
 											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
 									</div>
-									<div class="good-card-title">프로모션: 오사카 하루카스 300 입장권
-										(1+1이벤트)</div>
+									<div class="good-card-title">프로모션3: 오사카 하루카스 300 입장권(1+1이벤트)</div>
 									<div class="good-card-original-price">₩ 20,000</div>
 									<div class="good-card-price">₩ 13,000</div>
 									<div class="good-card-buy-cnt">63,512 예약</div>
@@ -356,10 +355,8 @@
 									<div class="good-card-title">3+1프로모션: 와그 핑크 대만 예스진지 버스투어
 									</div>
 									<div class="good-card-original-price">₩ 30,000</div>
-									<div class="good-card-price">
-										₩ 22,000
-										<div class="good-card-coupon-text">27% 할인</div>
-									</div>
+									<div class="good-card-price">₩ 22,000</div>
+									<div class="good-card-coupon-text">27% 할인</div>
 									<div class="good-card-buy-cnt">21,950 예약</div>
 								</div>
 							</div>
