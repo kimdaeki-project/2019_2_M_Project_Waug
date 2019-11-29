@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#main-wrapper {
+	width: 100%;
+	height: 650px;
+	z-index: 0;
+	overflow: hidden;
+	/*background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg');*/
+	background-size: cover;
+	background-position: 50%;
+}
+
+#back-image1 {
+	background-image:
+		url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15749313071774.jpg');
+	z-index: 5;
+}
+
+#back-image2 {
+	background-color: gray;
+	z-index: 4;
+}
+
+#back-image3 {
+	background-color: gray;
+	z-index: 3;
+}
+
+#back-image4 {
+	background-color: gray;
+	z-index: 2;
+}
+
+#back-image5 {
+	background-color: gray;
+	z-index: 1;
+}
+
+.image {
+	width: 100%;
+	height: 650px;
+	z-index: 0;
+	overflow: hidden;
+	background-size: cover;
+	background-position: 50%;
+	position: absolute;
+	top: 0;
+}
+
+#main-header {
+	width: 650px;
+	height: 260px;
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.3);
+	margin-top: 195px;
+	margin-left: 14%;
+	float: left;
+	z-index: 1000;
+}
+
+#main-header-items {
+	width: 540px;
+	height: 154px;
+	position: relative;
+	top: 20%;
+	left: 8.5%;
+	color: #ffffff;
+	z-index: 1000;
+	float: left;
+}
+
+#main-container {
+	width: 1366px;
+	height: 4000px;
+	background-color: gray;
+	margin: auto;
+	overflow: hidden;
+}
+.bar{
+	border-bottom : 2px solid white;
+
+}
+#search{
+	background: none;
+	color: #ffffff;
+	border: none;
+	width: 501px;
+	height: 50px;
+	margin-left: 10px;
+
+}
+#search::placeholder{
+	color: #ffffff;
+}
+
+#search:focus{
+	outline: none;
+}
+.searchbar-input-container div{
+	width : 19px;
+	height : 50px;
+	background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15450158976787.svg');
+	background-position : center;
+	background-repeat: no-repeat;
+	float: left;
+	
+
+}
+.search {
+	width: 540px;
+	height: 52px;
+	margin-top: 35px;
+
+}
+.main-item-container {
+	width: 100%;
+	margin-top: 130px;
+	background-color: white;
+	color: black;
+	overflow: hidden;
+}
+.swiper-list-container{
+	width: 100%;
+	height: 244px;
+	background-color: gray;
+}
+.swiper-container{
+	width: 100%;
+	height: 244px;
+}
+.swiper-wrapper{
+	width: 100%;
+	height: 244px;
+}
+.arealist-slide{
+	width: 157.5px;
+	height: 244px;
+}
+.area-card-container{
+	width: 157.5px;
+	height: 244px;
+}
+.area-card-content{
+	width: 157.5px;
+	height: 244px;
+	float: left;
+	border : solid gray 1px;
+	border-radius: 0.3em;
+}
+.area-card-text{
+	color: #ffffff;
+	position: absolute;
+	top: 88%;
+	left: 8%;
+
+}
+.main-itemtitle{
+	margin-bottom: 15px;
+	padding-left: 10px;
+	
+}
+.main-itemtitle-title{
+	color: #333333;
+	font-size: 24px;
+	
+}
+
+.main-itemtitle-sub{
+	color: #999999;
+	font-size: 15px;
+	
+}
+.main-itemsubbtn{
+	height: 42px;
+	margin: auto;
+	margin-top: 40px;
+	border: 1px solid rgb(229,229,229); 
+	border-radius: 3em;
+}
+.subbtn1{
+	width: 240px;
+	
+}
+.subbtn2{
+	
+	width: 130px;
+}
+.text{
+	/* 원래 사이트 좌우패딩 40px; */
+	padding-left: 40px; 
+	padding-right: 40px;
+	color: rgb(51,51,51);
+	font-size: 12px;
+	text-align: center;
+	text-indent: 0em;
+	line-height: 42px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.watemlist-slide{
+	width: 330px;
+	height: 233px;
+	
+}
+.main-watem-container{
+	width: 330px;
+	height: 233px;
+	border-radius: 0.4em;
+	
+}
+.main-watem-text{
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	line-height: 233px;
+	font-weight: 900;
+}
+.goodlist-slide{
+	width: 261px;
+	height: 334.25px;
+}
+
+.good-card-wrapper{
+	width: 261px;
+	height: 334.25px;
+}
+.good-card-background-image-cover{
+	width: 261px;
+	height: 175.25px;
+}
+.good-card-text-wrapper{
+	width: 241px;
+	height: 142px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+
+}
+.good-card-thunder-icon{
+	width: 10px;
+	height: 10px;
+	margin : 4px 2px;
+	
+}
+.good-card-available-date{
+	/* 오늘부터 사용가능이면 
+	color : #d91c84;
+	 */
+	padding-bottom: 4px;
+	font-size: 12px;
+}
+.good-card-title{
+	color: #333333;
+	font-size: 16px;
+	font-weight: 700;
+	height: 48px;
+}
+.good-card-wish-btn{
+	width: 24px;
+	height: 24px;
+	background-size: cover;
+	left: 50%;
+	top: 50%;
+	
+}
