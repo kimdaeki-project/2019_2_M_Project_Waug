@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
+<title class="next-head">짜그1 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
 <link rel="shortcut icon" href="./resources/favicon-32x32.png"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -334,31 +334,31 @@
 				<div class="popup-city">
 					<div class="popup-background onclick-cursor-pointer"></div>
 					<div class="area-wrapper">
-						<div class="continent-tap">
-							<div
-								class="continent-item onclick-cursor-pointer active-continent">
-								<div class="continent-text">동아시아</div>
+						<div class="continent-tap nav nav-tabs">
+							<div class="continent-item onclick-cursor-pointer active-continent">
+								<div class="active continent-text"><a data-toggle="tab" href="#east-asia">동아시아</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">동남아시아</div>
+								<div class="continent-text"><a data-toggle="tab" href="#southeast-asia">동남아시아</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">서남아시아</div>
+								<div class="continent-text"><a data-toggle="tab" href="#southwest-asia">서남아시아</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">유럽</div>
+								<div class="continent-text"><a data-toggle="tab" href="#europe">유럽</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">아메리카</div>
+								<div class="continent-text"><a data-toggle="tab" href="#america">아메리카</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">오세아니아</div>
+								<div class="continent-text"><a data-toggle="tab" href="#oceania">오세아니아</a></div>
 							</div>
 							<div class="continent-item onclick-cursor-pointer">
-								<div class="continent-text">아프리카</div>
+								<div class="continent-text"><a data-toggle="tab" href="#afreeca">아프리카</a></div>
 							</div>
 						</div>
-						<div class="area-list">
+						<div class="tab-content area-list">
+							<div id="east-asia" class="tab-pane fade in active">
 							<div class="country-item odd display">
 								<div class="country-text">대한민국</div>
 								<div class="city-wrapper">
@@ -496,6 +496,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="southeast-asia" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">태국</div>
 								<div class="city-wrapper">
@@ -650,6 +652,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="southwest-asia" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">아랍에미리트</div>
 								<div class="city-wrapper">
@@ -677,6 +681,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="europe" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">프랑스</div>
 								<div class="city-wrapper">
@@ -900,6 +906,8 @@
 									</div>
 								</div>
 							</div>
+							
+							<div id="southwest-asia" class="tab-pane fade"></div>
 							<div class="country-item">
 								<div class="country-text">아이슬란드</div>
 								<div class="city-wrapper">
@@ -958,6 +966,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="america" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">미국</div>
 								<div class="city-wrapper">
@@ -1048,6 +1058,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="oceania" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">호주</div>
 								<div class="city-wrapper">
@@ -1093,6 +1105,8 @@
 									</div>
 								</div>
 							</div>
+							</div>
+							<div id="afreeca" class="tab-pane fade">
 							<div class="country-item odd">
 								<div class="country-text">남아프리카공화국</div>
 								<div class="city-wrapper">
@@ -1100,6 +1114,7 @@
 										<div class="city-text">케이프타운</div>
 									</div>
 								</div>
+							</div>
 							</div>
 						</div>
 						<div class="city-abbr">
@@ -1110,7 +1125,7 @@
 			</div>
 
 		</div>
-		<!------------------------------------------------ The Modal End------------------------------------------------>
+		<!------------------------------------------------ The Modal ------------------------------------------------>
 		<div class="main-item-container">
 			<div class="mainbanner-container">
 				<a href="https://www.waug.com/event/event.html?idx=311"> <img
@@ -1510,7 +1525,10 @@
 		<div class="main-item-container">아시아에서 즐기는 액티비티</div>
 		<div class="main-item-container"></div>
 	</div>
-
+	<div class="filebox">
+		<label for="ex_file">업로드</label>
+		<input type="file" id="ex_file">
+	</div>
 	<script type="text/javascript">
 		var images = new Array();
 
@@ -1535,17 +1553,12 @@
 			i = i + 1;
 			if (i > 5) {
 				i = 0;
-			}
-			;
-			$(div[i]).fadeIn(
-					1500,
-					function() {
-						$(this).css(
-								"background-image",
-								"url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"
-										+ images[i] + ".jpg)");
+			};
+			
+			$(div[i]).fadeIn(1500,function() {
+				$(this).css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"+ images[i] + ".jpg)");
 					});
-		}, 5000);
+			}, 5000);
 
 		/* 검색창 jquery */
 		$("#search").focus(function() {

@@ -3,6 +3,15 @@
 *{
 	font-family: 'Noto Sans KR', sans-serif;
 }
+* a:hover{
+	text-decoration: none;
+}
+* a:active{
+	text-decoration: none;
+}
+* a:after{
+	text-decoration: none;
+}
 #main-wrapper {
 	width: 100%;
 	height: 650px;
@@ -416,22 +425,21 @@
 }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  border: 1px solid #888;
-  width: 80%;
-}
+
 .modal-content{
+	background-color: #fefefe;
+  	margin: auto;
 	width: 1170px;
-	height: 442px;
 	border-radius: 4px;
-	border: 1px solid #e5e5e5;
+	overflow: hidden;
 }
 .area-wrapper{
 	width: 1170px;
-	height: 442px;
-	
+	max-height: 777px;
+	overflow: scroll;
+	-webkit-scrollbar {
+    display: none !important;
+  }
 }
 .continent-tap{
 	width: 1170px;
@@ -444,18 +452,25 @@
 	height: 64px;
 	padding: 20px;
 	font-size: 15px;
-	border-bottom: 2px solid rgb(217,28,132);
+	
 	float: left;
 	text-align: center;
+}
+.active-continent{
+	border-bottom: 2px solid #d91c84;
+}
+.continent-item a{
+	
 }
 .area-list{
 	width: 1170px;
 	
 }
 .odd{
+	width : 1168px;
 	background-color: rgb(245,245,245);
 }
-.display{
+.country-item{
 	width: 1170px;
 	height: 42px;
 	color: rgb(51,51,51);
@@ -480,4 +495,44 @@
 	color : rgb(204,204,204);
 	font-size: 15px;
 	padding-left: 20px;
+	
 }
+.city-text:hover{
+	color: #d91c84;
+}
+.city-abbr{
+	width: 1170px;
+	height: 24px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: rgb(51,51,51);
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+.filebox label { 
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #999; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+} 
+.filebox input[type="file"] { 
+	/* 파일 필드 숨기기 */ 
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0; 
+}
+
+
