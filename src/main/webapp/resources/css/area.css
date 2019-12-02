@@ -8,6 +8,7 @@ body{
     font-weight:400;
     color:#333;
     line-height: 1.42857143;
+
 }
 a{
 	text-decoration: none;
@@ -15,7 +16,17 @@ a{
 	color: inherit;
 	border: 0;
 	outline: none;
+	color: #333;
 }
+
+a:hover{
+	text-decoration: none;
+	background-color: transparent;
+	color: black;
+	border: 0;
+	outline: none;
+}
+
 div{
 	display: block;
 }
@@ -125,8 +136,6 @@ img .lazy{
 	cursor:pointer;
 	max-height:470px;
 	float: left;
-
-	width: 25%;
 	padding: 8px 12px 12px 12px !important;
 
 
@@ -224,11 +233,15 @@ img .lazy{
 }
 
 
-.area_goods_space{
+.area-goods-space{
 	float: right;
 	width: 66.6666667%;
-	background-color: purple;
 }
+
+.items-wrapper{
+	margin-top: -12px;
+}
+
 .m-good-card{
 	
 	max-width: 360px;
@@ -240,13 +253,24 @@ img .lazy{
 }
 
 
-/* .category-wrapper span{
-	
+.form-control{
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	text-align: left;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #ccc;
 	margin-bottom: 12.5px;
-} */
+}
+
 
 .category-nav{
 	max-width: 292.5px;
+	position: absolute;
+	top:auto;
 
 }
 
@@ -278,6 +302,7 @@ img .lazy{
 .category-list li{
 
 	padding: 10px;
+	font-size: 13px;
 }
 
 
@@ -287,11 +312,13 @@ img .lazy{
 
 .category-list a{
 
-	font-size: 13px;
+	font-size: 13px;	
+
 }
 
 .category-children-space{
 	position: relative;
+
 
 }
 .category-icon{
@@ -299,4 +326,23 @@ img .lazy{
 	height: 22px;
 	margin: 0 5px 1px 0;
 
+}
+
+
+.category-children-box{
+	position: absolute;
+	top:-1px;
+	width: 205px;
+	left: 100%;
+	padding: 6px 12px 5px 12px;
+	line-height: 30px;
+	border-radius: 0 3px 3px 0;
+	border: 1px solid #ddd; 
+	z-index: 2;
+	background: white;
+	display: none;
+}
+.category-children-box a{
+	
+	display: block;
 }

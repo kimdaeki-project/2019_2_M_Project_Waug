@@ -1,0 +1,171 @@
+@charset "UTF-8";
+body{
+	font-size: 13px;
+	font-weight: 400;
+	box-sizing: border-box;
+
+}
+li a{
+	color: #333;
+	
+}
+
+li a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+
+h3{
+	font-size:24px;
+	font-weight: bold;
+	line-height: 1.1;
+}
+
+.wrapper-subheader{
+	height: 400px;
+	background-color: #fafafa;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	position: relative;
+	margin-top: 69px;
+}
+.headimage{
+	background-image:url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15501919173889.jpg?s=1400x467);
+}
+
+.submenu{
+	
+	margin: 20px 20px 20px 0px;
+}
+.row{
+	
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+ul{
+	margin-left:-15px;
+	display: block;
+	list-style-type: disc;
+	margin-block-start:1em;
+	margin-block-end:1em;
+	margin-inline-start:0px;
+	margin-inline-end:0px;
+	padding-inline-start:40px;
+	
+}
+
+.submenu li{
+	line-height:40px;
+	height: 40px;
+	vertical-align:middle;
+	list-style:none; 
+ 	font-size: 12px;
+ 	font-weight: bold;
+ }
+
+.active{
+
+}
+
+
+img{
+	margin-left:12px;
+	height:25px; 
+	weight:25px;
+}
+.space-5{
+	margin-bottom: 31.25px;
+}
+.mypage-picture button{
+	vertical-align: bottom;
+	margin-left: 15px;
+}
+
+#sub-container{
+	padding: 50px 40px 0 40px;
+	min-height: 500px;
+	border-left: 1px solid rgba(0, 0, 0, 0.03);
+
+}
+
+#btn{
+	color: white;
+	padding: 8px 22px;
+	height:40px;
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg,rgb(245,3,100) 1%, rgb(172,66,169) 100%);
+		
+}
+.user-picture{
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	background-color: #ddd;
+}
+
+
+#name, #e_last_name,#e_first_name, #email, #tel{
+	
+	height: 40px;
+ 	line-height: 1.42857143;
+}
+
+.title{
+	color: #666;
+	display: inline-block;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.modal-header{
+	border-bottom: 1px solid #e5e5e5;
+	padding: 22px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.modal-body{
+	padding: 22px;
+}
+
+.close{
+	
+	
+	margin-top: -2px;
+	cursor: pointer;
+	top:10px;
+	right: 10px;
+	float: right;
+	font-size: 30px;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+}
+
+.outline{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg,rgb(245,3,100) 1%, rgb(172,66,169) 100%);
+	
+}
+
+#file_add input[type="file"]{
+	position: absolute; 
+	width: 1px; 
+	height: 1px; 
+	padding: 0; 
+	margin: -1px; 
+	overflow: hidden; 
+	clip:rect(0,0,0,0); 
+	border: 0;
+	 -webkit-appearance: none; 
+	 text-indent: 0px;
+	 text-transform: none;
+	 
+ }
+
