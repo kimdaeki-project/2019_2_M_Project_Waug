@@ -5,13 +5,16 @@
 }
 * a:hover{
 	text-decoration: none;
+	color: #cccccc;
 }
-* a:active{
+* a:link{
 	text-decoration: none;
+	color: #cccccc;
 }
-* a:after{
-	text-decoration: none;
+* a{
+	
 }
+
 #main-wrapper {
 	width: 100%;
 	height: 650px;
@@ -437,9 +440,13 @@
 	width: 1170px;
 	max-height: 777px;
 	overflow: scroll;
-	-webkit-scrollbar {
-    display: none !important;
-  }
+	
+}
+.area-wrapper::-webkit-scrollbar { 
+    display: none; 
+}
+.continent-text{
+	color: #cccccc;
 }
 .continent-tap{
 	width: 1170px;
@@ -458,6 +465,10 @@
 }
 .active-continent{
 	border-bottom: 2px solid #d91c84;
+	color: #d91c84;
+}
+.active a{
+	color: #d91c84;
 }
 .continent-item a{
 	

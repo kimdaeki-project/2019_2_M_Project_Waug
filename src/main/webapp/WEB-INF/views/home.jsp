@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title class="next-head">짜그1 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
+<title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
 <link rel="shortcut icon" href="./resources/favicon-32x32.png"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -39,7 +39,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울3 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -1601,6 +1601,12 @@
 		  }
 		}
 		
+		$(".continent-text").click(function() {
+			$(".continent-item").removeClass("active-continent");
+			$(".continent-text").removeClass("active");
+			$(this).parent().addClass("active-continent");
+			$(this).addClass("active");
+		})
 	</script>
 </body>
 </html>
