@@ -24,12 +24,11 @@
 <!-- Latest compiled JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
-
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.js"></script>
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
 <link rel="stylesheet" href="resources/css/home.css">
 
@@ -144,7 +143,7 @@
 
 			<div class="swiper-list-container">
 				<div
-					class="swiper-container content popularArea swiper-container-initialized swiper-container-horizontal">
+					class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
 						<div
 							class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active"
@@ -1191,7 +1190,7 @@
 			</div>
 			<div class="swiper-list-container container3">
 				<div
-					class="swiper-container container3 content popularGood swiper-container-initialized swiper-container-horizontal">
+					class="swiper-container  swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3"
 						style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 						<div
@@ -1601,12 +1600,38 @@
 		  }
 		}
 		
+		
 		$(".continent-text").click(function() {
 			$(".continent-item").removeClass("active-continent");
 			$(".continent-text").removeClass("active");
 			$(this).parent().addClass("active-continent");
 			$(this).addClass("active");
-		})
+		});
+		
+		var mySwiper1 = new Swiper('.swiper-container1', {
+			// Optional parameters
+			direction : 'horizontal',
+			// Navigation arrows
+			navigation : {
+				nextEl : '.swiper-button-next',
+				prevEl : '.swiper-button-prev',
+			},
+			
+			slidesPerView : 8,
+			slidesPerGroup : 1,
+		});
+		
+		var mySwiper2 = new Swiper('.swiper-container2', {
+		// Optional parameters
+		direction : 'horizontal',
+		// Navigation arrows
+		navigation : {
+			nextEl : '.swiper-button-next',
+			prevEl : '.swiper-button-prev',
+		},
+		slidesPerView : 5,
+		slidesPerGroup : 1,
+	});
 	</script>
 </body>
 </html>
