@@ -47,6 +47,7 @@
 													
 						</div>
 					</div>
+					<!-- paging 시작 -->
 					<div class="row">
 						<div class="page-navigation">
 							<div class="btn-group">
@@ -57,8 +58,8 @@
 								<a class="btn">≫</a>
 							</div>
 						</div>
-					
 					</div>
+					<!-- paging 끝 -->
 				</div>
 			</div>
 		</div>

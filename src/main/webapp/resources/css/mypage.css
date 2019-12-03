@@ -407,3 +407,29 @@ img{
 	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
 	color: white;
 }
+
+
+
+/**************** 내쿠폰 ***************/
+
+.tab {
+	font-weight: 600;
+	color: #Eb2d68;
+	border-bottom: solid 2px #Eb2d68;
+}
+.mypage-list{
+	text-align: center;
+}
+
+#btn-form-submit{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	color: white;
+	padding: 8px 22px;
+	font-weight: 400;
+	text-align: center;
+	border-radius: 2px;
+	display: inline-block;
+	vertical-align: middle;
+}
