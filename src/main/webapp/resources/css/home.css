@@ -19,8 +19,6 @@
 	width: 100%;
 	height: 650px;
 	z-index: 0;
-	/* overflow: hidden;*/
-	/*background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15719902424676.jpg');*/
 	background-size: cover;
 	background-position: 50%;
 	display: flex;
@@ -211,10 +209,44 @@
 	width: 100%;
 	height: inherit;
 }
+.swiper-button-prev{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	z-index: 10;
+	background-color: white;
+	color: black;
+	overflow: hidden;
+	left : -2px;
+	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
+	top : 55%;
+	position: absolute;
+}
+.swiper-button-next{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	z-index: 10;
+	background-color: white;
+	color: black;
+	overflow: hidden;
+	right : -2px;
+	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
+	top: 55%;
+}
+.main-swiper-next-btn {
+  display: inline-flex; }
+
+.main-swiper-next-btn.swiper-button-disabled {
+  display: none !important; }
+
+.main-swiper-prev-btn.swiper-button-disabled {
+  display: none !important; }
 .swiper-wrapper{
 	width: 100%;
 	height: 244px;
 }
+
 .container3 {
 	height: 334.25px;
 }
