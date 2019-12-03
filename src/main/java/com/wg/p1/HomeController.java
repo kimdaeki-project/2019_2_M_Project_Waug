@@ -43,4 +43,8 @@ public class HomeController {
 	@RequestMapping(value = "/member/mypage", method = RequestMethod.GET)
 	public void mypage() {
 	}
+	
+	@RequestMapping(value = "/member/**", method = RequestMethod.GET)
+	public void order() {
+	}
 }

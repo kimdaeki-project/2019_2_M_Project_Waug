@@ -21,60 +21,11 @@
 		
 			<div class="row">
 			
-				<!-- 리스트시작 -->
-				<div class="col-md-3">
-					<ul class="submenu">
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_update_profile.svg">
-								<a href="">여행자 정보등록</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_order.svg">
-								<a href="">구매 내역</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_wishlist.svg">
-								<a href="">위시리스트</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_cart.svg">
-								<a href="">장바구니</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_coupon.svg">
-								<a href="">내 쿠폰</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_point.svg">
-								<a href="">포인트</a>
-							</div>
-						</li>
-						<li class="active">
-							<div>
-								<img class="category-icon" src="https://www.waug.com/images/ic_logout.svg">
-								<a href="">로그아웃</a>
-							</div>
-						</li>
-						
-					
-					</ul>
-				</div>
-				<!-- 리스트끝-->
+				<c:import url="./mylayout.jsp"></c:import>
 				
 				<!-- 메인컨텐츠 시작 -->
 				<div id="sub-container" class="col-md-9">
-					<h3 class="space-5">여행자 정보 등록</h3>
+					<h3 class="space-5" style="font-weight: bold;">여행자 정보 등록</h3>
 					<form id="frm-profile">
 						<div class="mypage-picture row">
 							<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/member/profile.png" class="user-picture">
@@ -117,7 +68,7 @@
 					</form>
 					<div class="row">
 						<div class="col-md-6">
-							<div data-toggle="modal" data-target="#modal-out-aggrement" class="btn-out" style="cursor: pointer; color: lightgrey; text-decoration: underline;">회원 탈퇴</div>
+							<div data-toggle="modal" data-target="#modal-out-aggrement" class="btn-out" style="cursor: pointer; color: lightgrey; text-decoration: underline; text-align: center;">회원 탈퇴</div>
 						</div>
 					</div>
 				</div>
@@ -132,13 +83,13 @@
 				<div class="modal-content">
 					<div class="modal-header">
 					<button type="button" class="close btn-pop-close" data-dismiss="modal" aria-label="Close">x</button>
-						<h4 class="text-center">내 이미지 설정</h4>
+						<h4 class="text-center" style="font-weight: bold;">내 이미지 설정</h4>
 						
 					</div>
 					<div class="modal-body">
 						<form id="frm-profile-img">
 							<div class="file-wrapper">
-								<div class="btn-form-submit outline white-text">사진 선택</div>
+								<label class="btn-form-submit outline white-text" for="file_add" style="margin-bottom: 15px;">사진 선택</label>
 								<input id="file_add" class="btn-form-submit outline white-text" type="file" name="profile_img">
 							</div>
 						</form>
@@ -159,21 +110,23 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="text-center">회원 탈퇴</h4>
-						<button type="button" class="close btn-pop-close" data-dismiss="modal" aria-label="Close">x</button>
+					<button type="button" class="close btn-pop-close" data-dismiss="modal" aria-label="Close">x</button>
+						<h4 class="text-center" style="font-weight: bold;">회원 탈퇴</h4>
+						
 					</div>
 					<div class="modal-body">
 						
-							<div>탈퇴 후에는 "chlgpgus57@naver.com"으로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.</div>
+							<div style="font-size: 13px; ">탈퇴 후에는 "chlgpgus57@naver.com"으로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.</div>
 							<label>
-								<input type="checkbox">
-								<div style="position: relative; top: -35px; left: 20px;">
-									안내 사항을 모두 확인하였으며, 이에 동의합니다.
+								
+								<div style="margin-top: 10px;">
+									<input type="checkbox">
+									<p style="float: right; margin-left: 5px;">안내 사항을 모두 확인하였으며, 이에 동의합니다.</p>
 								</div>
 							</label>
-							<div>
-								<button style="margin-left: auto;" id="btn-out-accept" type="button" class="btn-form-submit outline white-text">확인</button>
-								<button style="margin-left: 10px;" data-dismiss="modal" type="button" class="btn-form-submit outline white-text">다음에 할게요!</button>
+							<div style="margin-left: 340px;">
+								<button style="margin-left: auto;" id="btn-out-accept" type="button" class="btn-form-submit outline2 white-text">확인</button>
+								<button style="margin-left: 10px;" data-dismiss="modal" type="button" class="btn-form-submit outline2 white-text">다음에 할게요!</button>
 								
 							</div>
 						
@@ -194,11 +147,6 @@
 
 
 </div>
-
-
-
-
-
 
 </body>
 </html>
