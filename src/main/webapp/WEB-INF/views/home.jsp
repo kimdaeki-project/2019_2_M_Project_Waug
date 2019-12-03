@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title class="next-head">짜그1 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
+<title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
 <link rel="shortcut icon" href="./resources/favicon-32x32.png"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -34,7 +34,6 @@
 <link rel="stylesheet" href="resources/css/home.css">
 
 <style type="text/css">
-
 </style>
 </head>
 <body>
@@ -42,7 +41,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">1겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -141,7 +140,7 @@
 	<div id="main-container">
 		<div class="main-item-container">
 			<div class="main-itemtitle">
-				<div class="main-itemtitle-title">22인기 여행지</div>
+				<div class="main-itemtitle-title">인기 여행지</div>
 				<div class="main-itemtitle-sub">2019년 가장 핫한 여행지를 추천해요</div>
 			</div>
 
@@ -229,7 +228,7 @@
 								<div
 									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2017/06/14983959773745.png?s=157.5x244');"
 									class="area-card-content swiper-lazy swiper-lazy-loaded">
-									
+
 								</div>
 								<div class="area-card-text">도쿄</div>
 							</div>
@@ -237,9 +236,10 @@
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200017002800.png?s=157.5x244');"
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200017002800.png?s=157.5x244');"
 									class="area-card-content swiper-lazy swiper-lazy-loaded">
-									
+
 								</div>
 								<div class="area-card-text">홍콩</div>
 							</div>
@@ -247,9 +247,10 @@
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/04/14615958640638.png?s=157.5x244');"
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/04/14615958640638.png?s=157.5x244');"
 									class="area-card-content swiper-lazy swiper-lazy-loaded">
-									
+
 								</div>
 								<div class="area-card-text">세부</div>
 							</div>
@@ -257,50 +258,45 @@
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/09/14/15369181593516.png?s=157.5x244');"
-									class="area-card-content swiper-lazy">
-									
-								</div>
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/09/14/15369181593516.png?s=157.5x244');"
+									class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">알자스</div>
 							</div>
 						</div>
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/11/26/15432380503230.jpg?s=157.5x244');"
-									class="area-card-content">
-								
-								</div>
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/11/26/15432380503230.jpg?s=157.5x244');"
+									class="area-card-content"></div>
 								<div class="area-card-text">아유타야</div>
 							</div>
 						</div>
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/19/15214381047353.png?s=157.5x244');"
-									class="area-card-content swiper-lazy">
-									
-								</div>
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/19/15214381047353.png?s=157.5x244');"
+									class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">레이캬비크</div>
 							</div>
 						</div>
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/07/25/15640208744860.png?s=157.5x244');"
-									class="area-card-content swiper-lazy">
-									
-								</div>
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/07/25/15640208744860.png?s=157.5x244');"
+									class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">하이난</div>
 							</div>
 						</div>
 						<div class="arealist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/09/02/15674017580604.png?s=157.5x244');"
-									class="area-card-content swiper-lazy">
-									
-								</div>
+								<div
+									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/09/02/15674017580604.png?s=157.5x244');"
+									class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">항저우</div>
 							</div>
 						</div>
@@ -1547,7 +1543,7 @@
 										오늘부터 사용가능 <img class="good-card-thunder-icon"
 											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
 									</div>
-									<div class="good-card-title">프로모션3: 오사카 하루카스 300
+									<div class="good-card-title">프로모션: 오사카 하루카스 300
 										입장권(1+1이벤트)</div>
 									<div class="good-card-original-price">₩ 20,000</div>
 									<div class="good-card-price">₩ 13,000</div>
@@ -1862,7 +1858,193 @@
 		<div class="main-item-container">유럽에서 즐기는 액티비티</div>
 		<div class="main-item-container">아시아로 떠나는 휴가</div>
 		<div class="main-item-container">아시아에서 즐기는 액티비티</div>
-		<div class="main-item-container"></div>
+		<div class="main-item-container">
+			<div class="main-itemtitle">
+				<div class="main-itemtitle-title">와그 파트너</div>
+				<div class="main-itemtitle-sub">전세계의 파트너와 함께 다양한 프로모션을 제공해요</div>
+			</div>
+			<div class="swiper-list-container">
+				<div
+					class="swiper-container content partners swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper waugpartner-container">
+						<div
+							class="swiper-slide waugpartner-slide swiper-slide-visible swiper-slide-active"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/universalstudio_gray.png"
+								alt="universal">
+						</div>
+						<div
+							class="swiper-slide waugpartner-slide swiper-slide-visible swiper-slide-next"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/disneyland_gray.png"
+								alt="disney">
+						</div>
+						<div class="swiper-slide waugpartner-slide swiper-slide-visible"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/bigbus_gray.png"
+								alt="bigbus">
+						</div>
+						<div class="swiper-slide waugpartner-slide swiper-slide-visible"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/eurail_gray.png"
+								alt="eurail">
+						</div>
+						<div class="swiper-slide waugpartner-slide swiper-slide-visible"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/jr_gray.png"
+								alt="jr">
+						</div>
+						<div class="swiper-slide waugpartner-slide swiper-slide-visible"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/merlinentertainments_gray.png"
+								alt="merlin">
+						</div>
+						<div class="swiper-slide waugpartner-slide swiper-slide-visible"
+							style="margin-right: 50px;">
+							<img class="waugpartner-image"
+								src="https://www.waug.com/static/images/partnership/goldenfuture_gray.png"
+								alt="dancingwater">
+						</div>
+					</div>
+					<span class="swiper-notification" aria-live="assertive"
+						aria-atomic="true"> </span>
+				</div>
+			</div>
+		</div>
+		<div class="main-item-container">
+			<div class="waugappinfo-container">
+				<img alt="app info image"
+					src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15500289017806.jpg?s=1366x470">
+				<div class="waugappinfo-buttoncontainer">
+					<div class="waugappinfo-text pc">
+						<div class="waugappinfo-title">Explore MORE</div>
+						와그 앱을 다운받고 2% 추가 할인을 받으세요
+					</div>
+
+					<div class="waugappinfo-button pc">
+						<img class="left" alt="ios download"
+							src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15440647759349.png?s=140x40">
+						<img class="right" alt="aos download"
+							src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15440647832570.png?s=140x40">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mainpage-container">
+			<div class="main-item-container main-footer">
+				<div class="pc">
+					<div class="top">
+						<div class="footerInfo-container">
+							<div class="footerInfo-c-item-1">
+								<div class="title">Follow us</div>
+								<div class="image-list">
+									<div class="image-item">
+										<a href="https://www.facebook.com/waugkorea" target="_blank">
+											<img alt="facebook"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452145570607.svg">
+										</a>
+									</div>
+									<div class="image-item">
+										<a href="https://www.instagram.com/waug_official/"
+											target="_blank"> <img alt="instagram"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452145719190.svg">
+										</a>
+									</div>
+									<div class="image-item">
+										<a href="https://post.naver.com/my.nhn?memberNo=8627427"
+											target="_blank"> <img alt="naver"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452145832518.svg">
+										</a>
+									</div>
+									<div class="image-item">
+										<a href="https://blog.naver.com/ravetrip" target="_blank">
+											<img alt="blog"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452145975218.svg">
+										</a>
+									</div>
+								</div>
+								<div class="content-title">© 2015-2019 WAUG Travel Inc.
+									All Rights Reserved.</div>
+								<div class="footer-licence">
+									Singapore Travel Agent Licence :
+									<!-- -->
+									03226
+								</div>
+								<div class="footer-licence">
+									South Korea Travel Agent Licence :
+									<!-- -->
+									113-86-94943
+								</div>
+							</div>
+							<div class="footerInfo-c-item-2">
+								<div class="title">고객센터</div>
+								<div>
+									<a href="/page/faq.html" target="_blank">FAQ </a>
+								</div>
+								<div>
+									<a href="/page/agreement.html" target="_blank">이용약관 </a>
+								</div>
+								<div>
+									<a href="/page/privacy.html" target="_blank">개인정보보호정책 </a>
+								</div>
+							</div>
+							<div class="footerInfo-c-item-3">
+								<div class="title">회사소개</div>
+								<a href="/page/aboutus.html" target="_blank"> About us </a>
+							</div>
+							<div class="footerInfo-c-item-4">
+								<div class="title">파트너쉽</div>
+								<a href="/page/contactus.html" target="_blank">Contact us </a>
+							</div>
+							<div class="footerInfo-c-item-5">
+								<div class="title">결제수단</div>
+								<div class="image-list">
+									<div class="image-item">
+										<img alt="visa"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452006422222.svg">
+									</div>
+									<div class="image-item">
+										<img alt="master"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452006708461.svg">
+									</div>
+									<div class="image-item">
+										<img alt="amex"
+											src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15452006841604.svg">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bottom">
+						<div class="footerText-container">
+							<div class="left">
+								<div>Singapore : 541 Orchard Road, #17-01 Liat Towers
+									Singapore</div>
+								<div>日本 : 101-0053 3F, Daiichitoei Bldg., 11-2 Kanda
+									Mitoshirocho, Chiyoda-Ku, Tokyo, Japan</div>
+								<div>Republic of Korea : 20F, DMC DigitalCube Bldg, 34
+									Sangamsan-ro, Mapo-gu, Seoul, South Korea</div>
+								<div>Customer Support Center : +82 ) 070-4353-5959 ( AM
+									9:00 - AM 3:00 (GMT+9) )</div>
+								<div>WAUG Travel Inc. is a sales broker, we are not
+									responsible for any product information and transactions.</div>
+							</div>
+							<div class="right">
+								<div>Communication Sales Business Report 2017-서울마포-0310
+									Business License</div>
+								<div>WAUG Travel Inc. ┃ CEO Yoon Sunwoo</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="filebox">
 		<label for="ex_file">업로드</label> <input type="file" id="ex_file">
@@ -1968,12 +2150,12 @@
 				nextEl : '.swiper-button-next',
 				prevEl : '.swiper-button-prev',
 			},
-			
+
 			slidesPerView : 8,
 			slidesPerGroup : 1,
 		});
-		
-		/* var mySwiper2 = new Swiper('.swiper-container2', {
+
+		var mySwiper2 = new Swiper('.swiper-container2', {
 			// Optional parameters
 			direction : 'horizontal',
 			// Navigation arrows
@@ -1984,7 +2166,19 @@
 			setWrapperSize : true,
 			slidesPerView : 5,
 			slidesPerGroup : 1,
-		}); */
+		});
+
+		/* 파트너 */
+		$(".waugpartner-image").mouseenter(function() {
+			var url = $(this).attr("src");
+			var urlco = url.replace('gray', 'color');
+			$(this).attr("src", urlco);
+		});
+		$(".waugpartner-image").mouseleave(function() {
+			var urlco = $(this).attr("src");
+			var url = urlco.replace('color', 'gray');
+			$(this).attr("src", url);
+		});
 	</script>
 </body>
 </html>
