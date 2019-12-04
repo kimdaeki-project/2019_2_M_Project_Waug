@@ -373,6 +373,7 @@
 	 */
 	padding-bottom: 4px;
 	font-size: 12px;
+	font-weight: 500;
 }
 .good-card-text-wrapper .point-color{
 	color : #d91c84;
@@ -400,7 +401,6 @@
 }
 .good-card-wish-btn-whis{
 	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
-	
 }
 .good-card-original-price{
 	color: #999999;
@@ -413,6 +413,8 @@
 	font-size: 16px;
 	float: left;
 	font-weight: bold;
+	font-weight: 700;
+	align-items: baseline;
 }
 .good-card-coupon-text{
 	color : #d91c84;
@@ -422,6 +424,8 @@
 	margin-right: 10px;
 	margin-right: 3px;
 	float: left;
+	white-space: nowrap;
+	font-weight: 700;
 }
 .good-card-buy-cnt{
 	font-size: 12px;
