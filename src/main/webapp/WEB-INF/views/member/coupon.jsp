@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/mypage.css" rel="stylesheet"> 
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -28,8 +27,8 @@
 						<div class="row">
 							<div class="row">
 							<ul class="nav nav-tabs col-md-12" style="padding-right:0;">
-							   <li class="col-md-6 tab" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu1" class="btn-my-coupon-list">사용 가능 쿠폰(3)</a></li>
-							   <li class="col-md-6 tab" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu2" class="btn-my-coupon-list">사용/만료 쿠폰(1)</a></li>
+							   <li class="a col-md-6 tab active-continent" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu1" class="btn-my-coupon-list">사용 가능 쿠폰(3)</a></li>
+							   <li class="b col-md-6 tab" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu2" class="btn-my-coupon-list">사용/만료 쿠폰(1)</a></li>
 							</ul>
 							</div>
 							<div class="tab-content">
@@ -135,6 +134,19 @@
 		</div>	
 		
 	</div>		
+<script type="text/javascript">
 
+	$(".a").click(function() {
+		$(".b").removeClass("active-continent");
+	 	$(this).addClass("active-continent");
+	});
+	
+	$(".b").click(function() {
+		$(".a").removeClass("active-continent");
+	 	$(this).addClass("active-continent");
+	});
+	
+	
+</script>
 </body>
 </html>

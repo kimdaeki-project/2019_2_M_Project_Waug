@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+body{
+	font-size: 13px;
+	font-weight: 400;
+	box-sizing: border-box;
+
+}
+li a{
+	color: #333;
+	
+}
+
+li a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+
+h3{
+	font-size:24px;
+	font-weight: bold;
+	line-height: 1.1;
+}
+
+
+.wrapper-subheader{
+	height: 400px;
+	background-color: #fafafa;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	margin-top: 69px;
+}
+.headimage{
+	background-image:url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15501919173889.jpg?s=1400x467);
+}
+
+.submenu{
+	
+	margin: 20px 20px 20px 0px;
+}
+.row{
+	
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+ul{
+	margin-left:-15px;
+	display: block;
+	list-style-type: disc;
+	margin-block-start:1em;
+	margin-block-end:1em;
+	margin-inline-start:0px;
+	margin-inline-end:0px;
+	padding-inline-start:40px;
+	
+}
+
+.submenu li{
+	line-height:40px;
+	height: 40px;
+	vertical-align:middle;
+	list-style:none; 
+ 	font-size: 12px;
+ 	font-weight: bold;
+ }
+
+img{
+	margin-left:12px;
+	height:25px; 
+	weight:25px;
+}
+.space-5{
+	margin-bottom: 31.25px;
+}
+.mypage-picture button{
+	vertical-align: bottom;
+	margin-left: 15px;
+}
+
+#sub-container{
+	padding: 50px 40px 0 40px;
+	min-height: 500px;
+	border-left: 1px solid rgba(0, 0, 0, 0.03);
+
+}
+
+/**************** 내쿠폰 ***************/
+.tab {
+	font-weight: 600;
+	font-size: 16px;
+	background-color: white;
+	line-height: 32px;
+	border-radius: 0;
+	border-bottom: 2px solid #eeeeee;
+	text-align: center;
+}
+
+.active-continent{
+
+	color: #Eb2d68;
+	border-bottom: 2px solid #Eb2d68;
+}
+
+.tab a:hover{
+	background-color: white;
+}
+
+#ctp-a{
+	height: 100%;
+	padding-left:0px;
+	padding-right:0px;
+	margin-right: 0;
+	padding-bottom:15px;
+}
+#cpt{
+	padding-left:0px;
+	padding-right:0px;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+}
+
+
+.nav-tabs>li>a{
+	border: 0px;
+}
+
+.mypage-list{
+	text-align: center;
+}
+
+#btn-form-submit{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	color: white;
+	padding: 8px 22px;
+	font-weight: 400;
+	text-align: center;
+	border-radius: 2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.box-gray{
+	
+	padding: 12px 15px;
+	background-color: #f7f7f7;
+}
+

@@ -66,10 +66,7 @@ ul{
  	font-weight: bold;
  }
 
-.active{
-
-}
-
+/* 마이페이지 */
 
 img{
 	margin-left:12px;
@@ -409,9 +406,7 @@ img{
 }
 
 
-
 /**************** 내쿠폰 ***************/
-
 .tab {
 	font-weight: 600;
 	font-size: 16px;
@@ -422,23 +417,30 @@ img{
 	text-align: center;
 }
 
-.active-continent{
-	border-bottom: 2px solid #d91c84;
-	color: #d91c84;
-}
-.active a{
-	color: #d91c84;
+.tab:hover{
+		background:none;
+	
 }
 
-
-.nav-tabs .active a{
-	color: #Eb2d68;
-	border: 0;
-	border-bottom: 2px solid #Eb2d68;
-}
-.tab a:hover{
+.cmenu{
 	background-color: white;
 }
+.active-continent{
+
+	color: #Eb2d68;
+	border-bottom: 2px solid #Eb2d68;
+}
+
+
+.active-continent >a{
+	color: #Eb2d68;
+}
+
+.tab a:hover{
+	background:none;
+	color: #333;
+}
+
 #ctp-a{
 	height: 100%;
 	padding-left:0px;
@@ -481,4 +483,7 @@ img{
 	padding: 12px 15px;
 	background-color: #f7f7f7;
 }
+
+
+
 
