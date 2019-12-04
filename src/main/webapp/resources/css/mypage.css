@@ -414,9 +414,51 @@ img{
 
 .tab {
 	font-weight: 600;
-	color: #Eb2d68;
-	border-bottom: solid 2px #Eb2d68;
+	font-size: 16px;
+	background-color: white;
+	line-height: 32px;
+	border-radius: 0;
+	border-bottom: 2px solid #eeeeee;
+	text-align: center;
 }
+
+.active-continent{
+	border-bottom: 2px solid #d91c84;
+	color: #d91c84;
+}
+.active a{
+	color: #d91c84;
+}
+
+
+.nav-tabs .active a{
+	color: #Eb2d68;
+	border: 0;
+	border-bottom: 2px solid #Eb2d68;
+}
+.tab a:hover{
+	background-color: white;
+}
+#ctp-a{
+	height: 100%;
+	padding-left:0px;
+	padding-right:0px;
+	margin-right: 0;
+	padding-bottom:15px;
+}
+#cpt{
+	padding-left:0px;
+	padding-right:0px;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+}
+
+
+.nav-tabs>li>a{
+	border: 0px;
+}
+
 .mypage-list{
 	text-align: center;
 }
@@ -433,3 +475,10 @@ img{
 	display: inline-block;
 	vertical-align: middle;
 }
+
+.box-gray{
+	
+	padding: 12px 15px;
+	background-color: #f7f7f7;
+}
+

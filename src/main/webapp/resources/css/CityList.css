@@ -3,7 +3,7 @@
 /* modal */
 
 /* The Modal (background) */
-.modal {
+.modal-city {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 8; /* Sit on top */
@@ -18,10 +18,10 @@
 }
 
 /* Modal Content */
-.modal-content{
+.modal-content2{
 	background-color: #fefefe;
   	margin: auto;
-	width: 1170px;
+	width: 1170px; 
 	border-radius: 4px;
 	overflow: hidden;
 }

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<div id="myModal" class="modal">
+<div id="myModal" class="modal modal-city">
 			<!-- Modal content -->
-			<div class="modal-content">
+			<div class="modal-content modal-content2">
 				<div class="popup-city">
 					<div class="popup-background onclick-cursor-pointer"></div>
 					<div class="area-wrapper">
