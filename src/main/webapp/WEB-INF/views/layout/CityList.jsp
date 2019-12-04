@@ -7,7 +7,7 @@
 				<div class="popup-city">
 					<div class="popup-background onclick-cursor-pointer"></div>
 					<div class="area-wrapper">
-						<div class="continent-tap nav nav-tabs">
+						<div class="continent-tap2 nav nav-tabs">
 							<div
 								class="continent-item onclick-cursor-pointer active-continent">
 								<div class="active continent-text">
