@@ -416,6 +416,22 @@ img{
 	border-bottom: 2px solid #eeeeee;
 	text-align: center;
 }
+.btn-my-coupon-list{
+	width: 428px;
+	float: left;
+}
+.btn-my-coupon-list a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+.btn-my-coupon-list a:focus{
+	text-decoration: none; !important;
+	color: #d91c84; !important;
+}
+..btn-my-coupon-list a{
+	text-decoration: none;
+	color: #333333;
+}
 
 .tab:hover{
 		background:none;

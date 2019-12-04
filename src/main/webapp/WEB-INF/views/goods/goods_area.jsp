@@ -509,7 +509,14 @@
 						$(".category-selector8").hide();
 					});
 			});
-				
+			
+			/* 도시리스트 */
+			$(".con").click(function() {
+				$(".continent-item").removeClass("active-continent");
+				$(".continent-text").removeClass("active");
+				$(this).parent().parent().addClass("active-continent");
+				$(this).parent().addClass("active");
+			});
 				
 			
 		

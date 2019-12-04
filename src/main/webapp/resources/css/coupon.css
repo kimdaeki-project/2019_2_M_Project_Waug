@@ -6,16 +6,19 @@ body{
 	box-sizing: border-box;
 
 }
-li a{
-	color: #333;
-	
+.btn-my-coupon-list{
+	width: 428px;
+	float: left;
 }
 
-li a:hover{
+.btn-my-coupon-list a:hover{
 	text-decoration: none;
 	color: #d91c84;
 }
-
+.btn-my-coupon-list a:focus{
+	text-decoration: none; 
+	color: #d91c84; 
+}
 h3{
 	font-size:24px;
 	font-weight: bold;
@@ -84,6 +87,7 @@ img{
 	padding: 50px 40px 0 40px;
 	min-height: 500px;
 	border-left: 1px solid rgba(0, 0, 0, 0.03);
+	overflow: hidden;
 
 }
 
@@ -97,7 +101,10 @@ img{
 	border-bottom: 2px solid #eeeeee;
 	text-align: center;
 }
-
+.btn-my-coupon-list{
+	width: 400px;
+	float: left;
+}
 .active-continent{
 
 	color: #Eb2d68;

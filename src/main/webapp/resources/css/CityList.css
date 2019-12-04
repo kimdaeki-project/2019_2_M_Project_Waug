@@ -1,6 +1,19 @@
 @charset "UTF-8";
 
 /* modal */
+#myModal a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+/* #myModal a:active{
+	text-decoration: none; !important;
+	color: #d91c84; !important;
+} */
+
+#myModal a:focus{
+	text-decoration: none;
+	color: #d91c84; !important;
+}
 
 /* The Modal (background) */
 .modal-city {
@@ -16,7 +29,6 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content2{
 	background-color: #fefefe;
@@ -62,7 +74,7 @@
 	color: #d91c84;
 }
 .active a{
-	color: #d91c84;
+	color: #d91c84; !important;
 }
 .continent-item a{
 	
