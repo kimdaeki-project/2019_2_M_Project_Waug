@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/mypage.css" rel="stylesheet"> 
-
+<link href="../resources/css/Footer.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
@@ -144,9 +144,10 @@
 	</div>
 	<!-- wrapper-page끝 -->
 
-
+	<!-- footer -->
+	<c:import url="../layout/Footer.jsp"/>
 
 </div>
-
+		
 </body>
 </html>

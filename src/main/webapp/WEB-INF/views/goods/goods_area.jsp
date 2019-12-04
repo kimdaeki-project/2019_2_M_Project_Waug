@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/area.css" rel="stylesheet"> 
+<link href="../resources/css/Footer.css" rel="stylesheet"> 
 <title>select_area_page</title>
 </head>
 <body>
@@ -407,16 +408,9 @@
 								</div>
 							</div>
 						<!-- 아이템들만 감싸는 div 끝-->
-						
-				
-				
-				
-				
-				
+	
 				</div>	
-				<!-- 특별한 여행 끝 -->	
-					
-					
+				<!-- 특별한 여행 끝 -->		
 					
 				</div>
 				<!-- container div 끝 -->
@@ -424,8 +418,16 @@
 			</div>
 			<!-- wrap_page 끝 -->
 			</div>
+		
 		</main>
 		</div>
+		
+		<!-- footer -->
+		<c:import url="../layout/Footer.jsp"/>
+		
+		
+		
+		
 		
 		<script type="text/javascript">
 		

@@ -113,7 +113,7 @@ img{
  	line-height: 1.42857143;
 }
 
-.title{
+.row .title{
 	color: #666;
 	display: inline-block;
 	margin-bottom: 8px;

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link href="../resources/css/nav.css" rel="stylesheet"> 
 <link href="../resources/css/all.css" rel="stylesheet"> 
+<link href="../resources/css/CityList.css" rel="stylesheet">
 <c:import url="../layout/bootstrap.jsp"/>
 <title>Insert title here</title>
 </head>
@@ -19,8 +20,8 @@
 						<a href="../"><img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png"></a>
 					</div>
 					
-					<div class="nav-more-city nav-sub-menu-item"><a>다른 도시 보기</a></div>		
-					
+					<div id="myBtn" class="nav-more-city nav-sub-menu-item" style="cursor: pointer;">다른 도시 보기</div>		
+					<c:import url="../layout/CityList.jsp"/>
 					<div class="popup-city">
 						<div class="popup-background">
 							<div class="continent-tap">
@@ -35,7 +36,7 @@
 				</div>
 		
 				<div class="nav-sub-menu-wrapper">
-					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(\)</div>
+					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)</div>
 				
 					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="../member/mypage">내 정보</a></div>
 					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a>장바구니 (0)</a></div>
@@ -48,6 +49,31 @@
 	
 	</div>
 	
+	<script type="text/javascript">
 	
+	/* city list 모달 */
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+       modal.style.display = "block";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+       if (event.target == modal) {
+          modal.style.display = "none";
+       }
+    }
+    $(".con").click(function() {
+       $(".continent-item").removeClass("active-continent");
+       $(".continent-text").removeClass("active");
+       $(this).parent().parent().addClass("active-continent");
+       $(this).parent().addClass("active");
+    });
+	
+	
+	</script>
 </body>
 </html>

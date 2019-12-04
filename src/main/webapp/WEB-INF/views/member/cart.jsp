@@ -47,7 +47,7 @@
 							<div class="text-right">
 								<div class="order-total-price" >
 									총
-									<span>\ 0</span>
+									<span>￦ 0</span>
 								</div>
 								<div class="i-checks select-all">
 									<label>전체 선택 / 해제
