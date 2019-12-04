@@ -29,7 +29,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">1겨울1 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -117,12 +117,12 @@
 				</div>
 			</div>
 		</div>
-		<div id="back-image1" class="image"></div>
-		<div id="back-image2" class="image"></div>
-		<div id="back-image3" class="image"></div>
-		<div id="back-image4" class="image"></div>
-		<div id="back-image5" class="image"></div>
-		<div id="back-image6" class="image"></div>
+		<div id="back-image1" class="image imageplus"></div>
+		<div id="back-image2" class="image imageplus"></div>
+		<div id="back-image3" class="image imageplus"></div>
+		<div id="back-image4" class="image imageplus"></div>
+		<div id="back-image5" class="image imageplus"></div>
+		<div id="back-image6" class="image imageplus"></div>
 	</div>
 
 	<div id="main-container">
