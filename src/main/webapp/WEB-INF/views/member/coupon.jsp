@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/mypage.css" rel="stylesheet"> 
+
 <title>Insert title here</title>
 </head>
 <body>
