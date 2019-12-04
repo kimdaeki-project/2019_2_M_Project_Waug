@@ -38,10 +38,10 @@
 				<div class="nav-sub-menu-wrapper">
 					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)</div>
 				
-					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="../member/mypage">내 정보</a></div>
+					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="../my/mypage">내 정보</a></div>
 					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a>장바구니 (0)</a></div>
 					<div class="nav-logout-btn nav-sub-menu-item onclick-cursor-pointer"><a>로그아웃</a></div>
-					<div class="nav-login-btn nav-sub-menu-item onclick-cursor-pointer">로그인</div>
+					<div class="nav-login-btn nav-sub-menu-item onclick-cursor-pointer"><a href="../member/login">로그인</a></div>
 
 				</div>
 			</div>

@@ -470,7 +470,6 @@ img{
 	background-color: rgb(245,3,100);
 	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
 	color: white;
-	padding: 8px 22px;
 	font-weight: 400;
 	text-align: center;
 	border-radius: 2px;
@@ -484,6 +483,5 @@ img{
 	background-color: #f7f7f7;
 }
 
-
-
+/* 포인트 */
 

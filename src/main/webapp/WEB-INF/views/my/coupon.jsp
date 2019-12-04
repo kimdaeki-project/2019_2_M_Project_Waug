@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <c:import url="../layout/bootstrap.jsp"/>
-<link href="../resources/css/mypage.css" rel="stylesheet"> 
+<link href="../resources/css/mypage.css" rel="stylesheet">
+<link href="../resources/css/all.css" rel="stylesheet"> 
 <title>Insert title here</title>
 </head>
 <body>
@@ -64,19 +65,6 @@
 														</tbody>
 													</table>
 												</div>
-											<!-- paging 시작 -->
-											<div class="row">
-												<div class="page-navigation">
-													<div class="btn-group">
-														<a class="btn">≪</a>
-														<a class="btn">＜</a>
-														<a class="btn active" id="pagenum">1</a>
-														<a class="btn">＞</a>
-														<a class="btn">≫</a>
-													</div>
-												</div>
-											</div>
-											<!-- paging 끝 -->
 											
 							      
 							    </div>
@@ -102,22 +90,23 @@
 							   					</tr>
 							   				</tbody>
 							   			</table>
-							   		</div>			
+							   		</div>
+							   					
 							    </div>
 								<!-- menu2끝 -->
-											<!-- paging 시작 -->
-											<div class="row">
-												<div class="page-navigation">
-													<div class="btn-group">
-														<a class="btn">≪</a>
-														<a class="btn">＜</a>
-														<a class="btn active" id="pagenum">1</a>
-														<a class="btn">＞</a>
-														<a class="btn">≫</a>
-													</div>
-												</div>
-											</div>
-											<!-- paging 끝 -->
+								<!-- paging 시작 -->
+								<div class="row">
+									<div class="page-navigation">
+										<div class="btn-group">
+											<a class="btn">≪</a>
+											<a class="btn">＜</a>
+											<a class="btn active" id="pagenum">1</a>
+											<a class="btn">＞</a>					
+											<a class="btn">≫</a>
+										</div>
+									</div>
+								</div>
+								<!-- paging 끝 -->
 							</div>
 					
 					

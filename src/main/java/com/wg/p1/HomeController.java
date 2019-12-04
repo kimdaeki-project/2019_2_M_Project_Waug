@@ -40,11 +40,10 @@ public class HomeController {
 	public void area() {
 	}
 
-	@RequestMapping(value = "/member/mypage", method = RequestMethod.GET)
-	public void mypage() {
+	@RequestMapping(value = "/my/**", method = RequestMethod.GET)
+	public void my() {
 	}
-	
 	@RequestMapping(value = "/member/**", method = RequestMethod.GET)
-	public void order() {
+	public void member() {
 	}
 }
