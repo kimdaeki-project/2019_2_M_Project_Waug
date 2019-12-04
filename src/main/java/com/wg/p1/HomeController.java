@@ -36,6 +36,10 @@ public class HomeController {
 		return "home";
 	}
 	
-	
+	@RequestMapping("order/**")
+	public void orderFolder() {
+		
+		
+	}
 	
 }
