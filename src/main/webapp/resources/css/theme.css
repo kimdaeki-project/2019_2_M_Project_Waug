@@ -1,0 +1,174 @@
+@charset "UTF-8";
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.onclick-cursor-pointer{
+	cursor: pointer;
+}
+.thema-header{
+	width: 100%;
+	height: 480px;
+}
+.theme-header-wrapper{
+	width: 100%;
+	height: 480px;
+
+}
+.theme-header-background-image{
+	width: 100%;
+	height: 480px;
+	background-size: cover;
+	background-position: 50%;
+}
+.theme-header-opacity{
+	width: 100%;
+	height: 480px;
+	background: rgba(0,0,0,0.3);
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.theme-header-description{
+	width: 100%;
+	padding-left : 20px;
+	padding-right : 20px;
+	padding-bottom : 20px;
+	z-index: 10;
+	text-align: center;
+	font-size: 42px;
+	font-weight: 400;
+	position: absolute;
+	top: 200px;
+	left : 0;
+	box-sizing: border-box;
+	color: #ffffff;
+}
+.theme-page-container{
+	width: 1170px;
+	max-height: 4600px;
+	margin: auto;
+	padding-top: 80px;
+}
+.theme-goods-title-container{
+	width: 1170px;
+	height: 58px;
+	margin-left: 18px;
+	margin-bottom: 10px;
+	color: rgb(51,51,51);
+}
+.theme-goods-title{
+	color: rgba(0,0,0,0.7);
+	font-size: 24px;
+	font-weight: 600;
+}
+.theme-goods-sub-title{
+	color: #9a9a9a;
+	font-size: 15px;
+}
+.theme-goods-list-container{
+	width: 1170px;
+	padding-top: 10px;
+	height: auto;
+}
+.theme-goods-card-container{
+	width: 390px;
+	height : 402.188px;
+	margin-bottom: 40px;
+	float: left;
+}
+.theme-goods-card-content{
+	width: 390px;
+	height : 402.188px;
+}
+.theme-goods-card{
+	width: 390px;
+	height : 402.188px;
+}
+.good-card-wrapper{
+	width: 370px;
+	height : 382.188px;
+	margin: 10px 10px;
+}
+.good-card-background-image-cover{
+	width: 370px;
+	height: 244.19px;
+	border-radius: 4px;
+}
+.good-card-wish-btn{
+	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653295914590.svg");
+	width: 30px;
+	height: 30px;
+	background-size: cover;
+	left: 50%;
+	top: 50%;
+	margin-top: 18px;
+	margin-left: 18px;
+	margin-right: 18px;
+	margin-bottom: 18px;
+	position: relative;
+	left: 304px;
+	top : 18px;
+	z-index: 10;
+}
+.good-card-wish-btn-whis{
+	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
+}
+.good-card-text-wrapper{
+	width: 350px;
+	height: 118px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.good-card-available-date{
+	padding-bottom: 4px;
+	font-size: 12px;
+	color: #999999;
+	font-weight: 500;
+	align-items: center;
+}
+.good-card-title{
+	font-size: 16px;
+	font-weight: bold;
+}
+.good-card-original-price{
+	font-size: 12px;
+	font-weight: 400;
+	color: #999999;
+	text-decoration: line-through;
+	margin-top: 6px;
+}
+.good-card-price{
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+	float: left;
+}
+.good-card-buy-cnt{
+	font-size: 12px;
+	font-weight: 400;
+	color: #999999;
+	margin-top: 6px;
+	clear: both;
+}
+.good-card-coupon-text{
+	color : #d91c84;
+	font-size: 13px;
+	margin-top: 2px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-right: 3px;
+	float: left;
+}
+.good-card-thunder-icon{
+	width: 10px;
+	height: 10px;
+	margin : 4px 2px;
+}
+.good-card-text-wrapper .point-color{
+	color : #d91c84;
+}
+
+
+
