@@ -36,6 +36,12 @@ public class HomeController {
 		return "home";
 	}
 	
+
+	@RequestMapping(value = "/goods/goods_area", method = RequestMethod.GET)
+	public void area() {
 	
+		
+	}
+
 	
 }
