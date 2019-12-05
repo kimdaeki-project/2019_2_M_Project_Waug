@@ -1,9 +1,22 @@
 @charset "UTF-8";
 
 /* modal */
+#myModal a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+/* #myModal a:active{
+	text-decoration: none; !important;
+	color: #d91c84; !important;
+} */
+
+#myModal a:focus{
+	text-decoration: none;
+	color: #d91c84; !important;
+}
 
 /* The Modal (background) */
-.modal {
+.modal-city {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 8; /* Sit on top */
@@ -17,11 +30,12 @@
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+
 /* Modal Content */
-.modal-content{
+.modal-content2{
 	background-color: #fefefe;
   	margin: auto;
-	width: 1170px;
+	width: 1170px; 
 	border-radius: 4px;
 	overflow: hidden;
 }
@@ -51,7 +65,6 @@
 	height: 64px;
 	padding: 20px;
 	font-size: 15px;
-	
 	float: left;
 	text-align: center;
 }
@@ -60,7 +73,7 @@
 	color: #d91c84;
 }
 .active a{
-	color: #d91c84;
+	color: #d91c84; !important;
 }
 .continent-item a{
 	

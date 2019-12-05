@@ -14,7 +14,12 @@
 * a{
 	
 }
-
+.onclick-cursor-pointer{
+	cursor: pointer;
+}
+.arealist-slide{
+	cursor: pointer;
+}
 #main-wrapper {
 	width: 100%;
 	height: 650px;
@@ -84,7 +89,6 @@
 	width: 1366px;
 	height: 4000px;
 	margin: auto;
-	
 }
 .bar{
 	border-bottom : 2px solid white;
@@ -121,7 +125,6 @@
 }
 .text2{
 	font-size: 32px;
-	font : bold;
 	font-weight: 500;
 }
 .searchresult-container{
@@ -152,15 +155,12 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	clear: both;
-	
 }
 .searchresultitem-title{
 	color: #d91c84;
 	margin-bottom: 5px;
 	font-size: 18px;
-
 }
-
 .searchresultitem-items{
 	width: 460px;
 	height: 41px;
@@ -206,22 +206,31 @@
 	width: 1366px;
 	height: inherit;
 }
-.swiper-button-prev{
-	width: 30px;
-	height: 30px;
+
+ .prev-btn{
+ 	background-image:url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15444220173835.svg) !important;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	z-index: 10;
 	background-color: white;
 	color: black;
 	overflow: hidden;
-	left : -2px;
+	left : -15px;
 	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
-	top : 55%;
+	top : 45%;
 	position: absolute;
+	display: inline;
+	background-image:url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15444219149307.svg");
+	background-size: 18px;
+	background-position: center;
+	background-repeat: no-repeat;
+	
 }
-.swiper-button-next{
-	width: 30px;
-	height: 30px;
+
+.next-btn{
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	z-index: 10;
 	background-color: white;
@@ -229,8 +238,16 @@
 	overflow: hidden;
 	right : -2px;
 	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
-	top: 55%;
+	background-repeat: no-repeat;
+	top: 45%;
+	position: absolute;
+	display: inline;
+	background-image:url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15444219149307.svg");
+	background-size: 18px;
+	background-position: center;
 }
+
+
 .main-swiper-next-btn {
   display: inline-flex; }
 
@@ -373,6 +390,7 @@
 	 */
 	padding-bottom: 4px;
 	font-size: 12px;
+	font-weight: 500;
 }
 .good-card-text-wrapper .point-color{
 	color : #d91c84;
@@ -400,7 +418,6 @@
 }
 .good-card-wish-btn-whis{
 	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
-	
 }
 .good-card-original-price{
 	color: #999999;
@@ -413,6 +430,8 @@
 	font-size: 16px;
 	float: left;
 	font-weight: bold;
+	font-weight: 700;
+	align-items: baseline;
 }
 .good-card-coupon-text{
 	color : #d91c84;
@@ -422,6 +441,8 @@
 	margin-right: 10px;
 	margin-right: 3px;
 	float: left;
+	white-space: nowrap;
+	font-weight: 700;
 }
 .good-card-buy-cnt{
 	font-size: 12px;

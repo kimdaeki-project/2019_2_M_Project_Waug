@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
@@ -24,12 +23,13 @@
 <link rel="stylesheet" href="resources/css/Footer.css">
 <link rel="stylesheet" href="resources/css/CityList.css">
 </head>
-<body>
 
+<body>
+	<c:import url="./layout/nav.jsp"></c:import>
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">1겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -245,14 +245,20 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="true"></div>
-					<div class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false"></div>
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
 			<div class="flex">
 				<div class="main-itemsubbtn subbtn1">
-					<div class="text" id="myBtn">더 많은 여행지 (+148 Cities)</div>
+					<div class="text" id="myBtn" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
 				</div>
 			</div>
 		</div>
@@ -404,9 +410,8 @@
 									<div class="good-card-available-date">내일부터 사용가능</div>
 									<div class="good-card-title">프로모션: 와그 핑크 파타야 산호섬 해양 투어(파타야/방콕 출발)</div>
 									<div class="good-card-original-price">₩ 40,000</div>
-									<div class="good-card-price">₩ 15,000
-										<div class="good-card-coupon-text">63% 할인</div>
-									</div>
+									<div class="good-card-price">₩ 15,000</div>
+									<div class="good-card-coupon-text">63% 할인</div>
 									<div class="good-card-buy-cnt">13,179 예약</div>
 								</div>
 							</div>
@@ -422,9 +427,8 @@
 									</div>
 									<div class="good-card-title">유니버셜 스튜디오™ 할리우드 1/2일권 (QR 코드즉시 입장)</div>
 									<div class="good-card-original-price">₩ 158,800</div>
-									<div class="good-card-price">₩ 98,200
-										<div class="good-card-coupon-text">10% 할인</div>
-									</div>
+									<div class="good-card-price">₩ 98,200</div>
+									<div class="good-card-coupon-text">10% 할인</div>
 									<div class="good-card-buy-cnt">17,908 예약</div>
 								</div>
 							</div>
@@ -440,9 +444,8 @@
 									</div>
 									<div class="good-card-title">홍콩 디즈니랜드 1/2일권</div>
 									<div class="good-card-original-price">₩ 107,831</div>
-									<div class="good-card-price"> ₩ 69,012
-										<div class="good-card-coupon-text">10% 할인</div>
-									</div>
+									<div class="good-card-price"> ₩ 69,012</div>
+									<div class="good-card-coupon-text">10% 할인</div>
 									<div class="good-card-buy-cnt">70,974 예약</div>
 								</div>
 							</div>
@@ -458,9 +461,8 @@
 									</div>
 									<div class="good-card-title">상하이 디즈니랜드® 입장권 (바우처 즉시 발급)</div>
 									<div class="good-card-original-price">₩ 57,079</div>
-									<div class="good-card-price">₩ 45,224
-										<div class="good-card-coupon-text">10% 할인</div>
-									</div>
+									<div class="good-card-price">₩ 45,224</div>
+									<div class="good-card-coupon-text">10% 할인</div>
 									<div class="good-card-buy-cnt">30,038 예약</div>
 								</div>
 							</div>
@@ -497,7 +499,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- 줄수정 여기까지 -->
 						<div class="goodlist-slide swiper-slide"
 							style="margin-right: 15px;">
 							<div
@@ -511,17 +512,20 @@
 									</div>
 									<div class="good-card-title">다낭 바나힐 입장권 (왕복 케이블카 포함)</div>
 									<div class="good-card-original-price">₩ 44,800</div>
-									<div class="good-card-price"> ₩ 26,900
-										<div class="good-card-coupon-text">40% 할인</div>
-									</div>
+									<div class="good-card-price"> ₩ 26,900</div>
+									<div class="good-card-coupon-text">40% 할인</div>
 									<div class="good-card-buy-cnt">13,958 예약</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
+					<div class="prev-btn" style="top:20%;">
+					<div style="opacity: 0;" class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
 					</div>
-					<div class="swiper-button-next popularGood-next main-swiper-next-btn main-goods-btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+					</div>
+					<div class="next-btn" style="top:20%;">
+					<div style="opacity: 0;" class="swiper-button-next popularGood-next main-swiper-next-btn main-goods-btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+					</div>
 					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
@@ -535,6 +539,7 @@
 			<div class="swiper-list-container container4">
 				<div class="swiper-container content popularTheme swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
+						<a href="./goods/goods_themes">
 						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 15px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725293615137.jpg?s=445x228');">
@@ -546,6 +551,7 @@
 								</div>
 							</div>
 						</div>
+						</a>
 						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 15px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230679474.jpg?s=445x228');">
@@ -628,9 +634,7 @@
 		</div>
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
-	<div class="filebox">
-		<label for="ex_file">업로드</label> <input type="file" id="ex_file">
-	</div>
+
 	<script type="text/javascript">
 		var images = new Array();
 
@@ -746,12 +750,12 @@
 		/* 파트너 */
 		$(".waugpartner-image").mouseenter(function() {
 			var url = $(this).attr("src");
-			var urlco = url.replace('gray', 'color');
-			$(this).attr("src", urlco);
+			url = url.replace('gray', 'color');
+			$(this).attr("src", url);
 		});
 		$(".waugpartner-image").mouseleave(function() {
-			var urlco = $(this).attr("src");
-			var url = urlco.replace('color', 'gray');
+			var url = $(this).attr("src");
+			url = url.replace('color', 'gray');
 			$(this).attr("src", url);
 		});
 	</script>

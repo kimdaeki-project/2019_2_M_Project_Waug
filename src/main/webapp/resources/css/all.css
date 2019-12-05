@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+*{
+	color: #333333;
+	font-family: "Noto Sans KR", "Noto Sans Korean", "Roboto", "Sans-serif";
+	box-sizing: border-box;
+	
+}
+
+/* * a:hover{
+   text-decoration: none;
+   color: #cccccc;
+}
+* a:link{
+   text-decoration: none;
+   color: #cccccc;
+} */
