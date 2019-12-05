@@ -238,13 +238,11 @@
 	overflow: hidden;
 	right : -2px;
 	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
-	background-repeat: no-repeat;
-	top: 45%;
-	position: absolute;
-	display: inline;
-	background-image:url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15444219149307.svg");
-	background-size: 18px;
-	background-position: center;
+	top: 55%;
+	
+}
+.swiper-button-prev-btn{
+	display: inline-flex;
 }
 
 
