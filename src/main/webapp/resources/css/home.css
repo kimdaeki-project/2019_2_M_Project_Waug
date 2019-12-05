@@ -365,6 +365,7 @@ display: inline-flex;}
 .goodlist-slide{
 	width: 261px;
 	height: 334.25px;
+	margin-right: 2px;
 }
 
 .good-card-wrapper{

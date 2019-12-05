@@ -147,7 +147,7 @@
 			<div class="swiper-list-container">
 				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
-						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
 									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/06/14648398959249.png?s=157.5x244');">
@@ -156,21 +156,21 @@
 							</div>
 						</div>
 						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-next"
-							style="margin-right: 15px;">
+							style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14777528392896.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">방콕</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200019883567.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">오사카</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<a href="./goods/goods_area">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768018488168.png?s=157.5x244');">
@@ -179,80 +179,80 @@
 								<div class="area-card-text">서울</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/06/03/15280069047628.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">다낭</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/06/14648743422700.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">보라카이</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2017/04/14935341123847.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">타이페이</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768019228529.png?s=157.5x244');">
 								</div>
 								<div class="area-card-text">싱가포르</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2017/06/14983959773745.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
 								</div>
 								<div class="area-card-text">도쿄</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200017002800.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
 								</div>
 								<div class="area-card-text">홍콩</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/04/14615958640638.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
 								</div>
 								<div class="area-card-text">세부</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/09/14/15369181593516.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">알자스</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/11/26/15432380503230.jpg?s=157.5x244');" class="area-card-content"></div>
 								<div class="area-card-text">아유타야</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/19/15214381047353.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">레이캬비크</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/07/25/15640208744860.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">하이난</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
 							<div class="area-card-container">
 								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/09/02/15674017580604.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
 								<div class="area-card-text">항저우</div>
@@ -298,22 +298,22 @@
 					<div class="swiper-wrapper">
 						<div
 							class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-active"
-							style="margin-right: 15px;">
+							style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=330x233');">
 								<div class="main-watem-text">유심 & 와이파이</div>
 							</div>
 						</div>
-						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right: 15px;">
+						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15628256865214.png?s=330x233');">
 								<div class="main-watem-text">공항 이동수단</div>
 							</div>
 						</div>
-						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018926570.png?s=330x233');">
 								<div class="main-watem-text">일본 교통패스</div>
 							</div>
 						</div>
-						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591019070628.png?s=330x233');">
 								<div class="main-watem-text">유레일 패스</div>
 							</div>
@@ -336,9 +336,9 @@
 			<div class="swiper-list-container container3">
 				<div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/26/15747517566386.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/26/15747517566386.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -352,9 +352,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/24/15639560567339.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/24/15639560567339.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -368,9 +368,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='goods';">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582409642.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582409642.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -382,9 +382,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749107464976.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749107464976.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -398,9 +398,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/18/15740647613040.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/18/15740647613040.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -415,9 +415,9 @@
 							</div>
 						</div>
 						<div class="goodlist-slide swiper-slide"
-							style="margin-right: 15px;">
+							style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/26/15641209630398.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/26/15641209630398.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -430,9 +430,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725721059056.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725721059056.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -447,9 +447,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725736800893.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725736800893.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -464,9 +464,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/15/15737865496525.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/15/15737865496525.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -481,9 +481,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide" style="margin-right : 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/09/23/15692164316838.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/09/23/15692164316838.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -497,9 +497,9 @@
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 15px;">
+						<div class="goodlist-slide swiper-slide" style="margin-right : 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/06/27/15616057795040.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/06/27/15616057795040.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -514,10 +514,10 @@
 							</div>
 						</div>
 						<div class="goodlist-slide swiper-slide"
-							style="margin-right: 15px;">
+							style="margin-right : 18px;">
 							<div
 								class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/08/05/15649717155481.png?s=261x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/08/05/15649717155481.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -554,7 +554,7 @@
 				<div class="swiper-container content popularTheme swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
 						<a href="./goods/goods_themes">
-						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 15px;">
+						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725293615137.jpg?s=445x228');">
 								</div>
@@ -566,7 +566,7 @@
 							</div>
 						</div>
 						</a>
-						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 15px;">
+						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230679474.jpg?s=445x228');">
 								</div>
@@ -577,7 +577,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="themelist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
+						<div class="themelist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725287418372.png?s=445x228');">
 								</div>
