@@ -20,15 +20,18 @@ h3{
 	font-weight: bold;
 	line-height: 1.1;
 }
+.wrapper-page{
+	width: 100%;
+}
 
 .wrapper-subheader{
 	height: 400px;
 	background-color: #fafafa;
 	background-repeat: no-repeat;
+	width:100%;
 	background-size: cover;
 	background-position: center;
 	color: #fff;
-	/* position: relative; */
 	margin-top: 69px;
 }
 .headimage{

@@ -1,9 +1,7 @@
 @charset "UTF-8";
 .nav-transparent-wrapper{
 	background-color: none;
-	
 }
-
 
 .nav-container{
 	z-index: 200;
@@ -21,7 +19,6 @@
 }
 div{
 	display: block;
-	
 }
 
 body{
@@ -33,10 +30,8 @@ body{
 	top: 0;
 	left: 0;
 	right: 0;
-
 	background-color: rgba(1,1,1,0);
 	padding: 6px 30px;
-	
 }
 
 .nav-content{

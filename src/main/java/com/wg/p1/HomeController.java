@@ -41,11 +41,11 @@ public class HomeController {
 	public void area() {
 	}
 
-	@RequestMapping(value = "/my/**", method = RequestMethod.GET)
+	@RequestMapping(value = "my/**", method = RequestMethod.GET)
 	public void my() {
 	}
 	
-	@RequestMapping(value = "/member/**", method = RequestMethod.GET)
+	@RequestMapping(value = "member/**", method = RequestMethod.GET)
 	public void member() {
 	}
 }

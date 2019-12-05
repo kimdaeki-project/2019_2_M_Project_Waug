@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="../resources/css/nav.css" rel="stylesheet"> 
-<link href="../resources/css/all.css" rel="stylesheet"> 
-<link href="../resources/css/CityList.css" rel="stylesheet">
-<c:import url="../layout/bootstrap.jsp"/>
+<link href="${pageContext.request.contextPath}/resources/css/nav.css" rel="stylesheet"> 
+<link href="${pageContext.request.contextPath}/resources/css/all.css" rel="stylesheet"> 
+<link href="${pageContext.request.contextPath}/resources/css/CityList.css" rel="stylesheet">
+<c:import url="${pageContext.request.contextPath}/layout/bootstrap"/>
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,23 +17,18 @@
 			<div class="nav-content">
 				<div class="nav-logo-container">
 					<div class="nav-logo">
-						<a href="../"><img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png"></a>
+						<a href="${pageContext.request.contextPath}"><img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png"></a>
 					</div>
 					
 					<div id="myBtn" class="nav-more-city nav-sub-menu-item" style="cursor: pointer;">다른 도시 보기
 						<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15687993569312.svg" class="more-icon">
-					</div>		
-					<c:import url="../layout/CityList.jsp"/>
+					</div>
+							
 					<div class="popup-city">
 						<div class="popup-background">
 							<div class="continent-tap">
-								
-							
-							
 							</div>
 						</div>
-					
-					
 					</div>	
 				</div>
 		
@@ -42,10 +37,10 @@
 					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon">
 					</div>
 				
-					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="../my/mypage">내 정보</a></div>
-					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a>장바구니 (0)</a></div>
+					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
+					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/cart">장바구니 (0)</a></div>
 					<div class="nav-logout-btn nav-sub-menu-item onclick-cursor-pointer"><a>로그아웃</a></div>
-					<div class="nav-login-btn nav-sub-menu-item onclick-cursor-pointer"><a href="../member/login">로그인</a></div>
+					<div class="nav-login-btn nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/member/login">로그인</a></div>
 
 				</div>
 			</div>

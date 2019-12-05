@@ -8,12 +8,13 @@
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/mypage.css" rel="stylesheet"> 
 <link href="../resources/css/area.css" rel="stylesheet"> 
-
+<link rel="stylesheet" href="../resources/css/Footer.css">
+<link rel="stylesheet" href="../resources/css/CityList.css">
 <title>Insert title here</title>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
-
+<c:import url="../layout/CityList.jsp"/>
 
 <div id="content">
 	<div class="wrapper-page">
@@ -122,6 +123,31 @@
 		</div>
 		</div>
 		</div>	
-
+	<!-- footer -->
+	<c:import url="../layout/Footer.jsp"/>
+	<script type="text/javascript">
+	/* 모달 */
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+		modal.style.display = "block";
+	}
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+	
+	$(".con").click(function() {
+		$(".continent-item").removeClass("active-continent");
+		$(".continent-text").removeClass("active");
+		$(this).parent().parent().addClass("active-continent");
+		$(this).parent().addClass("active");
+	});
+	</script>
 </body>
 </html>
