@@ -28,7 +28,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">1겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -244,14 +244,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="true"></div>
+					<div class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false"></div>
 					<div class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false"></div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
 			<div class="flex">
 				<div class="main-itemsubbtn subbtn1">
-					<div class="text" id="myBtn">더 많은 여행지 (+148 Cities)</div>
+					<div class="text" id="myBtn" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
 				</div>
 			</div>
 		</div>
@@ -741,12 +741,12 @@
 		/* 파트너 */
 		$(".waugpartner-image").mouseenter(function() {
 			var url = $(this).attr("src");
-			var urlco = url.replace('gray', 'color');
-			$(this).attr("src", urlco);
+			url = url.replace('gray', 'color');
+			$(this).attr("src", url);
 		});
 		$(".waugpartner-image").mouseleave(function() {
-			var urlco = $(this).attr("src");
-			var url = urlco.replace('color', 'gray');
+			var url = $(this).attr("src");
+			url = url.replace('color', 'gray');
 			$(this).attr("src", url);
 		});
 	</script>
