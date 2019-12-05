@@ -25,6 +25,7 @@
 </head>
 
 <body>
+	<c:import url="./layout/nav.jsp"></c:import>
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
@@ -244,10 +245,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false"></div>
-					
-					<div class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false"></div>
-					
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
@@ -514,9 +519,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
+					<div class="prev-btn" style="top:20%;">
+					<div style="opacity: 0;" class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
 					</div>
-					<div class="swiper-button-next popularGood-next main-swiper-next-btn main-goods-btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+					</div>
+					<div class="next-btn" style="top:20%;">
+					<div style="opacity: 0;" class="swiper-button-next popularGood-next main-swiper-next-btn main-goods-btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+					</div>
 					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
@@ -625,9 +634,7 @@
 		</div>
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
-	<div class="filebox">
-		<label for="ex_file">업로드</label> <input type="file" id="ex_file">
-	</div>
+
 	<script type="text/javascript">
 		
 		$(document).scroll(function() {

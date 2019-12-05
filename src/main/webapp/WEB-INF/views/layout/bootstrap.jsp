@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,4 +13,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<meta charset="UTF-8">
+
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link href="../../resources/css/all.css" rel="stylesheet"> 
