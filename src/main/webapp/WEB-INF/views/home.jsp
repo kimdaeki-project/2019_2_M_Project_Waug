@@ -127,7 +127,7 @@
 	<div id="main-container">
 		<div class="main-item-container">
 			<div class="main-itemtitle">
-				<div class="main-itemtitle-title">인기 여행지</div>
+				<div class="main-itemtitle-title">인기 여행지${pageContext.request.contextPath}</div>
 				<div class="main-itemtitle-sub">2019년 가장 핫한 여행지를 추천해요</div>
 			</div>
 
