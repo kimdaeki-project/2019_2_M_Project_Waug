@@ -28,7 +28,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">1겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -245,7 +245,9 @@
 						</div>
 					</div>
 					<div class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false"></div>
+					
 					<div class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false"></div>
+					
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
@@ -749,6 +751,11 @@
 			url = url.replace('color', 'gray');
 			$(this).attr("src", url);
 		});
+		
+		/* test */
+		$(".btn-test").click(function() {
+			$(".swiper-button-prev").click();
+		})
 	</script>
 </body>
 </html>

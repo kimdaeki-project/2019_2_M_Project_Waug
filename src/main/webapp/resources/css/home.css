@@ -230,6 +230,10 @@
 	right : -2px;
 	box-shadow: rgba(0,0,0,0.14) 0px 1px 1px 1px;
 	top: 55%;
+	
+}
+.swiper-button-prev-btn{
+	display: inline-flex;
 }
 .main-swiper-next-btn {
   display: inline-flex; }
