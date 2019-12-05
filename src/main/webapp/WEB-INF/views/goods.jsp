@@ -25,7 +25,8 @@
 </div>   
    <div class="good_img_wrapper">
       <div class="good_img_titleBox">
-         <div class="good_btn_wishlist"><img class="good_like" src="like.svg"/></div>
+         <div class="good_btn_wishlist good_like"></div>
+         
          <div class="good_img_title"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" onclick="openModal();currentSlide(1)"></div>
         
       </div>
@@ -45,7 +46,7 @@
          <div class="good_info_wrapper">
          	<div class="good_info_padding">
          		<div class="good_info_area"><img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674923909136.svg"/></img>다낭</div>
-         		<div class="good_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
+         		<div class="good_title">12와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
          		<div class="good_category_wrapper">
          			<div class="good_category"><a href="#">조인 투어</a></div>
          			<div class="good_category"><a href="#">역사 & 문화 투어</a></div>
@@ -315,7 +316,9 @@ function openModal() {
 	  dots[slideIndex-1].className += " active";
 	}
   /* ddddddddddddddddddddddddddddd */
+  
    $(document).scroll(function(){
+	  
       if($(document).scrollTop()>1050){
          $('.good_bookBox').addClass('good_bookBox_toggle');
          $('.good_reservation_btn').addClass('good_reservation_btn_fixed');
@@ -341,26 +344,15 @@ function openModal() {
       alert('book clicked!!');
    });
 
-   $('.good_like').click(function(){
-      $(this).toggle(function(){
-         $(this).attr("src","liked.svg");
-         $(this).attr("src","like.svg");
-      });
-      //$(this).attr("src","liked.svg");
-   });
+   
 
    //스크롤 내리면 tabs보이기
    $(document).scroll(function(){
-      if($(this).scrollTop()>1200){
-         $('.good_contents_titles').show();
-
-        // $('.good_contents_titles').addClass('good_contents_titles_fixed');
-        // $('nav').addClass('nav_fixed');   
-        //alert('nav show ');   ok
+      if($(this).scrollTop()<1200){
+    	$('.good_contents_titles').hide();
       }
       else{
-         //$('nav').removeClass('nav_fixed');
-         $('.good_contents_titles').hide();
+    	  $('.good_contents_titles').show();
       }
    })
 
@@ -368,6 +360,20 @@ function openModal() {
    $(window).ready(function(){
      $('.good_contents_titles').hide();
    })
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   		/* 위시리스트 jquery */
+		$(".good_like").click(function() {
+			$(this).toggleClass("good_liked");
+		});
 </script>
 </body>
 </html>

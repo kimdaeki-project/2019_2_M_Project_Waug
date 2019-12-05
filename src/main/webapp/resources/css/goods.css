@@ -152,17 +152,37 @@ img.good_icon{
    height: 20px;
    padding-right: 10px;
 }
-img.good_like{
+.good_like{
    width: 30px;
    height: 30px;
    cursor: pointer;
+   background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653295914590.svg");
+   background-size: cover;
 }
-img.good_liked{
+.good_liked{
    width: 30px;
    height: 30px;
    cursor: pointer;
+   background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
 }
-
+/* .good-card-wish-btn{
+	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653295914590.svg");
+	width: 24px;
+	height: 24px;
+	background-size: cover;
+	left: 50%;
+	top: 50%;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	left: 217px;
+	top : 0px;
+}
+.good-card-wish-btn-whis{
+	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
+} */
 .good_title{
    width: 100%;
    font-size: 2em;

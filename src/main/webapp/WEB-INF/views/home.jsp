@@ -258,7 +258,7 @@
 			</div>
 			<div class="flex">
 				<div class="main-itemsubbtn subbtn1">
-					<div class="text" id="myBtn" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
+					<div class="text" id="myBtn2" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
 				</div>
 			</div>
 		</div>
@@ -355,7 +355,7 @@
 							</div>
 						</div>
 						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='goods';">
 								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582409642.png?s=261x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
@@ -688,15 +688,16 @@
 		});
 		/* 위시리스트 jquery */
 		$(".good-card-wish-btn").click(function() {
+			event.stopPropagation();
 			$(this).toggleClass("good-card-wish-btn-whis");
 		});
 		/* 모달 */
 		// Get the modal
 		var modal = document.getElementById("myModal");
 		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
+		var btn2 = document.getElementById("myBtn2");
 		// When the user clicks the button, open the modal 
-		btn.onclick = function() {
+		btn2.onclick = function() {
 			modal.style.display = "block";
 		}
 		// When the user clicks anywhere outside of the modal, close it

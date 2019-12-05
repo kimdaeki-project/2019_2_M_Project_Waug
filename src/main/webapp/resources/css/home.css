@@ -72,6 +72,7 @@
 	margin-left: 14%;
 	float: left;
 	z-index: 7;
+	color: white;
 }
 
 #main-header-items {
@@ -124,6 +125,7 @@
 	margin-top: 35px;
 }
 .text2{
+	color:white;
 	font-size: 32px;
 	font-weight: 500;
 }
