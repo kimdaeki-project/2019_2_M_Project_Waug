@@ -302,10 +302,14 @@ img .lazy{
 .category-list li{
 
 	padding: 10px;
-	font-size: 13px;
+	font-size: 12px;
+	background-color: white;
+
 }
 
-
+.category-list >li>div{
+	
+}
 .category-list > li{
 	border-bottom: 1px solid #ddd;
 }
@@ -345,4 +349,10 @@ img .lazy{
 .category-children-box a{
 	
 	display: block;
+}
+
+
+.good_bookBox_fixed{
+   position: fixed;
+   top: 50px;
 }

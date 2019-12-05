@@ -22,10 +22,11 @@
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/Footer.css">
 <link rel="stylesheet" href="resources/css/CityList.css">
+<link rel="stylesheet" href="resources/css/homenav.css">
 </head>
 
 <body>
-	<c:import url="./layout/nav.jsp"></c:import>
+	<c:import url="./layout/home_nav.jsp"/>
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
@@ -160,8 +161,10 @@
 						</div>
 						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
 							<div class="area-card-container">
+								<a href="./goods/goods_area">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768018488168.png?s=157.5x244');">
 								</div>
+								</a>
 								<div class="area-card-text">서울</div>
 							</div>
 						</div>
@@ -764,12 +767,23 @@
 			$(this).attr("src", url);
 		});
 		
+
 		/* test */
 		$(".btn-test").click(function() {
 			$(".swiper-button-prev").click();
 		});
 		
 	
+
+	 	$(document).scroll(function(){
+		     if($(document).scrollTop()>650){
+		        $('.nav-wrapper').addClass('nav_toggle');
+		     }
+		     else{
+		        $('.nav-wrapper').removeClass('nav_toggle');
+		     }
+		  });
+
 	</script>
 </body>
 </html>
