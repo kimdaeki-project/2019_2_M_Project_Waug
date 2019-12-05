@@ -20,7 +20,9 @@
 						<a href="../"><img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png"></a>
 					</div>
 					
-					<div id="myBtn" class="nav-more-city nav-sub-menu-item" style="cursor: pointer;">다른 도시 보기</div>		
+					<div id="myBtn" class="nav-more-city nav-sub-menu-item" style="cursor: pointer;">다른 도시 보기
+						<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15687993569312.svg" class="more-icon">
+					</div>		
 					<c:import url="../layout/CityList.jsp"/>
 					<div class="popup-city">
 						<div class="popup-background">
@@ -36,7 +38,9 @@
 				</div>
 		
 				<div class="nav-sub-menu-wrapper">
-					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)</div>
+					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)
+					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon">
+					</div>
 				
 					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="../my/mypage">내 정보</a></div>
 					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a>장바구니 (0)</a></div>

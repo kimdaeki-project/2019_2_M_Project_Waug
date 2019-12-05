@@ -362,27 +362,19 @@ img{
 	vertical-align: middle;
 	width: 20px;
 	height: 20px;
-	background: url(pink_flat@2x.png) no-repeat;
+	background-image: url("../images/check_before.png");
+	background-size:100%;
 	cursor: pointer;
 	margin-right: 8px;
+	margin-left:4px;
+	float: left;
 }
-
-.icheck-helper{
-	position: absolute; 
-	top: 0%; 
-	left: 0%; 
-	display: block;
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
-	background: rgb(255, 255, 255);
-	border: 0px; 
-	opacity: 0;
+.check-img{
+	background-image: url("../images/check.png");
 }
 
 .form-button-wrapper{
-	text-align: right;
+	text-align: right;"src/main/webapp/WEB-INF/views/mypage.css"
 	margin: 20px 0;
 }
 .form-button-wrapper button{
@@ -405,7 +397,6 @@ img{
 	color: white;
 }
 
-
 /**************** 내쿠폰 ***************/
 .tab {
 	font-weight: 600;
@@ -415,6 +406,23 @@ img{
 	border-radius: 0;
 	border-bottom: 2px solid #eeeeee;
 	text-align: center;
+}
+.btn-my-coupon-list{
+	width: 428px;
+	float: left;
+	padding-bottom: 10px;
+}
+.btn-my-coupon-list a:hover{
+	text-decoration: none;
+	color: #Eb2d68;
+}
+.btn-my-coupon-list a:focus{
+	text-decoration: none; !important;
+	color: #Eb2d68; !important;
+}
+..btn-my-coupon-list a{
+	text-decoration: none;
+	color: #333333;
 }
 
 .tab:hover{
@@ -482,6 +490,9 @@ img{
 	padding: 12px 15px;
 	background-color: #f7f7f7;
 }
+
+
+
 
 /* 포인트 */
 

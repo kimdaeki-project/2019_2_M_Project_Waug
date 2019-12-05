@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="../resources/css/mypage.css" rel="stylesheet"> 
 <c:import url="../layout/bootstrap.jsp"/>
-<link href="../resources/css/mypage.css" rel="stylesheet">
-<link href="../resources/css/all.css" rel="stylesheet"> 
 <title>Insert title here</title>
+
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
@@ -27,10 +27,18 @@
 						
 						<div class="row">
 							<div class="row">
-							<ul class="nav nav-tabs col-md-12" style="padding-right:0;">
-							   <li class="a col-md-6 tab active-continent" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu1" class="btn-my-coupon-list">사용 가능 쿠폰(3)</a></li>
-							   <li class="b col-md-6 tab" id="cpt"><a data-toggle="tab" id="ctp-a" href="#menu2" class="btn-my-coupon-list">사용/만료 쿠폰(1)</a></li>
-							</ul>
+							<div class="nav nav-tabs" style="padding-right:0;">
+							   <a data-toggle="tab" href="#menu1"">
+							   <div id="coupon1" class="btn-my-coupon-list tab active-continent">
+							   사용 가능 쿠폰(3)
+							   </div>
+							   </a>
+							   <a data-toggle="tab" href="#menu2"">
+							   <div id="coupon2" class="btn-my-coupon-list tab">
+							   사용/만료 쿠폰(1)
+							   </div>
+							   </a>
+							</div>
 							</div>
 							<div class="tab-content">
 							    <div id="menu1" class="tab-pane fade in active">
@@ -90,23 +98,22 @@
 							   					</tr>
 							   				</tbody>
 							   			</table>
-							   		</div>
-							   					
+							   		</div>			
 							    </div>
 								<!-- menu2끝 -->
-								<!-- paging 시작 -->
-								<div class="row">
-									<div class="page-navigation">
-										<div class="btn-group">
-											<a class="btn">≪</a>
-											<a class="btn">＜</a>
-											<a class="btn active" id="pagenum">1</a>
-											<a class="btn">＞</a>					
-											<a class="btn">≫</a>
-										</div>
-									</div>
-								</div>
-								<!-- paging 끝 -->
+											<!-- paging 시작 -->
+											<div class="row">
+												<div class="page-navigation">
+													<div class="btn-group">
+														<a class="btn">≪</a>
+														<a class="btn">＜</a>
+														<a class="btn active" id="pagenum">1</a>
+														<a class="btn">＞</a>
+														<a class="btn">≫</a>
+													</div>
+												</div>
+											</div>
+											<!-- paging 끝 -->
 							</div>
 					
 					
@@ -125,15 +132,11 @@
 	</div>		
 <script type="text/javascript">
 
-	$(".a").click(function() {
-		$(".b").removeClass("active-continent");
+	$(".btn-my-coupon-list").click(function() {
+		$(".btn-my-coupon-list").removeClass("active-continent");
 	 	$(this).addClass("active-continent");
 	});
-	
-	$(".b").click(function() {
-		$(".a").removeClass("active-continent");
-	 	$(this).addClass("active-continent");
-	});
+
 	
 	
 </script>

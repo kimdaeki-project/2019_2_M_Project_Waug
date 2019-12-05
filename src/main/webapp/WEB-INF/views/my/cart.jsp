@@ -50,10 +50,10 @@
 									<span>￦ 0</span>
 								</div>
 								<div class="i-checks select-all">
-									<label>전체 선택 / 해제
-									<div class="icheckbox_flat-pink">
-										<input type="checkbox" >
-										<div class="icheck-helper"></div>
+									<label>
+									<div style="padding-top: 1px; float: left;">전체 선택 / 해제</div>
+									<div id="check_box" class="icheckbox_flat-pink">
+										<input type="checkbox" style="opacity: 0; width: 100%; height: 100%;">
 									</div>
 									</label>
 								
@@ -63,7 +63,6 @@
 							<div class="form-button-wrapper">
 								<button type="button" class="btn-form-cancel">선택 삭제</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
-							
 							</div>
 							
 							
@@ -74,5 +73,11 @@
 		</div>
 		</div>	
 
+	<script type="text/javascript">
+		$("#check_box").click(function() {
+			
+			$(".icheckbox_flat-pink").toggleClass("check-img");
+		});
+	</script>
 </body>
 </html>
