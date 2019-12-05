@@ -12,28 +12,20 @@
 </head>
 <body>
 	<div class="nav-container">
-		<div class="nav-wrapper nav-transparent-wrapper">
+		<div class="nav-wrapper">
 			<div class="nav-content">
 				<div class="nav-logo-container">
 					<div class="nav-logo">
-						<a href="${pageContext.request.contextPath}"><img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png"></a>
+						<a href="${pageContext.request.contextPath}">
+						<img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png">
+						</a>
 					</div>
 					
-					<div id="myBtn" class="nav-more-city nav-sub-menu-item" style="cursor: pointer;">다른 도시 보기
-						<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15687993569312.svg" class="more-icon">
-					</div>
-							
-					<div class="popup-city">
-						<div class="popup-background">
-							<div class="continent-tap">
-							</div>
-						</div>
-					</div>	
 				</div>
 		
 				<div class="nav-sub-menu-wrapper">
 					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)
-					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon">
+					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon more-icon-toggle">
 					</div>
 				
 					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
@@ -70,7 +62,17 @@
        $(this).parent().parent().addClass("active-continent");
        $(this).parent().addClass("active");
     });
-	
+    
+    $(document).scroll(function(){
+        if($(document).scrollTop()<650){
+           $('.nav-wrapper').removeClass('nav_toggle');
+           $('.logo').addClass('logo-toggle');
+        }
+        else{
+           $('.nav-wrapper').addClass('nav_toggle');
+
+        }
+     });
 	
 	</script>
 </body>

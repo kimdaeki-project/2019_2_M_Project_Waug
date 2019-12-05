@@ -25,7 +25,7 @@
 </head>
 
 <body>
-	<c:import url="./layout/nav.jsp"></c:import>
+	<c:import url="./layout/home_nav.jsp"/>
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
@@ -758,6 +758,15 @@
 			url = url.replace('color', 'gray');
 			$(this).attr("src", url);
 		});
+		
+		  $(document).scroll(function(){
+		        if($(document).scrollTop()>650){
+		           $('.nav-wrapper').addClass('nav_toggle');
+		        }
+		        else{
+		           $('.nav-wrapper').removeClass('nav_toggle');
+		        }
+		     });
 	</script>
 </body>
 </html>

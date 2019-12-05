@@ -1,6 +1,18 @@
 @charset "UTF-8";
 
 /* -------------------------------footer ----------------------*/
+.footerInfo-c-item-2 a:link{
+   text-decoration : none;
+   color: #cccccc;
+}
+.footerInfo-c-item-3 a:link{
+   text-decoration : none;
+   color: #cccccc;
+}
+.footerInfo-c-item-4 a:link{
+   text-decoration : none;
+   color: #cccccc;
+}
 .mainpage-container{
 	width: 1366px;
 	height: 481px;

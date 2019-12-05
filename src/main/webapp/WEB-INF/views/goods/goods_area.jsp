@@ -12,6 +12,7 @@
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
+<c:import url="../layout/CityList.jsp"/>
 	<div id = "wrapper">
 		<main>
 			<div id="wrapper_page">
@@ -430,6 +431,19 @@
 		
 		
 		<script type="text/javascript">
+		
+	
+
+		   $(document).scroll(function(){
+			 
+		      if($(document).scrollTop()>1500){
+		         $('.category-nav').addClass('good_bookBox_fixed');
+		      }
+		      else{
+		         $('.category-nav').removeClass('good_bookBox_fixed');
+		      }
+		    });  
+
 		
 		
 			$(document).ready(function() {
