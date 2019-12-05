@@ -5,10 +5,10 @@
 	text-decoration: none;
 	color: #d91c84;
 }
-/*  #myModal a:active{
+#myModal a:active{
 	text-decoration: none; !important;
 	color: #d91c84; !important;
-}  */
+}
 #myModal a{
 	color: #cccccc;
 }

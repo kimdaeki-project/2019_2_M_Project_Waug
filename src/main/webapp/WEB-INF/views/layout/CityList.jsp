@@ -12,7 +12,7 @@
 						<div class="continent-tap2 nav nav-tabs">
 							<div
 								class="continent-item onclick-cursor-pointer active-continent">
-								<div class="active continent-text">
+								<div class="active2 continent-text">
 									<a data-toggle="tab" href="#east-asia" class="con">동아시아</a>
 								</div>
 							</div>
