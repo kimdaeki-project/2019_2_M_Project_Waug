@@ -1,0 +1,498 @@
+@charset "UTF-8";
+body{
+	font-size: 13px;
+	font-weight: 400;
+	box-sizing: border-box;
+
+}
+li a{
+	color: #333;
+	
+}
+
+li a:hover{
+	text-decoration: none;
+	color: #d91c84;
+}
+
+h3{
+	font-size:24px;
+	font-weight: bold;
+	line-height: 1.1;
+}
+
+.wrapper-subheader{
+	height: 400px;
+	background-color: #fafafa;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	/* position: relative; */
+	margin-top: 69px;
+}
+.headimage{
+	background-image:url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15501919173889.jpg?s=1400x467);
+}
+
+.submenu{
+	
+	margin: 20px 20px 20px 0px;
+}
+.row{
+	
+	margin-right: 15px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+ul{
+	margin-left:-15px;
+	display: block;
+	list-style-type: disc;
+	margin-block-start:1em;
+	margin-block-end:1em;
+	margin-inline-start:0px;
+	margin-inline-end:0px;
+	padding-inline-start:40px;
+	
+}
+
+.submenu li{
+	line-height:40px;
+	height: 40px;
+	vertical-align:middle;
+	list-style:none; 
+ 	font-size: 12px;
+ 	font-weight: bold;
+ }
+
+/* 마이페이지 */
+
+img{
+	margin-left:12px;
+	height:25px; 
+	weight:25px;
+}
+.space-5{
+	margin-bottom: 31.25px;
+}
+.mypage-picture button{
+	vertical-align: bottom;
+	margin-left: 15px;
+}
+
+#sub-container{
+	padding: 50px 40px 0 40px;
+	min-height: 500px;
+	border-left: 1px solid rgba(0, 0, 0, 0.03);
+
+}
+
+#btn{
+	color: white;
+	padding: 8px 22px;
+	height:40px;
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg,rgb(245,3,100) 1%, rgb(172,66,169) 100%);
+		
+}
+.user-picture{
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	background-color: #ddd;
+}
+
+
+#name, #e_last_name,#e_first_name, #email, #tel{
+	
+	height: 40px;
+ 	line-height: 1.42857143;
+}
+
+.row .title{
+	color: #666;
+	display: inline-block;
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.modal-header{
+	border-bottom: 1px solid #e5e5e5;
+	padding: 22px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.modal-body{
+	padding: 15px 15px 0 15px;
+}
+
+.close{
+	
+	
+	margin-top: -2px;
+	cursor: pointer;
+	top:10px;
+	right: 10px;
+	float: right;
+	font-size: 30px;
+	line-height: 1;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .2;
+}
+
+.outline{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg,rgb(245,3,100) 1%, rgb(172,66,169) 100%);
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #fff; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	width:100%;
+	text-align: center;
+	font-weight:bold;
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+	
+}
+
+
+.outline2{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg,rgb(245,3,100) 1%, rgb(172,66,169) 100%);
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #fff; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	text-align: center;
+	font-weight:bold;
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+}
+
+
+.file-wrapper label { 
+	display: inline-block; 
+	padding: .5em .75em; 
+	color: #fff; 
+	font-size: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	width:100%;
+	text-align: center;
+	background-color: #fdfdfd; 
+	cursor: pointer; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+}
+
+
+
+ .file-wrapper input[type="file"] { 
+	 /* 파일 필드 숨기기 */ 
+	 position: absolute; 
+	 width: 1px; 
+	 height: 1px; 
+	 padding: 0; 
+	 margin: -1px; 
+	 overflow: hidden; 
+	 clip:rect(0,0,0,0); 
+	 border: 0; 
+ }
+ 
+ /***********order**********/
+ .item-booking{
+ 	overflow: hidden;
+ 	padding: 16px;
+ 	border-bottom: 1px dotted rgba(0,0,0,0.07);
+	background-color: #fff;
+ }
+ 
+.booking-img{
+	display: table-cell;
+	vertical-align: top;
+	padding-right: 15px;
+}
+.booking-img img{
+	width: 280px;
+	height: 184px;
+	border-radius: 4px;
+}
+
+.booking-sum{
+	width: 1170px;
+	overflow: hidden;
+	display: table-cell;
+	vertical-align: top;
+
+}
+.booking-status{
+	padding: 4px 12px;
+	border-radius: 2px;
+	margin-bottom: 8px;
+	display: inline-block;
+	font-size: 11px;
+	background-color: #d91c84;
+	color: #fff;
+	font-weight: bold;
+}
+
+.booking-header{
+	
+	margin: 4px 0 10px 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #111;
+	
+}
+
+.booking-sum ul{
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+
+.booking-sum li{
+	font-size: 13px;
+	color: #888;
+	font-weight: bold;
+	
+}
+
+.page-navigation{
+	text-align: center;
+	margin: 45px auto 20px auto;
+	color: #888;
+	background-image: none;
+}
+
+.page-navigation> .btn-group{
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+}
+#pagenum{
+	color: #d91c84;
+}
+
+.btn{
+	color: lightgray;
+	font-weight: bold;
+}
+.page-navigation > .btn-group > .btn{
+	border: 1px solid #e7eaec;
+	border-radius: 3px;
+	background: white;
+	
+}
+.wish-good img{
+	width: 336px;
+	height: 220px;
+	margin-left: 0;
+}
+.good-wish img{
+	margin-left: 0;
+}
+
+
+/******** 장바구니 *********/
+
+.mypage-list {
+	width: 100%;
+	margin: 16px 0;
+	background-color: white;
+}
+.mypage-list th{
+	padding: 10px 4px;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.mypage-list td{
+	
+	border-bottom: 1px dotted rgba(0,0,0,0.07);
+	font-size: 13px;
+	padding: 16px 10px;
+	color: #666666;
+	
+}
+.select-all label{
+	color: #333;
+	font-size: 13px;
+	font-weight: 300;
+	
+}
+.order-total-price{
+	font-weight: bold;
+	padding: 15px 10px;
+	text-align: right;
+}
+.cart-check {
+	border: 1px solid rgba(0,0,0,0.13);
+	border-radius: 2px;
+	background-image: none;
+	padding: 6px 10px;
+	display: block; 
+	float:right;
+	margin-left: 5px; 
+	padding: 0px; 
+	background: rgb(255, 255, 255); 
+	border: 0px; 
+} 
+.icheckbox_flat-pink{
+	
+	display: inline-block;
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+	background-image: url("../images/check_before.png");
+	background-size:100%;
+	cursor: pointer;
+	margin-right: 8px;
+	margin-left:4px;
+	float: left;
+}
+.check-img{
+	background-image: url("../images/check.png");
+}
+
+.form-button-wrapper{
+	text-align: right;"src/main/webapp/WEB-INF/views/mypage.css"
+	margin: 20px 0;
+}
+.form-button-wrapper button{
+	margin-left: 15px;
+}
+.btn-form-cancel, .btn-form-submit{
+	display: inline-block;
+	padding: 8px 22px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #f5f5f5;
+	border-radius: 2px;
+	cursor: pointer;
+	border: none;
+}
+
+.btn-form-submit{
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	color: white;
+}
+
+/**************** 내쿠폰 ***************/
+.tab {
+	font-weight: 600;
+	font-size: 16px;
+	background-color: white;
+	line-height: 32px;
+	border-radius: 0;
+	border-bottom: 2px solid #eeeeee;
+	text-align: center;
+}
+.btn-my-coupon-list{
+	width: 428px;
+	float: left;
+	padding-bottom: 10px;
+}
+.btn-my-coupon-list a:hover{
+	text-decoration: none;
+	color: #Eb2d68;
+}
+.btn-my-coupon-list a:focus{
+	text-decoration: none; !important;
+	color: #Eb2d68; !important;
+}
+..btn-my-coupon-list a{
+	text-decoration: none;
+	color: #333333;
+}
+
+.tab:hover{
+		background:none;
+	
+}
+
+.cmenu{
+	background-color: white;
+}
+.active-continent{
+
+	color: #Eb2d68;
+	border-bottom: 2px solid #Eb2d68;
+}
+
+
+.active-continent >a{
+	color: #Eb2d68;
+}
+
+.tab a:hover{
+	background:none;
+	color: #333;
+}
+
+#ctp-a{
+	height: 100%;
+	padding-left:0px;
+	padding-right:0px;
+	margin-right: 0;
+	padding-bottom:15px;
+}
+#cpt{
+	padding-left:0px;
+	padding-right:0px;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+}
+
+
+.nav-tabs>li>a{
+	border: 0px;
+}
+
+.mypage-list{
+	text-align: center;
+}
+
+#btn-form-submit{
+	
+	background-color: rgb(245,3,100);
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	color: white;
+	font-weight: 400;
+	text-align: center;
+	border-radius: 2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.box-gray{
+	
+	padding: 12px 15px;
+	background-color: #f7f7f7;
+}
+
+
+
+
+/* 포인트 */
+
