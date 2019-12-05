@@ -26,17 +26,17 @@
    <div class="good_img_wrapper">
       <div class="good_img_titleBox">
          <div class="good_btn_wishlist"><img class="good_like" src="like.svg"/></div>
-         <div class="good_img_title"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" data-toggle="modal" data-target="#myModal"></div>
-         <div class="modal fade modalforimg" id="myModal"><img src="titleimg.jpg"></div>
+         <div class="good_img_title"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" onclick="openModal();currentSlide(1)"></div>
+        
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" data-toggle="modal" data-target="#myModal"></div>
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" data-toggle="modal" data-target="#myModal"></div>      
+         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" onclick="openModal();currentSlide(2)"></div>
+         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" onclick="openModal();currentSlide(3)"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" data-toggle="modal" data-target="#myModal"></div>
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" data-toggle="modal" data-target="#myModal"></div> 
+        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" onclick="openModal();currentSlide(4)"></div>
+        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" onclick="openModal();currentSlide(5)"></div> 
       </div>
       </div>
    </div>
@@ -135,7 +135,7 @@
                         <div class="good_option_selectBox">바나힐 핑크 패키지 투어 (다낭 시내)</div>
                         <div class="good_option_arrowBox">
                            <div class="good_option_arrowIcon">
-                              <img src="arrowDown.svg" class="good_arrowIcon"/>
+                              <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15578832012811.svg" class="good_arrowIcon"/>
                            </div>
                         </div>
                      </div>
@@ -143,7 +143,7 @@
                         <div class="good_option_selectBox">바나힐 핑크 실속 투어 (다낭 시내)</div>
                         <div class="good_option_arrowBox">
                            <div class="good_option_arrowIcon">
-                              <img src="arrowDown.svg" class="good_arrowIcon"/>
+                              <img src=https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15578832012811.svg class="good_arrowIcon"/>
                            </div>
                         </div>
                      </div>
@@ -222,12 +222,99 @@
    </div>
    <div class="mean_less_div">
       <h1>구글api,추천 액티비티</h1>
-   </div>
-   <div class="good_recomend_wrapper border-top">
       
    </div>
+   <div class="good_recomend_wrapper border-top">
+     
+      <a href="#" style="text-align: center;"><h1 style="font-size: 40px;">GO UP</h1></a>
+      
+   </div>
+   
+   <!--  -->
+   <div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()" style="color: white;">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides" style="width: 100%;">
+      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587">
+    </div>
+
+    <div class="mySlides" style="width: 100%;">
+      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295">
+    </div>
+
+    <div class="mySlides" style="width: 100%;">
+      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295">
+    </div>
+    
+    <div class="mySlides" style="width: 100%;">
+      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295">
+    </div>
+    
+    <div class="mySlides" style="width: 100%;">
+      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295">
+    </div>
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+    <div class="column" style="float: left;">
+      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" style="height: 130px;" onclick="currentSlide(1)">
+    </div>
+    <div class="column" style="float: left;">
+      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" style="height: 130px;" onclick="currentSlide(2)">
+    </div>
+    <div class="column" style="float: left;">
+      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" style="height: 130px;"  onclick="currentSlide(3)">
+    </div>
+    <div class="column" style="float: left;">
+      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" style="height: 130px;" onclick="currentSlide(4)">
+    </div>
+    <div class="column" style="float: left;">
+      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" style="height: 130px;" onclick="currentSlide(5)">
+    </div>
+  </div>
+</div>
+   <!--  -->
+   
+   
 <script type="text/javascript">
-  
+function openModal() {
+	  document.getElementById("myModal").style.display = "block";
+	}
+
+	function closeModal() {
+	  document.getElementById("myModal").style.display = "none";
+	}
+
+	var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("demo");
+	  if (n > slides.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";
+	  dots[slideIndex-1].className += " active";
+	}
+  /* ddddddddddddddddddddddddddddd */
    $(document).scroll(function(){
       if($(document).scrollTop()>1050){
          $('.good_bookBox').addClass('good_bookBox_toggle');
@@ -248,9 +335,7 @@
       }
     });  
 
-   $('.good_img_small').click(function(){
-      alert('clicked');
-   });
+  
 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
