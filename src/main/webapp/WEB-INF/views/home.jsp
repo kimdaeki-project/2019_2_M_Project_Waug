@@ -258,7 +258,7 @@
 			</div>
 			<div class="flex">
 				<div class="main-itemsubbtn subbtn1">
-					<div class="text" id="myBtn" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
+					<div class="text" id="myBtn2" style="cursor: pointer;">더 많은 여행지 (+148 Cities)</div>
 				</div>
 			</div>
 		</div>
@@ -698,9 +698,9 @@
 		// Get the modal
 		var modal = document.getElementById("myModal");
 		// Get the button that opens the modal
-		var btn = document.getElementById("myBtn");
+		var btn2 = document.getElementById("myBtn2");
 		// When the user clicks the button, open the modal 
-		btn.onclick = function() {
+		btn2.onclick = function() {
 			modal.style.display = "block";
 		}
 		// When the user clicks anywhere outside of the modal, close it
