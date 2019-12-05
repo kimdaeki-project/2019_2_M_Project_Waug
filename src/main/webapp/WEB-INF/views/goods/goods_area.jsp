@@ -527,7 +527,28 @@
 			});
 				
 				
+			/* 모달 */
+			// Get the modal
+			var modal = document.getElementById("myModal");
+			// Get the button that opens the modal
+			var btn2 = document.getElementById("myBtn2");
+			// When the user clicks the button, open the modal 
+			btn2.onclick = function() {
+				modal.style.display = "block";
+			}
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
 			
+			$(".con").click(function() {
+				$(".continent-item").removeClass("active-continent");
+				$(".continent-text").removeClass("active");
+				$(this).parent().parent().addClass("active-continent");
+				$(this).parent().addClass("active");
+			});
 		
 		</script>
 

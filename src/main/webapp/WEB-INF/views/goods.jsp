@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,18 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="resources/css/home.css"> -->
 <link rel="stylesheet" href="resources/css/goods.css">
+<link rel="stylesheet" href="resources/css/nav.css">
+<link rel="stylesheet" href="resources/css/CityList.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav>WAUG</nav>
+<c:import url="./layout/nav.jsp"/>
+<c:import url="./layout/CityList.jsp"/>
 <div class="good_contents_titles">
+
    <div class="good_container_flex">
    <div class="good_detail_info_wrapper">
       상품 옵션 / 프로그램
@@ -363,7 +368,26 @@ function openModal() {
    
    
    
-   
+   // Get the modal
+		var modal = document.getElementById("myModal");
+		// Get the button that opens the modal
+		var btn2 = document.getElementById("myBtn2");
+		// When the user clicks the button, open the modal 
+		btn2.onclick = function() {
+			modal.style.display = "block";
+		}
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+		$(".con").click(function() {
+			$(".continent-item").removeClass("active-continent");
+			$(".continent-text").removeClass("active");
+			$(this).parent().parent().addClass("active-continent");
+			$(this).parent().addClass("active");
+		});
    
    
    
