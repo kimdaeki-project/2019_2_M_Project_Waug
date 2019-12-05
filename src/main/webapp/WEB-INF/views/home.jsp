@@ -29,7 +29,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">1겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -128,7 +128,7 @@
 	<div id="main-container">
 		<div class="main-item-container">
 			<div class="main-itemtitle">
-				<div class="main-itemtitle-title">인기 여행지</div>
+				<div class="main-itemtitle-title">인기 여행지${pageContext.request.contextPath}</div>
 				<div class="main-itemtitle-sub">2019년 가장 핫한 여행지를 추천해요</div>
 			</div>
 
@@ -636,6 +636,10 @@
 	</div>
 
 	<script type="text/javascript">
+		
+		$(document).scroll(function() {
+			console.log($(this).scrollTop());
+		})
 		var images = new Array();
 
 		images[0] = "15749313071774";
@@ -759,6 +763,13 @@
 			url = url.replace('color', 'gray');
 			$(this).attr("src", url);
 		});
+		
+		/* test */
+		$(".btn-test").click(function() {
+			$(".swiper-button-prev").click();
+		});
+		
+	
 	</script>
 </body>
 </html>

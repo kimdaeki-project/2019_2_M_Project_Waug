@@ -8,7 +8,6 @@
 <link href="${pageContext.request.contextPath}/resources/css/nav.css" rel="stylesheet"> 
 <link href="${pageContext.request.contextPath}/resources/css/all.css" rel="stylesheet"> 
 <link href="${pageContext.request.contextPath}/resources/css/CityList.css" rel="stylesheet">
-<c:import url="${pageContext.request.contextPath}/layout/bootstrap"/>
 <title>Insert title here</title>
 </head>
 <body>
