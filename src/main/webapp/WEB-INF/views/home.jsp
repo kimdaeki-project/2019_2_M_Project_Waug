@@ -23,8 +23,8 @@
 <link rel="stylesheet" href="resources/css/Footer.css">
 <link rel="stylesheet" href="resources/css/CityList.css">
 </head>
-<body>
 
+<body>
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
