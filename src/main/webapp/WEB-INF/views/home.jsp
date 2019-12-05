@@ -629,6 +629,10 @@
 		<label for="ex_file">업로드</label> <input type="file" id="ex_file">
 	</div>
 	<script type="text/javascript">
+		
+		$(document).scroll(function() {
+			console.log($(this).scrollTop());
+		})
 		var images = new Array();
 
 		images[0] = "15749313071774";
@@ -755,7 +759,9 @@
 		/* test */
 		$(".btn-test").click(function() {
 			$(".swiper-button-prev").click();
-		})
+		});
+		
+	
 	</script>
 </body>
 </html>
