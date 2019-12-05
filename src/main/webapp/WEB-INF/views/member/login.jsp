@@ -22,11 +22,11 @@
 					<form action="">
 						<input type="email" class="login-form-box" placeholder="이메일 주소" required="required">
 						<input type="password" class="login-form-box" placeholder="비밀번호" required="required">
-						<button type="submit" class="btn btn-join login-form-box login-form-btn">로그인</button>
+						<button type="submit" class="btn-join login-form-box login-form-btn" >로그인</button>
 					</form>
 					<div class="form-inline login-rememberme login-sub-text">
 						<div style="width: 15px; margin-right: 2px; margin-top: 1px;">
-							<input id="autologin" type="checkbox" class="form-control check-box-align">
+							<input id="autologin" type="checkbox" class="check-box-align" style="margin-top: 3px;">
 						</div>
 						<div class="auto-login-align-box">자동로그인</div>
 						<div class="login-sub-text auto-login-align-box">
@@ -57,7 +57,7 @@
 				</div>
 				<div class="sign-up-box">
 					<span class="login-sub-text">아직 와그의 멤버가 아니세요?</span>
-					<a class="sign-up underline login-sub-text text-highlight" href="./join">회원가입</a>
+					<a class="sign-up underline login-sub-text text-highlight" href="./join" style="text-decoration: none;">회원가입</a>
 				</div>			
 			</div>
 		</div>
