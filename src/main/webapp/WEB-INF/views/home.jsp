@@ -160,8 +160,10 @@
 						</div>
 						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right: 15px;">
 							<div class="area-card-container">
+								<a href="./goods/goods_area">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768018488168.png?s=157.5x244');">
 								</div>
+								</a>
 								<div class="area-card-text">서울</div>
 							</div>
 						</div>

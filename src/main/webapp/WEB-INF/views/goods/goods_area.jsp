@@ -442,6 +442,8 @@
 		      else{
 		         $('.category-nav').removeClass('good_bookBox_fixed');
 		      }
+		      
+		      
 		    });  
 
 		

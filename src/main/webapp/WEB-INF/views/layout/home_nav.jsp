@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="${pageContext.request.contextPath}/resources/css/nav.css" rel="stylesheet"> 
+<link href="${pageContext.request.contextPath}/resources/css/homenav.css" rel="stylesheet"> 
 <link href="${pageContext.request.contextPath}/resources/css/all.css" rel="stylesheet"> 
 <link href="${pageContext.request.contextPath}/resources/css/CityList.css" rel="stylesheet">
 <title>Insert title here</title>
@@ -17,7 +17,7 @@
 				<div class="nav-logo-container">
 					<div class="nav-logo">
 						<a href="${pageContext.request.contextPath}">
-						<img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png">
+						<img class="logo" alt="logo" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680246797940.svg">
 						</a>
 					</div>
 					
@@ -25,7 +25,7 @@
 		
 				<div class="nav-sub-menu-wrapper">
 					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)
-					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon more-icon-toggle">
+					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884125981.svg" class="more-icon more-icon-toggle">
 					</div>
 				
 					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
@@ -41,15 +41,7 @@
 	
 	<script type="text/javascript">
 	
-	/* city list 모달 */
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-       modal.style.display = "block";
-    }
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
        if (event.target == modal) {
@@ -66,10 +58,14 @@
     $(document).scroll(function(){
         if($(document).scrollTop()<650){
            $('.nav-wrapper').removeClass('nav_toggle');
-           $('.logo').addClass('logo-toggle');
+           $('.logo').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680246797940.svg");
+           $('.more-icon').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884125981.svg");
         }
         else{
            $('.nav-wrapper').addClass('nav_toggle');
+           console.log("yyyyyyyyyyyyyyy");	
+           $('.logo').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png");
+           $('.more-icon').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg");
 
         }
      });
