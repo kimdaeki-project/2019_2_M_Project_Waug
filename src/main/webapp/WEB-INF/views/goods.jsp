@@ -347,6 +347,9 @@ function openModal() {
 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
+      location.href='./order/calendar';
+      // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+      // onclick="location.href='goods';"
    });
 
    

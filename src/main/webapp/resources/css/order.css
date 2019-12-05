@@ -467,3 +467,116 @@ input[type="email"].input_md{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
+/* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
+/* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
+.reser-flex-box{
+	width: 1170px;
+	height: 560px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+.reser_title_wrapper{
+	height: 56px;
+	margin: 0 10px;
+}
+.reser_title{
+	height: 36px;
+	margin: 20px 10px 0 40px;
+	font-size: 24px;
+	font-weight: 600;
+}
+.reser_cal_wrapper{
+	width: 605px;
+	height: 505px;
+	background: #f2f2f2;
+}
+.reser_calBox{
+	padding: 0 10px;
+}
+.reser_option_wrapper{
+	width: 500px;
+	height: 495px;
+	margin: 10px 0 0 35px;
+}
+.reser_division{
+	display: flex;
+	flex-direction: row;
+	color:#333333;
+}
+.reser_option_title{
+	width: 480px;
+	margin: 0 10px;
+	font-size: 20px;
+}
+.reser_option_selected_date{
+	font-size: 16px;
+	color:#d91c84;
+}
+.reser_option_item{
+	width: 480px;
+	height: 44px;
+	margin: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid  #e5e5e5;
+}
+.reser_option_item_title{
+	height: 23px;
+	font-size: 16px;
+}
+.reser_option_item_price{
+	height: 20px;
+	font-size: 14px;
+}
+/******************reser_modal*/
+#reser_modal{
+	display: none;
+	position: fixed;
+	top: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+.reser_modal_wrapper{
+	padding: 30px;
+	position: absolute;
+	right: 0px;
+	background: gold;
+	width: 30%;
+	height: 100%;
+}
+#reser_modal_close{
+	display: block;
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	font-weight: 500;
+	margin-bottom: 30px;
+}
+#reser_modal_close:hover{
+	cursor: pointer;
+}
+.reser_modal_info{
+	color: #2f3241;
+	padding-bottom: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.reser_modal_title{
+	font-size:24px;
+	font-weight:700;
+}
+.reser_modal_option_selected{
+	height: 24px;
+	font-size:16px;
+	font-weight:500;
+}
+.reser_modal_option_date{
+	color: #d91c83;
+	height: 24px;
+	font-size:16px;
+	font-weight:500;
+}
+
+

@@ -6,6 +6,9 @@
 	<meta charset="utf-8">
 	<title>order/info</title>
 	<link rel="stylesheet" type="text/css" href="../resources/css/order.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <nav>nav</nav>
@@ -62,12 +65,16 @@
 			</div>
 		</div>
 		<div class="order_footer_wrapper">
-			<button class="order_submit">예약하기</button>
+			<button class="order_submit" id="info_reservation_btn">예약하기</button>
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript">
+	$('#info_reservation_btn').click(function(){
+		location.href="./order";
+		//alert('click!');
+	});
 	
 </script>	
 </body>
