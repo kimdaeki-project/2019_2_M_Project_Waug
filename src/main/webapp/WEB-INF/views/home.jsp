@@ -23,7 +23,18 @@
 <link rel="stylesheet" href="resources/css/Footer.css">
 <link rel="stylesheet" href="resources/css/CityList.css">
 <link rel="stylesheet" href="resources/css/homenav.css">
+<style type="text/css">
+
+.active-continent{
+	color: #d91c84;
+}
+
+.active2 a{
+	color: #d91c84 !important;
+}
+</style>
 </head>
+
 
 <body>
 	<c:import url="./layout/home_nav.jsp"/>
@@ -715,9 +726,9 @@
 		}
 		$(".con").click(function() {
 			$(".continent-item").removeClass("active-continent");
-			$(".continent-text").removeClass("active");
+			$(".continent-text").removeClass("active2");
 			$(this).parent().parent().addClass("active-continent");
-			$(this).parent().addClass("active");
+			$(this).parent().addClass("active2");
 		});
 
 		/* $(".continent-item").click(function() {
