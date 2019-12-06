@@ -25,8 +25,8 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public int memberUpdate() throws Exception {
-		return 0;
+	public int memberUpdate(MemberVO memberVO) throws Exception {
+		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
 	}
 
 	@Override

@@ -28,37 +28,37 @@
 				<!-- 메인컨텐츠 시작 -->
 				<div id="sub-container" class="col-md-9">
 					<h3 class="space-5" style="font-weight: bold;">여행자 정보 등록</h3>
-					<form id="frm-profile">
+					<form id="frm-profile" action="../member/memberUpdate" method="post">
 						<div class="mypage-picture row">
-							<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/member/profile.png" class="user-picture">
+							<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/member/profile.png" class="user-picture" name="img">
 							<button type="button" data-toggle="modal" data-target="#modal-set-profile-img" class="btn btn-sm btn-default title">사진 변경</button>
 						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<label class="title">이름</label>
-								<input type="text" id="name" class="form-control" required="required" value="${memberVO.name}">
+								<input type="text" id="name" class="form-control" value="${memberVO.name}" name="name">
 							</div>			
 						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<label class="title">영문 성</label>
-								<input type="text" id="e_last_name" name="e_last_name" class="form-control" required="required" value="${memberVO.ename}">
+								<input type="text"  class="form-control" value="${memberVO.ename_last}" name="ename_last">
 							</div>
 							<div class="col-md-3">
 								<label class="title">영문 이름</label>
-								<input type="text" id="e_first_name" name="e_first_name" class="form-control" required="required" value="${memberVO.ename}">
+								<input type="text"  class="form-control" value="${memberVO.ename_first}" name="ename_first">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<label class="title">이메일</label>
-								<input type="email" id="email" name="email" class="form-control" required="required" value="${memberVO.email}">
+								<input type="email" id="email" class="form-control"  value="${memberVO.email}" name="email">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<label class="title">휴대전화번호</label>
-								<input type="tel" id="tel" name="tel" class="form-control" required="required" value="${memberVO.phone}">
+								<input type="tel" id="tel"" class="form-control"  value="${memberVO.phone}" name="phone">
 							</div>
 						</div>
 						<div class="row">
@@ -170,6 +170,9 @@
 		$(this).parent().parent().addClass("active-continent");
 		$(this).parent().addClass("active");
 	});
+	
+	console.log("gg");
+	
 	</script>
 
 </div>

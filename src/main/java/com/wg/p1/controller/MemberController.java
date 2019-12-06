@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.MemberServiceImpl;
 
+import oracle.net.aso.s;
+
 @Controller
 @RequestMapping(value = "member/**")
 public class MemberController {
@@ -65,6 +67,34 @@ public class MemberController {
 		mv.setViewName("common/common_result");
 				
 		return mv;
+	}
+	
+	@RequestMapping(value = "logout")
+	public String memberLogout(HttpSession session) throws Exception{
+		
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	@PostMapping("memberUpdate")
+	public ModelAndView memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
+		
+		int result = memberService.memberUpdate(memberVO);
+		
+		ModelAndView mv = new ModelAndView();
+		
+		String msg="수정실패";
+		if(result>0) {
+			msg="수정성공";
+			session.setAttribute("memberVO", memberVO);
+		}
+		mv.addObject("msg", msg);		
+		mv.addObject("path", "../my/mypage");
+		mv.setViewName("common/common_result");
+		
+		return mv;
+		
 	}
 	
 }

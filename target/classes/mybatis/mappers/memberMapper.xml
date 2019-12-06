@@ -13,4 +13,13 @@
   		select * from member where email=#{email}
   	</select>
   	
+  	<update id="memberUpdate" parameterType="MemberVO">
+  		update member set 
+  			name = #{name},
+  			ename_first = #{ename_first},
+  			ename_last = #{ename_last},
+  			email = #{email},
+  			phone = #{phone}
+  		where email=#{email}
+  	</update>
 </mapper>

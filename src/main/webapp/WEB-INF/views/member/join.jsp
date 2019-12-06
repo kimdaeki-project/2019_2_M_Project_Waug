@@ -5,12 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
+
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
+
+
+
+
 <c:import url="../layout/nav.jsp"/>
 	<div id="wrapper">
 		<div class="login-content-box">
@@ -39,13 +50,38 @@
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
 				</div>		
-				<div class="btn-login-sns-box login-form-box" id="facebook_login">
+				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
 					<img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
 					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+				<div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
+					<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+				</div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
+					
 				</div>
 				<div class="btn-login-sns-box login-form-box" id="kakao_login">
-					<img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
+					
 					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
+					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
+						<a href="http://developers.kakao.com/logout"></a>
+						<script type='text/javascript'>
+						  //<![CDATA[
+						    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+						    Kakao.init('aa7deb7e2ecae5dc2ff3759636450fc3');
+						    // 카카오 로그인 버튼을 생성합니다.
+						    Kakao.Auth.createLoginButton({
+						      container: '#kakao-login-btn',
+						      success: function(authObj) {
+						        alert(JSON.stringify(authObj));
+						      },
+						      fail: function(err) {
+						         alert(JSON.stringify(err));
+						      }
+						    });
+						  //]]>
+						  
+						   alert(Kakao.Auth.setAccessToken(accessTokenFromServer));
+						</script>
 				</div>
 				<div class="btn-login-sns-box login-form-box" id="naver_login">
 					<img alt="" src="https://www.waug.com/images/naver.svg" class="sns-login-naver-logo">
@@ -67,8 +103,35 @@
 	</div>
 
 	<script type="text/javascript">
-		$("#pw").value
+		/* 페이스북 로그인 api */
+		 window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '2398490247082536',
+		      cookie     : true,
+		      xfbml      : true,
+		      version    : 'v5.0'
+		    });
+		      
+		    FB.AppEvents.logPageView();   
+		      
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "https://connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
 	
+		  FB.getLoginStatus(function(response) {
+			    statusChangeCallback(response);
+			});
+		  function checkLoginState() {
+			  FB.getLoginStatus(function(response) {
+			    statusChangeCallback(response);
+			  });
+			}
 	</script>
 	
 </body>

@@ -12,7 +12,7 @@ public interface MemberDAO {
 	//selectOne
 	public MemberVO memberSelect(MemberVO memberVO) throws Exception;
 	//update
-	public int memberUpdate() throws Exception;
+	public int memberUpdate(MemberVO memberVO) throws Exception;
 	//delete
 	public int memberDelete() throws Exception;
 
