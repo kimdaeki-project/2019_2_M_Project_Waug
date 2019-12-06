@@ -3,6 +3,7 @@ package com.wg.p1;
 import static org.junit.Assert.*;
 
 import javax.inject.Inject;
+import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -17,11 +18,12 @@ public class testAbstractCase {
 	
 	@Inject
 	private SqlSession sqlsession;
-	
+	@Inject
+	private DataSource dataSource;
 	
 	@Test
 	public void test() {
-		assertNotNull(sqlsession);
+		assertNotNull(dataSource);
 	}
 
 }
