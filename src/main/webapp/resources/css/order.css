@@ -469,6 +469,9 @@ input[type="email"].input_md{
 }
 /* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
 /* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
+#reser_page_div{
+	margin-top:70px;
+}
 .reser-flex-box{
 	width: 1170px;
 	height: 560px;
@@ -488,11 +491,62 @@ input[type="email"].input_md{
 }
 .reser_cal_wrapper{
 	width: 605px;
-	height: 505px;
-	background: #f2f2f2;
+	color:#484848;
 }
 .reser_calBox{
 	padding: 0 10px;
+}
+.reser_cal_yearANDmonth{
+	width:555px;
+	height: 27px;
+	line-height: 27px;
+	margin:22px 0 37px 0;
+	margin-left: 30px;
+}
+.reser_cal_yearANDmonth>span{
+	float: right;
+	margin:0px 10px;
+	width:33px;
+	height: 27px;
+}
+.reser_cal_yearANDmonth>b{
+	margin:0 3px;
+	color:#484848;
+	height: 20px;
+	font-size:16px;
+}
+.dayBox{
+	width:585px;
+	height:20px;
+}
+.day{
+	width:83.5px;
+	float: left;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+}
+#dateBox{
+	width:585px;
+}
+.date{
+	width:83.5px;
+	height: 83.5px;
+	line-height: 83.5px;
+	text-align: center;
+	float: left;
+}
+.date:hover{
+	background:#f2f2f2;
+}
+.date-active{
+	background:#d91c83;
+	color:white;
+}
+.reser_cal_yearANDmonth>span>img{
+	width:10px;
+	height: 20px;
+	margin:0 11.5px;
 }
 .reser_option_wrapper{
 	width: 500px;

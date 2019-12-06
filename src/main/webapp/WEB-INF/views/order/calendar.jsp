@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,8 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav>nav</nav>
-<div>
+<c:import url="../layout/nav.jsp"/>
+<div id="reser_page_div">
 	<!-- modal -->
 	<div id="reser_modal">
 		<div class="reser_modal_wrapper">
@@ -35,12 +36,23 @@
 		<div class="reser_division">
 			<div class="reser_cal_wrapper">
 			<div class="reser_calBox">
-				calendar 
+				<div class="reser_cal_yearANDmonth">
+				<b id="showYear"></b><b>년</b><b id="showMonth"></b><b>월</b>
+				<span onclick="nextMonth()"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15578832425605.svg"></span> 	<!-- left -->
+				<span onclick="prevMonth()"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15578832321432.svg"></span>
+				</div>
+				<div class="dayBox">
+					<div class="day">일</div><div class="day">월</div><div class="day">화</div><div class="day">수</div><div class="day">목</div><div class="day">금</div><div class="day">토</div>
+				</div>
+				<div id="dateBox">
+					<!-- 예시 -->
+					<!-- <div class="date">1</div> -->
+				</div> 
 			</div>
 		</div>
 		<div class="reser_option_wrapper">
 			<div class="reser_option_title">
-				select options
+				select options  날짜를 먼저 선택해주세요.
 				<div class="reser_option_selected_date">2020-02-08</div>
 				<div class="reser_option_list">
 					<div class="reser_option_item">
@@ -86,6 +98,77 @@ $('#reservation_btn').click(function(){
 	location.href="./info";
 })
 
+	var cal=new Date();
+
+	function makeCalendar(){
+		$('#showMonth').html(cal.getMonth()+1);
+		$('#showYear').html(cal.getFullYear());
+		$("#dateBox").html("");
+		//console.log("year"+cal.getFullYear());	19
+		//console.log("month"+(cal.getMonth()+1));	12
+		//console.log("date"+cal.getDate());	6
+		//console.log("day"+cal.getDay());	5
+		var tmpCal=new Date(cal.getFullYear(),cal.getMonth(),1);
+		var firstDay=tmpCal.getDate();
+		//console.log("first daty : "+firstDay);	1
+		var tmpCal2=new Date(cal.getFullYear(),cal.getMonth()+1,0);
+		var lastDay=tmpCal2.getDate();
+		//console.log("lastDay : "+lastDay);	31
+		//console.log("tmpCal.getDay : "+tmpCal.getDay());	0
+		for(var i=0;i<tmpCal.getDay();i++){
+			makeblank();
+		}
+		for(var i=1;i<lastDay+1;i++){
+			makeDate(i);
+		}
+	}
+	/*
+	var para = document.createElement("P");                 // Create a <p> element
+	para.innerHTML = "This is a paragraph.";                // Insert text
+	document.getElementById("myDIV").appendChild(para);     // Append <p> to <div> with id="myDIV"
+	d.className += " otherclass";
+	*/
+	function makeblank(){
+		var divDt=document.createElement("div");
+		divDt.innerHTML="";
+		divDt.className+="date";
+		document.getElementById("dateBox").appendChild(divDt);
+	}
+	function makeDate(n){
+		var divDt=document.createElement("div");
+		divDt.innerHTML=n;
+		divDt.className+="date";
+		document.getElementById("dateBox").appendChild(divDt);
+	}
+
+	function prevMonth(){
+		cal=new Date(cal.getFullYear(),cal.getMonth()-1,cal.getDate());
+		makeCalendar();
+	}
+
+	function nextMonth(){
+		cal=new Date(cal.getFullYear(),cal.getMonth()+1,cal.getDate());
+		makeCalendar();
+	}
+	//window.ready
+	$(window).ready(makeCalendar());
+	
+	$('.date').click(function(){
+		//alert($('.date').hasClass("date-active"));
+		$('.date').removeClass("date-active");
+		$(this).addClass("date-active");
+		var tmp=$(this).html();
+		choosedDate(tmp);
+	});
+	
+	function choosedDate(n){
+		var year=$('#showYear').html();
+		var month=$('#showMonth').html();
+		var date=n;
+		console.log("choosedDate test year : "+year);
+		console.log("choosedDate test month : "+month);
+		console.log("choosedDate test date : "+date);
+	}
 	//modal 
 	//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
 </script>
