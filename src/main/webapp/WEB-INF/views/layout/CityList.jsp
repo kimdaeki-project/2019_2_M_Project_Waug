@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<div id="myModal" class="modal-city">
+<div id="myModal" class="modal-city myModal">
 			<!-- Modal content -->
 			<div class="modal-content2">
 
