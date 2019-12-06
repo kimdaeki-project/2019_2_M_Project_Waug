@@ -66,7 +66,8 @@
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
 													aria-hidden="true"></i></span><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><input value="5"
+													aria-hidden="true"></i></span></span>
+													<input value="5"
 												class="rating rating-input" data-show-clear="false"
 												data-show-caption="false" data-size="xxs"
 												data-readonly="true" readonly="readonly">
@@ -115,9 +116,7 @@
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
 													aria-hidden="true"></i></span><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><input value="5"
+													aria-hidden="true"></i></span><span class="star"></span></span><input value="5"
 												class="rating rating-input" data-show-clear="false"
 												data-show-caption="false" data-size="xxs"
 												data-readonly="true" readonly="readonly">
@@ -126,7 +125,7 @@
 								</span> <span class="star-score-sort"> (5/5) </span> <span
 									class="comment-list-title" style="float: right;">2019-12-05</span>
 							</div>
-							<p class="comment_msg">고리형이라 더 편했어요 그냥 키링에 묶어서 다녔습니다! 굿</p>
+							<p class="comment_msg">11고리형이라 더 편했어요 그냥 키링에 묶어서 다녔습니다! 굿</p>
 
 						</div>
 					</div>
@@ -226,9 +225,10 @@
 					<div class="modal fade" id="modal-review" tabindex="-1"
 						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
 						<div class="modal-dialog">
+						
 							<div class="modal-content">
 								<div class="modal-header">
-									<h3>이용 후기</h3>
+									이용 후기
 								</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
@@ -255,7 +255,7 @@
 																style="font-weight: 100;" aria-hidden="true"></i></span><span
 															class="star"><i class="glyphicon glyphicon-star"
 																style="font-weight: 100;" aria-hidden="true"></i></span></span><span
-															class="filled-stars" style="width: 100%;"><span
+															class="filled-stars" style="width: 100%;" id="filled-stars"><span
 															class="star"><i class="glyphicon glyphicon-star"
 																style="font-weight: 100;" aria-hidden="true"></i></span><span
 															class="star"><i class="glyphicon glyphicon-star"
@@ -265,7 +265,8 @@
 															class="star"><i class="glyphicon glyphicon-star"
 																style="font-weight: 100;" aria-hidden="true"></i></span><span
 															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span></span><input
+																style="font-weight: 100;" aria-hidden="true"></i></span></span>
+													<input
 															id="comment_write_rate" name="comment_write_rate"
 															class="rating rating-input" value="5" data-min="0"
 															data-max="5" data-step="1" data-size="md"
@@ -339,7 +340,11 @@
 			</div>
 		</div>
 	</div>
-
+	<script type="text/javascript">
+	
+	
+	
+	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>
 </body>

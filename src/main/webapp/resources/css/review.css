@@ -173,3 +173,50 @@ body{
 #btn-review-write a{
 	color: white;
 }
+.modal-header{
+	width: 598px;
+	height: 71px;
+	padding: 22px 22px 22px 22px;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 29px;
+}
+.modal-body{
+	width: 598px;
+	height: 650.95px;
+	padding: 22px 22px 45px 22px;
+}
+.pull-left{
+	width: 395px;
+	height: 107px;
+}
+.comment-write-title{
+	padding: 0px 25px 0px 25px;
+	font-size: 29px;
+	font-weight: 600;
+	text-align: left;
+	color: rgb(51,51,51);
+}
+.rating-md{
+	width : 223.44px;
+	font-size: 3.13em;
+}
+#modal-review .rating-stars{
+	cursor: pointer;
+	vertical-align: middle;
+	width: 250px;
+}
+#modal-review .filled-stars{
+	position: relative;
+	top: -62px;
+}
+
+
+
+
+
+
+
+
+
+
