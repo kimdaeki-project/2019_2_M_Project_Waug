@@ -255,7 +255,7 @@
 																style="font-weight: 100;" aria-hidden="true"></i></span><span
 															class="star"><i class="glyphicon glyphicon-star"
 																style="font-weight: 100;" aria-hidden="true"></i></span></span><span
-															class="filled-stars" style="width: 100%;" id="filled-stars"><span
+															class="filled-stars" id="filled-stars"><span
 															class="star"><i class="glyphicon glyphicon-star"
 																style="font-weight: 100;" aria-hidden="true"></i></span><span
 															class="star"><i class="glyphicon glyphicon-star"
@@ -342,7 +342,12 @@
 	</div>
 	<script type="text/javascript">
 	
-	
+	$("#comment_write_rate").change(function() {
+		var rate = $(this).val();
+		rate = rate*48;
+		alert(rate);
+		$("#filled-stars").width(rate);
+	})
 	
 	</script>
 

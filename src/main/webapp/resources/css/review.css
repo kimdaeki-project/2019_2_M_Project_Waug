@@ -204,11 +204,12 @@ body{
 #modal-review .rating-stars{
 	cursor: pointer;
 	vertical-align: middle;
-	width: 250px;
+	width: 240px;
 }
 #modal-review .filled-stars{
 	position: relative;
 	top: -62px;
+	overflow: hidden;
 }
 
 
