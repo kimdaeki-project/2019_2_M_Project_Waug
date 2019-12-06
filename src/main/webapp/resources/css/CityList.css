@@ -9,9 +9,9 @@
 	text-decoration: none; !important;
 	color: #d91c84; !important;
 }
-#myModal a{
+.myModal a{
 	color: #cccccc;
-}
+}  
 
 #myModal a:focus{
 	text-decoration: none;
@@ -75,9 +75,12 @@
 	border-bottom: 2px solid #d91c84;
 	color: #d91c84;
 }
-.active2 a{
-	color: #d91c84; !important;
+.active-continent a{
+	color: #d91c84;
 }
+/* .active2 a{
+	color: #d91c84; !important;
+} */
 .continent-item a{
 	
 }
