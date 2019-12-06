@@ -1,4 +1,4 @@
-package com.wg.p1;
+package com.wg.p1.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -41,10 +41,7 @@ public class HomeController {
 	public void area() {
 	}
 
-	@RequestMapping(value = "my/**", method = RequestMethod.GET)
-	public void my() {
-	}
-	
+
 
 	@RequestMapping("order/***")
 	public void orderFolder() {
@@ -52,8 +49,5 @@ public class HomeController {
 		
 	}
 
-	@RequestMapping(value = "member/**", method = RequestMethod.GET)
-	public void member() {
-	}
 
 }

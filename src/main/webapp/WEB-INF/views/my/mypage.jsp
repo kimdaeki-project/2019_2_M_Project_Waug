@@ -23,7 +23,7 @@
 		
 			<div class="row">
 			
-				<c:import url="./mylayout.jsp"></c:import>
+				<c:import url="./mylayout.jsp"/>
 				
 				<!-- 메인컨텐츠 시작 -->
 				<div id="sub-container" class="col-md-9">
@@ -36,29 +36,29 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="title">이름</label>
-								<input type="text" id="name" value="최혜현" class="form-control" required="required">
+								<input type="text" id="name" class="form-control" required="required" value="${memberVO.name}">
 							</div>			
 						</div>
 						<div class="row">
 							<div class="col-md-3">
 								<label class="title">영문 성</label>
-								<input type="text" id="e_last_name" name="e_last_name" class="form-control" required="required">
+								<input type="text" id="e_last_name" name="e_last_name" class="form-control" required="required" value="${memberVO.ename}">
 							</div>
 							<div class="col-md-3">
 								<label class="title">영문 이름</label>
-								<input type="text" id="e_first_name" name="e_first_name" class="form-control" required="required">
+								<input type="text" id="e_first_name" name="e_first_name" class="form-control" required="required" value="${memberVO.ename}">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<label class="title">이메일</label>
-								<input type="email" id="email" name="email" class="form-control" required="required">
+								<input type="email" id="email" name="email" class="form-control" required="required" value="${memberVO.email}">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-6">
 								<label class="title">휴대전화번호</label>
-								<input type="tel" id="tel" name="tel" class="form-control" required="required">
+								<input type="tel" id="tel" name="tel" class="form-control" required="required" value="${memberVO.phone}">
 							</div>
 						</div>
 						<div class="row">
