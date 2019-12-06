@@ -66,7 +66,7 @@ time, mark, audio, video {
    width: 100%;
    background: green;
    display: flex;
-   margin: 0px;
+   margin-top:70px;
    padding: 0px;
 }
 .good_img_titleBox{
