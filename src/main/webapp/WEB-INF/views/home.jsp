@@ -134,7 +134,6 @@
 		<div id="back-image3" class="image imageplus"></div>
 		<div id="back-image4" class="image imageplus"></div>
 		<div id="back-image5" class="image imageplus"></div>
-		<div id="back-image6" class="image imageplus"></div>
 	</div>
 
 	<div id="main-container">
@@ -656,26 +655,26 @@
 		})
 		var images = new Array();
 
-		images[0] = "15749313071774";
-		images[1] = "15749313219637";
-		images[2] = "15749313311326";
-		images[3] = "15749313431875";
-		images[4] = "15749313553829";
-		images[5] = "15749313677158";
+
+		images[0] = "15749313219637";
+		images[1] = "15749313311326";
+		images[2] = "15749313431875";
+		images[3] = "15749313553829";
+		images[4] = "15749313677158";
 		var div = new Array();
 		div[0] = "#back-image1";
 		div[1] = "#back-image2";
 		div[2] = "#back-image3";
 		div[3] = "#back-image4";
 		div[4] = "#back-image5";
-		div[5] = "#back-image6";
+
 		var i = 0;
 		/* 배경화면 전환 jquery */
 		setInterval(function() {
 			$(div[i]).fadeOut(1500, function() {
 			});
 			i = i + 1;
-			if (i > 5) {
+			if (i > 4) {
 				i = 0;
 			};
 			$(div[i]).fadeIn(1500,function() {

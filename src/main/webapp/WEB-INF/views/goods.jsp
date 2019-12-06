@@ -51,7 +51,7 @@
          <div class="good_info_wrapper">
          	<div class="good_info_padding">
          		<div class="good_info_area"><img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674923909136.svg"/></img>다낭</div>
-         		<div class="good_title">12와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
+         		<div class="good_title">12와그 핑크 바나힐 일일 투어 (다낭 출발)1</div>
          		<div class="good_category_wrapper">
          			<div class="good_category"><a href="#">조인 투어</a></div>
          			<div class="good_category"><a href="#">역사 & 문화 투어</a></div>
@@ -132,7 +132,7 @@
    						<div class="good_coment_star">★★★★★</div>
    						<div class="good_coment_text">너무 즐거운시간이고 기분좋은 여행이었습니다</div>
    					</div>
-   					<div class="good_container_btn">모든 후기 보러가기</div>
+   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='reviews/review_list';">모든 후기 보러가기</div>
    				</div>
    				<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
@@ -374,7 +374,7 @@ function openModal() {
    // Get the modal
 		var modal = document.getElementById("myModal");
 		// Get the button that opens the modal
-		var btn2 = document.getElementById("myBtn2");
+		var btn2 = document.getElementById("myBtn");
 		// When the user clicks the button, open the modal 
 		btn2.onclick = function() {
 			modal.style.display = "block";

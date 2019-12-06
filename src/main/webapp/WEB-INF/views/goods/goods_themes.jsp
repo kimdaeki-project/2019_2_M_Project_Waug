@@ -17,8 +17,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="../resources/css/theme.css">
+<link rel="stylesheet" href="../resources/css/nav.css">
+<link rel="stylesheet" href="../resources/css/CityList.css">
 </head>
 <body>
+<c:import url="../layout/nav.jsp" />
+<c:import url="../layout/CityList.jsp" />
 	<div class="theme-header">
 		<div class="theme-header-wrapper">
 			<div class="theme-header-background-image pc" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230677427.jpg');">
@@ -26,7 +30,7 @@
 		<div class="theme-header-opacity">
 		</div>
 		<div class="theme-header-description">
-			<div class="theme-header-title">겨울 여행 유럽은 어때?
+			<div class="theme-header-title">겨울 여행 유럽은 어때?111
 			</div>
 		</div>
 		</div>
@@ -214,6 +218,28 @@
 	/* 위시리스트 jquery */
 	$(".good-card-wish-btn").click(function() {
 		$(this).toggleClass("good-card-wish-btn-whis");
+	});
+	
+	/* 모달 */
+	// Get the modal
+	var modal = document.getElementById("myModal");
+	// Get the button that opens the modal
+	var btn2 = document.getElementById("myBtn");
+	// When the user clicks the button, open the modal 
+	btn2.onclick = function() {
+		modal.style.display = "block";
+	}
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+	$(".con").click(function() {
+		$(".continent-item").removeClass("active-continent");
+		$(".continent-text").removeClass("active2");
+		$(this).parent().parent().addClass("active-continent");
+		$(this).parent().addClass("active2");
 	});
 	</script>
 </body>

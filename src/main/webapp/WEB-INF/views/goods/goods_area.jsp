@@ -531,7 +531,7 @@
 			// Get the modal
 			var modal = document.getElementById("myModal");
 			// Get the button that opens the modal
-			var btn2 = document.getElementById("myBtn2");
+			var btn2 = document.getElementById("myBtn");
 			// When the user clicks the button, open the modal 
 			btn2.onclick = function() {
 				modal.style.display = "block";
