@@ -244,6 +244,10 @@ $('#reservation_btn').click(function(){
 		$('.reser_option_list').on("click",".reser_option_item",function(event,year,month,date){
 			showModal(event,year,month,date)});
 		}
+		/////////////////////////////////////////////////////////////////////////
+		$('.reser_option_list').on("click",".reser_option_item",showModal(event,year,month,date));
+		}
+		///////////////////////////////////////////////////////////////////////////
 		/* $(document).on("click", '.topic-btn', {'param': 10}, function(event){
 		     displayGIF(event.data.param);
 		}); */
