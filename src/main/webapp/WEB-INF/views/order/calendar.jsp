@@ -51,9 +51,10 @@
 			</div>
 		</div>
 		<div class="reser_option_wrapper">
+		
 			<div class="reser_option_title">
-				select options  날짜를 먼저 선택해주세요.
-				<div class="reser_option_selected_date">2020-02-08</div>
+				<!-- 날짜를 먼저 선택해주세요. -->
+				<div class="reser_option_selected_date" >2020-02-08</div>
 				<div class="reser_option_list">
 					<div class="reser_option_item">
 						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)</div>
@@ -138,7 +139,17 @@ $('#reservation_btn').click(function(){
 		var divDt=document.createElement("div");
 		divDt.innerHTML=n;
 		divDt.className+="date";
+		//add event
+		//element.addEventListener(event, function, useCapture)
+		//divDt.addEventListener("click",addActiveClass());
 		document.getElementById("dateBox").appendChild(divDt);
+		//$(selector).on(event,childSelector,data,function,map)
+		$('.reser_calBox').on("click", ".date",function(){
+			$('.date').removeClass("date-active");
+			$(this).addClass("date-active");
+			var tmp=$(this).html();
+			choosedDate(tmp);
+		});
 	}
 
 	function prevMonth(){
@@ -153,13 +164,27 @@ $('#reservation_btn').click(function(){
 	//window.ready
 	$(window).ready(makeCalendar());
 	
-	$('.date').click(function(){
+	//날짜를 먼저 선택해주세요
+	if($('.date').hasClass("date-active")==false){
+		//reser_option_title
+		$('.reser_option_title').html("날짜를 먼저 선택해주세요");
+	}
+	
+	//onclick  class add
+	 $('.date').click(function(){
 		//alert($('.date').hasClass("date-active"));
 		$('.date').removeClass("date-active");
 		$(this).addClass("date-active");
 		var tmp=$(this).html();
 		choosedDate(tmp);
-	});
+	}); 
+	
+	function addActiveClass(){
+		$('.date').removeClass("date-active");
+		$(this).addClass("date-active");
+		var tmp=$(this).html();
+		choosedDate(tmp);
+	} 
 	
 	function choosedDate(n){
 		var year=$('#showYear').html();
@@ -168,7 +193,38 @@ $('#reservation_btn').click(function(){
 		console.log("choosedDate test year : "+year);
 		console.log("choosedDate test month : "+month);
 		console.log("choosedDate test date : "+date);
+		fillDate(year,month,date);
 	}
+	
+	function fillDate(year,month,date){
+		$('.reser_option_selected_date').remove();
+		//reser_option_selected_date
+		$('.reser_option_title').html("옵션을 선택해주세요");
+		
+		var selected_date=document.createElement("div");
+		selected_date.innerHTML=year+"-"+month+"-"+date;
+		//console.log(selected_date);  ok
+		selected_date.className+="reser_option_selected_date";
+		console.log(selected_date)
+		//지우기
+		
+		$('.reser_option_wrapper').append(selected_date);
+		//document.getElementById("reser_option_title").appendChild(selected_date);
+		
+		//document.getElementById("dateBox").appendChild(divDt);
+	}
+	
+	/* <div class="reser_option_title">
+	select options  날짜를 먼저 선택해주세요.
+	<div class="reser_option_selected_date">2020-02-08</div>
+	<div class="reser_option_list">
+		<div class="reser_option_item">
+			<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)</div>
+			<div class="reser_option_item_price">34000</div>
+		</div>
+	</div>
+</div> */
+
 	//modal 
 	//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
 </script>
