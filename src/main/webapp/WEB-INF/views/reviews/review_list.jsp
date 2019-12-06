@@ -66,8 +66,7 @@
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
 													aria-hidden="true"></i></span><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span>
-													<input value="5"
+													aria-hidden="true"></i></span></span> <input value="5"
 												class="rating rating-input" data-show-clear="false"
 												data-show-caption="false" data-size="xxs"
 												data-readonly="true" readonly="readonly">
@@ -116,10 +115,10 @@
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
 													aria-hidden="true"></i></span><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"></span></span><input value="5"
-												class="rating rating-input" data-show-clear="false"
-												data-show-caption="false" data-size="xxs"
-												data-readonly="true" readonly="readonly">
+													aria-hidden="true"></i></span><span class="star"></span></span><input
+												value="5" class="rating rating-input"
+												data-show-clear="false" data-show-caption="false"
+												data-size="xxs" data-readonly="true" readonly="readonly">
 										</div>
 									</div>
 								</span> <span class="star-score-sort"> (5/5) </span> <span
@@ -225,16 +224,16 @@
 					<div class="modal fade" id="modal-review" tabindex="-1"
 						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
 						<div class="modal-dialog">
-						
+
 							<div class="modal-content">
-								<div class="modal-header">
-									이용 후기
-								</div>
+								<div class="modal-header">이용 후기</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
+									<form action="review_write">
+									
 									<div class="pull-left">
 										<div class="row">
 											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
@@ -243,34 +242,24 @@
 											<div class="center comment-write-starspace">
 												<div
 													class="rating-container rating-md rating-animate star-float">
-													<div class="rating-stars">
-														<span class="empty-stars"><span class="star"><i
-																class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span></span><span
-															class="filled-stars" id="filled-stars"><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span><span
-															class="star"><i class="glyphicon glyphicon-star"
-																style="font-weight: 100;" aria-hidden="true"></i></span></span>
-													<input
-															id="comment_write_rate" name="comment_write_rate"
-															class="rating rating-input" value="5" data-min="0"
-															data-max="5" data-step="1" data-size="md"
-															data-show-clear="false" data-show-caption="false">
+													<div class="rating2" >
+														<label> <input type="radio" name="stars" value="1" />
+															<span class="icon">★</span>
+														</label> <label> <input type="radio" name="stars"
+															value="2" /> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="stars"
+															value="3" /> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label> <label> <input type="radio" name="stars"
+															value="4" /> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="stars"
+															value="5" checked="checked"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label>
 													</div>
 												</div>
 											</div>
@@ -279,14 +268,15 @@
 									<div class="form-group">
 										<textarea id="comment_write_msg" class="form-control"
 											style="height: 246px;"
-											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요."></textarea>
+											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요dd22d."></textarea>
 									</div>
+									</form>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="camera">
 											<form id="frm-review-file">
 												<label for="input_comment_img_new"> <img
 													style="padding-top: 17px; width: 62px; padding-left: 11px;"
-													src="/images/ic_comment_camera_web.svg"> <input
+													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
 													type="file" id="input_comment_img_new" class="hide"
 													accept="image/*">
 												</label>
@@ -298,16 +288,16 @@
 										<div class="comment-img-list" id="preview-img"></div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
-										<div class="write">
+										<div class="write" style="float: right;">
 											<label id="btn_comment_write">
 												<button id="btn-comment-submit" type="button"
-													class="btn-form-submit" style="font-size: 14px;">확인</button>
+													class="btn-form-submit" style="font-size: 12px;">확인2</button>
 											</label>
 										</div>
-										<div class="cancel">
+										<div class="cancel" style="float: right;">
 											<button id="btn-comment-cancel" type="button"
 												class="btn-form-cancel"
-												style="font-size: 14px; margin-right: 10px;"
+												style="font-size: 12px; margin-right: 10px;"
 												data-dismiss="modal">취소</button>
 										</div>
 									</div>
@@ -341,14 +331,10 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-	
-	$("#comment_write_rate").change(function() {
-		var rate = $(this).val();
-		rate = rate*48;
-		alert(rate);
-		$("#filled-stars").width(rate);
-	})
-	
+
+		$(':radio').change(function() {
+  		console.log('New star rating: ' + this.value);
+		});
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>

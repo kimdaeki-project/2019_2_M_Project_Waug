@@ -204,20 +204,123 @@ body{
 #modal-review .rating-stars{
 	cursor: pointer;
 	vertical-align: middle;
-	width: 240px;
+	width: 250px;
 }
+#modal-review .rating-container{
+	cursor: pointer;
+	vertical-align: middle;
+	width: 250px;
+}
+
 #modal-review .filled-stars{
 	position: relative;
 	top: -62px;
 	overflow: hidden;
 }
 
+.rating2 {
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  font-size: 40px;
+}
 
+.rating2 label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
 
+.rating2 label:last-child {
+  position: static;
+}
 
+.rating2 label:nth-child(1) {
+  z-index: 5;
+}
 
+.rating2 label:nth-child(2) {
+  z-index: 4;
+}
 
+.rating2 label:nth-child(3) {
+  z-index: 3;
+}
 
+.rating2 label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating2 label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating2 label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating2 label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating2 label:last-child .icon {
+  color: #cccccc;
+}
+
+.rating2:not(:hover) label input:checked ~ .icon,
+.rating2:hover label:hover input ~ .icon {
+  color: #d91c84;
+}
+
+.rating2 label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+textarea:focus{
+	outline: 0px;
+}
+.camera{
+	width: 74px;
+	height: 74px;
+	background-color: #ccc;
+}
+.cancel{
+	width: 80px;
+	height: 36px;
+	font-size: 20px;
+}
+.write{
+	width: 80px;
+	height: 36px;
+	font-size: 20px;
+}
+#btn_comment_write{
+	
+}
+#btn-comment-submit{
+	width: 80px;
+	height: 36px;
+	background: -webkit-linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgb(245,3,100) 1%, rbg(172,66,169) 100%);
+	border: solid 2px white;
+	border-radius: 0.3em;
+	color: white;
+}
+#btn-comment-cancel{
+	width: 80px;
+	height: 36px;
+	background-color: #cccccc;
+	border: solid 2px white;
+	border-radius: 0.3em;
+	color: #333333;
+}
 
 
 
