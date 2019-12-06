@@ -20,10 +20,14 @@
 			<span id="reser_modal_close">&times;</span>
 			<div class="reser_modal_info">
 				<div class="reser_modal_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
-				<div class="reser_modal_option_selected">3.4 진에어</div>
+				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
-			<button id="reservation_btn">예약하기</button>
+			<div class="reservation_btn_wrapper">
+			<div id="reservation_users_order_total_price">total price</div>
+				<button id="cart_btn">장바구니</button>
+				<button id="reservation_btn">예약하기</button>
+			</div>
 		</div>
 	</div>
 	<!-- modal -->
@@ -82,6 +86,19 @@
 	item.onclick=function(){
 		modalBox.style.display = "block";
 	}
+	
+	function showModal(event,year,month,date){
+		
+		event.stopPropagation();
+		modalBox.style.display = "block";
+		/* <div class="reser_modal_info">
+			<div class="reser_modal_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
+			<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
+			<div class="reser_modal_option_date">2019-12-03</div>
+		</div> */
+		$('.reser_modal_option_date').html(year+"-"+month+"-"+date);
+		
+	}
 
 	//다른곳 눌렀을때 modal 닫기
 	window.onclick=function(event){
@@ -105,17 +122,10 @@ $('#reservation_btn').click(function(){
 		$('#showMonth').html(cal.getMonth()+1);
 		$('#showYear').html(cal.getFullYear());
 		$("#dateBox").html("");
-		//console.log("year"+cal.getFullYear());	19
-		//console.log("month"+(cal.getMonth()+1));	12
-		//console.log("date"+cal.getDate());	6
-		//console.log("day"+cal.getDay());	5
 		var tmpCal=new Date(cal.getFullYear(),cal.getMonth(),1);
 		var firstDay=tmpCal.getDate();
-		//console.log("first daty : "+firstDay);	1
 		var tmpCal2=new Date(cal.getFullYear(),cal.getMonth()+1,0);
 		var lastDay=tmpCal2.getDate();
-		//console.log("lastDay : "+lastDay);	31
-		//console.log("tmpCal.getDay : "+tmpCal.getDay());	0
 		for(var i=0;i<tmpCal.getDay();i++){
 			makeblank();
 		}
@@ -123,12 +133,7 @@ $('#reservation_btn').click(function(){
 			makeDate(i);
 		}
 	}
-	/*
-	var para = document.createElement("P");                 // Create a <p> element
-	para.innerHTML = "This is a paragraph.";                // Insert text
-	document.getElementById("myDIV").appendChild(para);     // Append <p> to <div> with id="myDIV"
-	d.className += " otherclass";
-	*/
+	
 	function makeblank(){
 		var divDt=document.createElement("div");
 		divDt.innerHTML="";
@@ -148,7 +153,7 @@ $('#reservation_btn').click(function(){
 			$('.date').removeClass("date-active");
 			$(this).addClass("date-active");
 			var tmp=$(this).html();
-			choosedDate(tmp);
+			choosedDate(tmp);	
 		});
 	}
 
@@ -198,21 +203,51 @@ $('#reservation_btn').click(function(){
 	
 	function fillDate(year,month,date){
 		$('.reser_option_selected_date').remove();
-		//reser_option_selected_date
 		$('.reser_option_title').html("옵션을 선택해주세요");
-		
 		var selected_date=document.createElement("div");
 		selected_date.innerHTML=year+"-"+month+"-"+date;
-		//console.log(selected_date);  ok
+		
 		selected_date.className+="reser_option_selected_date";
 		console.log(selected_date)
-		//지우기
 		
 		$('.reser_option_wrapper').append(selected_date);
-		//document.getElementById("reser_option_title").appendChild(selected_date);
-		
-		//document.getElementById("dateBox").appendChild(divDt);
+		fillOption(year,month,date);
+		event.stopPropagation();								
 	}
+	
+	function fillOption(year,month,date){
+		$('.reser_option_list').remove();
+		event.stopPropagation();
+		//var divDt=document.createElement("div");
+		//divDt.innerHTML=n;
+		//divDt.className+="date";
+		//document.getElementById("dateBox").appendChild(divDt);
+		var reser_option_list=document.createElement("div");
+		var reser_option_item=document.createElement("div");
+		var reser_option_item_title=document.createElement("div");	//바나힐 핑크 패키지 투어 (다낭 시내)
+		var reser_option_item_price=document.createElement("div");	//34000
+		reser_option_item_title.innerHTML="바나힐 핑크 패키지 투어 (다낭 시내)";
+		reser_option_item_price.innerHTML="34000";
+		
+		reser_option_list.className+="reser_option_list";
+		reser_option_item.className+="reser_option_item";
+		reser_option_item_title.className+="reser_option_item_title";
+		reser_option_item_price.className+="reser_option_item_price";
+		
+		$('.reser_option_wrapper').append(reser_option_list);
+		$('.reser_option_list').append(reser_option_item);
+		$('.reser_option_item').append(reser_option_item_title);
+		$('.reser_option_item').append(reser_option_item_price);
+		
+		//$('.reser_calBox').on("click", ".date",function(){
+		
+		$('.reser_option_list').on("click",".reser_option_item",function(event,year,month,date){
+			showModal(event,year,month,date)});
+		}
+		/* $(document).on("click", '.topic-btn', {'param': 10}, function(event){
+		     displayGIF(event.data.param);
+		}); */
+		
 	
 	/* <div class="reser_option_title">
 	select options  날짜를 먼저 선택해주세요.

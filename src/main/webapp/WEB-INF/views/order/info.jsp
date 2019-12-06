@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +12,8 @@
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav>nav</nav>
-<div>
+<c:import url="../layout/nav.jsp"/>
+<div style="margin-top:80px;">
 	<div class="order_wrapper">
 		<div class="order_infoBox">
 			<div class="order_info_title">예약자 정보</div>
