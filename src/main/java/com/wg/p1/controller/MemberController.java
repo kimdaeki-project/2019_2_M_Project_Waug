@@ -1,4 +1,4 @@
-package com.wg.p1;
+package com.wg.p1.controller;
 
 import org.springframework.stereotype.Controller;
 
