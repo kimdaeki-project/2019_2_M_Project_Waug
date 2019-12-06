@@ -32,7 +32,7 @@
 				<!--  comment list begin  -->
 				<div class="row reivew-list-content-box" id="comment_space">
 					<div class="page-title review-title-text">
-						<h3>이용 후기111</h3>
+						<h3>이용 후기</h3>
 					</div>
 
 					<div id="comment98479" class="item-comment clearfix">
@@ -268,7 +268,7 @@
 									<div class="form-group">
 										<textarea id="comment_write_msg" class="form-control"
 											style="height: 246px;"
-											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요dd22d."></textarea>
+											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요."></textarea>
 									</div>
 									</form>
 									<div class="form-group comment-write-btn-wrapper">
@@ -291,7 +291,7 @@
 										<div class="write" style="float: right;">
 											<label id="btn_comment_write">
 												<button id="btn-comment-submit" type="button"
-													class="btn-form-submit" style="font-size: 12px;">확인2</button>
+													class="btn-form-submit" style="font-size: 12px;">확인</button>
 											</label>
 										</div>
 										<div class="cancel" style="float: right;">
@@ -316,7 +316,7 @@
 						<a type="button" id="btn-review-write" data-goodidx="107382"
 							data-toggle="modal" data-target="#modal-review"
 							class="reivew-foot-write-btn col-md-12 btn-form-submit "
-							style="color: white; text-align: center;">후기 작성22하기</a>
+							style="color: white; text-align: center;">후기 작성하기</a>
 					</div>
 					<div class="text-center space-4 add-review-space">
 						<a class="btn btn-goods-etc outline review-foot-more-btn"
