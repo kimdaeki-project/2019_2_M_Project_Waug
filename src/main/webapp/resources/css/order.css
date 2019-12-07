@@ -312,8 +312,7 @@
 .order_wrapper{
 	width: 1140px;
 	margin: 0 auto;
-	height: 1500px;					/***************************************************************************************temporary*/
-	
+	padding-bottom:200px;
 }
 .order_infoBox{
 	border: 1px solid #ededed;
@@ -357,6 +356,7 @@
     font-size: 12px;
     padding-left: 4px;
 }
+
 .order_fields_input input[type="text"],
 .order_fields_input input[type="checkbox"],
 .order_fields_input input[type="date"],
@@ -377,7 +377,7 @@
 	font-weight: 400;
 	background: white;
 	border-radius: 5px;
-	height: 26px;
+	height: 40px;
 }
 select{
 	-webkit-appearance: none;
