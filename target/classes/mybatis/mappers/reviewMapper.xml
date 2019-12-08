@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="reviewMapper">
+  	<insert id="reviewInsert" parameterType="ReviewVO">
+  		insert into review values (review_SEQ.nextval, 0, #{rv_title}, #{rv_writer,jdbcType=VARCHAR2},#{rv_contents}
+  		,sysdate, review_SEQ.currval, 0, 0, #{rv_score})
+  	</insert>
+  </mapper>

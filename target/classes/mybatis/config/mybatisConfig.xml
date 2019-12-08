@@ -9,5 +9,6 @@
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
 		<typeAlias type="com.wg.p1.model.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.wg.p1.model.ReviewVO" alias="ReviewVO"/>
 	</typeAliases>
 </configuration>
