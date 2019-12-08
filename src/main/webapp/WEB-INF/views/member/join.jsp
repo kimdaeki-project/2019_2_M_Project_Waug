@@ -111,10 +111,12 @@
 		      xfbml      : true,
 		      version    : 'v5.0'
 		    });
-		      
+		    
 		    FB.AppEvents.logPageView();   
 		      
 		  };
+		  
+		  
 
 		  (function(d, s, id){
 		     var js, fjs = d.getElementsByTagName(s)[0];
@@ -126,12 +128,16 @@
 	
 		  FB.getLoginStatus(function(response) {
 			    statusChangeCallback(response);
+			    
+			    console.log(response);
 			});
 		  function checkLoginState() {
 			  FB.getLoginStatus(function(response) {
 			    statusChangeCallback(response);
 			  });
 			}
+		  
+		  
 	</script>
 	
 </body>
