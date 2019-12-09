@@ -38,5 +38,11 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int socialJoin(MemberVO memberVO) throws Exception {
+		
+		return memberDAO.socialJoin(memberVO);
+	}
 	
 }

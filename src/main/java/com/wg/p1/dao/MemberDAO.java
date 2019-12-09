@@ -9,6 +9,8 @@ public interface MemberDAO {
 
 	//join
 	public int memberJoin(MemberVO memberVO) throws Exception;
+	//fbjoin
+	public int socialJoin(MemberVO memberVO) throws Exception;
 	//selectOne
 	public MemberVO memberSelect(MemberVO memberVO) throws Exception;
 	//update

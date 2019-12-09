@@ -27,20 +27,78 @@ public class MemberController {
 		
 	}
 
+	@GetMapping("facebook")
+	public ModelAndView facebook(String name,String email, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO= new MemberVO();
+		memberVO.setName(name);
+		memberVO.setEmail(email);
+		memberVO.setSocial("f");
+		memberVO.setM_pk(memberVO.getSocial()+"_"+memberVO.getEmail());
+		memberService.socialJoin(memberVO);
+		
+		memberVO = memberService.memberLogin(memberVO);
+		
+		String msg="로그인실패";
+		if(memberVO!=null) {
+			msg="로그인성공";
+			session.setAttribute("memberVO", memberVO);
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../");
+		mv.setViewName("common/common_result");
+		System.out.println(name);
+		System.out.println(email);
+		return mv;
+	}
+	
+	
+	
+	@GetMapping("kakao")
+	public ModelAndView kakao(String nickname,String email, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO= new MemberVO();
+		memberVO.setName(nickname);
+		memberVO.setEmail(email);
+		memberVO.setSocial("k");
+		memberVO.setM_pk(memberVO.getSocial()+"_"+memberVO.getEmail());
+		memberService.socialJoin(memberVO);
+		memberVO = memberService.memberLogin(memberVO);
+		
+		String msg="로그인실패";
+		if(memberVO!=null) {
+			msg="로그인성공";
+			session.setAttribute("memberVO", memberVO);
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../");
+		mv.setViewName("common/common_result");
+		System.out.println(nickname);
+		System.out.println(email);
+		return mv;
+	}
+	
+	
+	
+	
 	@PostMapping(value = "join")
 	public ModelAndView memberJoin(MemberVO memberVO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
+	
+		memberVO.setSocial("w");
+		memberVO.setM_pk(memberVO.getSocial()+"_"+memberVO.getEmail());
 		int result = memberService.memberJoin(memberVO);
 		
 		String msg="가입실패";
 		if(result>0) {
 			msg="가입성공";
 		}
+		
 		mv.addObject("msg", msg);
 		mv.addObject("path", "../");
 		mv.setViewName("common/common_result");
-		
+		memberService.memberLogin(memberVO);
 		return mv;
 	}
 	

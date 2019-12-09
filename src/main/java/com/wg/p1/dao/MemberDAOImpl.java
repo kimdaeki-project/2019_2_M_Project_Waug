@@ -34,5 +34,10 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
 	}
 
+	@Override
+	public int socialJoin(MemberVO memberVO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"socialJoin", memberVO);
+	}
+
 
 }

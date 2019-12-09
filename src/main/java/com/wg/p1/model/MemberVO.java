@@ -1,7 +1,9 @@
 package com.wg.p1.model;
 
 public class MemberVO {
-
+	
+	private String m_pk;
+	private String social;
 	private String email;
 	private String pw;
 	private String name;
@@ -12,6 +14,18 @@ public class MemberVO {
 	
 	
 	
+	public String getM_pk() {
+		return m_pk;
+	}
+	public void setM_pk(String m_pk) {
+		this.m_pk = m_pk;
+	}
+	public String getSocial() {
+		return social;
+	}
+	public void setSocial(String social) {
+		this.social = social;
+	}
 	public String getEname_first() {
 		return ename_first;
 	}

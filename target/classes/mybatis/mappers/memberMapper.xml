@@ -6,9 +6,12 @@
 <mapper namespace="memberMapper">
   	
 	<insert id="memberJoin" parameterType="MemberVO">
-		insert into member(email,pw,name) values(#{email},#{pw},#{name})
+		insert into member(m_pk,social,email,pw,name) values(#{m_pk},#{social},#{email},#{pw},#{name})
 	</insert>  
   
+  	<insert id="socialJoin" parameterType="MemberVO">
+		insert into member(m_pk,social,email,name) values(#{m_pk},#{social},#{email},#{name})
+	</insert>  
   	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
   		select * from member where email=#{email}
   	</select>
