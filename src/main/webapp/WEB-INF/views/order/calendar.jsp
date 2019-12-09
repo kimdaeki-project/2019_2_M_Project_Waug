@@ -13,6 +13,7 @@
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
+<c:import url="../layout/CityList.jsp"/>
 <div id="reser_page_div">
 	<!-- modal -->
 	<div id="reser_modal">
@@ -121,7 +122,10 @@
 	}
 
 $('#reservation_btn').click(function(){
-	location.href="./info";
+	//0이면
+
+		location.href="./info";
+
 })
 
 	var cal=new Date();

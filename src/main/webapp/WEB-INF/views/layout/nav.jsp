@@ -47,7 +47,6 @@
 		</div>
 	
 	</div>
-	
 	<script type="text/javascript">
 	
 	/* city list 모달 */

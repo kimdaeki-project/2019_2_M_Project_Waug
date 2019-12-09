@@ -108,7 +108,7 @@
 		 			<div class="order_reser_coupon_title">포인트 사용</div>
 		 			<div class="apply_couponANDpoint">
 		 				<div id="apply_pointBox"><div class="apply_couponBox_text">text coupon</div></div>
-		 				<button id="btn_modal_point">쿠폰함</button>
+		 				<button id="btn_modal_point">모두 사용</button>
 		 			</div>
 		 			<p>보유 포인트 <strong>0 p</strong><br>※사용한 포인트는 소멸되며 예약 취소 또는 환불 시 재적립이 불가능합니다.</p>
 		 		</div>
@@ -117,7 +117,7 @@
 		 		<div class="order_user_infoBox_title">약관 동의</div>
 		 		<div class="order_reser_info">
 		 			<label for="agreeAll" class="forcheck"></label>
-		 				<input type="checkbox" name="" id="agreeAll">agree all
+		 				<input type="checkbox" name="" id="agreeAll">모두 동의하기
 		 			<div class="order_reser_border"></div>
 		 			<div class="order_reser_btn_md">
 		 				<label class="forcheck" for="agree"></label>
@@ -176,10 +176,36 @@
 <script type="text/javascript">
 	//order_reser_pay
 	$('#creditCard').click(function(){
-		//$(this).toggleClass('order_reser_pay_click');
+		$('#waugPay').removeClass("order_reser_pay_click");
+		$('#mobilePay').removeClass("order_reser_pay_click");
+		$('#payPal').removeClass("order_reser_pay_click");
+		$(this).toggleClass('order_reser_pay_click');
 		$(".pay_credit").slideToggle();
-	})
+	});
 
+	$('#waugPay').click(function(){
+		$('#creditCard').removeClass("order_reser_pay_click");
+		$('#mobilePay').removeClass("order_reser_pay_click");
+		$('#payPal').removeClass("order_reser_pay_click");
+		$(".pay_credit").slideUp();
+		$(this).toggleClass('order_reser_pay_click');
+	});
+	
+	$('#mobilePay').click(function(){
+		$('#creditCard').removeClass("order_reser_pay_click");
+		$('#waugPay').removeClass("order_reser_pay_click");
+		$('#payPal').removeClass("order_reser_pay_click");
+		$(".pay_credit").slideUp();
+		$(this).toggleClass('order_reser_pay_click');
+	});
+	
+	$('#payPal').click(function(){
+		$('#creditCard').removeClass("order_reser_pay_click");
+		$('#waugPay').removeClass("order_reser_pay_click");
+		$('#mobilePay').removeClass("order_reser_pay_click");
+		$(".pay_credit").slideUp();
+		$(this).toggleClass('order_reser_pay_click');
+	});
 
 	$(document).ready(function(){
 		$('.pay_credit').css("display","none");
@@ -199,6 +225,15 @@
 	$('.interest_freeBox_close_btn').click(function(){
 		$('.interest_freeBox').css("display","none");
 	});
+	
+	$('#agreeAll').click(function(){
+		$('#agree').prop("checked", this.checked);
+		console.log($('#agree').checked);
+	});
+	$('#agree').click(function(){
+		$('#agreeAll').prop("checked", this.checked);
+	});
+	
 </script>
 </body>
 </html>
