@@ -67,8 +67,8 @@
 		 				<div class="pay_credit stopPropagation">
 		 					<div class="pay_credit_title">카드 종류</div>
 		 					<div class="credit_kind ">
-		 						<div class="test">adfs</div><div class="test">adfs</div><div class="test">adfs</div><div class="test">adfs</div>
-		 						<div class="test">adfs</div><div class="test">adfs</div>
+		 						<div class="card">신한</div><div class="card">국민</div><div class="card">농협</div><div class="card">우리</div>
+		 						<div class="card">하나</div><div class="card">IBK</div>
 
 		 					</div>
 		 					<div class="credit_kind">
@@ -76,12 +76,16 @@
 		 							<option selected="selected">다른 카드 선택</option>
 		 							<option>카카오뱅크</option>
 		 							<option>외환은행</option>
+		 							<option>새마을금고</option>
+		 							<option>수협은행</option>
+		 							<option>CITY BANK</option>
+		 							<option>KDB 산업은행</option>
 		 						</select>
 		 					<div class="pay_credit_title">할부 선택</div>
 		 						<select class="credit_select">
 		 							<option>1개월</option>
-		 							<option>1개월</option>
-		 							<option>1개월</option>
+		 							<option>3개월</option>
+		 							<option>6개월</option>
 		 						</select>	
 		 					<div class="pay_credit_title"><strong><b>무이자 할부 안내</b></strong></div>
 		 					</div>
@@ -91,9 +95,9 @@
 		 				<img src="pay_waug.svg">
 		 				<span>Mobile</span>
 		 			</div>
-		 			<div class="order_reser_pay" id="payPal">
-		 				<img src="pay_waug.svg">
-		 				<span>Paypal</span>
+		 			<div class="order_reser_pay" id="kakaopay">
+		 				<img src="https://image.flaticon.com/icons/svg/2111/2111683.svg">
+		 				<span>kakaopay</span>
 		 			</div>
 		 		</div>
 		 	</div>
@@ -178,7 +182,7 @@
 	$('#creditCard').click(function(){
 		$('#waugPay').removeClass("order_reser_pay_click");
 		$('#mobilePay').removeClass("order_reser_pay_click");
-		$('#payPal').removeClass("order_reser_pay_click");
+		$('#kakaopay').removeClass("order_reser_pay_click");
 		$(this).toggleClass('order_reser_pay_click');
 		$(".pay_credit").slideToggle();
 	});
@@ -186,7 +190,7 @@
 	$('#waugPay').click(function(){
 		$('#creditCard').removeClass("order_reser_pay_click");
 		$('#mobilePay').removeClass("order_reser_pay_click");
-		$('#payPal').removeClass("order_reser_pay_click");
+		$('#kakaopay').removeClass("order_reser_pay_click");
 		$(".pay_credit").slideUp();
 		$(this).toggleClass('order_reser_pay_click');
 	});
@@ -194,12 +198,12 @@
 	$('#mobilePay').click(function(){
 		$('#creditCard').removeClass("order_reser_pay_click");
 		$('#waugPay').removeClass("order_reser_pay_click");
-		$('#payPal').removeClass("order_reser_pay_click");
+		$('#kakaopay').removeClass("order_reser_pay_click");
 		$(".pay_credit").slideUp();
 		$(this).toggleClass('order_reser_pay_click');
 	});
 	
-	$('#payPal').click(function(){
+	$('#kakaopay').click(function(){
 		$('#creditCard').removeClass("order_reser_pay_click");
 		$('#waugPay').removeClass("order_reser_pay_click");
 		$('#mobilePay').removeClass("order_reser_pay_click");
@@ -230,10 +234,15 @@
 		$('#agree').prop("checked", this.checked);
 		console.log($('#agree').checked);
 	});
+	
 	$('#agree').click(function(){
 		$('#agreeAll').prop("checked", this.checked);
 	});
 	
+	$('.card').click(function(){
+		$('.card').removeClass('card_clicked');
+		$(this).toggleClass('card_clicked');
+	});
 </script>
 </body>
 </html>
