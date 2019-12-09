@@ -312,8 +312,7 @@
 .order_wrapper{
 	width: 1140px;
 	margin: 0 auto;
-	height: 1500px;					/***************************************************************************************temporary*/
-	
+	padding-bottom:200px;
 }
 .order_infoBox{
 	border: 1px solid #ededed;
@@ -357,6 +356,7 @@
     font-size: 12px;
     padding-left: 4px;
 }
+
 .order_fields_input input[type="text"],
 .order_fields_input input[type="checkbox"],
 .order_fields_input input[type="date"],
@@ -377,7 +377,7 @@
 	font-weight: 400;
 	background: white;
 	border-radius: 5px;
-	height: 26px;
+	height: 40px;
 }
 select{
 	-webkit-appearance: none;
@@ -612,6 +612,47 @@ input[type="email"].input_md{
 	width:100%;
 	height: 110px;
 }
+.reser_numberOfUserBox{
+	width: 100%;
+	height: 50px;
+	margin-bottom: 30px;
+}
+.reser_user_adult{
+	display: inline-block;
+	float: left;
+	width: 30%;
+	height: 30px;
+	font-size: 16px;
+	line-height: 30px;
+}
+.user_num_controll{
+	width: 25%;
+	height:40px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+}
+#user_num_show{
+	width: 50%;
+	height: 37px;
+	text-align: center;
+	line-height: 37px;
+	float: left;
+	font-size: 14px;
+	border-left: 1px solid #999999;
+	border-right: 1px solid #999999;
+}
+.reser_user_number{
+	display: inline-block;
+	float: right;
+	width: 30%;
+	height: 38px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	border:1px solid #999999;
+	border-radius: 3px;
+}
 #reservation_btn{
 	width:47%;
 	height: 50px;
@@ -639,6 +680,8 @@ input[type="email"].input_md{
 	text-align: center;
 	line-height: 50px;
 	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: bold;
 }
 #reser_modal_close:hover{
 	cursor: pointer;

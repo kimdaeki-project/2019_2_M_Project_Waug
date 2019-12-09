@@ -23,8 +23,16 @@
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
+			<div class="reser_numberOfUserBox">
+				<div class="reser_user_adult">성인</div>
+				<div class="reser_user_number">
+					<div class="user_num_controll" id="minus" onclick="minus()"> - </div>
+					<div id="user_num_show">0</div>
+					<div class="user_num_controll" id="plus" onclick="plus()"> + </div>
+				</div>
+			</div>
 			<div class="reservation_btn_wrapper">
-			<div id="reservation_users_order_total_price">total price</div>
+			<div id="reservation_users_order_total_price"></div>
 				<button id="cart_btn">장바구니</button>
 				<button id="reservation_btn">예약하기</button>
 			</div>
@@ -62,7 +70,7 @@
 				<div class="reser_option_list">
 					<div class="reser_option_item">
 						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)</div>
-						<div class="reser_option_item_price">34000</div>
+						<div class="reser_option_item_price">34000HHHHH</div>
 					</div>
 				</div>
 			</div>
@@ -240,32 +248,60 @@ $('#reservation_btn').click(function(){
 		$('.reser_option_item').append(reser_option_item_price);
 		
 		//$('.reser_calBox').on("click", ".date",function(){
-		
-		$('.reser_option_list').on("click",".reser_option_item",function(event,year,month,date){
+		console.log(" **************fillOption()**************");
+			console.log("year : "+year);
+			console.log("month : "+month);
+			console.log("date : "+date);
+		$('.reser_option_list').on("click",".reser_option_item",function(){
+			console.log("event : "+event);
+			console.log("year : "+year);
+			console.log("month : "+month);
+			console.log("date : "+date);
 			showModal(event,year,month,date)});
 		}
 		/////////////////////////////////////////////////////////////////////////
-		$('.reser_option_list').on("click",".reser_option_item",showModal(event,year,month,date));
-		}
+		//$('.reser_option_list').on("click",".reser_option_item",showModal(event,year,month,date));
+		//}
 		///////////////////////////////////////////////////////////////////////////
 		/* $(document).on("click", '.topic-btn', {'param': 10}, function(event){
 		     displayGIF(event.data.param);
 		}); */
 		
+		//<div class="user_num_controll" id="minus"> - </div>
+		//<div id="user_num_show">0</div>
+		//<div class="user_num_controll" id="plus"> + </div>
+		
+		function minus(){
+			var curNum=0;
+			 curNum=$('#user_num_show').html();
+			if(curNum<=0){
+				$('#user_num_show').html("0");
+			}else{
+				curNum--;
+			}
+			$('#user_num_show').html(curNum);
+			showTotalPrice();
+		}
+		
+		function plus(){
+			var curNum=$('#user_num_show').html();
+			curNum++;
+			$('#user_num_show').html(curNum);
+			showTotalPrice();
+		}
+		
+		function showTotalPrice(){
+			var people=$('#user_num_show').html();
+			var price=$('.reser_option_item_price').html();
+			var totalPrice=people*price;
+			var commaNum=numberWithCommas(totalPrice);
+			$('#reservation_users_order_total_price').html(commaNum);
+			console.log("commaNum type : "+typeof commaNum);
+		}
 	
-	/* <div class="reser_option_title">
-	select options  날짜를 먼저 선택해주세요.
-	<div class="reser_option_selected_date">2020-02-08</div>
-	<div class="reser_option_list">
-		<div class="reser_option_item">
-			<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)</div>
-			<div class="reser_option_item_price">34000</div>
-		</div>
-	</div>
-</div> */
-
-	//modal 
-	//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+		function numberWithCommas(x) {
+		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
 </script>
 </body>
 </html>
