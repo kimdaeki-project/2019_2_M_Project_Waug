@@ -5,7 +5,7 @@
   
   <mapper namespace="reviewMapper">
   	<insert id="reviewInsert" parameterType="ReviewVO">
-  		insert into review values (review_SEQ.nextval, 0, #{rv_title}, #{rv_writer,jdbcType=VARCHAR2},#{rv_contents}
+  		insert into review1 values (review_SEQ.nextval, 0, #{rv_title}, #{rv_writer,jdbcType=VARCHAR2},#{rv_contents}
   		,sysdate, review_SEQ.currval, 0, 0, #{rv_score})
   	</insert>
   </mapper>

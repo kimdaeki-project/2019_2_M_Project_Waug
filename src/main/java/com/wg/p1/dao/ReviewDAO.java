@@ -12,6 +12,7 @@ public class ReviewDAO {
 	
 	@Inject
 	private SqlSession sqlSession;
+	
 	private final static String NAMESPACE="reviewMapper.";
 	
 	public int reviewWrite(ReviewVO reviewVO) throws Exception{
