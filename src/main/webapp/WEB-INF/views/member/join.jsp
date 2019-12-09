@@ -99,7 +99,6 @@
 		          success: function(res) {
 		            console.log(JSON.stringify(res));
 		            console.log(res.nickname);
-		            location.href="kakao?name="+res.name;
 		       		 $.ajax({
 			        	type: "GET",
 			        	url:"./kakao",
