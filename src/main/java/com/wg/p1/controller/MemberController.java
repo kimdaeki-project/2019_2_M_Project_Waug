@@ -97,4 +97,22 @@ public class MemberController {
 		
 	}
 	
+	@GetMapping(value = "memberDelete")
+	public ModelAndView memberDelete(MemberVO memberVO) throws Exception{
+		int result= memberService.memberDelete(memberVO);
+		ModelAndView mv = new ModelAndView();
+		
+		String msg="탈퇴실패";
+		if(result>0) {
+			msg="탈퇴성공";
+			
+		}
+		mv.addObject("msg", msg);		
+		mv.addObject("path", "../");
+		mv.setViewName("common/common_result");
+		
+		return mv;
+		
+	}
+	
 }

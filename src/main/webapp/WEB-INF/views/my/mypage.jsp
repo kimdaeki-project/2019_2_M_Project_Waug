@@ -117,7 +117,7 @@
 						
 					</div>
 					<div class="modal-body">
-						
+							<input type="text" value="${memberVO.email}" name="email" hidden="">
 							<div style="font-size: 13px; ">탈퇴 후에는 "chlgpgus57@naver.com"으로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.</div>
 							<label>
 								
@@ -129,7 +129,6 @@
 							<div style="margin-left: 340px;">
 								<button style="margin-left: auto;" id="btn-out-accept" type="button" class="btn-form-submit outline2 white-text">확인</button>
 								<button style="margin-left: 10px;" data-dismiss="modal" type="button" class="btn-form-submit outline2 white-text">다음에 할게요!</button>
-								
 							</div>
 						
 					
@@ -149,6 +148,19 @@
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
+	
+	$("#btn-out-accept").click(function() {
+		$.post("../member/memberDelete",${memberVO.email},function(){
+			
+		});
+		/* location.href="../member/memberDelete" */
+	});
+	
+	
+	
+
+	
+	
 	/* 모달 */
 	// Get the modal
 	var modal = document.getElementById("myModal");

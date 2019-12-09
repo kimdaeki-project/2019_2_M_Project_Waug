@@ -22,4 +22,8 @@
   			phone = #{phone}
   		where email=#{email}
   	</update>
+  	
+  	<delete id="memberDelete" parameterType="MemberVO">
+  		delete member where email=#{email}
+  	</delete>
 </mapper>
