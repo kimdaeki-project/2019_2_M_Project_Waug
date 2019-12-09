@@ -20,13 +20,16 @@ public class reviewTest extends testAbstractCase {
 	
 	@Test
 	public void test() throws Exception{
-		ReviewVO reviewVO = new ReviewVO();
-		
-		reviewVO.setRv_writer("reviewtest1");
-		reviewVO.setRv_contents("reviewtest1");
-		reviewVO.setRv_score(5);
-		System.out.println(reviewVO.getRv_writer());
-		int result = reviewDAO.reviewWrite(reviewVO);
+		int result = 0;
+		for (int i = 0; i < 2; i++) {
+			ReviewVO reviewVO = new ReviewVO();
+			reviewVO.setEmail("review@review"+i+".com");
+			reviewVO.setRv_writer("reviewtest"+i);
+			reviewVO.setRv_contents("reviewtest"+i);
+			reviewVO.setRv_score(2);
+			result = reviewDAO.reviewWrite(reviewVO);
+			
+		}
 		
 		assertEquals(1, result);
 	}

@@ -4,15 +4,15 @@ public class ReviewVO {
 	
 	private int rv_num;
 	private int goods_num;
-	private String rv_title;
+	private String email;
 	private String rv_writer;
 	private String rv_contents;
 	private String rv_reg_date;
-	private int rv_ref;
-	private int rv_step;
-	private int rv_depth;
 	private int rv_score;
-	
+	private int rv_ex;
+	private String rv_aname;
+	private String rv_adate;
+	private String rv_acontents;
 	
 	public int getRv_num() {
 		return rv_num;
@@ -26,11 +26,11 @@ public class ReviewVO {
 	public void setGoods_num(int goods_num) {
 		this.goods_num = goods_num;
 	}
-	public String getRv_title() {
-		return rv_title;
+	public String getEmail() {
+		return email;
 	}
-	public void setRv_title(String rv_title) {
-		this.rv_title = rv_title;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getRv_writer() {
 		return rv_writer;
@@ -50,28 +50,35 @@ public class ReviewVO {
 	public void setRv_reg_date(String rv_reg_date) {
 		this.rv_reg_date = rv_reg_date;
 	}
-	public int getRv_ref() {
-		return rv_ref;
-	}
-	public void setRv_ref(int rv_ref) {
-		this.rv_ref = rv_ref;
-	}
-	public int getRv_step() {
-		return rv_step;
-	}
-	public void setRv_step(int rv_step) {
-		this.rv_step = rv_step;
-	}
-	public int getRv_depth() {
-		return rv_depth;
-	}
-	public void setRv_depth(int rv_depth) {
-		this.rv_depth = rv_depth;
-	}
 	public int getRv_score() {
 		return rv_score;
 	}
 	public void setRv_score(int rv_score) {
 		this.rv_score = rv_score;
 	}
+	public int getRv_ex() {
+		return rv_ex;
+	}
+	public void setRv_ex(int rv_ex) {
+		this.rv_ex = rv_ex;
+	}
+	public String getRv_aname() {
+		return rv_aname;
+	}
+	public void setRv_aname(String rv_aname) {
+		this.rv_aname = rv_aname;
+	}
+	public String getRv_adate() {
+		return rv_adate;
+	}
+	public void setRv_adate(String rv_adate) {
+		this.rv_adate = rv_adate;
+	}
+	public String getRv_acontents() {
+		return rv_acontents;
+	}
+	public void setRv_acontents(String rv_acontents) {
+		this.rv_acontents = rv_acontents;
+	}
+	
 }

@@ -34,12 +34,13 @@
 					<div class="page-title review-title-text">
 						<h3>이용 후기</h3>
 					</div>
-
-					<div id="comment98479" class="item-comment clearfix">
+					<div class="add-list">
+					<c:forEach items="${list}" var="dto">
+					<div id="comment${dto.rv_num}" class="item-comment clearfix">
 						<div class="comment-content">
 
 							<div class="star-score-space">
-								<span class="comment-list-mem-id star-score-sort"> 박용1* </span>
+								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
 
 								<span class="star-score-sort">
 									<div
@@ -56,187 +57,61 @@
 													aria-hidden="true"></i></span><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
 													aria-hidden="true"></i></span></span><span class="filled-stars"
-												style="width: 100%;"><span class="star"><i
+												style="width: 100%;"><c:forEach begin="1" end="${dto.rv_score}"><span class="star"><i
 													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span> <input value="5"
+													aria-hidden="true"></i></span></c:forEach></span> <input value="${dto.rv_score}"
 												class="rating rating-input" data-show-clear="false"
 												data-show-caption="false" data-size="xxs"
 												data-readonly="true" readonly="readonly">
 										</div>
 									</div>
-								</span> <span class="star-score-sort"> (5/5) </span> <span
-									class="comment-list-title" style="float: right;">2019-12-06</span>
+								</span> <span class="star-score-sort"> (${dto.rv_score}/5) </span> <span
+									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
-							<p class="comment_msg">waug</p>
-
+							<p class="comment_msg" >${dto.rv_contents}</p>
+							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
-								<button name="btn-review-update" data-goodidx="107382"
-									data-idx="98479" data-toggle="modal"
-									data-target="#modal-review"
-									class="btn btn-review-update outline btn-sm" type="button">수정</button>
-								<button onclick="deleteComment('98479')" type="button"
-									class="btn btn-review-update outline btn-sm">삭제</button>
+								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
+									data-idx="${dto.rv_num}" data-toggle="modal"
+									data-target="#modal-update"
+									class="btn btn-review-update outline btn-sm" type="button" value="${dto.rv_num}">수정</button>
+								<button value="${dto.rv_num}" type="button"
+									class="btn btn-review-delete outline btn-sm">삭제</button>
 							</div>
+							<!-- 여기까지 if문으로 감싸기 -->
 						</div>
 					</div>
-					<div id="comment97627" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
-								<span class="comment-list-mem-id star-score-sort"> 김정* </span> <span
-									class="star-score-sort">
-									<div
-										class="rating-container rating-xxs rating-animate rating-disabled star-float">
-										<div class="rating-stars">
-											<span class="empty-stars"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><span class="filled-stars"
-												style="width: 100%;"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"></span></span><input
-												value="5" class="rating rating-input"
-												data-show-clear="false" data-show-caption="false"
-												data-size="xxs" data-readonly="true" readonly="readonly">
-										</div>
-									</div>
-								</span> <span class="star-score-sort"> (5/5) </span> <span
-									class="comment-list-title" style="float: right;">2019-12-05</span>
-							</div>
-							<p class="comment_msg">11고리형이라 더 편했어요 그냥 키링에 묶어서 다녔습니다! 굿</p>
-
-						</div>
+					<div style="position: relative; padding-bottom: 20px; margin-top: -16px;">
+             		   <div class="waug-comment-box">
+                   		 <span style="font-weight: bold;">WAUG 운영자</span>
+                   			 <span style="margin-left: 4px; color: #aaa;">2019-10-16</span>
+                    			<p class="comment_msg">안녕하세요. 와그입니다:)<br>
+								예약 및 상품 문의는 와그 카카오톡 플러스친구 WAUG 혹은 대표전화(070-4353-5959)로 회신부탁드립니다. 감사합니다.<br>
+								</p>
+                		</div>
+           			 </div>
+					</c:forEach>
 					</div>
-
-
-					<div id="comment97607" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
-								<span class="comment-list-mem-id star-score-sort"> 박다* </span> <span
-									class="star-score-sort">
-									<div
-										class="rating-container rating-xxs rating-animate rating-disabled star-float">
-										<div class="rating-stars">
-											<span class="empty-stars"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><span class="filled-stars"
-												style="width: 100%;"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><input value="5"
-												class="rating rating-input" data-show-clear="false"
-												data-show-caption="false" data-size="xxs"
-												data-readonly="true" readonly="readonly">
-										</div>
-									</div>
-								</span> <span class="star-score-sort"> (5/5) </span> <span
-									class="comment-list-title" style="float: right;">2019-11-13</span>
-							</div>
-							<p class="comment_msg">대만여행 필수 구매템입니다 지하철 할인도되고 잔돈안생겨서 제일
-								좋았던것 같아요</p>
-
-						</div>
-					</div>
-					<div id="comment79515" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
-								<span class="comment-list-mem-id star-score-sort">
-									Ha********* </span> <span class="star-score-sort">
-									<div
-										class="rating-container rating-xxs rating-animate rating-disabled star-float">
-										<div class="rating-stars">
-											<span class="empty-stars"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><span class="filled-stars"
-												style="width: 100%;"><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span><span class="star"><i
-													class="glyphicon glyphicon-star" style="font-weight: 100;"
-													aria-hidden="true"></i></span></span><input value="5"
-												class="rating rating-input" data-show-clear="false"
-												data-show-caption="false" data-size="xxs"
-												data-readonly="true" readonly="readonly">
-										</div>
-									</div>
-								</span> <span class="star-score-sort"> (5/5) </span> <span
-									class="comment-list-title" style="float: right;">2019-11-06</span>
-							</div>
-							<p class="comment_msg">1212교통카드로 편의점도 이용할 수 있다고 들었는데 편의점은
-								이용해보지 않았지만 남은 금액 편의점에서 전부 사용하시는 분들도 계시다는 후기를 봤었습니다. 필요하신 분들은 그렇게
-								하셔도 좋을 것 같구요. 저는 버스타고 돌아다니는 거 좋아해서 잘 사용했습니다.</p>
-
-						</div>
-					</div>
-
 					<!--  review modal begin  -->
 					<div class="modal fade" id="modal-review" tabindex="-1"
 						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
 						<div class="modal-dialog">
 
 							<div class="modal-content">
-								<div class="modal-header">이용 후기12</div>
+								<div class="modal-header">이용 후기</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_write" method="post" class="review-form">
-									<!-- rv_writer -->
+									<!-- rv_writer 멤버session에서 받아와야함-->
 										<input type="text" name="rv_writer" value="pyj" style="display: none;">
+										<input type="hidden" name="email" value="pyj9088@gmail.com">
+									<!-- 이 2개 -->
 									<div class="pull-left">
 										<div class="row">
+										<!-- 상품에 따라 바뀌게 해야함 -->
 											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
@@ -306,6 +181,99 @@
 							</div>
 						</div>
 					</div>
+					
+					<!-- ******************************************************************************************** -->
+					<div class="modal fade" id="modal-update" tabindex="-1"
+						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
+						<div class="modal-dialog">
+
+							<div class="modal-content">
+								<div class="modal-header">이용 후기</div>
+								<div class="modal-body" style="padding-bottom: 45px;">
+									<a href="../good/?idx=107382">
+										<div
+											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
+									</a>
+									<form action="review_update" method="post" class="review-form2">
+									<!-- rv_writer 멤버session에서 받아와야함-->
+										<input type="hidden" name="rv_num" class="update_rv_num">
+										<input type="text" name="rv_writer" value="pyj" style="display: none;">
+										<input type="hidden" name="email" value="pyj9088@gmail.com">
+									<!-- 이 2개 -->
+									<div class="pull-left">
+										<div class="row">
+										<!-- 상품에 따라 바뀌게 해야함 -->
+											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
+										</div>
+										<div class="form-group" style="margin-left: 10px;" >
+											<div class="center comment-write-starspace">
+												<div
+													class="rating-container rating-md rating-animate star-float">
+													<div class="rating2 rating3" >
+														<label> <input type="radio" name="rv_score" value="1"  class="radiostar"/>
+															<span class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="2" class="radiostar"/> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="3"  class="radiostar"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="4"  class="radiostar"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="5"  class="radiostar" checked="checked"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<textarea id="comment_write_msg2" class="form-control"
+											style="height: 246px;"
+											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
+									</div>
+									</form>
+									<div class="form-group comment-write-btn-wrapper">
+										<div class="camera">
+											<form id="frm-review-file">
+												<label for="input_comment_img_new"> <img
+													style="padding-top: 17px; width: 62px; padding-left: 11px;"
+													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
+													type="file" id="input_comment_img_new" class="hide"
+													accept="image/*">
+												</label>
+											</form>
+										</div>
+
+									</div>
+									<div class="comment-write-img">
+										<div class="comment-img-list" id="preview-img"></div>
+									</div>
+									<div class="form-group comment-write-btn-wrapper">
+										<div class="write" style="float: right;">
+											<label id="btn_comment_write">
+												<button id="btn-update-submit" type="button"
+													class="btn-form-submit" style="font-size: 12px;">수정</button>
+											</label>
+										</div>
+										<div class="cancel" style="float: right;">
+											<button id="btn-comment-cancel" type="button"
+												class="btn-form-cancel"
+												style="font-size: 12px; margin-right: 10px;"
+												data-dismiss="modal">취소</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ******************************************************************************************** -->
+					
 					<!-- <div class="modal fade" id="modal-review-image" tabindex="-1"
 						role="dialog" aria-hidden="true"
 						aria-labelledby="modal-review-image"></div> -->
@@ -317,14 +285,14 @@
 						<a type="button" id="btn-review-write" data-goodidx="107382"
 							data-toggle="modal" data-target="#modal-review"
 							class="reivew-foot-write-btn col-md-12 btn-form-submit "
-							style="color: white; text-align: center;">후기 작성하기</a>
+							style="color: white; text-align: center; text-decoration: none; cursor: pointer;">후기 작성하기</a>
 					</div>
-					<div class="text-center space-4 add-review-space">
+					
+					<div class="text-center space-4 add-review-space" >
 						<a class="btn btn-goods-etc outline review-foot-more-btn"
 							id="add_review" data-startid="10" style="color: #d91c84;">더
 							보기</a>
 					</div>
-
 				</div>
 				<!--  comment list end  -->
 
@@ -332,14 +300,60 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-
+		var curPage = 1;
+		/* 별점 */
 		$(':radio').change(function() {
   		console.log('New star rating: ' + this.value);
 		});
 		
+		/* 글작성  폼 submit*/
 		$("#btn-comment-submit").click(function() {
 			$(".review-form").submit();
-		})
+		});
+		
+		/* 글수정 폼 submit */
+		$("#btn-update-submit").click(function() {
+			$(".review-form2").submit();
+		});
+		
+		/* 리뷰 더 보기 */
+		$("#add_review").click(function() {
+			curPage = curPage+1;
+			$.get("./review_lists?curPage="+curPage, function(data){
+				data=data.trim();
+				$(".add-list").append(data);
+			});
+			if(curPage >= ${totalPage} ){
+				$("#add_review").css("display","none");
+			}
+		});
+		
+		/* 리뷰 삭제 */
+		$(".btn-review-delete").click(function() {
+			if(confirm("정말 삭제하시겠습니까?")){
+				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
+					
+				});
+				
+				location.reload();
+			}
+		});
+		
+		/* 리뷰 수정창 띄우기 */
+		$(".btn-review-update").click(function() {
+			var num = $(this).val();
+			$.get("./reviewSelect?rv_num="+num, function(data){
+				data=data.trim();
+				console.log(data);
+				var strings = data.split('/');
+				$("#comment_write_msg2").val(strings[1]);
+	
+					$(".update_rv_num").val(num);
+					$(".radiostar").eq(strings[0]-1).attr("checked",true);
+				
+			});
+			
+		});
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>
