@@ -16,7 +16,7 @@ public class ReviewDAO {
 	private final static String NAMESPACE="reviewMapper.";
 	
 	public int reviewWrite(ReviewVO reviewVO) throws Exception{
-		
-		return sqlSession.insert(NAMESPACE+"reviewInsert", reviewVO);
+		System.out.println(reviewVO.getRv_writer());
+		return sqlSession.insert(NAMESPACE+"reviewWrite", reviewVO);
 	}
 }

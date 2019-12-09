@@ -18,23 +18,17 @@ public class reviewTest extends testAbstractCase {
 	@Inject
 	SqlSession sqlSession;
 	
-	//@Test
+	@Test
 	public void test() throws Exception{
 		ReviewVO reviewVO = new ReviewVO();
 		
-		reviewVO.setGoods_num(1);
-		reviewVO.setRv_title("reviewtest1");
 		reviewVO.setRv_writer("reviewtest1");
 		reviewVO.setRv_contents("reviewtest1");
 		reviewVO.setRv_score(5);
+		System.out.println(reviewVO.getRv_writer());
 		int result = reviewDAO.reviewWrite(reviewVO);
 		
 		assertEquals(1, result);
-	}
-	@Test
-	public void test2() throws Exception{
-		
-		assertNotNull(sqlSession);
 	}
 
 }

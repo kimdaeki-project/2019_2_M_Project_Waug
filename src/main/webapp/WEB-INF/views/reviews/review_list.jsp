@@ -226,36 +226,37 @@
 						<div class="modal-dialog">
 
 							<div class="modal-content">
-								<div class="modal-header">이용 후기</div>
+								<div class="modal-header">이용 후기12</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
-									<form action="review_write">
-									
+									<form action="review_write" method="post" class="review-form">
+									<!-- rv_writer -->
+										<input type="text" name="rv_writer" value="pyj" style="display: none;">
 									<div class="pull-left">
 										<div class="row">
 											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
 										</div>
-										<div class="form-group" style="margin-left: 10px;">
+										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
 												<div
 													class="rating-container rating-md rating-animate star-float">
 													<div class="rating2" >
-														<label> <input type="radio" name="stars" value="1" />
+														<label> <input type="radio" name="rv_score" value="1" />
 															<span class="icon">★</span>
-														</label> <label> <input type="radio" name="stars"
+														</label> <label> <input type="radio" name="rv_score"
 															value="2" /> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="stars"
+														</label> <label> <input type="radio" name="rv_score"
 															value="3" /> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>
-														</label> <label> <input type="radio" name="stars"
+														</label> <label> <input type="radio" name="rv_score"
 															value="4" /> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="stars"
+														</label> <label> <input type="radio" name="rv_score"
 															value="5" checked="checked"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>
@@ -268,7 +269,7 @@
 									<div class="form-group">
 										<textarea id="comment_write_msg" class="form-control"
 											style="height: 246px;"
-											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요."></textarea>
+											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
 									</form>
 									<div class="form-group comment-write-btn-wrapper">
@@ -335,6 +336,10 @@
 		$(':radio').change(function() {
   		console.log('New star rating: ' + this.value);
 		});
+		
+		$("#btn-comment-submit").click(function() {
+			$(".review-form").submit();
+		})
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>

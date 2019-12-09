@@ -35,7 +35,7 @@ public class ReviewVO {
 	public String getRv_writer() {
 		return rv_writer;
 	}
-	public void setRv_writer(String re_writer) {
+	public void setRv_writer(String rv_writer) {
 		this.rv_writer = rv_writer;
 	}
 	public String getRv_contents() {
