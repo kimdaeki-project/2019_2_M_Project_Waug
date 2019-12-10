@@ -3,6 +3,8 @@ package com.wg.p1.service;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.inject.Inject;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -19,6 +21,7 @@ public class KakaoPayService {
 
 	private static final String HOST = "https://kapi.kakao.com";
 
+	@Inject
 	private KakaoPayReadyVO kakaoPayReadyVO;
 
 	public String kakaoPayReady() {
@@ -44,9 +47,9 @@ public class KakaoPayService {
         params.add("quantity", "1");
         params.add("total_amount", "2100");
         params.add("tax_free_amount", "100");
-        params.add("approval_url", "http://localhost:8080/kakaoPaySuccess");
-        params.add("cancel_url", "http://localhost:8080/kakaoPayCancel");
-        params.add("fail_url", "http://localhost:8080/kakaoPaySuccessFail");
+        params.add("approval_url", "http://localhost/p1/kakao/kakaoPaySuccess");		//건들것 없음
+        params.add("cancel_url", "http://localhost/p1/kakao/kakaoPayCancel");			//건들것 없음
+        params.add("fail_url", "http://localhost/p1/kakao/kakaoPaySuccessFail");		//건들것 없음
         
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
         

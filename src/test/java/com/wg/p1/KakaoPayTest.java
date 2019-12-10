@@ -10,7 +10,7 @@ import com.wg.p1.service.KakaoPayService;
 
 public class KakaoPayTest extends testAbstractCase{
 
-	
+	@Inject
 	private KakaoPayService kakaoService;
 	@Test
 	public void test() {
