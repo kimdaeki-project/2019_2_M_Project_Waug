@@ -342,7 +342,7 @@
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
+									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
 								</div>
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
@@ -648,29 +648,26 @@
 			$(this).children().css("color", "#333333");
 		});
 		/* 위시리스트 jquery */
-		$(".good-card-wish-btn").click(function(e) {
+		$(".good-card-wish-btn").click(function() {
 			event.stopPropagation();
 			$(this).toggleClass("good-card-wish-btn-whis");
+			var goods_num = $(this).attr("title");
+			alert(goods_num);
 			
-		
 			$.ajax({
 		        	type: "GET",
-		        	url:"./wishlist",
+		        	url:"./my/wishAdd",
 		        	data:{
-			        	name: response.name,
-			        	email:response.email
+			        	goods_num:goods_num
 		        	},
-		        	success : function(result)
+		        	success : function()
 		        	{
-		        	  alert('회원가입성공');    
+		        	  alert('success');    
 		        	},
-		        	error: function(result) {
-					  alert('회원가입실패');
+		        	error: function() {
+					  alert('fail');
 					},
-					complete : function() {
-						location.href="../";
-					}
-		    }); 
+		    });  
 			
 		});
 		/* 모달 */

@@ -5,9 +5,32 @@
   
 <mapper namespace="wishlistMapper">
 	<insert id="wishAdd" parameterType="WishListVO">
-		insert into wishlist(w_num,goods_num, email) values(wish_seq.nextval, ${goods_num},${email})
+		insert into wishlist(w_num,goods_num,email) values(wish_seq.nextval, #{goods_num},#{email})
 	</insert>
   	<delete id="wishDel" parameterType="WishListVO">
-  		delete wishlist where goods_num=${goods_num}
+  		delete wishlist where goods_num=#{goods_num}
   	</delete>
+  	<select id="myWish" parameterType="MemberVO" resultType="GoodsVO">
+  		select * from wishlist inner join goods using (goods_num) where email=#{m_pk}
+  	</select>
+  	
+  	<!-- <resultMap type="GoodsVO" id="wishlist">
+  		<id property="goods_num" column="goods_num"/>
+  		<result property="price" column="price"/>
+  		<result property="discount" column="discount"/>
+  		<result property="coupon" column="coupon"/>
+  		<result property="location" column="location"/>
+  		<result property="able" column="able"/>
+  		<result property="city_num" column="city_num"/>
+  		<result property="o_num" column="o_num"/>
+  		<result property="qtt" column="qtt"/>
+  		<result property="title" column="title"/>
+  		<result property="t_num" column="t_num"/>
+  		<result property="img" column="img"/>
+  		<collection property="wishlist" javaType="java.util.List" ofType="WishListVO">
+  			<id property="w_num" column="w_num"/>
+  			<result property="goods_num" column="goods_num"/>
+  			<result property="email" column="email"/>
+  		</collection>
+  	</resultMap> -->
 </mapper>

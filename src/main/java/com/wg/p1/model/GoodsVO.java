@@ -1,6 +1,7 @@
 package com.wg.p1.model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class GoodsVO {
 	private int goods_num;
@@ -15,6 +16,15 @@ public class GoodsVO {
 	private String title;
 	private int t_num;
 	private String img;
+	private List<WishListVO> wishlist;
+	
+	
+	public List<WishListVO> getWishlist() {
+		return wishlist;
+	}
+	public void setWishlist(List<WishListVO> wishlist) {
+		this.wishlist = wishlist;
+	}
 	
 	public int getGoods_num() {
 		return goods_num;

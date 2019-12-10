@@ -29,7 +29,7 @@
 						<h3 class="space-5" style="font-weight: bold;">Wish List</h3>
 						
 					<div class="row" >
-					
+					<c:forEach items="${list}" var="vo"> 
 						<!-- goods 하나 -->
 						<div class="good-card-box m-good-card col-md-6 item">
 						<!-- 위시리스트 추가하트 -->
@@ -38,91 +38,28 @@
 						<div class="wish-good">
 							<img data-lazy="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
 							class="good-photo lazy" 
-							src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
+							src="${vo.img}" 
 							style="display: block;">
 						</div>
 						<!-- 상품설명 -->
 						<div class="good-info-content-box">
 							<div class="today-use">오늘부터 사용 가능</div>
-							<span class="good-title">종로 더피자필 이용권</span>
-							<div class="good-original-price">$19,000</div>
-							<div class="good-discount-price">$17,100</div>
+							<span class="good-title">${vo.title}</span>
+							<div class="good-original-price">${vo.price}</div>
+							<div class="good-discount-price">${vo.discount}</div>
 							<div class="good-booked">47 예약</div>
 						</div>
 						</div>
 						<!-- goods 하나 끝 -->
-					
-						<!-- goods 하나 -->
-						<div class="good-card-box m-good-card col-md-6 item">
-						<!-- 위시리스트 추가하트 -->
-						<div class="good-wish"><img alt="하트" src="../resources/images/ic_active_wish.svg"></div>
-						<!-- 상품사진 -->
-						<div class="wish-good">
-							<img data-lazy="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							class="good-photo lazy" 
-							src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							style="display: block;">
-						</div>
-						<!-- 상품설명 -->
-						<div class="good-info-content-box">
-							<div class="today-use">오늘부터 사용 가능</div>
-							<span class="good-title">종로 더피자필 이용권</span>
-							<div class="good-original-price">$19,000</div>
-							<div class="good-discount-price">$17,100</div>
-							<div class="good-booked">47 예약</div>
-						</div>
-						</div>
-						<!-- goods 하나 끝 -->
-						<!-- goods 하나 -->
-						<div class="good-card-box m-good-card col-md-6 item">
-						<!-- 위시리스트 추가하트 -->
-						<div class="good-wish"><img alt="하트" src="../resources/images/ic_active_wish.svg"></div>
-						<!-- 상품사진 -->
-						<div class="wish-good">
-							<img data-lazy="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							class="good-photo lazy" 
-							src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							style="display: block;">
-						</div>
-						<!-- 상품설명 -->
-						<div class="good-info-content-box">
-							<div class="today-use">오늘부터 사용 가능</div>
-							<span class="good-title">종로 더피자필 이용권</span>
-							<div class="good-original-price">$19,000</div>
-							<div class="good-discount-price">$17,100</div>
-							<div class="good-booked">47 예약</div>
-						</div>
-						</div>
-						<!-- goods 하나 끝 -->
-						<!-- goods 하나 -->
-						<div class="good-card-box m-good-card col-md-6 item">
-						<!-- 위시리스트 추가하트 -->
-						<div class="good-wish"><img alt="하트" src="../resources/images/ic_active_wish.svg"></div>
-						<!-- 상품사진 -->
-						<div class="wish-good">
-							<img data-lazy="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							class="good-photo lazy" 
-							src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
-							style="display: block;">
-						</div>
-						<!-- 상품설명 -->
-						<div class="good-info-content-box">
-							<div class="today-use">오늘부터 사용 가능</div>
-							<span class="good-title">종로 더피자필 이용권</span>
-							<div class="good-original-price">$19,000</div>
-							<div class="good-discount-price">$17,100</div>
-							<div class="good-booked">47 예약</div>
-						</div>
-						</div>
-						<!-- goods 하나 끝 -->
+					</c:forEach> 
+						
 					</div>
 					
 				</div>
 					</div>
 			</div>
 		</div>
-		</div>
-		</div>	
+	</div>
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
