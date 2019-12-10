@@ -35,20 +35,15 @@ public class MemberController {
 		memberVO.setEmail(email);
 		memberVO.setSocial("f");
 		memberVO.setM_pk(memberVO.getSocial()+"_"+memberVO.getEmail());
-		memberService.socialJoin(memberVO);
+		int result = memberService.socialJoin(memberVO);
 		
-		memberVO = memberService.memberLogin(memberVO);
-		
-		String msg="로그인실패";
-		if(memberVO!=null) {
-			msg="로그인성공";
+		if(result>0) {
+
 			session.setAttribute("memberVO", memberVO);
 		}
-		mv.addObject("msg", msg);
-		mv.addObject("path", "../");
-		mv.setViewName("common/common_result");
-		System.out.println(name);
-		System.out.println(email);
+		mv.addObject("result", result);
+		mv.setViewName("common/common_ajaxResult");
+		
 		return mv;
 	}
 	
@@ -62,19 +57,15 @@ public class MemberController {
 		memberVO.setEmail(email);
 		memberVO.setSocial("k");
 		memberVO.setM_pk(memberVO.getSocial()+"_"+memberVO.getEmail());
-		memberService.socialJoin(memberVO);
-		memberVO = memberService.memberLogin(memberVO);
+		int result = memberService.socialJoin(memberVO);
 		
-		String msg="로그인실패";
-		if(memberVO!=null) {
-			msg="로그인성공";
-			session.setAttribute("memberVO", memberVO);
-		}
-		mv.addObject("msg", msg);
-		mv.addObject("path", "../");
-		mv.setViewName("common/common_result");
-		System.out.println(nickname);
-		System.out.println(email);
+		 if(result>0) { 
+			 session.setAttribute("memberVO", memberVO); 
+		 }
+		 
+		  mv.addObject("result", result);
+		  mv.setViewName("common/common_ajaxResult");
+		 
 		return mv;
 	}
 	

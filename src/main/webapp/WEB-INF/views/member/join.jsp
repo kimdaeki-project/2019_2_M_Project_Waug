@@ -7,7 +7,10 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+<meta name="google-signin-client_id" content="485790286218-oackp6vpu1235mcaj7n91r4fnd5kkkk1.apps.googleusercontent.com">
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
@@ -44,19 +47,22 @@
 					
 				</div>
 				<!-- 페이스북 -->
-				<span id="status" value="checking..."> </span>
-				<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
+
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
 				</div>		
 				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
-					<img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo" onclick="nightDayHandler(this);">
+					<!-- <img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo" onclick="nightDayHandler(this);">
 			
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
-					<div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
+					
+					<span id="status" value="checking..."> </span>
+					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
+					
+					<!-- <div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
 						<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
 						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
-					</div>
+					</div> -->
 				</div>
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
@@ -65,13 +71,18 @@
 					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
-				<div class="btn-login-sns-box login-form-box" id="naver_login">
+				<!-- 네이버 -->
+				<div class="btn-login-sns-box login-form-box" id="naverIdlogin">
+					<a id="naverIdLogin_loginButton" href="#">
 					<img alt="" src="https://www.waug.com/images/naver.svg" class="sns-login-naver-logo">
 					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+					</a>
 				</div>
+				<!-- 구글 -->
 				<div class="btn-login-sns-box login-form-box" id="google_login">
-					<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+				<div class="g-signin2" data-onsuccess="onSignIn"></div>
+				<!-- 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
 				</div>
 				<div style="margin-top: -14px">
 					<div class="sign-up-check-box">
@@ -85,6 +96,58 @@
 	</div>
 
 	<script type="text/javascript">
+		/* 네이버 로그인 */
+
+		
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "M7C187iCGvZmwwLw6s5T",
+				callbackUrl: "http://" + window.location.hostname + ((location.port==""||location.port==undefined)?"":":" + location.port) + "/oauth/sample/callback.html",
+				isPopup: false,
+				loginButton: {color: "green", type: 3, height: 60}
+			}
+		);
+		/* (4) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
+		naverLogin.init();
+		
+		/* (4-1) 임의의 링크를 설정해줄 필요가 있는 경우 */
+		$("#gnbLogin").attr("href", naverLogin.generateAuthorizeUrl());
+
+		/* (5) 현재 로그인 상태를 확인 */
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+					setLoginStatus();
+				}
+			});
+		});
+
+		/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+		function setLoginStatus() {
+			var profileImage = naverLogin.user.getProfileImage();
+			var nickName = naverLogin.user.getNickName();
+			$("#naverIdLogin_loginButton").html('<br><br><img src="' + profileImage + '" height=50 /> <p>' + nickName + '님 반갑습니다.</p>');
+			$("#gnbLogin").html("Logout");
+			$("#gnbLogin").attr("href", "#");
+			/* (7) 로그아웃 버튼을 설정하고 동작을 정의합니다. */
+			$("#gnbLogin").click(function () {
+				naverLogin.logout();
+				location.reload();
+			});
+		}
+
+	
+	
+		/* 구글 로그인 api*/
+		function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
+	
 		/* 	  카카오 로그인 api */
 		 //<![CDATA[
 		    // 사용할 앱의 JavaScript 키를 설정해 주세요.
@@ -98,14 +161,26 @@
 		          url: '/v2/user/me',
 		          success: function(res) {
 		            console.log(JSON.stringify(res));
-		            console.log(res.nickname);
+		            console.log(res.properties.nickname);
+		            console.log(res.kakao_account.email);
 		       		 $.ajax({
 			        	type: "GET",
 			        	url:"./kakao",
 			        	data:{
-				        	nickname: res.nickname,
-				        	email:res.email
-			        	}
+				        	nickname: res.properties.nickname,
+				        	email:res.kakao_account.email
+			        	}, 
+			        	success : function(result)
+			        	{
+			        	  alert('회원가입성공');    
+			        	},
+			        	error: function(result) {
+						  alert('회원가입실패');
+						},
+						complete : function() {
+							location.href="../";
+						}
+		       		 
 			        });
 		          },
 		          fail: function(error) {
@@ -186,7 +261,19 @@
 			        	data:{
 				        	name: response.name,
 				        	email:response.email
-			        	}
+			        	},
+			        	success : function(result)
+			        	{
+			        	  alert('회원가입성공');    
+			        	},
+			        	error: function(result) {
+						  alert('회원가입실패');
+						},
+						complete : function() {
+							location.href="../";
+						}
+		       		 
+			 
 			        }); 
 			    });
 			  }
