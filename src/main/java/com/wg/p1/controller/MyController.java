@@ -4,18 +4,22 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.MemberServiceImpl;
+import com.wg.p1.service.WishListService;
 
 @Controller
 @RequestMapping(value = "/my/**")
 public class MyController {
 
 	@Inject
-	MemberServiceImpl memberService;
+	private MemberServiceImpl memberService;
+	@Inject
+	private WishListService wishlistService;
 	
 	@RequestMapping(value = "mypage")
 	public void my(HttpSession session) throws Exception{
@@ -27,6 +31,12 @@ public class MyController {
 	
 	@PostMapping(value = "mypage")
 	public void my() {
+		
+	}
+	
+	@GetMapping("wishlist")
+	public void wishlist() throws Exception{
+		
 		
 	}
 	
