@@ -13,7 +13,21 @@ public class ReviewVO {
 	private String rv_aname;
 	private String rv_adate;
 	private String rv_acontents;
+	private double rv_avg;
+	private int rv_total;
 	
+	public double getRv_avg() {
+		return rv_avg;
+	}
+	public void setRv_avg(double rv_avg) {
+		this.rv_avg = rv_avg;
+	}
+	public int getRv_total() {
+		return rv_total;
+	}
+	public void setRv_total(int rv_total) {
+		this.rv_total = rv_total;
+	}
 	public int getRv_num() {
 		return rv_num;
 	}

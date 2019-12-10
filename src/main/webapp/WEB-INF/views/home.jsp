@@ -338,7 +338,7 @@
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/26/15747517566386.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
+									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
 								</div>
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
@@ -352,6 +352,7 @@
 							</div>
 						</div>
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 18px;">
+							<a href="./goods/good_page">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/24/15639560567339.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
@@ -366,9 +367,10 @@
 									<div class="good-card-buy-cnt">21,950 예약</div>
 								</div>
 							</div>
+							</a>
 						</div>
 						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='goods';">
+							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='./goods/good_page';">
 								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582409642.png?s=266x175');">
 									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
 								</div>
@@ -645,6 +647,9 @@
 				</div>
 			</div>
 		</div>
+		<button onclick="location.href='./goods/goods_write'">
+			상품등록
+		</button>
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 
@@ -705,9 +710,6 @@
 		});
 		/* 위시리스트 jquery */
 		$(".good-card-wish-btn").click(function() {
-			event.stopPropagation();
-			if($(this).hasClass("good-card-wish-btn-whis"))
-			
 			$(this).toggleClass("good-card-wish-btn-whis");
 		});
 		/* 모달 */

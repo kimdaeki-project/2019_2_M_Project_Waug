@@ -49,4 +49,16 @@
 		where rv_num=#{rv_num}
 	</update>
 	
+	<!-- 별점평균, 전체리뷰수 가져오기 -->
+	<select id="review_avg_count" parameterType="ReviewVO" resultType="ReviewVO">
+		select round(avg(rv_score),1) rv_avg, count(rv_num) rv_total from review1 where goods_num=1
+	</select>
+	
+	<!-- 가장 최근 후기 불러오기 -->
+	<select id="reviewLatest" parameterType="ReviewVO" resultType="ReviewVO">
+		select * from        
+(select rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
+		, rv_score from review1 where goods_num = 1
+		order by rv_num desc) R where rownum=1
+	</select>
 </mapper>

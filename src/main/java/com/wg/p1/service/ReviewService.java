@@ -46,4 +46,11 @@ public class ReviewService {
 	public int reviewReply(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewReply(reviewVO);
 	}
+	
+	public ReviewVO review_avg_total(ReviewVO reviewVO) throws Exception{
+		return reviewDAO.review_avg_count(reviewVO);
+	}
+	public ReviewVO reviewLatest(ReviewVO reviewVO) throws Exception{
+		return reviewDAO.reviewLatest(reviewVO);
+	}
 }

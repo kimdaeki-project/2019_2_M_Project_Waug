@@ -44,4 +44,12 @@ public class ReviewDAO {
 	public int reviewReply(ReviewVO reviewVO) throws Exception{
 		return sqlSession.update(NAMESPACE+"reviewReply", reviewVO);
 	}
+	
+	public ReviewVO review_avg_count(ReviewVO reviewVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"review_avg_count", reviewVO);
+	}
+	
+	public ReviewVO reviewLatest(ReviewVO reviewVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reviewLatest",reviewVO);
+	}
 }
