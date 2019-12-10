@@ -706,6 +706,8 @@
 		/* 위시리스트 jquery */
 		$(".good-card-wish-btn").click(function() {
 			event.stopPropagation();
+			if($(this).hasClass("good-card-wish-btn-whis"))
+			
 			$(this).toggleClass("good-card-wish-btn-whis");
 		});
 		/* 모달 */

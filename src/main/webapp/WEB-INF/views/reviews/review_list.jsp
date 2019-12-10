@@ -71,6 +71,12 @@
 							<p class="comment_msg" >${dto.rv_contents}</p>
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
+								<!-- 관리자만 보이게 -->
+								<button value="${dto.rv_num}"data-goodidx="${dto.goods_num}"
+									data-idx="${dto.rv_num}" data-toggle="modal"
+									data-target="#modal-reply"
+									class="btn btn-review-reply outline btn-sm" type="button">답변</button>
+								<!-- 관리자만 보이게 -->	
 								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-update"
@@ -81,18 +87,19 @@
 							<!-- 여기까지 if문으로 감싸기 -->
 						</div>
 					</div>
+					<c:if test="${dto.rv_ex eq 1}">
 					<div style="position: relative; padding-bottom: 20px; margin-top: -16px;">
              		   <div class="waug-comment-box">
-                   		 <span style="font-weight: bold;">WAUG 운영자</span>
-                   			 <span style="margin-left: 4px; color: #aaa;">2019-10-16</span>
-                    			<p class="comment_msg">안녕하세요. 와그입니다:)<br>
-								예약 및 상품 문의는 와그 카카오톡 플러스친구 WAUG 혹은 대표전화(070-4353-5959)로 회신부탁드립니다. 감사합니다.<br>
+                   		 <span style="font-weight: bold;">${dto.rv_aname}</span>
+                   			 <span style="margin-left: 4px; color: #aaa;">${dto.rv_adate}</span>
+                    			<p class="comment_msg">${dto.rv_acontents}
 								</p>
                 		</div>
            			 </div>
+					</c:if>
 					</c:forEach>
 					</div>
-					<!--  review modal begin  -->
+					<!--  ************************************리뷰 쓰기*****************************************  -->
 					<div class="modal fade" id="modal-review" tabindex="-1"
 						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
 						<div class="modal-dialog">
@@ -182,7 +189,7 @@
 						</div>
 					</div>
 					
-					<!-- ******************************************************************************************** -->
+					<!-- **************************************리뷰수정*********************************** -->
 					<div class="modal fade" id="modal-update" tabindex="-1"
 						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
 						<div class="modal-dialog">
@@ -209,20 +216,20 @@
 											<div class="center comment-write-starspace">
 												<div
 													class="rating-container rating-md rating-animate star-float">
-													<div class="rating2 rating3" >
-														<label> <input type="radio" name="rv_score" value="1"  class="radiostar"/>
+													<div class="rating2" >
+														<label> <input type="radio" name="rv_score2" value="1"  class="radiostar"/>
 															<span class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score"
+														</label> <label> <input type="radio" name="rv_score2"
 															value="2" class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score"
+														</label> <label> <input type="radio" name="rv_score2"
 															value="3"  class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score"
+														</label> <label> <input type="radio" name="rv_score2"
 															value="4"  class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score"
+														</label> <label> <input type="radio" name="rv_score2"
 															value="5"  class="radiostar" checked="checked"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>
@@ -272,8 +279,99 @@
 							</div>
 						</div>
 					</div>
+					<!-- *****************************************관리자 답변달기********************************* -->
+					<div class="modal fade" id="modal-reply" tabindex="-1"
+						role="dialog" aria-hidden="true" aria-labelledby="modal-review">
+						<div class="modal-dialog">
+
+							<div class="modal-content">
+								<div class="modal-header">답변 달기</div>
+								<div class="modal-body" style="padding-bottom: 45px;">
+									<a href="../good/?idx=107382">
+										<div
+											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
+									</a>
+									<form action="review_reply" method="post" class="review-form3">
+									<!-- rv_writer 멤버session에서 받아와야함-->
+										<input type="hidden" name="rv_num" class="update_rv_num">
+										<input type="text" name="rv_writer" value="pyj" style="display: none;">
+										<input type="hidden" name="email" value="pyj9088@gmail.com">
+									<!-- 이 2개 -->
+									<div class="pull-left">
+										<div class="row">
+										<!-- 상품에 따라 바뀌게 해야함 -->
+											<h5 class="title comment-reply-title">대만 이지카드 (국내 공항 수령)</h5>
+										</div>
+										<div class="form-group" style="margin-left: 10px;" >
+											<div class="center comment-write-starspace">
+												<div
+													class="rating-container rating-md rating-animate star-float">
+													<div class="rating3" >
+														<label> <input type="radio" name="rv_score" value="1"  class="radiostar2" onclick="return(false);"/>
+															<span class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="2" class="radiostar2" onclick="return(false);"/> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="3"  class="radiostar2" onclick="return(false);"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="4"  class="radiostar2" onclick="return(false);"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span>
+														</label> <label> <input type="radio" name="rv_score"
+															value="5"  class="radiostar2"  onclick="return(false);"/> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span> <span
+															class="icon">★</span> <span class="icon">★</span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										
+										<div id="comment_write_msg3" style="width: 395px;"></div>
+										<textarea class="form-control"
+											style="height: 254px;"
+											placeholder="관리자의 답변을 작성해주세요." name="rv_acontents"></textarea>
+									</div>
+									</form>
+									<div class="form-group comment-write-btn-wrapper">
+										<div class="camera">
+											<form id="frm-review-file">
+												<label for="input_comment_img_new"> <img
+													style="padding-top: 17px; width: 62px; padding-left: 11px;"
+													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
+													type="file" id="input_comment_img_new" class="hide"
+													accept="image/*">
+												</label>
+											</form>
+										</div>
+
+									</div>
+									<div class="comment-write-img">
+										<div class="comment-img-list" id="preview-img"></div>
+									</div>
+									<div class="form-group comment-write-btn-wrapper">
+										<div class="write" style="float: right;">
+											<label id="btn_comment_write">
+												<button id="btn-reply-submit" type="button"
+													class="btn-form-submit" style="font-size: 12px;">답변</button>
+											</label>
+										</div>
+										<div class="cancel" style="float: right;">
+											<button id="btn-comment-cancel" type="button"
+												class="btn-form-cancel"
+												style="font-size: 12px; margin-right: 10px;"
+												data-dismiss="modal">취소</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- ******************************************************************************************** -->
-					
 					<!-- <div class="modal fade" id="modal-review-image" tabindex="-1"
 						role="dialog" aria-hidden="true"
 						aria-labelledby="modal-review-image"></div> -->
@@ -287,12 +385,13 @@
 							class="reivew-foot-write-btn col-md-12 btn-form-submit "
 							style="color: white; text-align: center; text-decoration: none; cursor: pointer;">후기 작성하기</a>
 					</div>
-					
+					<c:if test="${totalPage gt 1}">
 					<div class="text-center space-4 add-review-space" >
 						<a class="btn btn-goods-etc outline review-foot-more-btn"
 							id="add_review" data-startid="10" style="color: #d91c84;">더
 							보기</a>
 					</div>
+					</c:if>
 				</div>
 				<!--  comment list end  -->
 
@@ -301,6 +400,8 @@
 	</div>
 	<script type="text/javascript">
 		var curPage = 1;
+		
+		
 		/* 별점 */
 		$(':radio').change(function() {
   		console.log('New star rating: ' + this.value);
@@ -315,6 +416,10 @@
 		$("#btn-update-submit").click(function() {
 			$(".review-form2").submit();
 		});
+		/* 답변 달기 폼 submit */
+		$("#btn-reply-submit").click(function() {
+			$(".review-form3").submit();
+		})
 		
 		/* 리뷰 더 보기 */
 		$("#add_review").click(function() {
@@ -339,7 +444,7 @@
 			}
 		});
 		
-		/* 리뷰 수정창 띄우기 */
+		/* 리뷰 수정창 내용 받아오기 */
 		$(".btn-review-update").click(function() {
 			var num = $(this).val();
 			$.get("./reviewSelect?rv_num="+num, function(data){
@@ -352,7 +457,18 @@
 					$(".radiostar").eq(strings[0]-1).attr("checked",true);
 				
 			});
-			
+		});
+		/* 리뷰 수정창 내용 받아오기 */
+		$(".btn-review-reply").click(function() {
+			var num = $(this).val();
+			$.get("./reviewSelect?rv_num="+num, function(data){
+				data=data.trim();
+				console.log(data);
+				var strings = data.split('/');
+				$("#comment_write_msg3").html(strings[1]);
+					$(".update_rv_num").val(num);
+					$(".radiostar2").eq(strings[0]-1).attr("checked",true);
+			});
 		});
 	</script>
 

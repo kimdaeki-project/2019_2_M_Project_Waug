@@ -43,4 +43,7 @@ public class ReviewService {
 	public int reviewUpdate(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewUpdate(reviewVO);
 	}
+	public int reviewReply(ReviewVO reviewVO) throws Exception{
+		return reviewDAO.reviewReply(reviewVO);
+	}
 }

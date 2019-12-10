@@ -42,4 +42,11 @@
 	<update id="reviewUpdate" parameterType="ReviewVO">
 		update review1 set rv_score=#{rv_score}, rv_contents=#{rv_contents} where rv_num= #{rv_num}
 	</update>
+	
+	<!-- 관리자 답변달기 -->
+	<update id="reviewReply" parameterType="ReviewVO">
+		update review1 set rv_ex=1, rv_aname='ZZAUG 운영자', rv_adate=sysdate, rv_acontents=#{rv_acontents}
+		where rv_num=#{rv_num}
+	</update>
+	
 </mapper>

@@ -71,4 +71,10 @@ public class ReviewController {
 		
 		return "redirect:review_list";
 	}
+	@PostMapping("review_reply")
+	public String reviewReply(ReviewVO reviewVO) throws Exception{
+		int result = reviewService.reviewReply(reviewVO);
+		
+		return "redirect:review_list";
+	}
 }

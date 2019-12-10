@@ -21,7 +21,7 @@ public class reviewTest extends testAbstractCase {
 	@Test
 	public void test() throws Exception{
 		int result = 0;
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 5; i++) {
 			ReviewVO reviewVO = new ReviewVO();
 			reviewVO.setEmail("review@review"+i+".com");
 			reviewVO.setRv_writer("reviewtest"+i);
