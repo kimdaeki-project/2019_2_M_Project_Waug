@@ -65,13 +65,33 @@ public class MyController {
 		return mv;
 	}
 	
+	@GetMapping("wishDelete")
+	public ModelAndView wishDelete(MemberVO memberVO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO2 = (MemberVO)session.getAttribute("memberVO");
+		memberVO.setM_pk(memberVO2.getM_pk());
+		
+		int result = wishlistService.wishDel(memberVO);
+		
+		if(result>0) {
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
+		}
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/common_ajaxResult");
+		
+		return mv;
+	}
+	
 	@GetMapping("wishlist")
 	public ModelAndView myWish(GoodsVO goodsVO, HttpSession session, WishListVO wishListVO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
 		goodsVO.setGoods_num(wishListVO.getGoods_num());
-		List<GoodsVO> ar = wishlistService.myWish(goodsVO);
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
+		List<GoodsVO> ar = wishlistService.myWish(memberVO);
 		
 		System.out.println(ar.size());
 		mv.addObject("memberVO", memberVO);

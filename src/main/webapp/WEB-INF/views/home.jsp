@@ -649,12 +649,28 @@
 		});
 		/* 위시리스트 jquery */
 		$(".good-card-wish-btn").click(function() {
-			event.stopPropagation();
-			$(this).toggleClass("good-card-wish-btn-whis");
-			var goods_num = $(this).attr("title");
-			alert(goods_num);
 			
-			$.ajax({
+			//$(this).toggleClass("good-card-wish-btn-whis");
+			var goods_num = $(this).attr("title");
+			if($(this).hasClass("good-card-wish-btn-whis")){
+				$(this).removeClass("good-card-wish-btn-whis")
+				$.ajax({
+		        	type: "GET",
+		        	url:"./my/wishDelete",
+		        	data:{
+			        	goods_num:goods_num
+		        	},
+		        	success : function()
+		        	{
+		        	  alert('success');    
+		        	},
+		        	error: function() {
+					  alert('fail');
+					},
+		    	}); 
+			}else{
+				$(this).addClass("good-card-wish-btn-whis")
+				$.ajax({
 		        	type: "GET",
 		        	url:"./my/wishAdd",
 		        	data:{
@@ -667,7 +683,8 @@
 		        	error: function() {
 					  alert('fail');
 					},
-		    });  
+		    	});  
+			}
 			
 		});
 		/* 모달 */

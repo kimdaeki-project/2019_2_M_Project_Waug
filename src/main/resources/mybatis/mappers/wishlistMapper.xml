@@ -7,8 +7,8 @@
 	<insert id="wishAdd" parameterType="WishListVO">
 		insert into wishlist(w_num,goods_num,email) values(wish_seq.nextval, #{goods_num},#{email})
 	</insert>
-  	<delete id="wishDel" parameterType="WishListVO">
-  		delete wishlist where goods_num=#{goods_num}
+  	<delete id="wishDel" parameterType="MemberVO">
+  		delete wishlist where goods_num=#{goods_num} and email=#{m_pk}
   	</delete>
   	<select id="myWish" parameterType="MemberVO" resultType="GoodsVO">
   		select * from wishlist inner join goods using (goods_num) where email=#{m_pk}
