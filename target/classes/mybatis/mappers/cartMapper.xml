@@ -4,12 +4,28 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="cartMapper">
+	<!-- 장바구니 추가 -->
 	<insert id="cartAdd" parameterType="CartVO">
 		insert into cart(cart_num,goods_num,o_num,email) values(cart_seq.nextval, #{goods_num},1,#{email})
 	</insert>
-  	
-	<select id="cartCount" parameterType="java.util.Map" resultType="Integer">
+	<!-- 삭제 -->
+	<delete id="cartDel" parameterType="MemberVO">
+		delete cart where goods_num=#{goods_num} and email=#{m_pk}
+	</delete>
+  	<!-- 내 장바구니 -->
+  	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
+  		select c.cart_num, g.goods_num, g.title, g.price, g.discount, g.img
+  			from cart c, goods g
+  		where c.goods_num=g.goods_num and c.email=#{m_pk}	
+  	</select>
+  	<!-- 장바구니 금액 합계 -->
+   	<select id="cartSum" parameterType="MemberVO" resultType="Integer">
+  		select NVL(SUM(discount*1),0) money
+  		from cart c, goods g
+  		where c.goods_num=g.goods_num and c.email=#{m_pk}
+  	</select> 
+<!-- 	<select id="cartCount" parameterType="java.util.Map" resultType="Integer">
 		select count(*) from cart 
 		where email=#{email} and goods_num=#{goods_num}
-	</select>
+	</select> -->
 </mapper>

@@ -16,9 +16,11 @@
 <c:import url="../layout/CityList.jsp"/>
 <div id="reser_page_div">
 	<!-- modal -->
+	<form action="./" id = "formId" method="POST">
 	<div id="reser_modal">
 		<div class="reser_modal_wrapper">
 			<span id="reser_modal_close">&times;</span>
+			 <input type="hidden" name="goods_num" value="7" > 
 			<div class="reser_modal_info">
 				<div class="reser_modal_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
@@ -34,11 +36,12 @@
 			</div>
 			<div class="reservation_btn_wrapper">
 			<div id="reservation_users_order_total_price"></div>
-				<button id="cart_btn">장바구니</button>
+				<button id="cart_btn" type="submit">장바구니</button>
 				<button id="reservation_btn">예약하기</button>
 			</div>
 		</div>
 	</div>
+	</form>
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
@@ -80,6 +83,15 @@
 	</div>
 </div>
 <script type="text/javascript">
+
+	$("#cart_btn").click(function() {
+		
+		$("#formId").attr("action","../my/cart");
+		
+	});
+
+
+
 	//창띄우면 popup 숨기기
 	$(window).ready(function(){
 		$('.reser_modal').hide();

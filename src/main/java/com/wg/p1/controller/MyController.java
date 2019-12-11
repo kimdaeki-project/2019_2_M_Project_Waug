@@ -45,14 +45,56 @@ public class MyController {
 		
 	}
 	
-	
 	@GetMapping("cart")
-	public void cart(CartVO cartVO) throws Exception{
+	public ModelAndView cart(GoodsVO goodsVO, HttpSession session, CartVO cartVO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
+		List<GoodsVO> ar = cartService.myCart(memberVO);
+		int cartSum = cartService.cartSum(memberVO);
+		mv.addObject("list", ar);
+		mv.addObject("cartSum",cartSum);
+		mv.setViewName("my/cart");
+		return mv;
+	}
+	
+	
+	
+	@PostMapping("cart")
+	public void cart(CartVO cartVO, HttpSession session,int goods_num) throws Exception{
+		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
+		cartVO.setEmail(memberVO.getM_pk());
+		cartVO.setGoods_num(goods_num);
+		
 		int result = cartService.cartAdd(cartVO);
 		if(result>0) {
-			
+			System.out.println("성공");
+		}else {
+			System.out.println("실패");
 		}
 	}
+	
+	@PostMapping("cartDel")
+	public ModelAndView cartDel(MemberVO memberVO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+	
+		MemberVO memberVO2 = (MemberVO)session.getAttribute("memberVO");
+		memberVO.setM_pk(memberVO2.getM_pk());
+		
+		int result = cartService.cartDel(memberVO);
+		String msg="실패";
+		if(result>0) {
+			msg="삭제성공";
+		}
+		
+		mv.addObject("msg", msg);
+		mv.addObject("path", "cart");
+		mv.setViewName("common/common_result");
+		
+		
+		return mv;
+	}
+	
 	
 	
 	@GetMapping("wishAdd")

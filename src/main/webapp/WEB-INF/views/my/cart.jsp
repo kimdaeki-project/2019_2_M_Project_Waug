@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../resources/css/Footer.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
 <title>Insert title here</title>
+
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
@@ -21,7 +22,7 @@
 			<div class="wrapper-subheader headimage"></div>
 		</div>
 		<div class="container">
-		
+		<form action="cartDel" method="post">		
 			<div class="row">
 				<c:import url="./mylayout.jsp"/>
 					<div id="sub-container" class="col-md-9">
@@ -39,17 +40,56 @@
 									</tr>
 								
 								</thead>
+
 								<tbody>
+								<c:if test="${not empty list}">
+									<c:forEach items="${list}" var="vo">
 									<tr>
-										<td class="text-center" colspan="6">장바구니에 상품이 없습니다.</td>
+										<td class="text-center">
+											<input type="hidden" name="goods_num" value="${vo.goods_num}">
+											<div class="i-checks">
+												<label>
+													<div class="icheckbox_flat-pink">
+														<input type="checkbox" value="goods_num" name="cart_idx" style="opacity: 0; width: 100%; height: 100%;">
+														<div></div> 
+													</div>
+												</label>
+											</div>
+										</td>
+										<td class="col-xs-2 text-center">
+											<a href="../goods/good_page">
+												<div style="background-image:url('${vo.img}'); width: 170px; height: 100px; background-size: cover; background-position: center;"></div>
+											</a>
+										</td>
+										<td class="col-xs-2 text-center">
+											<a href="../goods/good_page">
+												${vo.title}
+											</a>
+										</td>
+										<td class="text-center">예약날짜</td>
+										<td>
+											<div>예약내용</div>
+											<div>${vo.discount}</div>
+											
+										</td>
+										<td class="text-center"><input type="hidden" name ="price" value="가격">옵션포함총금액</td>
+										
 									</tr>
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty list}">
+									 <tr>
+										<td class="text-center" colspan="6">장바구니에 상품이 없습니다.</td>
+									</tr> 
+								</c:if>	
 								</tbody>
+								
 							</table>
 							<!-- 테이블 끝 -->
 							<div class="text-right">
 								<div class="order-total-price" >
 									총
-									<span>￦ 0</span>
+									<span>￦ ${cartSum}</span>
 								</div>
 								<div class="i-checks select-all">
 									<label>
@@ -63,7 +103,7 @@
 							</div>
 							
 							<div class="form-button-wrapper">
-								<button type="button" class="btn-form-cancel">선택 삭제</button>
+								<button type="submit" class="btn-form-cancel">선택 삭제</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
 							</div>
 							
@@ -71,6 +111,7 @@
 						</div>
 					</div>
 			</div>
+			</form>
 		</div>
 		</div>
 		</div>	
@@ -96,7 +137,15 @@
 	$("#check_box").click(function() {
 		
 		$(".icheckbox_flat-pink").toggleClass("check-img");
+		
 	});
+	
+	$("#cart_idx").click(function() {
+		
+		this.toggleClass("check-img");
+		
+	});
+	
 	$(".con").click(function() {
 		$(".continent-item").removeClass("active-continent");
 		$(".continent-text").removeClass("active");

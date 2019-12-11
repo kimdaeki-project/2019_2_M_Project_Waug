@@ -4,18 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="wishlistMapper">
+	<!-- 위시리스트 추가 -->
 	<insert id="wishAdd" parameterType="WishListVO">
 		insert into wishlist(w_num,goods_num,email,heart) values(wish_seq.nextval, #{goods_num},#{email},1)
 	</insert>
+  	<!-- 위시리스트 삭제 -->
   	<delete id="wishDel" parameterType="MemberVO">
   		delete wishlist where goods_num=#{goods_num} and email=#{m_pk}
   	</delete>
+  	<!-- 내 위시리스트 -->
   	<select id="myWish" parameterType="MemberVO" resultType="GoodsVO">
 		select w.w_num,g.goods_num,g.title,g.price,g.discount,g.img 
 			from wishlist w, goods g 
 		where w.goods_num=g.goods_num and w.email=#{m_pk}
   	</select>
-  	
+  	<!-- 위시리스트 중복체크-->
 	<select id="wishCount" parameterType="java.util.Map" resultType="Integer">
 		select count(*) from wishlist 
 		where email=#{email} and goods_num=#{goods_num}
