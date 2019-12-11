@@ -1,5 +1,7 @@
 package com.wg.p1.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -20,8 +22,8 @@ public class MemberController {
 	private MemberServiceImpl memberService;
 	
 	@GetMapping(value = "join")
-	public void memberJoin() throws Exception{
-		
+	public void memberJoin(List<MemberVO> ar) throws Exception{
+	
 		
 	}
 

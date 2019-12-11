@@ -1,6 +1,8 @@
 package com.wg.p1.controller;
 
+
 import javax.inject.Inject;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.ReviewService;
+
+import com.wg.p1.model.MemberVO;
 
 @Controller
 @RequestMapping("/goods/**")
@@ -34,6 +38,7 @@ public class GoodsController {
 	
 	@RequestMapping("goods_themes")
 	public void themes() throws Exception{
+		
 		
 		
 	}
