@@ -9,11 +9,13 @@ public interface MemberDAO {
 
 	//join
 	public int memberJoin(MemberVO memberVO) throws Exception;
+	//fbjoin
+	public int socialJoin(MemberVO memberVO) throws Exception;
 	//selectOne
 	public MemberVO memberSelect(MemberVO memberVO) throws Exception;
 	//update
-	public int memberUpdate() throws Exception;
+	public int memberUpdate(MemberVO memberVO) throws Exception;
 	//delete
-	public int memberDelete() throws Exception;
+	public int memberDelete(MemberVO memberVO) throws Exception;
 
 }

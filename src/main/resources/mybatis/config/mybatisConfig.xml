@@ -8,6 +8,10 @@
 		<typeAlias type="com.wg.p1.util.Pager" alias="Pager"/>
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.lang.Integer" alias="Integer"/>
+		<typeAlias type="java.util.List" alias="List"/>
 		<typeAlias type="com.wg.p1.model.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.wg.p1.model.GoodsVO" alias="GoodsVO"/>
+		<typeAlias type="com.wg.p1.model.WishListVO" alias="WishListVO"/>
+	
 	</typeAliases>
 </configuration>
