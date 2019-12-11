@@ -17,8 +17,22 @@ public class GoodsVO {
 	private int t_num;
 	private String img;
 	private List<WishListVO> wishlist;
+	private String t_title;
+	private String city_name;
 	
 	
+	public String getT_title() {
+		return t_title;
+	}
+	public void setT_title(String t_title) {
+		this.t_title = t_title;
+	}
+	public String getCity_name() {
+		return city_name;
+	}
+	public void setCity_name(String city_name) {
+		this.city_name = city_name;
+	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;
 	}

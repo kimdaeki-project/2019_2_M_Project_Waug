@@ -13,5 +13,6 @@
 		<typeAlias type="com.wg.p1.model.ReviewVO" alias="ReviewVO"/>
 		<typeAlias type="com.wg.p1.model.GoodsVO" alias="GoodsVO"/>
 		<typeAlias type="com.wg.p1.model.WishListVO" alias="WishListVO"/>
+		<typeAlias type="com.wg.p1.model.NationVO" alias="NationVO"/>
 	</typeAliases>
 </configuration>

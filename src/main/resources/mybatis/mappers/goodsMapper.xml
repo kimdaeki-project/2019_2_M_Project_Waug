@@ -7,4 +7,18 @@
   <select id="goodsRecomand" resultType="GoodsVO">
   	select * from goods
   </select>
+  
+  <select id="areaRecomand" resultType="NationVO">
+  	select * from nationinfo
+  </select>
+  
+  
+  <select id="areaSelect" parameterType="NationVO" resultType="NationVO">
+  	select * from nationinfo where city_num=#{city_num}
+  </select>
+  
+  <select id="goodsList" resultType="GoodsVO">
+  	select A.*, B.city_name city_name, C.t_title t_title from goods A, nationinfo B, theme C
+		where A.city_num = B.city_num and A.t_num = C.t_num
+  </select>
 </mapper>
