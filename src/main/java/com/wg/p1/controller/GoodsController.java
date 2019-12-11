@@ -26,6 +26,9 @@ public class GoodsController {
 	@Inject
 	ReviewService reviewService;
 	
+	@Inject
+	private GoodsService goodsService;
+	
 	@RequestMapping("good_page")
 	public ModelAndView goods(ModelAndView mv)throws Exception{
 		
@@ -38,12 +41,13 @@ public class GoodsController {
 		mv.addObject("review2", reviewVO2);
 		mv.setViewName("goods/good_page");
 		
+		//goods 정보담기
+		
+		//mv.addObject("info", attributeValue)
 		return mv;
 		
 	}
 
-	@Inject
-	private GoodsService goodsService;
 
 	@RequestMapping("goods")
 	public void goods()throws Exception{

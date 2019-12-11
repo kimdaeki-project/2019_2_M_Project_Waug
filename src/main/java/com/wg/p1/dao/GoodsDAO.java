@@ -20,4 +20,8 @@ public class GoodsDAO {
 	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"goodsRecomand", goodsVO);
 	}
+	
+	public GoodsVO goosSelectOne(int goods_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
+	}
 }

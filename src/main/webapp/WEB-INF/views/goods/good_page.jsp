@@ -20,6 +20,7 @@
 </head>
 
 <body>
+<input type="text" disabled="disabled" name="goods_num" value="7" id="goods_num">	
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
@@ -82,7 +83,6 @@
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674926699506.svg" />8시간이용
          				</div>
-
          			</div>
          			<div class="good_couponBox">
          				<div class="good_coupon">
@@ -164,17 +164,17 @@
                   <p><img src="15734565973785.png"></p>
                   <span class="mark">▲</span><span>드디어 베트남에도 와그 핑크 버스 투어가 상륙했어요!</span>
                   <div class="subtitle">선택 가능 옵션</div>
+                  <div class="subtitle">1. 바나힐 핑크 패키지 투어 :</div>
                   <p>
-                     <strong>1. 바나힐 핑크 패키지 투어 :</strong>
-                     <br>왕복 호텔 픽업
+                     왕복 호텔 픽업
                      <br>바나힐 입장권(어트랙션, 케이블카 포함)
                      <br>아라팡 레스토랑에서 점심 식사 (현지식 뷔페)
                      <br>영어 가이드
                      <br>생수 1병
                   </p>
+                  <div class="subtitle">2. 바나힐 핑크 실속 투어 :</div>
                   <p>
-                     <strong>2. 바나힐 핑크 실속 투어 :</strong>
-                     <br>왕복 호텔 픽업
+                     왕복 호텔 픽업
 <br>바나힐 입장권(어트랙션, 케이블카 포함)
 <br>영어 가이드
                   </p>
@@ -360,7 +360,7 @@ function openModal() {
 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
-      location.href='./order/calendar';
+      location.href='../order/calendar?goods_num='+$('#goods_num').val();
       // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
       // onclick="location.href='goods';"
    });
