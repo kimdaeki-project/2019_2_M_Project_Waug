@@ -19,7 +19,7 @@
 					<div class="login-title-text">로그인</div>
 				</div>
 				<div class="login-waug-email-box">
-					<form action="" method="POST">
+					<form action="login" method="POST">
 						<input type="email" class="login-form-box" placeholder="이메일 주소" required="required" name="email">
 						<input type="password" class="login-form-box" placeholder="비밀번호" required="required" name="pw">
 						<button type="submit" class="btn-join login-form-box login-form-btn" >로그인</button>

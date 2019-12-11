@@ -36,18 +36,19 @@
 					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)
 					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg" class="more-icon">
 					</div>
-				
+				<c:if test="${not empty sessionScope.memberVO}">
 					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
 					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/cart">장바구니 (0)</a></div>
-					<div class="nav-logout-btn nav-sub-menu-item onclick-cursor-pointer"><a>로그아웃</a></div>
+					<div class="nav-logout-btn nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/member/logout">로그아웃</a></div>
+				</c:if>
+				<c:if test="${empty sessionScope.memberVO}">
 					<div class="nav-login-btn nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/member/login">로그인</a></div>
-
+				</c:if>
 				</div>
 			</div>
 		</div>
 	
 	</div>
-	
 	<script type="text/javascript">
 	
 	/* city list 모달 */

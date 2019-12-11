@@ -335,86 +335,28 @@
 			<div class="swiper-list-container container3">
 				<div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+					
+					<c:forEach  items="${list}" var="vo">
+						
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/26/15747517566386.png?s=266x175');">
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
 									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
 								</div>
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
 										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
 									</div>
-									<div class="good-card-title">프로모션: 오사카 하루카스 300입장권(1+1이벤트)</div>
-									<div class="good-card-original-price">₩ 20,000</div>
-									<div class="good-card-price">₩ 13,000</div>
+									<div class="good-card-title">${vo.title}</div>
+									<div class="good-card-original-price">₩ ${vo.price}</div>
+									<div class="good-card-price">₩ ${vo.discount}</div>
 									<div class="good-card-buy-cnt">63,512 예약</div>
 								</div>
 							</div>
 						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right: 18px;">
-							
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='./goods/good_page';">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/24/15639560567339.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date">내일부터 사용가능</div>
-									<div class="good-card-title">3+1프로모션: 와그 핑크 대만 예스진지 버스투어
-									</div>
-									<div class="good-card-original-price">₩ 30,000</div>
-									<div class="good-card-price">₩ 22,000</div>
-									<div class="good-card-coupon-text">27% 할인</div>
-									<div class="good-card-buy-cnt">21,950 예약</div>
-								</div>
-							</div>
-							
-						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer" onclick="location.href='./goods/good_page';">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582409642.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date">12월 01일부터 사용가능</div>
-									<div class="good-card-title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
-									<div class="good-card-original-price">₩ 53,200</div>
-									<div class="good-card-price">₩ 45,900</div>
-									<div class="good-card-buy-cnt">861 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749107464976.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">
-										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">1+1 프로모션: 제주신화월드 이용권</div>
-									<div class="good-card-original-price">₩ 19,000</div>
-									<div class="good-card-price">₩ 9,000</div>
-									<div class="good-card-buy-cnt">43,489 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide swiper-slide-visible" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/18/15740647613040.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">
-										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">얼리버드 특가: 에버랜드 자유 이용권</div>
-									<div class="good-card-original-price">₩ 56,000</div>
-									<div class="good-card-price">₩ 29,000</div>
-									<div class="good-card-buy-cnt">73 예약</div>
-								</div>
-							</div>
-						</div>
+
+					</c:forEach>		
+					
 						<div class="goodlist-slide swiper-slide"
 							style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
@@ -709,8 +651,45 @@
 			$(this).children().css("color", "#333333");
 		});
 		/* 위시리스트 jquery */
+		
+	
 		$(".good-card-wish-btn").click(function() {
-			$(this).toggleClass("good-card-wish-btn-whis");
+
+			var goods_num = $(this).attr("title");
+			
+			if($(this).hasClass("good-card-wish-btn-whis")){
+				$(this).removeClass("good-card-wish-btn-whis")
+				$.ajax({
+		        	type: "GET",
+		        	url:"./my/wishDel",
+		        	data:{
+			        	goods_num:goods_num
+		        	},
+		        	success : function()
+		        	{
+		        	  alert('success'); 
+		        	},
+		        	error: function() {
+					  alert('fail');
+					},
+		    	}); 
+			}else{
+				$(this).addClass("good-card-wish-btn-whis")
+				$.ajax({
+		        	type: "GET",
+		        	url:"./my/wishAdd",
+		        	data:{
+			        	goods_num:goods_num
+		        	},
+		        	success : function()
+		        	{
+		        	  alert('success');  
+		        	},
+		        	error: function() {
+					  alert('fail');
+					},
+		    	});  
+			}
 		});
 		/* 모달 */
 		// Get the modal

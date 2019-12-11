@@ -1,6 +1,10 @@
 package com.wg.p1.controller;
 
 
+
+
+import java.util.List;
+import java.util.ArrayList;
 import javax.inject.Inject;
 
 
@@ -12,11 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.ReviewService;
 
+
 import com.wg.p1.model.MemberVO;
+import com.wg.p1.service.GoodsService;
+
 
 @Controller
 @RequestMapping("/goods/**")
 public class GoodsController {
+
 	@Inject
 	ReviewService reviewService;
 	
@@ -35,7 +43,17 @@ public class GoodsController {
 		return mv;
 		
 	}
+
+	@Inject
+	private GoodsService goodsService;
+
+	@RequestMapping("goods")
+	public void goods()throws Exception{
+		System.out.println("goods page~~~");
+
+	}
 	
+
 	@RequestMapping("goods_themes")
 	public void themes() throws Exception{
 		
