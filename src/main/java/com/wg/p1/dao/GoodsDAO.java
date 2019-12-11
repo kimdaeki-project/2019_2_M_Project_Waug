@@ -22,4 +22,8 @@ public class GoodsDAO {
 		System.out.println(memberVO.getM_pk());
 		return sqlSession.selectList(NAMESPACE+"goodsRecomand", memberVO);
 	}
+	
+	public GoodsVO goosSelectOne(int goods_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
+	}
 }

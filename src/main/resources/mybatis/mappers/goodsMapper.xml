@@ -13,7 +13,10 @@
 		from goods 
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
   </select>
-  
-  
+
+  <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">
+  	select * from goods where goods_num=#{goods_num}
+  </select>
+
   
 </mapper>

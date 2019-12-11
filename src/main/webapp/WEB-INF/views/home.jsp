@@ -338,11 +338,13 @@
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 					
 					<c:forEach  items="${list}" var="vo">
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
+			
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=';">
+
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<a href="./goods/goods">
+								
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
-							
+
 									<c:choose>
 										<c:when test="${vo.wish eq 1}">
 										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
@@ -354,6 +356,7 @@
 									
 								</div>
 								
+								 	
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
 										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
@@ -367,6 +370,7 @@
 								</a>
 							</div>
 						</div>
+
 					</c:forEach>		
 					
 						<div class="goodlist-slide swiper-slide"
@@ -601,6 +605,9 @@
 				</div>
 			</div>
 		</div>
+		<button onclick="location.href='./admin/admin_main'">
+			관리자페이지
+		</button>
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 
@@ -698,7 +705,6 @@
 					},
 		    	});  
 			}
-			
 		});
 		/* 모달 */
 		// Get the modal

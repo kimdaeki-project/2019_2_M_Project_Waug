@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="reviewMapper">
+	<!-- 글쓰기 -->
+  	<insert id="reviewWrite" parameterType="ReviewVO" >
+  		insert into review1 values(review_SEQ.nextval, 1, #{email}, #{rv_writer}, #{rv_contents},
+  		sysdate, #{rv_score}, 0, 'aname', sysdate, 'acontents')
+  	
+  	</insert>
+  	
+  	<!-- 전체조회 -->
+	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
+		select * from
+		(select R.*, rownum N from
+		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
+		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents from review1 where goods_num = 1
+		order by rv_num desc) R)
+		where N between #{startRow} and #{lastRow}
+	</select>
+	
+	<!-- 글전체 수 -->
+	<select id="reviewCount" resultType="Integer"
+		parameterType="Pager">
+		select count(rv_num) from review1
+		where goods_num = 1
+
+	</select>
+	<!-- 글하나 조회 -->
+	<select id="reviewSelect" parameterType="ReviewVO" resultType="ReviewVO">
+		select * from review1 where rv_num=#{rv_num}
+	</select>
+	
+	<!-- 리뷰삭제 -->
+	<delete id="reviewDelete" parameterType="ReviewVO">
+		delete review1 where rv_num=#{rv_num}
+	</delete>
+	
+	<!-- 리뷰수정 -->
+	<update id="reviewUpdate" parameterType="ReviewVO">
+		update review1 set rv_score=#{rv_score}, rv_contents=#{rv_contents} where rv_num= #{rv_num}
+	</update>
+	
+	<!-- 관리자 답변달기 -->
+	<update id="reviewReply" parameterType="ReviewVO">
+		update review1 set rv_ex=1, rv_aname='ZZAUG 운영자', rv_adate=sysdate, rv_acontents=#{rv_acontents}
+		where rv_num=#{rv_num}
+	</update>
+	
+	<!-- 별점평균, 전체리뷰수 가져오기 -->
+	<select id="review_avg_count" parameterType="ReviewVO" resultType="ReviewVO">
+		select round(avg(rv_score),1) rv_avg, count(rv_num) rv_total from review1 where goods_num=1
+	</select>
+	
+	<!-- 가장 최근 후기 불러오기 -->
+	<select id="reviewLatest" parameterType="ReviewVO" resultType="ReviewVO">
+		select * from        
+(select rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
+		, rv_score from review1 where goods_num = 1
+		order by rv_num desc) R where rownum=1
+	</select>
+</mapper>

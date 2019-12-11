@@ -19,4 +19,8 @@ public class GoodsService {
 	public ArrayList<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
 		return (ArrayList<GoodsVO>)goodsDAO.goodsRecomand(memberVO);
 	}
+	
+	public GoodsVO selectOneGoods(int goods_num) throws Exception{
+		return goodsDAO.goosSelectOne(goods_num);
+	}
 }
