@@ -5,12 +5,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width"/>
+<meta name="google-signin-client_id" content="485790286218-oackp6vpu1235mcaj7n91r4fnd5kkkk1.apps.googleusercontent.com">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
+
 <title>Insert title here</title>
 </head>
 <body>
+
+
+
 <c:import url="../layout/nav.jsp"/>
 	<div id="wrapper">
 		<div class="login-content-box">
@@ -36,24 +46,43 @@
 					
 					
 				</div>
+				<!-- 페이스북 -->
+
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
 				</div>		
-				<div class="btn-login-sns-box login-form-box" id="facebook_login">
-					<img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
+					<!-- <img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo" onclick="nightDayHandler(this);">
+			
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
+					
+					<span id="status" value="checking..."> </span>
+					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
+					
+					<!-- <div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
+						<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
+					</div> -->
 				</div>
-				<div class="btn-login-sns-box login-form-box" id="kakao_login">
-					<img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
+				<!-- 페이스북 끝-->
+				<!-- 카카오 -->
+				<div  class="btn-login-sns-box login-form-box panel-body" >
+					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
 					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
 				</div>
-				<div class="btn-login-sns-box login-form-box" id="naver_login">
+				<!-- 카카오 끝 -->
+				<!-- 네이버 -->
+				<div class="btn-login-sns-box login-form-box" id="naverIdlogin">
+					<a id="naverIdLogin_loginButton" href="#">
 					<img alt="" src="https://www.waug.com/images/naver.svg" class="sns-login-naver-logo">
 					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+					</a>
 				</div>
+				<!-- 구글 -->
 				<div class="btn-login-sns-box login-form-box" id="google_login">
-					<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+				<div class="g-signin2" data-onsuccess="onSignIn"></div>
+				<!-- 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
 				</div>
 				<div style="margin-top: -14px">
 					<div class="sign-up-check-box">
@@ -67,8 +96,152 @@
 	</div>
 
 	<script type="text/javascript">
-		$("#pw").value
+		/* 네이버 로그인 */
+
 	
+	
+	
+		/* 구글 로그인 api*/
+		function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		}
+	
+		/* 	  카카오 로그인 api */
+		 //<![CDATA[
+		    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+		    Kakao.init('f963d6e33ad4fdf2e7520855d50041bd');
+		    // 카카오 로그인 버튼을 생성합니다.
+		    Kakao.Auth.createLoginButton({
+		      container: '#kakao-login-btn',
+		      success: function(authObj) {
+		        // 로그인 성공시, API를 호출합니다.
+		        Kakao.API.request({
+		          url: '/v2/user/me',
+		          success: function(res) {
+		            console.log(JSON.stringify(res));
+		            console.log(res.properties.nickname);
+		            console.log(res.kakao_account.email);
+		       		 $.ajax({
+			        	type: "GET",
+			        	url:"./kakao",
+			        	data:{
+				        	nickname: res.properties.nickname,
+				        	email:res.kakao_account.email
+			        	}, 
+			        	success : function(result)
+			        	{
+			        	  alert('회원가입성공');    
+			        	},
+			        	error: function(result) {
+						  alert('회원가입실패');
+						},
+						complete : function() {
+							location.href="../";
+						}
+		       		 
+			        });
+		          },
+		          fail: function(error) {
+		            alert(JSON.stringify(error));
+		          }
+		        });
+		      },
+		      fail: function(err) {
+		        alert(JSON.stringify(err));
+		      }
+		    });
+		  //]]>	
+
+		/* 페이스북 로그인 api */
+		 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+			    console.log('statusChangeCallback');
+			    console.log(response);                   // The current login status of the person.
+			    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+			      testAPI();  
+			    
+			    } else {                                 // Not logged into your webpage or we are unable to tell.
+			      document.getElementById('status').innerHTML = 'Please log ' +
+			        'into this webpage.';
+			    }
+			  }
+					
+		
+		  function checkLoginState() {
+			  FB.getLoginStatus(function(response) {
+			    statusChangeCallback(response);
+			  });
+			  
+			}
+		  
+		  window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '2398490247082536',
+			      cookie     : true,                     // Enable cookies to allow the server to access the session.
+			      xfbml      : true,                     // Parse social plugins on this webpage.
+			      version    : 'v5.0'           // Use this Graph API version for this call.
+			    });
+
+
+			    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+			      statusChangeCallback(response);        // Returns the login status.
+			    });
+			  };
+
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "https://connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+	
+		  FB.getLoginStatus(function(response) {
+			    statusChangeCallback(response);
+			    console.log(response);
+			});
+		  
+
+		  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+			    console.log('Welcome!  Fetching your information.... ');
+			    FB.api('/me', function(response) {
+			      console.log('Successful login for: ' + response.name);
+			      document.getElementById('status').innerHTML =
+			        'Thanks for logging in, ' + response.name + '!';
+			    });
+			    FB.api('/me?fields=id,name,email', function(response) {
+			    	 console.log(response);
+			    	 console.log(response.name);
+			    	 //location.href="facebook?name="+response.name;
+			 $.ajax({
+			        	type: "GET",
+			        	url:"./facebook",
+			        	data:{
+				        	name: response.name,
+				        	email:response.email
+			        	},
+			        	success : function(result)
+			        	{
+			        	  alert('회원가입성공');    
+			        	},
+			        	error: function(result) {
+						  alert('회원가입실패');
+						},
+						complete : function() {
+							location.href="../";
+						}
+		       		 
+			 
+			        }); 
+			    });
+			  }
+
+		 
+		
 	</script>
 	
 </body>
