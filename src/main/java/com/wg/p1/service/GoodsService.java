@@ -17,7 +17,6 @@ public class GoodsService {
 	private GoodsDAO goodsDAO;
 
 	public ArrayList<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
-		System.out.println(memberVO.getM_pk());
 		return (ArrayList<GoodsVO>)goodsDAO.goodsRecomand(memberVO);
 	}
 }

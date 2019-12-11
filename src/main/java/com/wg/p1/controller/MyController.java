@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wg.p1.model.CartVO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.WishListVO;
+import com.wg.p1.service.CartService;
 import com.wg.p1.service.MemberServiceImpl;
 import com.wg.p1.service.WishListService;
 
@@ -28,6 +30,8 @@ public class MyController {
 	private MemberServiceImpl memberService;
 	@Inject
 	private WishListService wishlistService;
+	@Inject
+	private CartService cartService;
 	
 	@RequestMapping(value = "mypage")
 	public void my(HttpSession session) throws Exception{
@@ -40,6 +44,16 @@ public class MyController {
 	public void my() {
 		
 	}
+	
+	
+	@GetMapping("cart")
+	public void cart(CartVO cartVO) throws Exception{
+		int result = cartService.cartAdd(cartVO);
+		if(result>0) {
+			
+		}
+	}
+	
 	
 	@GetMapping("wishAdd")
 	public ModelAndView wishlist(WishListVO wishListVO, int goods_num, HttpSession session, GoodsVO goodsVO) throws Exception{

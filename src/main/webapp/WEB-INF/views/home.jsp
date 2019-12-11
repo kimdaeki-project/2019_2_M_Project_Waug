@@ -340,6 +340,7 @@
 					<c:forEach  items="${list}" var="vo">
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+								<a href="./goods/goods">
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
 							
 									<c:choose>
@@ -352,6 +353,7 @@
 									</c:choose>
 									
 								</div>
+								
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
 										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
@@ -362,6 +364,7 @@
 									<div class="good-card-buy-cnt">63,512 예약</div>
 									
 								</div>
+								</a>
 							</div>
 						</div>
 					</c:forEach>		

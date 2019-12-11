@@ -4,6 +4,7 @@ package com.wg.p1.controller;
 
 import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.wg.p1.service.GoodsService;
 
@@ -15,9 +16,10 @@ public class GoodsController {
 	@Inject
 	private GoodsService goodsService;
 
-	@RequestMapping("goods")
-	public void goods()throws Exception{
+	@GetMapping("good_page")
+	public String goods()throws Exception{
 		System.out.println("goods page~~~");
+		return "goods/goods";
 	}
 	
 

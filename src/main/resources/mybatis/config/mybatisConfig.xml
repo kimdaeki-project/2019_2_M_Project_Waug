@@ -12,6 +12,6 @@
 		<typeAlias type="com.wg.p1.model.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.wg.p1.model.GoodsVO" alias="GoodsVO"/>
 		<typeAlias type="com.wg.p1.model.WishListVO" alias="WishListVO"/>
-	
+		<typeAlias type="com.wg.p1.model.CartVO" alias="CartVO"/>
 	</typeAliases>
 </configuration>
