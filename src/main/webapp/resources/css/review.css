@@ -13,7 +13,7 @@ body{
 
 #content{
 	width: 100%;
-	height : 1600px;
+	height : 800px;
 	padding-bottom: 260px;
 	display: table;
 }
@@ -172,4 +172,233 @@ body{
 }
 #btn-review-write a{
 	color: white;
+}
+.modal-header{
+	width: 598px;
+	height: 71px;
+	padding: 22px 22px 22px 22px;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 29px;
+}
+.modal-body{
+	width: 598px;
+	height: 650.95px;
+	padding: 22px 22px 45px 22px;
+}
+.pull-left{
+	width: 395px;
+	height: 107px;
+}
+.comment-write-title{
+	padding: 0px 25px 0px 25px;
+	font-size: 29px;
+	font-weight: 600;
+	text-align: left;
+	color: rgb(51,51,51);
+}
+.rating-md{
+	width : 223.44px;
+	font-size: 3.13em;
+}
+#modal-review .rating-stars{
+	cursor: pointer;
+	vertical-align: middle;
+	width: 250px;
+}
+#modal-review .rating-container{
+	cursor: pointer;
+	vertical-align: middle;
+	width: 250px;
+}
+
+#modal-review .filled-stars{
+	position: relative;
+	top: -62px;
+	overflow: hidden;
+}
+
+.rating2{
+  display: inline-block;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  font-size: 40px;
+}
+
+.rating2 label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating2 label:last-child {
+  position: static;
+}
+
+.rating2 label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating2 label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating2 label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating2 label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating2 label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating2 label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating2 label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating2 label:last-child .icon {
+  color: #cccccc;
+}
+
+.rating2:not(:hover) label input:checked ~ .icon,
+.rating2:hover label:hover input ~ .icon {
+  color: #d91c84;
+}
+
+.rating2 label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+textarea:focus{
+	outline: 0px;
+}
+.camera{
+	width: 74px;
+	height: 74px;
+	background-color: #ccc;
+}
+.cancel{
+	width: 80px;
+	height: 36px;
+	font-size: 20px;
+}
+.write{
+	width: 80px;
+	height: 36px;
+	font-size: 20px;
+}
+#btn_comment_write{
+	
+}
+#btn-comment-submit, #btn-update-submit, #btn-reply-submit{
+	width: 80px;
+	height: 36px;
+	background: -webkit-linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgb(245,3,100) 1%, rbg(172,66,169) 100%);
+	border: solid 2px white;
+	border-radius: 0.3em;
+	color: white;
+}
+#btn-comment-cancel{
+	width: 80px;
+	height: 36px;
+	background-color: #cccccc;
+	border: solid 2px white;
+	border-radius: 0.3em;
+	color: #333333;
+}
+.waug-comment-box{
+	background-color: #f5f5f5;
+	padding: 24px 24px 10px 24px;
+	border-radius: 4px;
+	width: 912px;
+	height: 130px;
+}
+.rating3{
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  line-height: 20px;
+  font-size: 20px;
+  cursor: not-allowed;
+}
+
+.rating3 label{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating3 label:last-child {
+  position: static;
+}
+
+.rating3 label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating3 label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating3 label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating3 label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating3 label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating3 label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating3 label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating3 label:last-child .icon {
+  color: #cccccc;
+}
+.rating3 label input:focus:not(:checked) ~ .icon:last-child {
+  color: #cccccc;
+  text-shadow: 0 0 5px #09f;
+}
+
+.rating3 label input:checked ~ .icon {
+  color: #d91c84;
+}
+#comment_write_msg3{
+	font-size: 18px;
+}
+.comment-reply-title{
+	padding: 0px 25px 0px 25px;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: left;
+	color: rgb(51,51,51);
 }

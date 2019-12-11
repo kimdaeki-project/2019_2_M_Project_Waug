@@ -343,6 +343,7 @@
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
 								 	
 								 	<c:if test="${empty sessionScope.wo.w_num}">
+
 									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
 								 	</c:if>
 								 	<c:if test="${not empty sessionScope.wo.w_num }">
@@ -360,6 +361,7 @@
 								</div>
 							</div>
 						</div>
+
 					</c:forEach>		
 					
 						<div class="goodlist-slide swiper-slide"
@@ -594,6 +596,9 @@
 				</div>
 			</div>
 		</div>
+		<button onclick="location.href='./admin/admin_main'">
+			관리자페이지
+		</button>
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 
@@ -692,7 +697,6 @@
 					},
 		    	});  
 			}
-			
 		});
 		/* 모달 */
 		// Get the modal

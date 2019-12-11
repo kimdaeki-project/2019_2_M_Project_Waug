@@ -9,17 +9,19 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="resources/css/home.css"> -->
-<link rel="stylesheet" href="resources/css/goods.css">
-<link rel="stylesheet" href="resources/css/nav.css">
-<link rel="stylesheet" href="resources/css/CityList.css">
+<link rel="stylesheet" href="../resources/css/goods.css">
+<link rel="stylesheet" href="../resources/css/nav.css">
+<link rel="stylesheet" href="../resources/css/CityList.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 </head>
+
 <body>
-<c:import url="./layout/nav.jsp"/>
-<c:import url="./layout/CityList.jsp"/>
+<c:import url="../layout/nav.jsp"/>
+<c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
 
    <div class="good_container_flex">
@@ -95,7 +97,7 @@
          	<div class="good_bookBox">
          		<div class="good_bookInfo">
          			<div class="good_priceBox">₩ 45,900</div>
-         			<div class="good_reservationBox">★★★★★ 848 예약</div>
+         			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> 848 예약</div>
          			<div class="good_reservation_btn">예약하기</div>
          		</div>
          	</div>
@@ -118,21 +120,21 @@
    				<div class="good_detail_infoBox">
    					<div class="good_detail_title">이용 후기</div>
    					<div class="good_comentBox">
-   						<div class="good_coment_rate">5.0</div>
+   						<div class="good_coment_rate">${review.rv_avg}</div>
    						<div class="good_coment_rateInfo">
-   							<div class="good_coment_star">★★★★★</div>
-   							<div class="good_coment_count">후기 20개</div>
+   							<div class="good_coment_star"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach></div>
+   							<div class="good_coment_count">후기 ${review.rv_total}개</div>
    						</div>
 
    					</div>
    					<div class="good_coment_sample">
    						<div class="good_coment_sampleInfo">
-   							<p class="good_coment_sample_user">안태*</p><p class="good_coment_sample_date">19.2.23</p>
+   							<p class="good_coment_sample_user">${review2.rv_writer}</p><p class="good_coment_sample_date">${review2.rv_reg_date}</p>
    						</div>
-   						<div class="good_coment_star">★★★★★</div>
-   						<div class="good_coment_text">너무 즐거운시간이고 기분좋은 여행이었습니다</div>
+   						<div class="good_coment_star"><c:forEach begin="1" end="${review2.rv_score}">★</c:forEach></div>
+   						<div class="good_coment_text">${review2.rv_contents}</div>
    					</div>
-   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='reviews/review_list';">모든 후기 보러가기</div>
+   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list';">모든 후기 보러가기</div>
    				</div>
    				<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
@@ -227,7 +229,7 @@
    		</div>
    </div>
    <div class="mean_less_div">
-      <h1>구글api,추천 액티비티</h1>
+      <div id="map"></div>
       
    </div>
    <div class="good_recomend_wrapper border-top">
@@ -237,7 +239,7 @@
    </div>
    
    <!--  -->
-   <div id="Modal" class="modal">
+   <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()" style="color: white;">&times;</span>
   <div class="modal-content">
 
@@ -283,15 +285,26 @@
   </div>
 </div>
    <!--  -->
-   
+<script>
+      var map;
+      function initMap() {
+    	var uluru = {lat: 37.5565, lng: 126.9195};
+    	var map = new google.maps.Map(
+    		document.getElementById('map'), {zoom: 16, center: uluru});
+    		// The marker, positioned at Uluru
+    		var marker = new google.maps.Marker({position: uluru, map: map});
+     	 }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOARpuS-ZWgj5gXhzLHOQTQ1-swU_VrFo&callback=initMap"
+    async defer></script>   
    
 <script type="text/javascript">
 function openModal() {
-	  document.getElementById("Modal").style.display = "block";
+	  document.getElementById("myModal").style.display = "block";
 	}
 
 	function closeModal() {
-	  document.getElementById("Modal").style.display = "none";
+	  document.getElementById("myModal").style.display = "none";
 	}
 
 	var slideIndex = 1;
@@ -372,17 +385,17 @@ function openModal() {
    
    
    // Get the modal
-		var modal9 = document.getElementById("Modal");
+		var modal = document.getElementById("myModal");
 		// Get the button that opens the modal
 		var btn2 = document.getElementById("myBtn");
 		// When the user clicks the button, open the modal 
 		btn2.onclick = function() {
-			modal9.style.display = "block";
+			modal.style.display = "block";
 		}
 		// When the user clicks anywhere outside of the modal, close it
 		window.onclick = function(event) {
-			if (event.target == modal9) {
-				modal9.style.display = "none";
+			if (event.target == modal) {
+				modal.style.display = "none";
 			}
 		}
 		$(".con").click(function() {
