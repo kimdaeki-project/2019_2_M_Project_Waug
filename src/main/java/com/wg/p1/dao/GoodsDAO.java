@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.wg.p1.model.GoodsVO;
+import com.wg.p1.model.InfoVO;
 
 @Repository
 public class GoodsDAO {
@@ -17,11 +18,16 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
-	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"goodsRecomand", goodsVO);
+	public InfoVO selectGoodsInfo(int goods_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectGoodsInfo", goods_num);
 	}
 	
 	public GoodsVO goosSelectOne(int goods_num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
 	}
+	
+	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"goodsRecomand", goodsVO);
+	}
+	
 }

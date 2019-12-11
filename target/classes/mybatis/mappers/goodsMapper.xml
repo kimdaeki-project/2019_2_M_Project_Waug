@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="goodsMapper">
+
+<select id="selectGoodsInfo" resultType="InfoVO" parameterType="Integer">
+	select * from info where goods_num=#{goods_num}
+</select>
+<!-- 12.11 updated up******************************************* -->
   <select id="goodsRecomand" resultType="GoodsVO">
   	select * from goods
   </select>
