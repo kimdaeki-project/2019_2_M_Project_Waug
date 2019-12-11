@@ -14,8 +14,13 @@ public class AdminController {
 		return "admin/admin_main";
 	}
 	
-	@GetMapping("add_goods")
-	public void add_goods() throws Exception{
+	@GetMapping("goods_list")
+	public void goods_list() throws Exception{
+		
+	} 
+	
+	@GetMapping("goods_add")
+	public void goods_add() throws Exception{
 		
 	}
 	
