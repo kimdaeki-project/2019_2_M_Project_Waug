@@ -88,7 +88,8 @@
 	/*line-height: 36px;*/
 }
 .order_reser_pay>img{
-	height: 9px;
+	width:25px;
+	height: 25px;
 	padding-right: 12px;
 }
 .order_reser_pay>span{
@@ -178,7 +179,6 @@
 }
 .credit_select{
 	width: 100%;
-	height: 30px;
 	border:1px solid #dadada;
 	border-radius: 4px;
 }
@@ -188,10 +188,18 @@
 .pay_credit_title>strong>b{
 	cursor: pointer;
 }
-.test{
+.card{
 	width: 75px;
 	margin: 5px;
 	border:1px solid #dadada;
+	padding: 5px;
+	float: left;
+	text-align: center;
+}
+.card_clicked{
+	border:1px solid black;
+	width: 75px;
+	margin: 5px;
 	padding: 5px;
 	float: left;
 	text-align: center;
@@ -312,8 +320,7 @@
 .order_wrapper{
 	width: 1140px;
 	margin: 0 auto;
-	height: 1500px;					/***************************************************************************************temporary*/
-	border: 1px solid gold;
+	padding-bottom:200px;
 }
 .order_infoBox{
 	border: 1px solid #ededed;
@@ -357,6 +364,7 @@
     font-size: 12px;
     padding-left: 4px;
 }
+
 .order_fields_input input[type="text"],
 .order_fields_input input[type="checkbox"],
 .order_fields_input input[type="date"],
@@ -377,7 +385,7 @@
 	font-weight: 400;
 	background: white;
 	border-radius: 5px;
-	height: 26px;
+	height: 40px;
 }
 select{
 	-webkit-appearance: none;
@@ -469,6 +477,9 @@ input[type="email"].input_md{
 }
 /* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
 /* * ** **** ***** *** *** ****** ******* ***** ****** ***** *********** calender ******* *********** ******* *********** **** **** ****** **** *** */
+#reser_page_div{
+	margin-top:70px;
+}
 .reser-flex-box{
 	width: 1170px;
 	height: 560px;
@@ -488,11 +499,62 @@ input[type="email"].input_md{
 }
 .reser_cal_wrapper{
 	width: 605px;
-	height: 505px;
-	background: #f2f2f2;
+	color:#484848;
 }
 .reser_calBox{
 	padding: 0 10px;
+}
+.reser_cal_yearANDmonth{
+	width:555px;
+	height: 27px;
+	line-height: 27px;
+	margin:22px 0 37px 0;
+	margin-left: 30px;
+}
+.reser_cal_yearANDmonth>span{
+	float: right;
+	margin:0px 10px;
+	width:33px;
+	height: 27px;
+}
+.reser_cal_yearANDmonth>b{
+	margin:0 3px;
+	color:#484848;
+	height: 20px;
+	font-size:16px;
+}
+.dayBox{
+	width:585px;
+	height:20px;
+}
+.day{
+	width:83.5px;
+	float: left;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+}
+#dateBox{
+	width:585px;
+}
+.date{
+	width:83.5px;
+	height: 83.5px;
+	line-height: 83.5px;
+	text-align: center;
+	float: left;
+}
+.date:hover{
+	background:#f2f2f2;
+}
+.date-active{
+	background:#d91c83;
+	color:white;
+}
+.reser_cal_yearANDmonth>span>img{
+	width:10px;
+	height: 20px;
+	margin:0 11.5px;
 }
 .reser_option_wrapper{
 	width: 500px;
@@ -542,7 +604,7 @@ input[type="email"].input_md{
 	padding: 30px;
 	position: absolute;
 	right: 0px;
-	background: gold;
+	background: white;
 	width: 30%;
 	height: 100%;
 }
@@ -553,6 +615,81 @@ input[type="email"].input_md{
 	height: 20px;
 	font-weight: 500;
 	margin-bottom: 30px;
+}
+.reservation_btn_wrapper{
+	width:100%;
+	height: 110px;
+}
+.reser_numberOfUserBox{
+	width: 100%;
+	height: 50px;
+	margin-bottom: 30px;
+}
+.reser_user_adult{
+	display: inline-block;
+	float: left;
+	width: 30%;
+	height: 30px;
+	font-size: 16px;
+	line-height: 30px;
+}
+.user_num_controll{
+	width: 25%;
+	height:40px;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+}
+#user_num_show{
+	width: 50%;
+	height: 37px;
+	text-align: center;
+	line-height: 37px;
+	float: left;
+	font-size: 14px;
+	border-left: 1px solid #999999;
+	border-right: 1px solid #999999;
+}
+.reser_user_number{
+	display: inline-block;
+	float: right;
+	width: 30%;
+	height: 38px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	border:1px solid #999999;
+	border-radius: 3px;
+}
+#reservation_btn{
+	width:47%;
+	height: 50px;
+	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+	float:right;
+	border:none;
+	border-radius: 1px;	
+	color:white;
+}
+#cart_btn{
+	width:47%;
+	height: 50px;
+	background:white;
+	float:left;
+	border:none;
+	border-radius: 1px;	
+	border:1px solid #999999;
+}
+#reservation_users_order_total_price{
+	width: 100%;
+	height: 50px;
+	border:1px solid #999999;
+	border-radius: 1px;
+	background:white;
+	text-align: center;
+	line-height: 50px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: bold;
 }
 #reser_modal_close:hover{
 	cursor: pointer;

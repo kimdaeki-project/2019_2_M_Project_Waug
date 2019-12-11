@@ -13,7 +13,7 @@ public class GoodsController {
 
 	@RequestMapping("goods")
 	public void goods()throws Exception{
-		
+		System.out.println("goods page~~~");
 	}
 	
 	@RequestMapping("goods_themes")
