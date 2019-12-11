@@ -23,7 +23,7 @@ public class GoodsController {
 	@Inject
 	private GoodsService goodsService;
 
-	@RequestMapping("goods")
+	@GetMapping("goods")
 	public void goods()throws Exception{
 		System.out.println("goods page~~~");
 	}
@@ -31,8 +31,6 @@ public class GoodsController {
 
 	@RequestMapping("goods_themes")
 	public void themes() throws Exception{
-		
-		
 		
 	}
 }

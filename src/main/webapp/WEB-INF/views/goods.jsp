@@ -18,16 +18,17 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+<input type="text" disabled="disabled" name="goods_num" value="7" id="goods_num">	
 <c:import url="./layout/nav.jsp"/>
 <c:import url="./layout/CityList.jsp"/>
 <div class="good_contents_titles">
-
    <div class="good_container_flex">
    <div class="good_detail_info_wrapper">
       상품 옵션 / 프로그램
    </div>
 </div>
 </div>   
+
    <div class="good_img_wrapper">
       <div class="good_img_titleBox">
          <div class="good_btn_wishlist good_like"></div>
@@ -226,6 +227,7 @@
    			</div>
    		</div>
    </div>
+
    <div class="mean_less_div">
       <h1>구글api,추천 액티비티</h1>
       
@@ -282,9 +284,7 @@
     </div>
   </div>
 </div>
-   <!--  -->
-   
-   
+
 <script type="text/javascript">
 function openModal() {
 	  document.getElementById("Modal").style.display = "block";
@@ -344,13 +344,13 @@ function openModal() {
     });  
 
   
-
    $('.good_reservation_btn').click(function(){
-      alert('book clicked!!');
-      location.href='./order/calendar';
-      // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
-      // onclick="location.href='goods';"
-   });
+	      alert('book clicked!!');
+	      location.href='./order/calendar?goods_num='+$('#goods_num').val();
+	      // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+	      // onclick="location.href='goods';"
+	   });
+  
 
    
 
