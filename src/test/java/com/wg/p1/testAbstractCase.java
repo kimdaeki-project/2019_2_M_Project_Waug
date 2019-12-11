@@ -16,14 +16,4 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/**/*-context.xml")
 public class testAbstractCase {
 	
-	@Inject
-	private SqlSession sqlsession;
-	@Inject
-	private DataSource dataSource;
-	
-	@Test
-	public void test() {
-		assertNotNull(dataSource);
-	}
-
 }

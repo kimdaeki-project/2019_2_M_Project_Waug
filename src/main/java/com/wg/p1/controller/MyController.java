@@ -49,6 +49,10 @@ public class MyController {
 		
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		
+		List<WishListVO> wo = new ArrayList<WishListVO>();
+		while(wishListVO!=null){
+			wo.add(wishListVO);
+		}
 		String email= memberVO.getM_pk();
 		
 		wishListVO.setEmail(email);
@@ -61,6 +65,8 @@ public class MyController {
 		String msg="위시리스트 등록 성공";
 		if(count==0) {
 			result = wishlistService.wishAdd(wishListVO);
+			session.setAttribute("wo", wo); 
+
 		}else {
 			msg="이미 등록된 위시리스트입니다.";
 		}
