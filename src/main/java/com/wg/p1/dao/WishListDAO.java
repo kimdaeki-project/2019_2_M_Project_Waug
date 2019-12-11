@@ -1,6 +1,8 @@
 package com.wg.p1.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.WishListVO;
+
 
 @Repository
 public class WishListDAO {
@@ -28,5 +31,12 @@ public class WishListDAO {
 	
 	public List<GoodsVO> myWish(MemberVO memberVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"myWish", memberVO);
+	}
+
+	public int wishCount(int goods_num, String email) throws Exception{
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("goods_num", goods_num);
+		map.put("email", email);
+		return sqlSession.selectOne(NAMESPACE+"wishCount", map);
 	}
 }

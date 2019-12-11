@@ -33,7 +33,7 @@
 						<!-- goods 하나 -->
 						<div class="good-card-box m-good-card col-md-6 item">
 						<!-- 위시리스트 추가하트 -->
-						<div class="good-wish"><img alt="하트" src="../resources/images/ic_active_wish.svg"></div>
+						<div class="good-wish" title="${vo.goods_num}"><img alt="하트" src="../resources/images/ic_active_wish.svg"></div>
 						<!-- 상품사진 -->
 						<div class="wish-good">
 							<img data-lazy="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/28/15749047613780.png?s=366x240" 
@@ -54,9 +54,8 @@
 					</c:forEach> 
 						
 					</div>
-					
 				</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -85,6 +84,29 @@
 		$(this).parent().parent().addClass("active-continent");
 		$(this).parent().addClass("active");
 	});
+	
+	
+	$(".good-wish").click(function() {
+		//$(this).toggleClass("good-card-wish-btn-whis");
+		var goods_num = $(this).attr("title");
+		
+			$.ajax({
+		        type: "GET",
+		        url:"./my/wishDel",
+		       	data:{
+			       	goods_num:goods_num
+		       	},
+		        success : function()
+		        {
+		          alert('success'); 
+		       	},
+		       	error: function() {
+				  alert('fail');
+				},
+		    });
+			window.location.reload();
+	});
+	
 	</script>
 </body>
 </html>

@@ -342,6 +342,7 @@
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
+								 	
 									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
 								</div>
 								<div class="good-card-text-wrapper">
@@ -648,21 +649,23 @@
 			$(this).children().css("color", "#333333");
 		});
 		/* 위시리스트 jquery */
+		
+	
 		$(".good-card-wish-btn").click(function() {
-			
-			//$(this).toggleClass("good-card-wish-btn-whis");
+
 			var goods_num = $(this).attr("title");
+			
 			if($(this).hasClass("good-card-wish-btn-whis")){
 				$(this).removeClass("good-card-wish-btn-whis")
 				$.ajax({
 		        	type: "GET",
-		        	url:"./my/wishDelete",
+		        	url:"./my/wishDel",
 		        	data:{
 			        	goods_num:goods_num
 		        	},
 		        	success : function()
 		        	{
-		        	  alert('success');    
+		        	  alert('success'); 
 		        	},
 		        	error: function() {
 					  alert('fail');
@@ -678,7 +681,7 @@
 		        	},
 		        	success : function()
 		        	{
-		        	  alert('success');    
+		        	  alert('success');  
 		        	},
 		        	error: function() {
 					  alert('fail');

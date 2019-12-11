@@ -1,9 +1,9 @@
 package com.wg.p1.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,15 +26,19 @@ public class HomeController {
 	private GoodsService goodsService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView goods(GoodsVO goodsVO)throws Exception{
+	public ModelAndView goods(GoodsVO goodsVO, HttpSession session)throws Exception{
 		ArrayList<GoodsVO> ar = new ArrayList<GoodsVO>();
 		ModelAndView mv = new ModelAndView();
 		ar = goodsService.goodsRecomand(goodsVO);
+		session.getAttribute("wishlistVO");
 		mv.addObject("list", ar);
+		/*
+		 * mv.addObject("wishlistVO", session.getAttribute("wishlistVO"));
+		 */		
 		System.out.println(ar.get(0).getTitle());
 		System.out.println(ar.get(1).getTitle());
 		mv.setViewName("home");
-			
+		
 		return mv;
 	}
 		
