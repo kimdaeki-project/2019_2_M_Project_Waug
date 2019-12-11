@@ -5,7 +5,7 @@
   
 <mapper namespace="wishlistMapper">
 	<insert id="wishAdd" parameterType="WishListVO">
-		insert into wishlist(w_num,goods_num,email) values(wish_seq.nextval, #{goods_num},#{email})
+		insert into wishlist(w_num,goods_num,email,heart) values(wish_seq.nextval, #{goods_num},#{email},1)
 	</insert>
   	<delete id="wishDel" parameterType="MemberVO">
   		delete wishlist where goods_num=#{goods_num} and email=#{m_pk}

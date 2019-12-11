@@ -34,7 +34,6 @@ public class MyController {
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 
-	
 	}
 	
 	@PostMapping(value = "mypage")
@@ -46,38 +45,30 @@ public class MyController {
 	public ModelAndView wishlist(WishListVO wishListVO, int goods_num, HttpSession session, GoodsVO goodsVO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		
-		List<WishListVO> wo = new ArrayList<WishListVO>();
-		while(wishListVO!=null){
-			wo.add(wishListVO);
-		}
 		String email= memberVO.getM_pk();
 		
 		wishListVO.setEmail(email);
 		wishListVO.setGoods_num(goods_num);
 		
 		int result=0;
-		System.out.println(email);
 		int count = wishlistService.wishCount(goods_num,email);
 		
 		String msg="위시리스트 등록 성공";
 		if(count==0) {
 			result = wishlistService.wishAdd(wishListVO);
-			session.setAttribute("wo", wo); 
 
 		}else {
 			msg="이미 등록된 위시리스트입니다.";
 		}
 		
-		  
-		 if(result>0) { 
-			 System.out.println("성공"); 
-		 }else { 
-			 System.out.println("실패"); 
-		 }
-		 
+		if(result>0) { 
+			System.out.println("성공"); 
+		}else { 
+			System.out.println("실패"); 
+		}
+
 		mv.addObject("msg", msg);
 		mv.addObject("result", result); 
 		mv.setViewName("common/common_ajaxResult");

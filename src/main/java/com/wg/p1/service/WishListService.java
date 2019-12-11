@@ -19,17 +19,7 @@ public class WishListService {
 	private WishListDAO wishListDAO;
 	
 	public int wishAdd(WishListVO wishListVO) throws Exception{
-		/*
-		 * int goods_num = wishListVO.getGoods_num(); String email =
-		 * wishListVO.getEmail();
-		 * 
-		 * List<Object> wo= new ArrayList<Object>();
-		 * 
-		 * if(wishListVO!=null) { wo.set(0, wishListVO.getGoods_num()); wo.set(1,
-		 * wishListVO.getEmail());
-		 * 
-		 * System.out.println(wo.get(0)); }
-		 */
+
 		return wishListDAO.wishAdd(wishListVO);
 	}
 	
@@ -46,9 +36,4 @@ public class WishListService {
 		return wishListDAO.wishCount(goods_num,email);
 	}
 	
-	/*
-	 * public List<WishListVO> wichCK(WishListVO wishListVO) throws Exception{
-	 * 
-	 * return wishListDAO.wishCK(wishListVO); }
-	 */
 }

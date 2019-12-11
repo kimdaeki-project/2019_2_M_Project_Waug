@@ -13,8 +13,35 @@
 		insert into member(m_pk,social,email,name) values(#{m_pk},#{social},#{email},#{name})
 	</insert>  
   	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
-  		select * from member where email=#{email}
+  		select * from member
+  		where email=#{email}
   	</select>
+  	
+  	
+  	
+<!--   	  	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
+  		select * from member full outer join wishlist 
+  		using(email)
+  		where email=#{email}
+  	</select> -->
+  	<!-- 
+  	<resultMap type="MemberVO" id="member">
+  		<id property="m_pk" column="m_pk"/>
+  		<result property="social" column="social"/>
+  		<result property="email" column="email"/>
+  		<result property="pw" column="pw"/>
+  		<result property="ename_first" column="ename_first"/>
+  		<result property="ename_last" column="ename_last"/>
+  		<result property="phone" column="phone"/>
+  		<result property="img" column="img"/>
+  		<collection property="wishlist" javaType="java.util.List" ofType="WishListVO">
+  			<id property="w_num" column="w_num"/>
+  			<result property="goods_num" column="goods_num"/>
+  			<result property="email" column="email"/>
+  			<result property="heart" column="heart"/>
+  		</collection>
+  	</resultMap> -->
+  	
   	
   	<update id="memberUpdate" parameterType="MemberVO">
   		update member set 

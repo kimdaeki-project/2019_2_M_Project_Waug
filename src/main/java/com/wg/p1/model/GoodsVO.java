@@ -17,8 +17,16 @@ public class GoodsVO {
 	private int t_num;
 	private String img;
 	private List<WishListVO> wishlist;
+	private int wish;
 	
 	
+	
+	public int getWish() {
+		return wish;
+	}
+	public void setWish(int wish) {
+		this.wish = wish;
+	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;
 	}

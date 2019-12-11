@@ -332,22 +332,25 @@
 				<div class="main-itemtitle-title">와그 추천</div>
 				<div class="main-itemtitle-sub"></div>
 			</div>
+			<h1>${sessionScope.wishlist.email}</h1>
 			<div class="swiper-list-container container3">
 				<div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 					
 					<c:forEach  items="${list}" var="vo">
-						
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
-								 	
-								 	<c:if test="${empty sessionScope.wo.w_num}">
-									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
-								 	</c:if>
-								 	<c:if test="${not empty sessionScope.wo.w_num }">
-									<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
-								 	</c:if>
+							
+									<c:choose>
+										<c:when test="${vo.wish eq 1}">
+										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
+										</c:when>
+										<c:when test="${vo.wish eq 0}">
+										<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
+										</c:when>
+									</c:choose>
+									
 								</div>
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
@@ -357,6 +360,7 @@
 									<div class="good-card-original-price">₩ ${vo.price}</div>
 									<div class="good-card-price">₩ ${vo.discount}</div>
 									<div class="good-card-buy-cnt">63,512 예약</div>
+									
 								</div>
 							</div>
 						</div>
@@ -654,7 +658,6 @@
 		});
 		/* 위시리스트 jquery */
 		
-	
 		$(".good-card-wish-btn").click(function() {
 
 			var goods_num = $(this).attr("title");
