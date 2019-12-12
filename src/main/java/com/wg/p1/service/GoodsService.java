@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.MemberVO;
+
 
 @Service
 public class GoodsService {
@@ -17,10 +19,7 @@ public class GoodsService {
 	@Inject
 	private GoodsDAO goodsDAO;
 
-	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{
-		return goodsDAO.goodsRecomand(goodsVO);
-	}
-	
+
 	public List<NationVO> CityList() throws Exception{
 		return goodsDAO.CityList();
 	}
@@ -31,6 +30,11 @@ public class GoodsService {
 	
 	public List<GoodsVO> GoodsList() throws Exception{
 		return goodsDAO.goodsList();
+
+	}
+	public ArrayList<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
+		return (ArrayList<GoodsVO>)goodsDAO.goodsRecomand(memberVO);
+
 	}
 	
 	public GoodsVO selectOneGoods(int goods_num) throws Exception{

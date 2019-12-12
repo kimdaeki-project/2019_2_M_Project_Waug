@@ -17,6 +17,8 @@ public class GoodsVO {
 	private int t_num;
 	private String img;
 	private List<WishListVO> wishlist;
+	private int cart_num;
+	private int wish;
 	private String t_title;
 	private String city_name;
 	
@@ -32,6 +34,24 @@ public class GoodsVO {
 	}
 	public void setCity_name(String city_name) {
 		this.city_name = city_name;
+	}
+
+	
+	
+	
+
+	public int getCart_num() {
+		return cart_num;
+	}
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
+	}
+	public int getWish() {
+		return wish;
+	}
+	public void setWish(int wish) {
+		this.wish = wish;
+
 	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;

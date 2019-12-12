@@ -71,9 +71,6 @@ public class MemberController {
 		return mv;
 	}
 	
-	
-	
-	
 	@PostMapping(value = "join")
 	public ModelAndView memberJoin(MemberVO memberVO) throws Exception{
 		
@@ -109,8 +106,8 @@ public class MemberController {
 		if(memberVO!=null) {
 			msg="로그인성공";
 			session.setAttribute("memberVO", memberVO);
+			//session.setAttribute("wishlist", memberVO.getWishlist());
 		}
-		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("memberVO", memberVO);
 		mv.addObject("msg", msg);
