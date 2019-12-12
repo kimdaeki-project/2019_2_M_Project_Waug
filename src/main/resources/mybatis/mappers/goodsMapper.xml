@@ -8,7 +8,13 @@
 <select id="selectGoodsInfo" resultType="InfoVO" parameterType="Integer">
 	select * from info where goods_num=#{goods_num}
 </select>
-<!-- 12.11 updated up******************************************* -->
+<!-- 12.12 updat -->
+<insert id="goodsInsert" parameterType="GoodsVO">
+	insert into goods values(#{goods_num}, #{price}, #{discount}, #{coupon},
+	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
+	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4})
+</insert>
+<!-- 12.11 updat******************************************* -->
 
 	<sql id="bs">
 		<choose>

@@ -22,6 +22,9 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+	public int goodsInsert(GoodsVO goodsVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"goodsInsert", goodsVO);
+	}
 	public InfoVO selectGoodsInfo(int goods_num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"selectGoodsInfo", goods_num);
 	}

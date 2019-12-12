@@ -2,6 +2,9 @@ package com.wg.p1;
 
 import static org.junit.Assert.*;
 
+import java.sql.Date;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -9,6 +12,7 @@ import org.junit.Test;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
+import com.wg.p1.model.WishListVO;
 
 public class GoodsTest extends testAbstractCase{
 
@@ -26,7 +30,7 @@ public class GoodsTest extends testAbstractCase{
 		System.out.println(goodsVO.getLocation());
 		assertNotNull(goodsVO);
 	}
-	@Test
+	//@Test
 	public void selectGoodsInfo() throws Exception{
 		System.out.println("test************************");
 		InfoVO info=goodsDAO.selectGoodsInfo(7);
@@ -38,5 +42,42 @@ public class GoodsTest extends testAbstractCase{
 		System.out.println(info.getPick_up());
 		
 		assertNotNull(info);
+	}
+	
+	@Test
+	public void insertgoodsVO()	throws Exception{
+		
+		Date date = new Date(119, 11, 12);
+		GoodsVO goodsVO=new GoodsVO();
+		
+		goodsVO.setGoods_num(101);
+		goodsVO.setPrice(2400);
+		goodsVO.setDiscount(42);
+		goodsVO.setCoupon("232");
+		goodsVO.setLocation("newyork");
+		goodsVO.setAble(date);
+		goodsVO.setCity_num(4);
+		goodsVO.setO_num(2);
+		goodsVO.setQtt(2);
+		goodsVO.setTitle("titel");
+		goodsVO.setT_num(2);
+		goodsVO.setImg("img");
+		//wish
+		//info
+		goodsVO.setCate_num(1);
+		goodsVO.setProgram("12");
+		goodsVO.setCharming("12");
+		goodsVO.setIncluded("12");
+		goodsVO.setNot_included("!2");
+		goodsVO.setHow_to_use("12");
+		goodsVO.setRemember("12");
+		goodsVO.setCancel("12");
+		goodsVO.setImg1("12");
+		goodsVO.setImg2("12");
+		goodsVO.setImg3("12");
+		goodsVO.setImg4("12");
+		int result=goodsDAO.goodsInsert(goodsVO);
+		System.out.println(result);
+		assertEquals(1, result);
 	}
 }

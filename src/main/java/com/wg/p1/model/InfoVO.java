@@ -15,12 +15,12 @@ public class InfoVO {
 //	    people           VARCHAR2(100)    NULL, 
 //	    CONSTRAINT INFO_PK PRIMARY KEY (goods_num)
 //	)
-	private String delivery_time;
-	private String duration;
+	private String delivery_time;		//확정
+	private String duration;			//사용날짜 / 지정일사용
 	private String language;
 	private String boucher;
 	private String cancel;
-	private String using_time;
+	private String using_time;			//이용시간
 	private String pick_up;
 	private String people;
 	
