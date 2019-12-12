@@ -238,7 +238,7 @@
 					
 					<c:forEach  items="${list}" var="vo">
 			
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=';">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=7';">
 
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								
