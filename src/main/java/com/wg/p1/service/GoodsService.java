@@ -32,4 +32,8 @@ public class GoodsService {
 	public List<GoodsVO> GoodsList() throws Exception{
 		return goodsDAO.goodsList();
 	}
+	
+	public GoodsVO selectOneGoods(int goods_num) throws Exception{
+		return goodsDAO.goosSelectOne(goods_num);
+	}
 }

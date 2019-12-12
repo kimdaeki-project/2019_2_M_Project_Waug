@@ -22,6 +22,7 @@ public class GoodsDAO {
 		return sqlSession.selectList(NAMESPACE+"goodsRecomand", goodsVO);
 	}
 	
+
 	public List<GoodsVO> goodsList() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"goodsList");
 	}
@@ -32,5 +33,9 @@ public class GoodsDAO {
 	
 	public NationVO City(NationVO nationVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"areaSelect", nationVO);
+	}
+	public GoodsVO goosSelectOne(int goods_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
+
 	}
 }
