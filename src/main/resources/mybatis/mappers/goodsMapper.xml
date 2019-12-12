@@ -56,4 +56,20 @@
   	select * from goods where goods_num=#{goods_num}
   </select>
   
+  <!-- 도시리스트 -->
+  <select id="cityList" resultType="NationVO">
+  	select * from nationinfo
+  </select>
+  
+  <!-- 테마리스트 -->
+  <select id="themeList" resultType="ThemeVO">
+  	select * from theme
+  </select>
+  <!-- 옵션리스트 -->
+  <select id="optionList">
+  </select>
+  <!-- 카테고리리스트 -->
+  <select id="cateList" resultType="CategoryVO">
+  	select * from category
+  </select>
 </mapper>

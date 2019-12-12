@@ -14,5 +14,7 @@
 		<typeAlias type="com.wg.p1.model.GoodsVO" alias="GoodsVO"/>
 		<typeAlias type="com.wg.p1.model.WishListVO" alias="WishListVO"/>
 		<typeAlias type="com.wg.p1.model.NationVO" alias="NationVO"/>
+		<typeAlias type="com.wg.p1.model.ThemeVO" alias="ThemeVO"/>
+		<typeAlias type="com.wg.p1.model.CategoryVO" alias="CategoryVO"/>
 	</typeAliases>
 </configuration>
