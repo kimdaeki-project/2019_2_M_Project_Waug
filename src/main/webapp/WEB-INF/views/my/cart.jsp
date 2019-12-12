@@ -35,7 +35,7 @@
 							<table class="table-hover mypage-list">
 								<thead>
 									<tr>
-										<th colspan="3">상품${cartVO.cart_num}</th>
+										<th colspan="3">상품${vo.cart_num}</th>
 										<th class="col-xs-2">사용 예정일</th>
 										<th class="col-xs-4">옵션 및 수량</th>
 										<th class="col-xs-2">비용</th>
@@ -52,7 +52,7 @@
 											<div class="i-checks">
 												<label>
 													<div id="cart_idx" class="icheckbox_flat-pink">
-														<input class="m" type="checkbox" value="${cartVO.cart_num}" name="cart_num" style=" width: 100%; height: 100%;">
+														<input class="m" type="checkbox" value="${vo.cart_num}" name="cart_num" style="opacity:0; width: 100%; height: 100%;">
 														<div></div> 
 													</div>
 												</label>
@@ -95,9 +95,9 @@
 								</div>
 								<div class="i-checks select-all">
 									<label>
-									<div style="padding-top: 1px; float: left;">전체 선택 / 해제</div>
+									<div style=" padding-top: 1px; float: left;">전체 선택 / 해제</div>
 									<div id="check_box" class="icheckbox_flat-pink">
-										<input id="check_box_input" type="checkbox" style="width: 100%; height: 100%;">
+										<input id="check_box_input" type="checkbox" style="opacity:0; width: 100%; height: 100%;">
 									</div>
 									</label>
 								
@@ -145,7 +145,9 @@
 	
 
 		
-
+	$('#check_box').click(function() {
+		$('.icheckbox_flat-pink').toggleClass('.check-img');
+	});
 
 	
 	

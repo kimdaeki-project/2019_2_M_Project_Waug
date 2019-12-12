@@ -92,16 +92,18 @@ public class MyController {
 	}
 	//장바구니 삭제
 	@PostMapping("cartDel")
-	public ModelAndView cartDel(MemberVO memberVO, HttpSession session,int cart_num) throws Exception{
+	public ModelAndView cartDel(MemberVO memberVO, HttpSession session, int[] cart_num) throws Exception{
 		ModelAndView mv = new ModelAndView();
 	
 		MemberVO memberVO2 = (MemberVO)session.getAttribute("memberVO");
 		memberVO.setM_pk(memberVO2.getM_pk());
 		
-		/* cartVO.setCart_num(cart_num); */
-		System.out.println(cart_num);
-	
-		int result = cartService.cartDel(cart_num);
+		int result=0;
+		for (int i = 0; i < cart_num.length; i++) {
+			
+			result = cartService.cartDel(cart_num[i]);
+		}
+		
 		String msg="실패";
 		if(result>0) {
 			msg="삭제성공";

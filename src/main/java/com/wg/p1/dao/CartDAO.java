@@ -24,7 +24,7 @@ public class CartDAO {
 	}
 	
 	public int cartDel(int cart_num) throws Exception{
-		return sqlSession.delete(NAMESPACE+"cartDel", cart_num);
+		return sqlSession.delete(NAMESPACE+"cartDel",cart_num);
 	}
 	
 	public List<GoodsVO> myCart(MemberVO memberVO) throws Exception{

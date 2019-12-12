@@ -17,16 +17,17 @@ public class GoodsVO {
 	private int t_num;
 	private String img;
 	private List<WishListVO> wishlist;
-	private List<CartVO> cart;
+	private int cart_num;
 	private int wish;
 	
 	
 	
-	public List<CartVO> getCart() {
-		return cart;
+
+	public int getCart_num() {
+		return cart_num;
 	}
-	public void setCart(List<CartVO> cart) {
-		this.cart = cart;
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
 	}
 	public int getWish() {
 		return wish;
