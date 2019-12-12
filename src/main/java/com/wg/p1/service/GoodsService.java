@@ -24,10 +24,19 @@ public class GoodsService {
 		return goodsDAO.goodsRecomand(goodsVO);
 	}
 	
+	
+	//인기도시
 	public List<NationVO> CityList() throws Exception{
 		return goodsDAO.CityList();
 	}
-	
+	//유럽도시
+	public List<NationVO> EuropeList() throws Exception{
+		return goodsDAO.EuropeList();
+	}
+	//아시아도시
+	public List<NationVO> AsiaList() throws Exception{
+		return goodsDAO.AsiaList();
+	}
 	public NationVO City(NationVO nationVO) throws Exception{
 		return goodsDAO.City(nationVO);
 	}
@@ -53,4 +62,6 @@ public class GoodsService {
 	public List<CategoryVO> CateAll() throws Exception{
 		return goodsDAO.CateAll();
 	}
+	
+	
 }

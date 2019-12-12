@@ -21,15 +21,22 @@
 		</choose>
 	</sql>
 
-  <select id="goodsRecomand" resultType="GoodsVO">
-  	select * from goods
+  <select id="goodsRecomand" parameterType="Integer" resultType="GoodsVO">
+  	select * from goods 
   </select>
   
-
+	<!-- 추천도시 -->
   <select id="areaRecomand" resultType="NationVO">
-  	select * from nationinfo
+  	select * from nationinfo where city_rec = 1
   </select>
-  
+  <!-- 유럽도시 -->
+  <select id="europeList" resultType="NationVO">
+  	select * from nationinfo where continents='유럽'
+  </select>
+  <!-- 아시아도시 -->
+  <select id="asiaList" resultType="NationVO">
+  	select * from nationinfo where continents ='아시아'
+  </select>
   
   <select id="areaSelect" parameterType="NationVO" resultType="NationVO">
   	select * from nationinfo where city_num=#{city_num}

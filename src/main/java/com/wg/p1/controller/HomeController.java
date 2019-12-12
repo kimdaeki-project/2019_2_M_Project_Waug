@@ -43,10 +43,13 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		ar = goodsService.goodsRecomand(goodsVO);
 		List<NationVO> cityar = goodsService.CityList();
+		List<NationVO> europe = goodsService.EuropeList();
+		System.out.println(europe.size());
 		
 		session.getAttribute("wishlistVO");
 		mv.addObject("list", ar);
 		mv.addObject("citylist", cityar);
+		mv.addObject("europe", europe);
 		/*
 		 * mv.addObject("wishlistVO", session.getAttribute("wishlistVO"));
 		 */		

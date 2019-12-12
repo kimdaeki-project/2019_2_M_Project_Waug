@@ -34,6 +34,14 @@ public class GoodsDAO {
 		return sqlSession.selectList(NAMESPACE+"areaRecomand");
 	}
 	
+	public List<NationVO> EuropeList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"europeList");
+	}
+	
+	public List<NationVO> AsiaList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"asiaList");
+	}
+	
 	public NationVO City(NationVO nationVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"areaSelect", nationVO);
 	}

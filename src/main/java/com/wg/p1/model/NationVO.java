@@ -8,8 +8,15 @@ public class NationVO {
 	private String city_name;
 	private String city_img;
 	private String city_img2;
+	private int city_rec;
 	
 	
+	public int getCity_rec() {
+		return city_rec;
+	}
+	public void setCity_rec(int city_rec) {
+		this.city_rec = city_rec;
+	}
 	public int getCity_num() {
 		return city_num;
 	}
