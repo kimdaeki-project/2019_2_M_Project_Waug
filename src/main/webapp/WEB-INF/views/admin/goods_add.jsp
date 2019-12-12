@@ -18,7 +18,6 @@
 			<h1>상품 등록</h1>
 		</div>
 
-
 		<form action="productInsert" method="post" id="frm" onsubmit=true enctype="multipart/form-data" >
 			<div class="form-group">
 				<label for="cat_ref">Category Choice</label>

@@ -217,19 +217,19 @@
 												<div
 													class="rating-container rating-md rating-animate star-float">
 													<div class="rating2" >
-														<label> <input type="radio" name="rv_score2" value="1"  class="radiostar"/>
+														<label> <input type="radio" name="rv_score" value="1"  class="radiostar"/>
 															<span class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score2"
+														</label> <label> <input type="radio" name="rv_score"
 															value="2" class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score2"
+														</label> <label> <input type="radio" name="rv_score"
 															value="3"  class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score2"
+														</label> <label> <input type="radio" name="rv_score"
 															value="4"  class="radiostar"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span>
-														</label> <label> <input type="radio" name="rv_score2"
+														</label> <label> <input type="radio" name="rv_score"
 															value="5"  class="radiostar" checked="checked"/> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span> <span
 															class="icon">★</span> <span class="icon">★</span>

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.service.GoodsService;
+import com.wg.p1.util.Pager;
 
 @Controller
 @RequestMapping("admin/**")
@@ -26,11 +27,11 @@ public class AdminController {
 	}
 	
 	@GetMapping("goods_list")
-	public ModelAndView goods_list(GoodsVO goodsVO) throws Exception{
+	public ModelAndView goods_list(GoodsVO goodsVO, Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		List<GoodsVO> ar = goodsService.GoodsList();
+		List<GoodsVO> ar = goodsService.GoodsList(pager);
 		mv.addObject("list", ar);
-		
+		mv.addObject("pager", pager);
 		mv.setViewName("admin/goods_list");
 		return mv;
 	} 

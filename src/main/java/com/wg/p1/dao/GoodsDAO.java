@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.util.Pager;
 
 @Repository
 public class GoodsDAO {
@@ -23,8 +24,8 @@ public class GoodsDAO {
 	}
 	
 
-	public List<GoodsVO> goodsList() throws Exception{
-		return sqlSession.selectList(NAMESPACE+"goodsList");
+	public List<GoodsVO> goodsList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"goodsList", pager);
 	}
 	
 	public List<NationVO> CityList() throws Exception{
@@ -38,4 +39,8 @@ public class GoodsDAO {
 		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
 
 	}
+	public int goodsCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"goodsCount", pager);
+	}
+	
 }

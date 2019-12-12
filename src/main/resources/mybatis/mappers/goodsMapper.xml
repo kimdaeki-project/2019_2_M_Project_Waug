@@ -15,9 +15,9 @@
 			<when test="kind == 'theme'">
 				where t_title like '%'||#{search}||'%'
 			</when>
-			<otherwise>
-				where cate_name like '%'||#{search}||'%' or cates_name like '%'||#{search}||'%'
-			</otherwise>
+			<when test="kind == 'cate_name'">
+				where cate_name like '%'||#{search}||'%'
+			</when>
 		</choose>
 	</sql>
 
@@ -35,11 +35,23 @@
   	select * from nationinfo where city_num=#{city_num}
   </select>
   
-  <select id="goodsList" resultType="GoodsVO">
-  	select A.*, B.city_name city_name, C.t_title t_title from goods A, nationinfo B, theme C
-		where A.city_num = B.city_num and A.t_num = C.t_num
+  <select id="goodsList" parameterType="Pager" resultType="GoodsVO">
+  	select * from
+	(select N.*, rownum R from
+	(select * from
+	(select A.*, B.city_name city_name, C.t_title t_title,  D.cate_name cate_name from goods A, nationinfo B, theme C, category D
+		where A.city_num = B.city_num and A.t_num = C.t_num and A.cate_num = D.cate_num) <include refid="bs"></include> order by goods_num desc) N)
+        where R between #{startRow} and #{lastRow}
   </select>
-
+	
+	<select id="goodsCount" resultType="Integer" parameterType="Pager">
+		select count(goods_num) from
+		(select A.*, B.city_name city_name, C.t_title t_title, D.cate_name cate_name from goods A, nationinfo B, theme C, category D
+		where A.city_num = B.city_num and A.t_num = C.t_num and A.cate_num = D.cate_num)
+		<include refid="bs"></include>
+		
+	</select>
+	
   <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">
   	select * from goods where goods_num=#{goods_num}
   </select>

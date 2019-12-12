@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.util.Pager;
 
 @Service
 public class GoodsService {
@@ -29,8 +30,11 @@ public class GoodsService {
 		return goodsDAO.City(nationVO);
 	}
 	
-	public List<GoodsVO> GoodsList() throws Exception{
-		return goodsDAO.goodsList();
+	public List<GoodsVO> GoodsList(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makePage(goodsDAO.goodsCount(pager));
+		
+		return goodsDAO.goodsList(pager);
 	}
 	
 	public GoodsVO selectOneGoods(int goods_num) throws Exception{
