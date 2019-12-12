@@ -16,5 +16,7 @@
 		<typeAlias type="com.wg.p1.model.NationVO" alias="NationVO"/>
 		<typeAlias type="com.wg.p1.model.ThemeVO" alias="ThemeVO"/>
 		<typeAlias type="com.wg.p1.model.CategoryVO" alias="CategoryVO"/>
+		<typeAlias type="com.wg.p1.model.CartVO" alias="CartVO"/>
+
 	</typeAliases>
 </configuration>

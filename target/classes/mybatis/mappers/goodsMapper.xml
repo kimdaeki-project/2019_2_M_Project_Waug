@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="goodsMapper">
+
 	<sql id="bs">
 		<choose>
 			<when test="kind == 'good'">
@@ -21,10 +22,11 @@
 		</choose>
 	</sql>
 
+
   <select id="goodsRecomand" parameterType="Integer" resultType="GoodsVO">
   	select * from goods 
   </select>
-  
+
 	<!-- 추천도시 -->
   <select id="areaRecomand" resultType="NationVO">
   	select * from nationinfo where city_rec = 1
@@ -50,6 +52,7 @@
 		where A.city_num = B.city_num and A.t_num = C.t_num and A.cate_num = D.cate_num) <include refid="bs"></include> order by goods_num desc) N)
         where R between #{startRow} and #{lastRow}
   </select>
+
 	
 	<select id="goodsCount" resultType="Integer" parameterType="Pager">
 		select count(goods_num) from
@@ -59,9 +62,20 @@
 		
 	</select>
 	
+  <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
+  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num
+		from goods 
+		where goods_num in(select goods_num from wishlist where email=#{m_pk})
+	union
+	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num
+		from goods
+		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
+  </select>
+
   <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">
   	select * from goods where goods_num=#{goods_num}
   </select>
+
   
   <!-- 도시리스트 -->
   <select id="cityList" resultType="NationVO">

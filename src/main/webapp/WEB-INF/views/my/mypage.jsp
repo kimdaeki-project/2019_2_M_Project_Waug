@@ -24,7 +24,7 @@
 			<div class="row">
 			
 				<c:import url="./mylayout.jsp"/>
-				
+			
 				<!-- 메인컨텐츠 시작 -->
 				<div id="sub-container" class="col-md-9">
 					<h3 class="space-5" style="font-weight: bold;">여행자 정보 등록</h3>

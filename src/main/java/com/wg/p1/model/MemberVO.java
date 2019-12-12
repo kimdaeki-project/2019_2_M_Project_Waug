@@ -1,5 +1,7 @@
 package com.wg.p1.model;
 
+import java.util.List;
+
 public class MemberVO {
 	
 	private String m_pk;
@@ -12,8 +14,15 @@ public class MemberVO {
 	private String phone;
 	private String img;
 	private int goods_num;
+	private List<WishListVO> wishlist;
 	
 	
+	public List<WishListVO> getWishlist() {
+		return wishlist;
+	}
+	public void setWishlist(List<WishListVO> wishlist) {
+		this.wishlist = wishlist;
+	}
 	public int getGoods_num() {
 		return goods_num;
 	}

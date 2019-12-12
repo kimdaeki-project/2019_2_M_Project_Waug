@@ -13,6 +13,8 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
 import com.wg.p1.util.Pager;
+import com.wg.p1.model.MemberVO;
+
 
 @Service
 public class GoodsService {
@@ -20,8 +22,9 @@ public class GoodsService {
 	@Inject
 	private GoodsDAO goodsDAO;
 
-	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{
-		return goodsDAO.goodsRecomand(goodsVO);
+
+	public List<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
+		return goodsDAO.goodsRecomand(memberVO);
 	}
 	
 	
@@ -41,6 +44,7 @@ public class GoodsService {
 		return goodsDAO.City(nationVO);
 	}
 	
+
 	public List<GoodsVO> GoodsList(Pager pager) throws Exception{
 		pager.makeRow();
 		pager.makePage(goodsDAO.goodsCount(pager));
