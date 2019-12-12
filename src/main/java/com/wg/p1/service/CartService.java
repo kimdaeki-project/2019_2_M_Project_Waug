@@ -35,4 +35,7 @@ public class CartService {
 		return cartDAO.cartSum(memberVO);
 	}
 
+	public int cartCount(MemberVO memberVO) throws Exception{
+		return cartDAO.cartCount(memberVO);
+	}
 }

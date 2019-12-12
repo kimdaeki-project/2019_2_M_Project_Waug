@@ -51,7 +51,7 @@
 											<input type="hidden" name="goods_num" value="${vo.goods_num}">
 											<div class="i-checks">
 												<label>
-													<div id="cart_idx" class="icheckbox_flat-pink">
+													<div id="cart_idx" class="icheckbox_flat-pink each-div">
 														<input class="m" type="checkbox" value="${vo.cart_num}" name="cart_num" style="opacity:0; width: 100%; height: 100%;">
 														<div></div> 
 													</div>
@@ -96,7 +96,7 @@
 								<div class="i-checks select-all">
 									<label>
 									<div style=" padding-top: 1px; float: left;">전체 선택 / 해제</div>
-									<div id="check_box" class="icheckbox_flat-pink">
+									<div id="check_box" class="icheckbox_flat-pink all-div">
 										<input id="check_box_input" type="checkbox" style="opacity:0; width: 100%; height: 100%;">
 									</div>
 									</label>
@@ -105,7 +105,7 @@
 							</div>
 							
 							<div class="form-button-wrapper">
-								<button type="submit" class="btn-form-cancel">선택 삭제</button>
+								<button type="submit" class="btn-form-cancel">선택 삭제 ${cartCount}</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
 							</div>
 							
@@ -144,11 +144,28 @@
 	});
 	
 
+
+	$('.all-div').click(function() {
+
+		$('.icheckbox_flat-pink').toggleClass('check-img');
 		
-	$('#check_box').click(function() {
-		$('.icheckbox_flat-pink').toggleClass('.check-img');
+	
 	});
 
+	
+	$('.each-div').click(function() {
+		
+		$(this).toggleClass('check-img');
+		 $('.each-div').each(function() {
+		
+			if(!$(this).hasClass('check-img')){
+				chk = $('.all-div').addClass('check-img');
+			}
+		});
+	
+		$('.all-div').toggleClass('check-img'); 
+	});
+	
 	
 	
 	/* 모달 */

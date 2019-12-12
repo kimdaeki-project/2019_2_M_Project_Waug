@@ -23,6 +23,7 @@ import com.wg.p1.service.MemberServiceImpl;
 import com.wg.p1.service.WishListService;
 
 import oracle.net.aso.e;
+import oracle.net.aso.s;
 
 @Controller
 @RequestMapping(value = "/my/**")
@@ -46,7 +47,7 @@ public class MyController {
 	public void my() {
 		
 	}
-	
+
 	//장바구니 리스트
 	@GetMapping("cart")
 	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
@@ -56,11 +57,13 @@ public class MyController {
 		List<GoodsVO> ar = cartService.myCart(memberVO);
 		
 		
-		
-	//	int cartSum = cartService.cartSum(memberVO);
+		int cartCount = cartService.cartCount(memberVO);
+		System.out.println(cartCount);
+		mv.addObject("cartCount", cartCount);
+		int cartSum = cartService.cartSum(memberVO);
 		mv.addObject("list", ar);
 		mv.addObject("cartVO", cartVO);
-	//	mv.addObject("cartSum",cartSum);
+		mv.addObject("cartSum",cartSum);
 		mv.setViewName("my/cart");
 		return mv;
 	}
