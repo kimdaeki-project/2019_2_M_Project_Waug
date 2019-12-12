@@ -56,13 +56,13 @@
 		</table>
 
 		<div >
-			<form action="./productList" id="frm">
+			<form action="./goods_list" id="frm">
 				<input type="hidden" id="curPage" value="1" name="curPage">
 				<select id="kind" name="kind">
-					<option id="kt" value="kt">상품명</option>
-					<option id="kw" value="kw">도시</option>
-					<option id="kc" value="kc">테마</option>
-					<option id="kc" value="kc">카테고리</option>
+					<option id="good" value="good">상품명</option>
+					<option id="city" value="city">도시</option>
+					<option id="theme" value="theme">테마</option>
+					<option id="cate" value="cate">카테고리</option>
 				</select> 
 				
 				<input type="text" id="search" name="search" value="">

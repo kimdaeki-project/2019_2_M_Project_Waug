@@ -4,6 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="goodsMapper">
+	<sql id="bs">
+		<choose>
+			<when test="kind == 'good'">
+				where title like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'city'">
+				where city_name like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'theme'">
+				where t_title like '%'||#{search}||'%'
+			</when>
+			<otherwise>
+				where cate_name like '%'||#{search}||'%' or cates_name like '%'||#{search}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
   <select id="goodsRecomand" resultType="GoodsVO">
   	select * from goods
   </select>
