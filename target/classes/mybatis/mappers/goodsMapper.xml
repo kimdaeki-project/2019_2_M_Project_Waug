@@ -22,11 +22,6 @@
 		</choose>
 	</sql>
 
-
-  <select id="goodsRecomand" parameterType="Integer" resultType="GoodsVO">
-  	select * from goods 
-  </select>
-
 	<!-- 추천도시 -->
   <select id="areaRecomand" resultType="NationVO">
   	select * from nationinfo where city_rec = 1

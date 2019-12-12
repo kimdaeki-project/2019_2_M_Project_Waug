@@ -58,7 +58,9 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO)throws Exception{
-		ArrayList<GoodsVO> ar = new ArrayList<GoodsVO>();
+		List<GoodsVO> ar = new ArrayList<GoodsVO>();
+		List<NationVO> europe = goodsService.EuropeList();
+		List<NationVO> cityar = goodsService.CityList();
 		ModelAndView mv = new ModelAndView();
 		
 		memberVO = (MemberVO)session.getAttribute("memberVO");
@@ -68,11 +70,11 @@ public class HomeController {
 			memberVO = new MemberVO();
 			memberVO.setM_pk("a");
 		}
-		List<NationVO> cityar = goodsService.CityList();
 		
 		ar = goodsService.goodsRecomand(memberVO);
 		session.getAttribute("wishlistVO");
 		mv.addObject("citylist", cityar);
+		mv.addObject("europe", europe);
 		/* mv.addObject("memberVO", memberVO); */
 		mv.addObject("list", ar);
 		mv.setViewName("home");
