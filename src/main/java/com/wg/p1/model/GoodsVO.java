@@ -18,64 +18,12 @@ public class GoodsVO {
 	private String img;
 	private List<WishListVO> wishlist;
 	private InfoVO infoVO;
-	private List<Goods_imgVO> goods_imgVO;
-	private List<IncludedVO> includedVO;
-	private List<Not_IncludedVO> not_IncludedVO;
-	private List<RememberVO> rememberVO;
-	private List<CancellationVO> cancellationVO;
-	private List<How_to_useVO> how_to_useVO;
-	
-	
-	
-	public InfoVO getInfoVO() {
-		return infoVO;
-	}
-	public void setInfoVO(InfoVO infoVO) {
-		this.infoVO = infoVO;
-	}
-	public List<Goods_imgVO> getGoods_imgVO() {
-		return goods_imgVO;
-	}
-	public void setGoods_imgVO(List<Goods_imgVO> goods_imgVO) {
-		this.goods_imgVO = goods_imgVO;
-	}
-	public List<IncludedVO> getIncludedVO() {
-		return includedVO;
-	}
-	public void setIncludedVO(List<IncludedVO> includedVO) {
-		this.includedVO = includedVO;
-	}
-	public List<Not_IncludedVO> getNot_IncludedVO() {
-		return not_IncludedVO;
-	}
-	public void setNot_IncludedVO(List<Not_IncludedVO> not_IncludedVO) {
-		this.not_IncludedVO = not_IncludedVO;
-	}
-	public List<RememberVO> getRememberVO() {
-		return rememberVO;
-	}
-	public void setRememberVO(List<RememberVO> rememberVO) {
-		this.rememberVO = rememberVO;
-	}
-	public List<CancellationVO> getCancellationVO() {
-		return cancellationVO;
-	}
-	public void setCancellationVO(List<CancellationVO> cancellationVO) {
-		this.cancellationVO = cancellationVO;
-	}
-	public List<How_to_useVO> getHow_to_useVO() {
-		return how_to_useVO;
-	}
-	public void setHow_to_useVO(List<How_to_useVO> how_to_useVO) {
-		this.how_to_useVO = how_to_useVO;
-	}
-	public List<WishListVO> getWishlist() {
-		return wishlist;
-	}
-	public void setWishlist(List<WishListVO> wishlist) {
-		this.wishlist = wishlist;
-	}
-	
+	private Goods_imgVO goods_imgVO;
+	private IncludedVO includedVO;
+	private Not_IncludedVO not_IncludedVO;
+	private RememberVO rememberVO;
+	private CancellationVO cancellationVO;
+	private How_to_useVO how_to_useVO;
 	public int getGoods_num() {
 		return goods_num;
 	}
@@ -148,5 +96,57 @@ public class GoodsVO {
 	public void setImg(String img) {
 		this.img = img;
 	}
+	public List<WishListVO> getWishlist() {
+		return wishlist;
+	}
+	public void setWishlist(List<WishListVO> wishlist) {
+		this.wishlist = wishlist;
+	}
+	public InfoVO getInfoVO() {
+		return infoVO;
+	}
+	public void setInfoVO(InfoVO infoVO) {
+		this.infoVO = infoVO;
+	}
+	public Goods_imgVO getGoods_imgVO() {
+		return goods_imgVO;
+	}
+	public void setGoods_imgVO(Goods_imgVO goods_imgVO) {
+		this.goods_imgVO = goods_imgVO;
+	}
+	public IncludedVO getIncludedVO() {
+		return includedVO;
+	}
+	public void setIncludedVO(IncludedVO includedVO) {
+		this.includedVO = includedVO;
+	}
+	public Not_IncludedVO getNot_IncludedVO() {
+		return not_IncludedVO;
+	}
+	public void setNot_IncludedVO(Not_IncludedVO not_IncludedVO) {
+		this.not_IncludedVO = not_IncludedVO;
+	}
+	public RememberVO getRememberVO() {
+		return rememberVO;
+	}
+	public void setRememberVO(RememberVO rememberVO) {
+		this.rememberVO = rememberVO;
+	}
+	public CancellationVO getCancellationVO() {
+		return cancellationVO;
+	}
+	public void setCancellationVO(CancellationVO cancellationVO) {
+		this.cancellationVO = cancellationVO;
+	}
+	public How_to_useVO getHow_to_useVO() {
+		return how_to_useVO;
+	}
+	public void setHow_to_useVO(How_to_useVO how_to_useVO) {
+		this.how_to_useVO = how_to_useVO;
+	}
+	
+	
+	
+	
 	
 }
