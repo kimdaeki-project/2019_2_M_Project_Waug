@@ -9,8 +9,8 @@
 		insert into cart(cart_num,goods_num,o_num,email) values(cart_seq.nextval, #{goods_num},1,#{email})
 	</insert>
 	<!-- 삭제 -->
-	<delete id="cartDel" parameterType="MemberVO">
-		delete cart where goods_num=#{goods_num} and email=#{m_pk}
+	<delete id="cartDel" parameterType="CartVO">
+		delete cart where cart_num=#{cart_num}
 	</delete>
   	<!-- 내 장바구니 -->
   	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
@@ -24,8 +24,8 @@
   		from cart c, goods g
   		where c.goods_num=g.goods_num and c.email=#{m_pk}
   	</select> 
-<!-- 	<select id="cartCount" parameterType="java.util.Map" resultType="Integer">
-		select count(*) from cart 
-		where email=#{email} and goods_num=#{goods_num}
+
+<!-- 	<select id="cartList" resultType="CartVO">
+		select * from cart;
 	</select> -->
 </mapper>

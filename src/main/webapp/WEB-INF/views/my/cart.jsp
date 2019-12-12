@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="../resources/css/Footer.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
 <title>Insert title here</title>
+<script type="text/javascript">
 
+</script>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
@@ -33,7 +35,7 @@
 							<table class="table-hover mypage-list">
 								<thead>
 									<tr>
-										<th colspan="3">상품</th>
+										<th colspan="3">상품${cartVO.cart_num}</th>
 										<th class="col-xs-2">사용 예정일</th>
 										<th class="col-xs-4">옵션 및 수량</th>
 										<th class="col-xs-2">비용</th>
@@ -49,8 +51,8 @@
 											<input type="hidden" name="goods_num" value="${vo.goods_num}">
 											<div class="i-checks">
 												<label>
-													<div class="icheckbox_flat-pink">
-														<input type="checkbox" value="goods_num" name="cart_idx" style="opacity: 0; width: 100%; height: 100%;">
+													<div id="cart_idx" class="icheckbox_flat-pink">
+														<input class="m" type="checkbox" value="${cartVO.cart_num}" name="cart_num" style=" width: 100%; height: 100%;">
 														<div></div> 
 													</div>
 												</label>
@@ -95,7 +97,7 @@
 									<label>
 									<div style="padding-top: 1px; float: left;">전체 선택 / 해제</div>
 									<div id="check_box" class="icheckbox_flat-pink">
-										<input type="checkbox" style="opacity: 0; width: 100%; height: 100%;">
+										<input id="check_box_input" type="checkbox" style="width: 100%; height: 100%;">
 									</div>
 									</label>
 								
@@ -118,6 +120,58 @@
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
+	
+	
+/* 	var m = document.getElementsByClassName('m'); //장바구니인풋박스클래스
+	var m_div = document.getElementsByClassName('m_div'); //장바구니인풋박스클래스
+	var cart_idx = document.getElementById('cart_idx'); 
+
+	//전체선택
+ 	$("#check_box").click(function() {
+		
+		$(".icheckbox_flat-pink").toggleClass("check-img");
+		
+		 for(var i=0; i<m.length; i++){
+				m_ck[i].checked=this.checked;
+			} 
+	});
+	
+ 	$("#cart_idx").click(function() {
+		
+		this.toggleClass("check-img");
+		
+	});  */
+	 
+	
+	 
+	
+	//체크 ,삭제
+	var check = true;
+	$('#check_box_input').click(function() {
+		$('.m').prop("checked",check);
+		check= !check;
+	});
+	
+	
+	$('.m').click(function() {
+		var ck= true;
+		$('.m').each(function() {
+		
+			if(!$(this).prop("checked")){
+				ck=false;
+				
+			}
+		});
+	
+		$('#check_box_input').prop("checked",ck);	
+	});
+	
+
+		
+
+
+	
+	
 	/* 모달 */
 	// Get the modal
 	var modal = document.getElementById("myModal");
@@ -134,17 +188,7 @@
 		}
 	}
 	
-	$("#check_box").click(function() {
-		
-		$(".icheckbox_flat-pink").toggleClass("check-img");
-		
-	});
-	
-	$("#cart_idx").click(function() {
-		
-		this.toggleClass("check-img");
-		
-	});
+
 	
 	$(".con").click(function() {
 		$(".continent-item").removeClass("active-continent");
@@ -152,6 +196,7 @@
 		$(this).parent().parent().addClass("active-continent");
 		$(this).parent().addClass("active");
 	});
+	
 	</script>
 </body>
 </html>

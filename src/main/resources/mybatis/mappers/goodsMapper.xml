@@ -5,12 +5,12 @@
   
 <mapper namespace="goodsMapper">
   <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
-  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt,title,t_num,img, 1 wish
+  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num
 		from goods 
 		where goods_num in(select goods_num from wishlist where email=#{m_pk})
 	union
-	select * 
-		from goods 
+	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num
+		from goods
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
   </select>
 

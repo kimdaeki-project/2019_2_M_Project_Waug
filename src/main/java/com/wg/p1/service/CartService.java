@@ -16,21 +16,22 @@ public class CartService {
 
 	@Inject
 	private CartDAO cartDAO;
+
 	
-	
-	public int cartAdd(CartVO cartVO) throws Exception{
+
+	public int cartAdd(CartVO cartVO) throws Exception {
 		return cartDAO.cartAdd(cartVO);
 	}
-	
-	public int cartDel(MemberVO memberVO) throws Exception{
-		return cartDAO.cartDel(memberVO);
+
+	public int cartDel(int cart_num) throws Exception {
+		return cartDAO.cartDel(cart_num);
 	}
-	
-	public List<GoodsVO> myCart(MemberVO memberVO) throws Exception{
+
+	public List<GoodsVO> myCart(MemberVO memberVO) throws Exception {
 		return cartDAO.myCart(memberVO);
 	}
-	
-	public int cartSum(MemberVO memberVO) throws Exception{
-		return cartDAO.cartSum(memberVO);
-	}
+
+	public int cartSum(MemberVO memberVO) throws Exception{ return
+	  cartDAO.cartSum(memberVO); }
+
 }

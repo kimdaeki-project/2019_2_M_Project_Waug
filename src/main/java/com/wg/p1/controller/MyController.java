@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,24 +45,25 @@ public class MyController {
 	public void my() {
 		
 	}
-	
+	//장바구니 리스트
 	@GetMapping("cart")
-	public ModelAndView cart(GoodsVO goodsVO, HttpSession session, CartVO cartVO) throws Exception{
+	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		List<GoodsVO> ar = cartService.myCart(memberVO);
-		int cartSum = cartService.cartSum(memberVO);
+	//	int cartSum = cartService.cartSum(memberVO);
 		mv.addObject("list", ar);
-		mv.addObject("cartSum",cartSum);
+		mv.addObject("cartVO", cartVO);
+	//	mv.addObject("cartSum",cartSum);
 		mv.setViewName("my/cart");
 		return mv;
 	}
 	
 	
-	
+	//장바구니 추가
 	@PostMapping("cart")
-	public void cart(CartVO cartVO, HttpSession session,int goods_num) throws Exception{
+	public ModelAndView cart(CartVO cartVO, HttpSession session,int goods_num, ModelAndView mv) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
 		cartVO.setEmail(memberVO.getM_pk());
 		cartVO.setGoods_num(goods_num);
@@ -72,16 +74,29 @@ public class MyController {
 		}else {
 			System.out.println("실패");
 		}
+		
+		
+		List<GoodsVO> ar = cartService.myCart(memberVO);
+		int cartSum = cartService.cartSum(memberVO);
+		mv.addObject("list", ar);
+		mv.addObject("cartVO", cartVO);
+		mv.addObject("cartSum",cartSum);
+		mv.setViewName("my/cart");
+		
+		return mv;
 	}
-	
+	//장바구니 삭제
 	@PostMapping("cartDel")
-	public ModelAndView cartDel(MemberVO memberVO, HttpSession session) throws Exception{
+	public ModelAndView cartDel(MemberVO memberVO, HttpSession session,int cart_num) throws Exception{
 		ModelAndView mv = new ModelAndView();
 	
 		MemberVO memberVO2 = (MemberVO)session.getAttribute("memberVO");
 		memberVO.setM_pk(memberVO2.getM_pk());
 		
-		int result = cartService.cartDel(memberVO);
+		/* cartVO.setCart_num(cart_num); */
+		System.out.println(cart_num);
+	
+		int result = cartService.cartDel(cart_num);
 		String msg="실패";
 		if(result>0) {
 			msg="삭제성공";
@@ -96,7 +111,7 @@ public class MyController {
 	}
 	
 	
-	
+	//위시리스트 추가
 	@GetMapping("wishAdd")
 	public ModelAndView wishlist(WishListVO wishListVO, int goods_num, HttpSession session, GoodsVO goodsVO) throws Exception{
 		
@@ -132,6 +147,7 @@ public class MyController {
 		return mv;
 	}
 	
+	//위시리스트 삭제
 	@GetMapping("wishDel")
 	public ModelAndView wishDelete(MemberVO memberVO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -151,7 +167,7 @@ public class MyController {
 		
 		return mv;
 	}
-	
+	//위시리스트
 	@GetMapping("wishlist")
 	public ModelAndView myWish(GoodsVO goodsVO, HttpSession session, WishListVO wishListVO) throws Exception{
 		

@@ -12,8 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.ReviewService;
-
-
+import com.wg.p1.model.CartVO;
 import com.wg.p1.model.MemberVO;
 
 import com.wg.p1.service.GoodsService;
@@ -30,7 +29,7 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	@RequestMapping("good_page")
-	public ModelAndView goods(ModelAndView mv)throws Exception{
+	public ModelAndView goods(ModelAndView mv, CartVO cartVO)throws Exception{
 		
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
@@ -39,6 +38,7 @@ public class GoodsController {
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		mv.addObject("review", reviewVO);
 		mv.addObject("review2", reviewVO2);
+		mv.addObject("cartVO", cartVO);
 		mv.setViewName("goods/good_page");
 		
 		//goods 정보담기

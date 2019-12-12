@@ -23,16 +23,17 @@ public class CartDAO {
 		return sqlSession.insert(NAMESPACE+"cartAdd", cartVO);
 	}
 	
-	public int cartDel(MemberVO memberVO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"cartDel", memberVO);
+	public int cartDel(int cart_num) throws Exception{
+		return sqlSession.delete(NAMESPACE+"cartDel", cart_num);
 	}
 	
 	public List<GoodsVO> myCart(MemberVO memberVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"myCart", memberVO);	
 	}
 	
-	public int cartSum(MemberVO memberVO) {
-		return sqlSession.selectOne(NAMESPACE+"cartSum", memberVO);
-	}
+	
+	 public int cartSum(MemberVO memberVO) { return
+	 sqlSession.selectOne(NAMESPACE+"cartSum", memberVO); }
+	 
 	
 }
