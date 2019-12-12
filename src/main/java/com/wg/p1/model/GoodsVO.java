@@ -24,6 +24,9 @@ public class GoodsVO {
 	private RememberVO rememberVO;
 	private CancellationVO cancellationVO;
 	private How_to_useVO how_to_useVO;
+	private String t_title;
+	private String city_name;
+	
 	public int getGoods_num() {
 		return goods_num;
 	}
@@ -144,8 +147,21 @@ public class GoodsVO {
 	public void setHow_to_useVO(How_to_useVO how_to_useVO) {
 		this.how_to_useVO = how_to_useVO;
 	}
+	public String getT_title() {
+		return t_title;
+	}
+	public void setT_title(String t_title) {
+		this.t_title = t_title;
+	}
+	public String getCity_name() {
+		return city_name;
+	}
+	public void setCity_name(String city_name) {
+		this.city_name = city_name;
+	}
 	
 	
+
 	
 	
 	

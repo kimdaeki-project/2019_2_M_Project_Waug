@@ -9,10 +9,43 @@
 	select * from info where goods_num=#{goods_num}
 </select>
 <!-- 12.11 updated up******************************************* -->
+
+	<sql id="bs">
+		<choose>
+			<when test="kind == 'good'">
+				where title like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'city'">
+				where city_name like '%'||#{search}||'%'
+			</when>
+			<when test="kind == 'theme'">
+				where t_title like '%'||#{search}||'%'
+			</when>
+			<otherwise>
+				where cate_name like '%'||#{search}||'%' or cates_name like '%'||#{search}||'%'
+			</otherwise>
+		</choose>
+	</sql>
+
   <select id="goodsRecomand" resultType="GoodsVO">
   	select * from goods
   </select>
   
+
+  <select id="areaRecomand" resultType="NationVO">
+  	select * from nationinfo
+  </select>
+  
+  
+  <select id="areaSelect" parameterType="NationVO" resultType="NationVO">
+  	select * from nationinfo where city_num=#{city_num}
+  </select>
+  
+  <select id="goodsList" resultType="GoodsVO">
+  	select A.*, B.city_name city_name, C.t_title t_title from goods A, nationinfo B, theme C
+		where A.city_num = B.city_num and A.t_num = C.t_num
+  </select>
+
   <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">
   	select * from goods where goods_num=#{goods_num}
   </select>

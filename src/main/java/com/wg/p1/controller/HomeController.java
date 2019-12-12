@@ -1,6 +1,7 @@
 package com.wg.p1.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.GoodsVO;
+import com.wg.p1.model.NationVO;
 import com.wg.p1.service.GoodsService;
 
 /**
@@ -27,25 +29,25 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView goods(GoodsVO goodsVO, HttpSession session)throws Exception{
-		ArrayList<GoodsVO> ar = new ArrayList<GoodsVO>();
+		List<GoodsVO> ar = new ArrayList<GoodsVO>();
 		ModelAndView mv = new ModelAndView();
 		ar = goodsService.goodsRecomand(goodsVO);
+		List<NationVO> cityar = goodsService.CityList();
+		
 		session.getAttribute("wishlistVO");
 		mv.addObject("list", ar);
+		mv.addObject("citylist", cityar);
 		/*
 		 * mv.addObject("wishlistVO", session.getAttribute("wishlistVO"));
 		 */		
-		System.out.println(ar.get(0).getTitle());
-		System.out.println(ar.get(1).getTitle());
+
 		mv.setViewName("home");
 		
 		return mv;
 	}
 		
 
-	@RequestMapping(value = "/goods/goods_area", method = RequestMethod.GET)
-	public void area() {
-	}
+
 
 
 

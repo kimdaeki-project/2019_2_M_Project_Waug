@@ -9,7 +9,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.wg.p1.model.GoodsVO;
+
 import com.wg.p1.model.InfoVO;
+
+import com.wg.p1.model.NationVO;
+
 
 @Repository
 public class GoodsDAO {
@@ -22,8 +26,21 @@ public class GoodsDAO {
 		return sqlSession.selectOne(NAMESPACE+"selectGoodsInfo", goods_num);
 	}
 	
+
+	public List<GoodsVO> goodsList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"goodsList");
+	}
+	
+	public List<NationVO> CityList() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"areaRecomand");
+	}
+	
+	public NationVO City(NationVO nationVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"areaSelect", nationVO);
+	}
 	public GoodsVO goosSelectOne(int goods_num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"goodsSelectOne", goods_num);
+
 	}
 	
 	public List<GoodsVO> goodsRecomand(GoodsVO goodsVO) throws Exception{

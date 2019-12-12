@@ -12,10 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.ReviewService;
-
-
+import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
-
+import com.wg.p1.model.NationVO;
 import com.wg.p1.service.GoodsService;
 
 
@@ -46,6 +45,20 @@ public class GoodsController {
 		//mv.addObject("info", attributeValue)
 		return mv;
 		
+	}
+
+
+	@RequestMapping("goods_area")
+	public ModelAndView goods_area(ModelAndView mv, int city_num) throws Exception{
+		NationVO nationVO = new NationVO();
+		GoodsVO goodsVO = new GoodsVO();
+		nationVO.setCity_num(city_num);
+		goodsVO.setGoods_num(city_num);
+		nationVO = goodsService.City(nationVO);
+		
+		mv.addObject("nation", nationVO);
+		
+		return mv;
 	}
 
 

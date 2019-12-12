@@ -16,9 +16,11 @@
 	<div id = "wrapper">
 		<main>
 			<div id="wrapper_page">
-				<div class="wrapper-header area-header-image">
+				<div class="wrapper-header area-header-image" style="background-image: url('${nation.city_img2}');">
+					<div class="theme-header-opacity">
+					</div>
 					<div class="header-title">
-						<h1>서울</h1>
+						<h1>${nation.city_name}</h1>
 					</div>
 				</div>
 			

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page session="false"%>
 <html>
 <head>
@@ -34,8 +35,6 @@
 }
 </style>
 </head>
-
-
 <body>
 	<c:import url="./layout/home_nav.jsp"/>
 	<div id="main-wrapper">
@@ -139,124 +138,24 @@
 	<div id="main-container">
 		<div class="main-item-container">
 			<div class="main-itemtitle">
-				<div class="main-itemtitle-title">인기 여행지${pageContext.request.contextPath}</div>
+				<div class="main-itemtitle-title">인기 여행지</div>
 				<div class="main-itemtitle-sub">2019년 가장 핫한 여행지를 추천해요</div>
 			</div>
 
 			<div class="swiper-list-container">
 				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
-						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;">
+					<c:forEach items="${citylist}" var="dto">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
 							<div class="area-card-container">
 								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
-									style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/06/14648398959249.png?s=157.5x244');">
+									style="background-image: url('${dto.city_img}');">
 								</div>
-								<div class="area-card-text">괌</div>
+								<div class="area-card-text">${dto.city_name}</div>
 							</div>
 						</div>
-						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-next"
-							style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14777528392896.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">방콕</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200019883567.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">오사카</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<a href="./goods/goods_area">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768018488168.png?s=157.5x244');">
-								</div>
-								</a>
-								<div class="area-card-text">서울</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/06/03/15280069047628.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">다낭</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/06/14648743422700.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">보라카이</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2017/04/14935341123847.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">타이페이</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div class="area-card-content swiper-lazy swiper-lazy-loaded" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/10/14768019228529.png?s=157.5x244');">
-								</div>
-								<div class="area-card-text">싱가포르</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2017/06/14983959773745.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
-								</div>
-								<div class="area-card-text">도쿄</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/02/15200017002800.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
-								</div>
-								<div class="area-card-text">홍콩</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2016/04/14615958640638.png?s=157.5x244');" class="area-card-content swiper-lazy swiper-lazy-loaded">
-								</div>
-								<div class="area-card-text">세부</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/09/14/15369181593516.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
-								<div class="area-card-text">알자스</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/11/26/15432380503230.jpg?s=157.5x244');" class="area-card-content"></div>
-								<div class="area-card-text">아유타야</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2018/03/19/15214381047353.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
-								<div class="area-card-text">레이캬비크</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/07/25/15640208744860.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
-								<div class="area-card-text">하이난</div>
-							</div>
-						</div>
-						<div class="arealist-slide swiper-slide" style="margin-right : 16px;">
-							<div class="area-card-container">
-								<div style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/main/2019/09/02/15674017580604.png?s=157.5x244');" class="area-card-content swiper-lazy"></div>
-								<div class="area-card-text">항저우</div>
-							</div>
-						</div>
+					</c:forEach>
+						
 					</div>
 					<div class="prev-btn">
 					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
@@ -355,8 +254,8 @@
 										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
 									</div>
 									<div class="good-card-title">${vo.title}</div>
-									<div class="good-card-original-price">₩ ${vo.price}</div>
-									<div class="good-card-price">₩ ${vo.discount}</div>
+									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
+									<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
 									<div class="good-card-buy-cnt">63,512 예약</div>
 								</div>
 							</div>
