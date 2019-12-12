@@ -85,7 +85,7 @@
 <script type="text/javascript">
 
 	$("#cart_btn").click(function() {
-		$("#formId").attr("action","../my/cart?cart_num=${cartVO.cart_num}");
+		$("#formId").attr("action","../my/cart");
 		
 	});
 

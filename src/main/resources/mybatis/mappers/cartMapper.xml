@@ -9,7 +9,7 @@
 		insert into cart(cart_num,goods_num,o_num,email) values(cart_seq.nextval, #{goods_num},1,#{email})
 	</insert>
 	<!-- 삭제 -->
-	<delete id="cartDel" parameterType="CartVO">
+	<delete id="cartDel" parameterType="Integer">
 		delete cart where cart_num=#{cart_num}
 	</delete>
   	<!-- 내 장바구니 -->
@@ -25,7 +25,4 @@
   		where c.goods_num=g.goods_num and c.email=#{m_pk}
   	</select> 
 
-<!-- 	<select id="cartList" resultType="CartVO">
-		select * from cart;
-	</select> -->
 </mapper>

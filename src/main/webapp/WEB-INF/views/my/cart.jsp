@@ -121,29 +121,7 @@
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
 	
-	
-/* 	var m = document.getElementsByClassName('m'); //장바구니인풋박스클래스
-	var m_div = document.getElementsByClassName('m_div'); //장바구니인풋박스클래스
-	var cart_idx = document.getElementById('cart_idx'); 
 
-	//전체선택
- 	$("#check_box").click(function() {
-		
-		$(".icheckbox_flat-pink").toggleClass("check-img");
-		
-		 for(var i=0; i<m.length; i++){
-				m_ck[i].checked=this.checked;
-			} 
-	});
-	
- 	$("#cart_idx").click(function() {
-		
-		this.toggleClass("check-img");
-		
-	});  */
-	 
-	
-	 
 	
 	//체크 ,삭제
 	var check = true;
@@ -159,7 +137,6 @@
 		
 			if(!$(this).prop("checked")){
 				ck=false;
-				
 			}
 		});
 	

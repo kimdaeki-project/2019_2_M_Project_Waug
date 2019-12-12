@@ -31,7 +31,8 @@ public class CartService {
 		return cartDAO.myCart(memberVO);
 	}
 
-	public int cartSum(MemberVO memberVO) throws Exception{ return
-	  cartDAO.cartSum(memberVO); }
+	public int cartSum(MemberVO memberVO) throws Exception{ 
+		return cartDAO.cartSum(memberVO);
+	}
 
 }

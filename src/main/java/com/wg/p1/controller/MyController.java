@@ -2,6 +2,7 @@ package com.wg.p1.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -45,6 +46,7 @@ public class MyController {
 	public void my() {
 		
 	}
+	
 	//장바구니 리스트
 	@GetMapping("cart")
 	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
@@ -52,6 +54,9 @@ public class MyController {
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		List<GoodsVO> ar = cartService.myCart(memberVO);
+		
+		
+		
 	//	int cartSum = cartService.cartSum(memberVO);
 		mv.addObject("list", ar);
 		mv.addObject("cartVO", cartVO);
