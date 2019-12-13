@@ -44,13 +44,13 @@ public class GoodsTest extends testAbstractCase{
 		assertNotNull(info);
 	}
 	
-	//@Test
+	@Test
 	public void insertgoodsVO()	throws Exception{
 		
 		Date date = new Date(119, 11, 12);
 		GoodsVO goodsVO=new GoodsVO();
 		
-		goodsVO.setGoods_num(101);
+		goodsVO.setGoods_num(1013);
 		goodsVO.setPrice(2400);
 		goodsVO.setDiscount(42);
 		goodsVO.setCoupon("232");
@@ -81,7 +81,7 @@ public class GoodsTest extends testAbstractCase{
 		assertEquals(1, result);
 	}
 	
-	@Test
+	//@Test
 	public void infoInsert()throws Exception{
 		InfoVO info=new InfoVO();
 		info.setBoucher("바우처");
