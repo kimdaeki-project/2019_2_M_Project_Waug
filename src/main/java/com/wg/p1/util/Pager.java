@@ -4,7 +4,23 @@ public class Pager {
 
 	private Integer curPage;//현재 페이지번호
 	private Integer perPage;//페이지 당 글 갯수
-	
+	private String kind; //검색종류
+	private String search; //검색어
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+	public String getSearch() {
+		if(search == null)
+			search="";
+		
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	//DB
 	private Integer startRow;//시작 rownum
 	private Integer lastRow;//마지막 rownum
@@ -13,7 +29,22 @@ public class Pager {
 	private Integer startNum; //시작 번호
 	private Integer lastNum; //끝 번호
 	private Integer totalPage;
+	private Integer curBlock; //현재 블럭 번호
+	private Integer totalBlock; //전체 블럭 갯수
 	
+	
+	public Integer getCurBlock() {
+		return curBlock;
+	}
+	public void setCurBlock(Integer curBlock) {
+		this.curBlock = curBlock;
+	}
+	public Integer getTotalBlock() {
+		return totalBlock;
+	}
+	public void setTotalBlock(Integer totalBlock) {
+		this.totalBlock = totalBlock;
+	}
 	public Integer getStartNum() {
 		return startNum;
 	}
@@ -69,7 +100,23 @@ public class Pager {
 		totalPage = totalCount / this.getPerPage();
 		if(totalCount%this.getPerPage() != 0)
 			totalPage++;
-		
+		//3.전체 블럭 수 구하기
+		int perBlock = 5;
+		totalBlock = totalPage / perBlock;
+		if(totalPage%perBlock != 0 )
+		totalBlock++;
+				
+		//4.curPage로 curBlock 구하기
+		curBlock = this.getCurPage() / perBlock;
+		if(this.getCurPage() % perBlock != 0) {
+		curBlock++;
+		}
+		//5. curBlock으로 startNum, lastNum
+				
+		startNum = (curBlock-1)*perBlock +1;
+		lastNum = curBlock*perBlock;
+		if(curBlock == totalBlock)
+		lastNum = totalPage;
 	}
 	public Integer getTotalPage() {
 		return totalPage;

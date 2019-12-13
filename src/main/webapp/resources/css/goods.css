@@ -495,13 +495,20 @@ div.subtitle{
 .good_detail_infoBox>p>strong{
    color:#141414;
 }
-.infoUl{
+.good_detail_title ul{
+   padding-left: 20px;
+}
+.good_detail_title ul li{
+   font-size: 15px;
+   padding-bottom: 8px;
+}
+/* .infoUl{
    padding-left: 20px;
 }
 .infoUl li{
    font-size: 15px;
    padding-bottom: 8px;
-}
+} */
 .mean_less_div{
    height: 475px;
    margin-bottom: 150px;

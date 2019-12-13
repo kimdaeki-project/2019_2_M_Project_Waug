@@ -1,0 +1,250 @@
+.travel_main{
+	height: 640px;
+	margin-bottom: 20px;
+	background-image: url("15591018798116.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.travel_main_cover{
+	background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15602446750719.png);
+    background-repeat: repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.travel_category_container{
+	width: 1170px;
+	height: 320px;
+	position: absolute;
+    background: rgba(17, 17, 17, 0.2);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	color: white;
+}
+.travel_category_ul{
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	border-bottom: none;
+}
+.travel_category_ul>a{
+	text-decoration: none;
+	color: gray;
+}
+.travel_category_ul>a:hover{
+	color: white
+}
+.travel_category_ul>a:focus{
+	color: white
+}
+.travel_category_li{
+	list-style: none;
+	background: #333;
+	padding: 10px 20px;
+	float: left;
+	border:none;
+	cursor: pointer;
+}
+.travel_category_li_first{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.travel_category_li_last{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.travel_category_title{
+	margin-top: 40px;
+    font-size: 46px;
+    font-weight: 500;
+}
+.travel_category_subtitle{
+	margin: 6px 0 40px;
+	font-size: 18px;
+}
+.travel_category_selectBox{
+	height: 58px;
+	width: 430px;	/*for test*/
+	background:white; 
+	padding: 10px 20px;
+	border-radius: 5px;
+	line-height: 38px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	display: inline-block;
+	float: left;
+}
+.travel_category_selectBox_lg{
+	height: 58px;
+	width: 600px;
+	background:white; 
+	padding: 10px 20px;
+	border-radius: 5px;
+	line-height: 38px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #333;
+	display: inline-block;
+	float: left;
+}
+.travel_selectBox_next{
+	padding: 10px 6px;
+	margin: 19px 14px;
+	float: left;
+	display: inline-block;
+	background-image: url("next.svg");
+	height: 20px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 12px;
+}
+.travel_category_select_wrapper{
+	height: 58px;
+	width: 100%;
+}
+/*******************************************************/
+#usimANDwifi{
+	
+}
+#airport_Transportation{
+	
+}
+#japen_Transportation{
+	
+}
+#UrailPath{
+	
+}
+/*******************************************************/
+.travel_item_container{
+	width: 1170px;
+	height: 2310px;
+	margin: 0 auto;
+	color: black;
+	clear: both;
+	overflow: hidden;
+}
+.travel_item_list_title{
+	padding: 40px 0px 15px 0px;
+	margin:0 20px 10px 20px;
+	border-bottom: 2px solid black;
+	line-height: 34px;
+	font-size: 24px;
+	font-weight: 600;
+}
+.travel_items{
+	cursor: pointer;
+	height: 158px;
+	margin: 0 20px;
+	padding: 20px 0;
+	border-bottom: 1px solid lightgray;
+}
+.travel_item_img{
+	display: inline-block;
+	float: left;
+}
+.travel_item_img>img{
+	width: 172px;
+	height: 118px;
+	border-radius: 4px;
+}
+.travel_item_infoBox{
+	width: 958px;
+	height: 118px;
+	padding-right: 20px;
+	float: left;
+}
+.travel_item_info{
+	width: 70%;
+	height: 118px;
+	float: left;
+	padding-left: 20px;
+}
+.travel_item_priceBox{
+	width: 30%;
+	height: 118px;
+	float: left;
+}
+.travel_item_info_ableDate{
+	color: gray;
+	height: 18px;
+	margin-bottom: 6px;
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 600;
+}
+.travel_item_info_title{
+	font-size: 18px;
+	font-weight: 700;
+	height: 25px;							
+	margin-bottom: 15px;
+}
+.travel_item_info_sub_title{
+	height: 18px;
+	font-size: 13px;
+	font-weight: 700;
+}
+.travel_item_info_sub_text{
+	height: 18px;
+	font-size: 13px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	color: #999999;
+}
+.travel_item_priceBox_wrapper{
+	width: 70px;
+	height: 41px;
+	margin-top: 77px;
+	float: right;
+}
+.travel_item_origin_price{
+	color: #999999;
+	font-size: 13px;
+	font-weight: 600;
+	text-align: right;
+	text-decoration: line-through;
+}
+.travel_item_price{
+	color: #333333;
+	font-size: 18px;
+	font-weight: 700;
+	text-align: right;
+}
+.travel_moreBox_wrapper{
+	height: 45px;
+	padding: 8px 1px;
+	margin: 30px auto;
+	border-radius: 5px;
+	border:1px solid #999999;
+	width: 335px;
+	color: #999999;
+	font-weight: bold;
+	text-align: center;
+	line-height: 29px;
+	cursor: pointer;
+}
+.travel_modal_totalArea{
+	background: green;
+	width: 500px;
+	height: 500px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 1;
+	scroll-behavior: unset;
+	background-attachment:scroll;
+}
+.travel_modal_totalArea_nav>span{
+	font-size: 24px;
+}
+.travel_modal_totalArea_nav{
+	height: 29px;
+	padding: 20px;
+	border-bottom: 1px solid #999999;
+
+}

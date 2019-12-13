@@ -451,9 +451,73 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-item-container">유럽으로 떠나는 휴가</div>
+		<div class="main-item-container">
+			<div class="main-itemtitle">
+				<div class="main-itemtitle-title">유럽으로 떠나는 휴가</div>
+			</div>
+
+			<div class="swiper-list-container">
+				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper">
+					<c:forEach items="${europe_city}" var="dto">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
+							<div class="area-card-container">
+								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
+									style="background-image: url('${dto.city_img}');">
+								</div>
+								<div class="area-card-text">${dto.city_name}</div>
+							</div>
+						</div>
+					</c:forEach>
+						
+					</div>
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
+					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+				</div>
+			</div>
+			
+		</div>
 		<div class="main-item-container">유럽에서 즐기는 액티비티</div>
-		<div class="main-item-container">아시아로 떠나는 휴가</div>
+		<div class="main-item-container">
+			<div class="main-itemtitle">
+				<div class="main-itemtitle-title">아시아로 떠나는 휴가</div>
+			</div>
+
+			<div class="swiper-list-container">
+				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper">
+					<c:forEach items="${asia_city}" var="dto">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
+							<div class="area-card-container">
+								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
+									style="background-image: url('${dto.city_img}');">
+								</div>
+								<div class="area-card-text">${dto.city_name}</div>
+							</div>
+						</div>
+					</c:forEach>
+						
+					</div>
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
+					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+				</div>
+			</div>
+			
+		</div>
 		<div class="main-item-container">아시아에서 즐기는 액티비티</div>
 		<div class="main-item-container">
 			<div class="main-itemtitle">
