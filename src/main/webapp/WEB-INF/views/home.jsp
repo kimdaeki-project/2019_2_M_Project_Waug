@@ -40,7 +40,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?1</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -48,7 +48,7 @@
 							<input id="search" value="" placeholder="액티비티 또는 지역명으로 검색하세요">
 						</div>
 					</div>
-					<div class="searchresult-container">
+					<div class="searchresult-container" >
 						<div class="searchresult-content">
 							<div class="searchresultitem-container">
 								<div class="searchresultitem-title">빠른 검색</div>
@@ -571,6 +571,39 @@
 		<button onclick="location.href='./admin/admin_main'">
 			관리자페이지
 		</button>
+		
+		<div class="searchresult-content searchresult-items">
+				<div>
+					<div class="searchresultitem-container searchresultitem-container-searched">
+						<div class="searchresultitem-title">지역
+						</div>
+						<div class="searchresultitem-items searchresultitem-items-searched">
+							<div class="searchresultitem-item-searched">
+								<c:forEach begin="1" end="15">
+								<div class="searchresultitem-item">
+									<b>도시 이름</b>
+								</div>
+								</c:forEach>
+							</div>
+						</div>
+					</div>
+					<div class="searchresultitem-container searchresultitem-container-searched">
+						<div class="searchresultitem-title">상품
+						</div>
+						<div class="searchresultitem-items searchresultitem-items-searched">
+							<div class="searchresultitem-item-searched">
+								<c:forEach begin="1" end="10">
+								<div class="searchresultitem-item">
+									<b>상품명명명명며염여명며염여며염여며여</b>
+								</div>
+								</c:forEach>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 
@@ -613,22 +646,44 @@
 			$(this).attr("placeholder", "");
 			$(".searchresult-container").css("display", "flex");
 		});
+		
 		$("#search").blur(function() {
 			if ($(this).attr("placeholder") == "") {
 				$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-			}
+		}
 			$(".searchresult-container").css("display", "none");
 		});
+		
+		$("#search").keyup(function() {
+			var search = $(this).val();
+			$.get("./search?search="+search,function(data){
+				data=data.trim();
+				
+				$(".searchresult-container").html(data);
+			});
+		})
 
 		/* 검색창 호버? */
-		$(".searchresultitem-item").mouseenter(function() {
+		$(".searchresult-container").on("mouseenter", ".searchresultitem-item",function(){
+			$(this).toggleClass("mouseenter");
+			$(this).children().css("color", "#d91c84");
+		});
+		
+		$(".searchresult-container").on("mouseleave", ".searchresultitem-item",function(){
+			$(this).toggleClass("mouseenter");
+			$(this).children().css("color", "#333333");
+		});
+		
+				
+		/* $(".searchresultitem-item").mouseenter(function() {
 			$(this).toggleClass("mouseenter");
 			$(this).children().css("color", "#d91c84")
 		});
 		$(".searchresultitem-item").mouseleave(function() {
 			$(this).toggleClass("mouseenter");
 			$(this).children().css("color", "#333333");
-		});
+		}); */
+		
 		/* 위시리스트 jquery */
 		
 		$(".good-card-wish-btn").click(function() {

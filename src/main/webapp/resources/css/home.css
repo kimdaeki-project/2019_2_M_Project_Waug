@@ -140,6 +140,7 @@
 	z-index: 999;
 	display: none;
 	flex-direction: column;
+	overflow: scroll;
 }
 #container2{
 	height: 114px;
@@ -151,6 +152,9 @@
 	padding-bottom: 10px;
 	padding-left: 40px;
 	padding-right: 40px;
+}
+.searchresult-container::-webkit-scrollbar { 
+    display: none; 
 }
 .searchresultitem-container{
 	width: 460px;
@@ -182,6 +186,13 @@
 	box-sizing: border-box;
 	border-radius: 0.3em;
 }
+.searchresultitem-item-searched div{
+	font-size : 15px;
+	margin-bottom: 5px;
+	color: black;
+}
+
+
 .mouseenter{
 	border-color: #d91c84;
 	color: #d91c84;
@@ -554,3 +565,4 @@ display: inline-flex;}
 	float: right;
 	
 }
+

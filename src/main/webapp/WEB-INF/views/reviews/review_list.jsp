@@ -400,12 +400,24 @@
 	</div>
 	<script type="text/javascript">
 		var curPage = 1;
+		/* 영하테스트 */
+		/* $(window).scroll(function() {
+			
+			if($(window).scrollTop() == $(document).height() - $(window).height()){
+				
+				curPage = curPage+1;
+				$.get("./review_lists?curPage="+curPage, function(data){
+					data=data.trim();
+					$(".add-list").append(data);
+				});
+				if(curPage >= ${totalPage} ){
+					$("#add_review").css("display","none");
+				}
+			}
+		}); */
 		
 		
 		/* 별점 */
-		$(':radio').change(function() {
-  		console.log('New star rating: ' + this.value);
-		});
 		
 		/* 글작성  폼 submit*/
 		$("#btn-comment-submit").click(function() {
@@ -413,6 +425,9 @@
 		});
 		
 		/* 글수정 폼 submit */
+		$("#content").on("click", "#btn-update-submit", function() {
+		});
+		
 		$("#btn-update-submit").click(function() {
 			$(".review-form2").submit();
 		});
@@ -433,19 +448,27 @@
 			}
 		});
 		
+		
+		
 		/* 리뷰 삭제 */
-		$(".btn-review-delete").click(function() {
+		$("#content").on("click", ".btn-review-delete", function() {
 			if(confirm("정말 삭제하시겠습니까?")){
 				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
-					
 				});
-				
 				location.reload();
 			}
 		});
+		/* $(".btn-review-delete").click(function() {
+			if(confirm("정말 삭제하시겠습니까?")){
+				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
+				});
+				location.reload();
+			}
+		}); */
 		
 		/* 리뷰 수정창 내용 받아오기 */
-		$(".btn-review-update").click(function() {
+		$("#content").on("click", ".btn-review-update", function() {
+			
 			var num = $(this).val();
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
@@ -458,8 +481,10 @@
 				
 			});
 		});
-		/* 리뷰 수정창 내용 받아오기 */
-		$(".btn-review-reply").click(function() {
+		
+
+		/* 리뷰 답변창 내용 받아오기 */
+		$("#content").on("click", ".btn-review-reply", function() {
 			var num = $(this).val();
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
@@ -470,6 +495,8 @@
 					$(".radiostar2").eq(strings[0]-1).attr("checked",true);
 			});
 		});
+		
+	
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>

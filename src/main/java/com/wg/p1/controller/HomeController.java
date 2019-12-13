@@ -26,6 +26,7 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.GoodsService;
+import com.wg.p1.util.Pager;
 
 /**
  * Handles requests for the application home page.
@@ -64,8 +65,6 @@ public class HomeController {
 		List<NationVO> cityar = goodsService.CityList();
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println(europe_city.size());
-		System.out.println(asia_city.size());
 		memberVO = (MemberVO)session.getAttribute("memberVO");
 		
 		
@@ -85,8 +84,24 @@ public class HomeController {
 		
 		return mv;
 	}
-
-
+	//메인페이지 검색창용
+	@RequestMapping("search")
+	public ModelAndView Search(Pager pager, ModelAndView mv) throws Exception{
+		
+		System.out.println(pager.getSearch().equals(""));
+		if(pager.getSearch().equals("")) {
+			mv.addObject("search", 0);
+		}else {
+			List<NationVO> citysearch = goodsService.Citysearch(pager);
+			List<GoodsVO> goodssearch = goodsService.Goodssearch(pager);
+			mv.addObject("cities", citysearch);
+			mv.addObject("goods", goodssearch);
+			mv.addObject("search", 1);
+		}
+			mv.setViewName("common/searchAjax");
+		return mv;
+		
+	}
 
 	@RequestMapping("order/***")
 	public void orderFolder() {

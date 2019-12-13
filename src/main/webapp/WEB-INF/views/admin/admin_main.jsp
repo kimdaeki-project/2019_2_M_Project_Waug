@@ -16,6 +16,7 @@ h1{
 <h1>도시 리스트</h1>
 <h1>테마 추가</h1>
 <h1>테마 삭제</h1>
+<h1 onclick="location.href='./theme_list'" style="cursor: pointer;">테마 리스트</h1>
 <h1 onclick="location.href='./goods_list';" style="cursor: pointer;">상품 리스트</h1>
 </body>
 </html>

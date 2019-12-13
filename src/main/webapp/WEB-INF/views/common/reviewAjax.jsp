@@ -37,6 +37,12 @@
 							<p class="comment_msg" >${dto.rv_contents}</p>
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
+								<!-- 관리자만 보이게 -->
+								<button value="${dto.rv_num}"data-goodidx="${dto.goods_num}"
+									data-idx="${dto.rv_num}" data-toggle="modal"
+									data-target="#modal-reply"
+									class="btn btn-review-reply outline btn-sm" type="button">답변</button>
+								<!-- 관리자만 보이게 -->	
 								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-update"
@@ -47,4 +53,14 @@
 							<!-- 여기까지 if문으로 감싸기 -->
 						</div>
 					</div>
+					<c:if test="${dto.rv_ex eq 1}">
+					<div style="position: relative; padding-bottom: 20px; margin-top: -16px;">
+             		   <div class="waug-comment-box">
+                   		 <span style="font-weight: bold;">${dto.rv_aname}</span>
+                   			 <span style="margin-left: 4px; color: #aaa;">${dto.rv_adate}</span>
+                    			<p class="comment_msg">${dto.rv_acontents}
+								</p>
+                		</div>
+           			 </div>
+					</c:if>
 					</c:forEach>

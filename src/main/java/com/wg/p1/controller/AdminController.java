@@ -15,6 +15,7 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
 import com.wg.p1.service.GoodsService;
+import com.wg.p1.service.adService;
 import com.wg.p1.util.Pager;
 
 @Controller
@@ -22,7 +23,9 @@ import com.wg.p1.util.Pager;
 public class AdminController {
 	@Inject
 	private GoodsService goodsService;
-	
+	//임시로만든 inject
+	@Inject
+	private adService adService;
 	
 	@RequestMapping("admin_main")
 	public String admin_main() throws Exception{
@@ -62,6 +65,34 @@ public class AdminController {
 		System.out.println(goodsVO.getCity_num());
 		System.out.println(goodsVO.getCate_num());
 		System.out.println(goodsVO.getT_num());
+	}
+	//관리자 테마리스트 페이지
+	@GetMapping("theme_list")
+	public ModelAndView theme_list(ModelAndView mv) throws Exception{
+		List<ThemeVO> ar = goodsService.ThemeAll();
+		mv.addObject("list", ar);
+		mv.setViewName("admin/theme_list");
+		
+		return mv;
+	}
+	//관리자 테마추가 페이지
+	@GetMapping("theme_add")
+	public void theme_add() throws Exception{
+		
+	}
+	@PostMapping("theme_add")
+	public ModelAndView theme_add(ModelAndView mv, ThemeVO themeVO) throws Exception{
+		
+		int result = adService.addTheme(themeVO);
+		String msg = "등록 실패";
+		if(result >0) {
+			msg="등록 성공";
+			
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../admin/theme_list");
+		mv.setViewName("common/common_result");
+		return mv;
 	}
 	
 	

@@ -88,4 +88,14 @@
   <select id="cateList" resultType="CategoryVO">
   	select * from category
   </select>
+  
+  <!-- 도시검색 -->
+  <select id="searchcity" parameterType="Pager" resultType="NationVO">
+  	select city_num, city_name from nationinfo where city_name like '%'||#{search}||'%'
+  </select>
+  <!-- 상품검색 -->
+  <select id="searchgoods" parameterType="Pager" resultType="GoodsVO">
+  	select goods_num, title from goods where title like '%'||#{search}||'%'
+  </select>
+  
 </mapper>

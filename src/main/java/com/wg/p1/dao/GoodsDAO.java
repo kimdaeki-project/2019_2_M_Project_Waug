@@ -68,4 +68,13 @@ public class GoodsDAO {
 		return sqlSession.selectList(NAMESPACE+"themeList");
 	}
 	
+	//메인페이지 검색창전용-도시
+	public List<NationVO> Citysearch(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"searchcity", pager);
+	}
+	//메인페이지 검색창전용-상품
+	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"searchgoods", pager);
+	}
+	
 }

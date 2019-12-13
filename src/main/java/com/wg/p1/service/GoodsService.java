@@ -67,5 +67,13 @@ public class GoodsService {
 		return goodsDAO.CateAll();
 	}
 	
+	//메인페이지 검색용 - 도시
+	public List<NationVO> Citysearch(Pager pager) throws Exception{
+		return goodsDAO.Citysearch(pager);
+	}
+	//메인페이지 검색용 - 상품
+	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
+		return goodsDAO.Goodssearch(pager);
+	}
 	
 }
