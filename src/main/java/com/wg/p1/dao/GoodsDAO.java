@@ -22,14 +22,20 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+	//infoInsert
+	public int infoInsert(InfoVO infoVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"infoInsert", infoVO);
+	}
+	//goodsInsert
 	public int goodsInsert(GoodsVO goodsVO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"goodsInsert", goodsVO);
 	}
+	//selectGoodsInfo
 	public InfoVO selectGoodsInfo(int goods_num) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"selectGoodsInfo", goods_num);
 	}
 	
-
+	//goodsList
 	public List<GoodsVO> goodsList() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"goodsList");
 	}
