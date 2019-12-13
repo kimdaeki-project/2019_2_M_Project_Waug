@@ -1,6 +1,5 @@
 package com.wg.p1.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,6 +22,20 @@ public class GoodsService {
 	private GoodsDAO goodsDAO;
 
 
+	//quickSearch
+	public List<GoodsVO> quickSearch_usim() throws Exception{
+		return goodsDAO.quickSearch_usim();
+	}
+	public List<GoodsVO> quickSearch_airport() throws Exception{
+		return goodsDAO.quickSearch_airport();
+	}
+	public List<GoodsVO> quickSearch_jr() throws Exception{
+		return goodsDAO.quickSearch_jr();
+	}
+	public List<GoodsVO> quickSearch_eurail() throws Exception{
+		return goodsDAO.quickSearch_eurail();
+	}
+	
 	public List<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
 		return goodsDAO.goodsRecomand(memberVO);
 	}

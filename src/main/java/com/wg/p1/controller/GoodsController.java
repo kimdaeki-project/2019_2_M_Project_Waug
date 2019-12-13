@@ -76,4 +76,7 @@ public class GoodsController {
 	public void goods_write(ModelAndView mv) throws Exception{
 		
 	}
+	
+	
+
 }

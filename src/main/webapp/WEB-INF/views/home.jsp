@@ -197,9 +197,11 @@
 						<div
 							class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-active"
 							style="margin-right : 16px;">
+							<a href="./search/quickSearch">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=330x233');">
 								<div class="main-watem-text">유심 & 와이파이</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15628256865214.png?s=330x233');">

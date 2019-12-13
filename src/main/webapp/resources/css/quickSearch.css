@@ -122,11 +122,12 @@
 /*******************************************************/
 .travel_item_container{
 	width: 1170px;
-	height: 2310px;
+	/* height: 2310px; */
 	margin: 0 auto;
 	color: black;
 	clear: both;
 	overflow: hidden;
+	margin-top: 180px;
 }
 .travel_item_list_title{
 	padding: 40px 0px 15px 0px;
@@ -196,7 +197,7 @@
 	color: #999999;
 }
 .travel_item_priceBox_wrapper{
-	width: 70px;
+	width: 80px;
 	height: 41px;
 	margin-top: 77px;
 	float: right;

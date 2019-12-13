@@ -7,16 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/quickSearch.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 
-<div class="travel_main">
-	<div class="travel_main_cover">
+<div class="travel_main" style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=1680x640);">
+	<div class="travel_main_cover" style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15602446750719.png);">
 		<div class="travel_category_container">
 			<!-- test -->
 			<ul class="travel_category_ul nav nav-tabs">
@@ -64,6 +64,119 @@
 					<div class="travel_category_select_wrapper">
 						<div class="travel_category_selectBox_lg">여행지 선택</div>
 					</div>
+					
+					<div class="travel_item_container">
+						<div class="travel_item_list_title">유심&와이파이</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_usim}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					<div class="travel_item_container" style="margin-top: 20px;">
+						<div class="travel_item_list_title">공항 이동수단</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_airport}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					<div class="travel_item_container" style="margin-top: 20px;">
+						<div class="travel_item_list_title">일본 교통패스</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_jr}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					<div class="travel_item_container" style="margin-top: 20px;">
+						<div class="travel_item_list_title">유레일 패스</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_eurail}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					
+
+					
+					
 				</div>
 				<div id="usimANDwifi" class="tab-pane fade">
 					<div class="travel_category_title">유심&와이파이</div>
@@ -73,7 +186,36 @@
 						<div class="travel_selectBox_next"></div>
 						<div class="travel_category_selectBox">dd</div>
 					</div>
+					
+					<div class="travel_item_container">
+						<div class="travel_item_list_title">유심&와이파이</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_usim}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
 				</div>
+				
 				<div id="airport_Transportation" class="tab-pane fade">
 					<div class="travel_category_title">공항 이동수단</div>
 					<div class="travel_category_subtitle">빠르고 편리한 이동으로 여행을 가볍게 시작해보세요.</div>
@@ -82,6 +224,37 @@
 						<div class="travel_selectBox_next"></div>
 						<div class="travel_category_selectBox">픽업, 샌딩 장소 선택</div>
 					</div>
+					
+					<div class="travel_item_container">
+						<div class="travel_item_list_title">공항 이동수단</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_airport}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					
+					
+					
 				</div>
 				<div id="japenPath" class="tab-pane fade">
 					<div class="travel_category_title" >일본 교통패스</div>
@@ -91,6 +264,34 @@
 						<div class="travel_selectBox_next"></div>
 						<div class="travel_category_selectBox">사용일수 선택</div>
 					</div>
+					<div class="travel_item_container">
+						<div class="travel_item_list_title">일본 교통패스</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_jr}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					
 				</div>
 				<div id="UrailPath" class="tab-pane fade">
 					<div class="travel_category_title">유레일 패스</div>
@@ -98,6 +299,40 @@
 					<div class="travel_category_select_wrapper">
 						<div class="travel_category_selectBox_lg">여행지 선택</div>
 					</div>
+					
+					
+					
+					<div class="travel_item_container">
+						<div class="travel_item_list_title">유레일 패스</div>
+						<div>
+							<!-- item list -->
+							<c:forEach items="${quickGoods_eurail}" var="vo">
+							<div class="travel_items">
+								<div class="travel_item_img"><img src="${vo.img}"></div>
+								<div class="travel_item_infoBox">
+									<div class="travel_item_info">
+										<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
+										<div class="travel_item_info_title">${vo.title}</div>
+										<div class="travel_item_info_sub_title">수령장소</div>
+										<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
+									</div>
+									<div class="travel_item_priceBox">
+										<div class="travel_item_priceBox_wrapper">
+											<div class="travel_item_origin_price">₩ ${vo.price}</div>
+											<div class="travel_item_price">₩ ${vo.discount}</div>
+										</div>
+									</div>
+								</div> 
+							</div>
+							</c:forEach>
+							<!-- more Box -->
+							<div class="travel_moreBox_wrapper">더보기</div>
+						</div>
+					</div>
+					
+					
+					
+					
 				</div>
 				<!-- test -->
 			</div>
@@ -115,68 +350,7 @@
 <!-- modals - sub area -->
 <!-- modas ......and more....... -->
 <!-- item - travel_item_container -->
-<div class="travel_item_container">
-	<div class="travel_item_list_title">유심&와이파이</div>
-	<div>
-		<!-- item list -->
-			<div class="travel_items">
-			<div class="travel_item_img"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/09/15626675535520.png"></div>
-			<div class="travel_item_infoBox">
-				<div class="travel_item_info">
-					<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
-					<div class="travel_item_info_title">와그 핑크 일본 4G LTE 포켓와이파이</div>
-					<div class="travel_item_info_sub_title">수령장소</div>
-					<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
-				</div>
-				<div class="travel_item_priceBox">
-					<div class="travel_item_priceBox_wrapper">
-						<div class="travel_item_origin_price">₩ 45646</div>
-						<div class="travel_item_price">₩ 4500</div>
-					</div>
-				</div>
-			</div> 
-		</div>
-		
-		<!-- item list -->
-		<div class="travel_items">
-			<div class="travel_item_img"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/09/15626675535520.png"></div>
-			<div class="travel_item_infoBox">
-				<div class="travel_item_info">
-					<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
-					<div class="travel_item_info_title">와그 핑크 일본 4G LTE 포켓와이파이</div>
-					<div class="travel_item_info_sub_title">수령장소</div>
-					<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
-				</div>
-				<div class="travel_item_priceBox">
-					<div class="travel_item_priceBox_wrapper">
-						<div class="travel_item_origin_price">₩ 45646</div>
-						<div class="travel_item_price">₩ 4500</div>
-					</div>
-				</div>
-			</div> 
-		</div>
-		<!-- item list -->
-		<div class="travel_items">
-			<div class="travel_item_img"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/09/15626675535520.png"></div>
-			<div class="travel_item_infoBox">
-				<div class="travel_item_info">
-					<div class="travel_item_info_ableDate">내일부터 사용 가능</div>
-					<div class="travel_item_info_title">와그 핑크 일본 4G LTE 포켓와이파이</div>
-					<div class="travel_item_info_sub_title">수령장소</div>
-					<div class="travel_item_info_sub_text">인천공항, 김해공항, 김포공항</div>
-				</div>
-				<div class="travel_item_priceBox">
-					<div class="travel_item_priceBox_wrapper">
-						<div class="travel_item_origin_price">₩ 45646</div>
-						<div class="travel_item_price">₩ 4500</div>
-					</div>
-				</div>
-			</div> 
-		</div>
-		<!-- more Box -->
-		<div class="travel_moreBox_wrapper">더보기</div>
-	</div>
-</div>
+
 
 
 

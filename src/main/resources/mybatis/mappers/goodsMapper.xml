@@ -5,7 +5,26 @@
   
 <mapper namespace="goodsMapper">
 
-
+<!-- 퀵서치 -->
+<select id="quickSearch_usim" resultType="GoodsVO">
+	select * from goods where title like '%포켓%'
+	union
+	select * from goods where title like '%LTE%'
+</select>
+<select id="quickSearch_airport" resultType="GoodsVO">
+	select * from goods where title like '%픽업%'
+	union
+	select * from goods where title like '%샌딩%'
+</select>
+<select id="quickSearch_jr" resultType="GoodsVO">
+	select * from goods 
+	where title like '%패스%' 
+		and city_num in(select city_num from nationinfo where nation='일본')
+</select>
+<select id="quickSearch_eurail" resultType="GoodsVO">
+	select * from goods where city_num=49
+</select>
+<!-- 퀵서치 끝  -->
 
 <select id="selectGoodsInfo" resultType="InfoVO" parameterType="Integer">
 	select * from info where goods_num=#{goods_num}

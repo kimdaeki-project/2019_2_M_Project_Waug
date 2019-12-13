@@ -1,5 +1,4 @@
 package com.wg.p1.dao;
-import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
@@ -21,7 +20,20 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
-
+	//quick Search
+	public List<GoodsVO> quickSearch_usim() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"quickSearch_usim");
+	}
+	public List<GoodsVO> quickSearch_airport() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"quickSearch_airport");
+	}
+	public List<GoodsVO> quickSearch_jr() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"quickSearch_jr");
+	}
+	public List<GoodsVO> quickSearch_eurail() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"quickSearch_eurail");
+	}
+	
 	
 	//goodsInsert
 	public int goodsInsert(GoodsVO goodsVO)throws Exception{
