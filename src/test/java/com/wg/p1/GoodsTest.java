@@ -13,6 +13,7 @@ import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
 import com.wg.p1.model.WishListVO;
+import com.wg.p1.util.CouponMaker;
 
 public class GoodsTest extends testAbstractCase{
 
@@ -50,7 +51,7 @@ public class GoodsTest extends testAbstractCase{
 		Date date = new Date(119, 11, 12);
 		GoodsVO goodsVO=new GoodsVO();
 		
-		goodsVO.setGoods_num(1013);
+		
 		goodsVO.setPrice(2400);
 		goodsVO.setDiscount(42);
 		goodsVO.setCoupon("232");
@@ -78,12 +79,8 @@ public class GoodsTest extends testAbstractCase{
 		goodsVO.setImg4("12");
 		int result=goodsDAO.goodsInsert(goodsVO);
 		System.out.println(result);
-		assertEquals(1, result);
-	}
-	
-	@Test
-	public void infoInsert()throws Exception{
 		InfoVO info=new InfoVO();
+		info.setGoods_num(goodsVO.getGoods_num());
 		info.setBoucher("바우처");
 		info.setCancel("환불가능");
 		info.setDelivery_time("즉시사용");
@@ -93,7 +90,22 @@ public class GoodsTest extends testAbstractCase{
 		info.setUsing_time("8 시간");
 		info.setDuration("듀레이션");
 		
-		int result=goodsDAO.infoInsert(info);
+		int result2=goodsDAO.infoInsert(info);
 		assertEquals(1, result);
+		assertEquals(1, result2);
+	}
+	
+	//@Test
+	public void infoInsert()throws Exception{
+		
+	}
+	
+	@Test
+	public void couponTest()	throws Exception{
+		CouponMaker cm=new CouponMaker();
+		String coupon=cm.makeCoupon(9);
+		
+		System.out.println("Test : coupon : "+ coupon);
+		assertNotNull(coupon);
 	}
 }

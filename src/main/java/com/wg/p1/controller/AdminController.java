@@ -59,29 +59,24 @@ public class AdminController {
 		
 		mv.setViewName("admin/goods_add");
 		return mv;
-		
 	}
 	
 	@PostMapping("goods_add")
-	public void goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
-		
-		System.out.println(goodsVO.getCity_num());
-		System.out.println(goodsVO.getCate_num());
-		System.out.println(goodsVO.getT_num());
-		
-//		**************** for test ****************
-		System.out.println("goods_add_result !!!!");
-		System.out.println("infoVO : "+infoVO.getBoucher());
-		
-		System.out.println(file.length);
-		for(int i=0;i<file.length;i++) {
-			System.out.println(i+"번째 파일");
-			System.out.println(file[i].getName());
-			System.out.println(file[i].getOriginalFilename());
+	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
+		int result=goodsService.addGoods(goodsVO, file, infoVO);
+		ModelAndView mv=new ModelAndView();
+		String path="../admin/goods_list";
+		String msg="goods 추가 성공";
+		if(result>0) {
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
+		}else {
+			msg="goods 추가 실패";
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
 		}
 		
-		System.out.println("-----------goodsVO---------");
-		System.out.println("goodsVO.getProgram() : "+goodsVO.getProgram());
+		return mv;
 	}
 	
 	

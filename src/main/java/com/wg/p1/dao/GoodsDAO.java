@@ -21,6 +21,15 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+	//getCityName 도시 번호로 도시이름 가져오기
+	public String getCityName(int city_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCityName", city_num);
+	}
+	
+	//maxGoodsNum
+	public int maxGoodsNum() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"maxGoodsNum");
+	}
 
 	//infoInsert
 	public int infoInsert(InfoVO infoVO)throws Exception{
