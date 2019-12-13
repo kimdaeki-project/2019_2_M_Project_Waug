@@ -32,7 +32,7 @@
   </select>
   <!-- 아시아도시 -->
   <select id="asiaList" resultType="NationVO">
-  	select * from nationinfo where continents ='아시아'
+  	select * from nationinfo where continents like '%아시아'
   </select>
   
   <select id="areaSelect" parameterType="NationVO" resultType="NationVO">
