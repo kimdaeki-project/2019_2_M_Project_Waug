@@ -22,10 +22,7 @@ public class GoodsDAO {
 	private static final String NAMESPACE="goodsMapper.";
 	
 
-	//infoInsert
-	public int infoInsert(InfoVO infoVO)throws Exception{
-		return sqlSession.insert(NAMESPACE+"infoInsert", infoVO);
-	}
+	
 	//goodsInsert
 	public int goodsInsert(GoodsVO goodsVO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"goodsInsert", goodsVO);

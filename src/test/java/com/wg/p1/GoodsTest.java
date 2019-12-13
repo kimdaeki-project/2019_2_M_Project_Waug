@@ -81,19 +81,5 @@ public class GoodsTest extends testAbstractCase{
 		assertEquals(1, result);
 	}
 	
-	@Test
-	public void infoInsert()throws Exception{
-		InfoVO info=new InfoVO();
-		info.setBoucher("바우처");
-		info.setCancel("환불가능");
-		info.setDelivery_time("즉시사용");
-		info.setLanguage("언어");
-		info.setPeople("2명");
-		info.setPick_up("호텔 픽업");
-		info.setUsing_time("8 시간");
-		info.setDuration("듀레이션");
-		
-		int result=goodsDAO.infoInsert(info);
-		assertEquals(1, result);
-	}
+	
 }

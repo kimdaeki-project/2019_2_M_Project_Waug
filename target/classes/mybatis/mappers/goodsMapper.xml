@@ -5,17 +5,12 @@
   
 <mapper namespace="goodsMapper">
 
-<insert id="infoInsert" parameterType="InfoVO">
-	<selectKey order="BEFORE" resultType="Integer" keyColumn="goods_num">
-		select goods_seq.nextval from dual
-	</selectKey>
-	insert into info values(#{goods_num},#{delivery_time},#{duration},#{language},#{boucher},#{cancel},#{using_time},#{pick_up},#{people})
-</insert>
-<!-- 12.13 update -->
+
+
 <select id="selectGoodsInfo" resultType="InfoVO" parameterType="Integer">
 	select * from info where goods_num=#{goods_num}
 </select>
-<!-- 12.12 updat -->
+
 <insert id="goodsInsert" parameterType="GoodsVO">
 	insert into goods values(#{goods_num}, #{price}, #{discount}, #{coupon},
 	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
