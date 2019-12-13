@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
+import com.wg.p1.model.ThemeVO;
 import com.wg.p1.service.ReviewService;
+import com.wg.p1.model.CategoryVO;
 import com.wg.p1.model.GoodsVO;
+
+import com.wg.p1.model.CartVO;
+
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.service.GoodsService;
@@ -29,7 +34,7 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	@RequestMapping("good_page")
-	public ModelAndView goods(ModelAndView mv)throws Exception{
+	public ModelAndView goods(ModelAndView mv, CartVO cartVO)throws Exception{
 		
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
@@ -38,6 +43,7 @@ public class GoodsController {
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		mv.addObject("review", reviewVO);
 		mv.addObject("review2", reviewVO2);
+		mv.addObject("cartVO", cartVO);
 		mv.setViewName("goods/good_page");
 		
 		//goods 정보담기
@@ -46,7 +52,6 @@ public class GoodsController {
 		return mv;
 		
 	}
-
 
 	@RequestMapping("goods_area")
 	public ModelAndView goods_area(ModelAndView mv, int city_num) throws Exception{
@@ -62,22 +67,13 @@ public class GoodsController {
 	}
 
 
-	@RequestMapping("goods")
-	public void goods()throws Exception{
-		System.out.println("goods page~~~");
-
-	}
-	
-
 	@RequestMapping("goods_themes")
 	public void themes() throws Exception{
-		
-		
 		
 	}
 	
 	@GetMapping("goods_write")
-	public void goods_write() throws Exception{
+	public void goods_write(ModelAndView mv) throws Exception{
 		
 	}
 }

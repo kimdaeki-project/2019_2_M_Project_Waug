@@ -5,7 +5,15 @@ public class WishListVO {
     private int w_num;
     private int goods_num;
     private String email;
+    private int heart;
     
+    
+	public int getHeart() {
+		return heart;
+	}
+	public void setHeart(int heart) {
+		this.heart = heart;
+	}
 	public int getW_num() {
 		return w_num;
 	}

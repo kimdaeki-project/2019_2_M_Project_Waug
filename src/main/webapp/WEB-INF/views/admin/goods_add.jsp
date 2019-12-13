@@ -19,13 +19,36 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
 </head>
 <body>
-
+	<form action="goods_add" method="post">
+	<select name="city_num">
+		<option>도시를 선택하세요</option>
+		<c:forEach items="${cityar}" var="vo">
+			<option value="${vo.city_num}">${vo.city_name}</option>
+		</c:forEach>
+	</select>
+	
+	<select name="t_num">
+		<option>테마를 선택하세요</option>
+		<c:forEach items="${themear}" var="vo">
+			<option value="${vo.t_num}">${vo.t_title}</option>
+		</c:forEach>
+	</select>
+	
+	<select name="cate_num">
+		<option>카테고리를 선택하세요</option>
+		<c:forEach items="${catear}" var="vo">
+			<option value="${vo.cate_num}">${vo.cate_name}</option>
+		</c:forEach>
+	</select>
+	<button>버튼</button>
+	
+	</form>
+	
 	<div class="container">
 
 		<div class="jumbotron page-header">
 			<h1>상품 등록</h1>
 		</div>
-
 
 		<form action="productInsert" method="post" id="frm" onsubmit=true enctype="multipart/form-data" >
 			<div class="form-group">

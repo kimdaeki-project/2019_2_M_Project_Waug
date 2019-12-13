@@ -231,24 +231,31 @@
 				<div class="main-itemtitle-title">와그 추천</div>
 				<div class="main-itemtitle-sub"></div>
 			</div>
+			<h1>${sessionScope.wishlist.email}</h1>
 			<div class="swiper-list-container container3">
 				<div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 					
 					<c:forEach  items="${list}" var="vo">
-						
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=';">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
-								 	
-								 	<c:if test="${empty sessionScope.wo.w_num}">
+			
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=7';">
 
-									<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
-								 	</c:if>
-								 	<c:if test="${not empty sessionScope.wo.w_num }">
-									<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
-								 	</c:if>
+							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+								
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
+
+									<c:choose>
+										<c:when test="${vo.wish eq 1}">
+										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
+										</c:when>
+										<c:when test="${vo.wish eq 0}">
+										<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
+										</c:when>
+									</c:choose>
+									
 								</div>
+								
+								 	
 								<div class="good-card-text-wrapper">
 									<div class="good-card-available-date point-color">
 										오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
@@ -257,7 +264,9 @@
 									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
 									<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
 									<div class="good-card-buy-cnt">63,512 예약</div>
+									
 								</div>
+								</a>
 							</div>
 						</div>
 
@@ -442,9 +451,73 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-item-container">유럽으로 떠나는 휴가</div>
+		<div class="main-item-container">
+			<div class="main-itemtitle">
+				<div class="main-itemtitle-title">유럽으로 떠나는 휴가</div>
+			</div>
+
+			<div class="swiper-list-container">
+				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper">
+					<c:forEach items="${europe_city}" var="dto">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
+							<div class="area-card-container">
+								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
+									style="background-image: url('${dto.city_img}');">
+								</div>
+								<div class="area-card-text">${dto.city_name}</div>
+							</div>
+						</div>
+					</c:forEach>
+						
+					</div>
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
+					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+				</div>
+			</div>
+			
+		</div>
 		<div class="main-item-container">유럽에서 즐기는 액티비티</div>
-		<div class="main-item-container">아시아로 떠나는 휴가</div>
+		<div class="main-item-container">
+			<div class="main-itemtitle">
+				<div class="main-itemtitle-title">아시아로 떠나는 휴가</div>
+			</div>
+
+			<div class="swiper-list-container">
+				<div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
+					<div class="swiper-wrapper">
+					<c:forEach items="${asia_city}" var="dto">
+						<div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
+							<div class="area-card-container">
+								<div class="area-card-content swiper-lazy swiper-lazy-loaded"
+									style="background-image: url('${dto.city_img}');">
+								</div>
+								<div class="area-card-text">${dto.city_name}</div>
+							</div>
+						</div>
+					</c:forEach>
+						
+					</div>
+					<div class="prev-btn">
+					<div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
+					</div>
+					</div>
+					<div class="next-btn">
+					<div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
+					</div>
+					</div>
+					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+				</div>
+			</div>
+			
+		</div>
 		<div class="main-item-container">아시아에서 즐기는 액티비티</div>
 		<div class="main-item-container">
 			<div class="main-itemtitle">
@@ -558,7 +631,6 @@
 		});
 		/* 위시리스트 jquery */
 		
-	
 		$(".good-card-wish-btn").click(function() {
 
 			var goods_num = $(this).attr("title");

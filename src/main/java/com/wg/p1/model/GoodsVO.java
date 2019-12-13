@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class GoodsVO {
+
 	private int goods_num;					//상품 번호
 	private int price;						//상품 가격
 	private int discount;					//할인가격
@@ -30,7 +31,11 @@ public class GoodsVO {
 	private String img2;
 	private String img3;
 	private String img4;
-	
+	private int cart_num;
+	private int wish;
+	private String t_title;
+	private String city_name;
+	private String cate_name;
 	public int getGoods_num() {
 		return goods_num;
 	}
@@ -187,7 +192,37 @@ public class GoodsVO {
 	public void setImg4(String img4) {
 		this.img4 = img4;
 	}
-	
+	public int getCart_num() {
+		return cart_num;
+	}
+	public void setCart_num(int cart_num) {
+		this.cart_num = cart_num;
+	}
+	public int getWish() {
+		return wish;
+	}
+	public void setWish(int wish) {
+		this.wish = wish;
+	}
+	public String getT_title() {
+		return t_title;
+	}
+	public void setT_title(String t_title) {
+		this.t_title = t_title;
+	}
+	public String getCity_name() {
+		return city_name;
+	}
+	public void setCity_name(String city_name) {
+		this.city_name = city_name;
+	}
+	public String getCate_name() {
+		return cate_name;
+	}
+	public void setCate_name(String cate_name) {
+		this.cate_name = cate_name;
+	}
+
 	
 
 	

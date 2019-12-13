@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="../resources/css/Footer.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <c:import url="../layout/nav.jsp"/>
@@ -21,7 +24,7 @@
 			<div class="wrapper-subheader headimage"></div>
 		</div>
 		<div class="container">
-		
+		<form action="cartDel" method="post">		
 			<div class="row">
 				<c:import url="./mylayout.jsp"/>
 					<div id="sub-container" class="col-md-9">
@@ -32,30 +35,69 @@
 							<table class="table-hover mypage-list">
 								<thead>
 									<tr>
-										<th colspan="3">상품</th>
+										<th colspan="3">상품${vo.cart_num}</th>
 										<th class="col-xs-2">사용 예정일</th>
 										<th class="col-xs-4">옵션 및 수량</th>
 										<th class="col-xs-2">비용</th>
 									</tr>
 								
 								</thead>
+
 								<tbody>
+								<c:if test="${not empty list}">
+									<c:forEach items="${list}" var="vo">
 									<tr>
-										<td class="text-center" colspan="6">장바구니에 상품이 없습니다.</td>
+										<td class="text-center">
+											<input type="hidden" name="goods_num" value="${vo.goods_num}">
+											<div class="i-checks">
+												<label>
+													<div id="cart_idx" class="icheckbox_flat-pink each-div">
+														<input class="m" type="checkbox" value="${vo.cart_num}" name="cart_num" style="opacity:0; width: 100%; height: 100%;">
+														<div></div> 
+													</div>
+												</label>
+											</div>
+										</td>
+										<td class="col-xs-2 text-center">
+											<a href="../goods/good_page">
+												<div style="background-image:url('${vo.img}'); width: 170px; height: 100px; background-size: cover; background-position: center;"></div>
+											</a>
+										</td>
+										<td class="col-xs-2 text-center">
+											<a href="../goods/good_page">
+												${vo.title}
+											</a>
+										</td>
+										<td class="text-center">예약날짜</td>
+										<td>
+											<div>예약내용</div>
+											<div>${vo.discount}</div>
+											
+										</td>
+										<td class="text-center"><input type="hidden" name ="price" value="가격">옵션포함총금액</td>
+										
 									</tr>
+									</c:forEach>
+								</c:if>
+								<c:if test="${empty list}">
+									 <tr>
+										<td class="text-center" colspan="6">장바구니에 상품이 없습니다.</td>
+									</tr> 
+								</c:if>	
 								</tbody>
+								
 							</table>
 							<!-- 테이블 끝 -->
 							<div class="text-right">
 								<div class="order-total-price" >
 									총
-									<span>￦ 0</span>
+									<span>￦ ${cartSum}</span>
 								</div>
 								<div class="i-checks select-all">
 									<label>
-									<div style="padding-top: 1px; float: left;">전체 선택 / 해제</div>
-									<div id="check_box" class="icheckbox_flat-pink">
-										<input type="checkbox" style="opacity: 0; width: 100%; height: 100%;">
+									<div style=" padding-top: 1px; float: left;">전체 선택 / 해제</div>
+									<div id="check_box" class="icheckbox_flat-pink all-div">
+										<input id="check_box_input" type="checkbox" style="opacity:0; width: 100%; height: 100%;">
 									</div>
 									</label>
 								
@@ -63,7 +105,7 @@
 							</div>
 							
 							<div class="form-button-wrapper">
-								<button type="button" class="btn-form-cancel">선택 삭제</button>
+								<button type="submit" class="btn-form-cancel">선택 삭제 ${cartCount}</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
 							</div>
 							
@@ -71,12 +113,61 @@
 						</div>
 					</div>
 			</div>
+			</form>
 		</div>
 		</div>
 		</div>	
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
+	
+
+	
+	//체크 ,삭제
+	var check = true;
+	$('#check_box_input').click(function() {
+		$('.m').prop("checked",check);
+		check= !check;
+	});
+	
+	
+	$('.m').click(function() {
+		var ck= true;
+		$('.m').each(function() {
+		
+			if(!$(this).prop("checked")){
+				ck=false;
+			}
+		});
+	
+		$('#check_box_input').prop("checked",ck);	
+	});
+	
+
+
+	$('.all-div').click(function() {
+
+		$('.icheckbox_flat-pink').toggleClass('check-img');
+		
+	
+	});
+
+	
+	$('.each-div').click(function() {
+		
+		$(this).toggleClass('check-img');
+		 $('.each-div').each(function() {
+		
+			if(!$(this).hasClass('check-img')){
+				chk = $('.all-div').addClass('check-img');
+			}
+		});
+	
+		$('.all-div').toggleClass('check-img'); 
+	});
+	
+	
+	
 	/* 모달 */
 	// Get the modal
 	var modal = document.getElementById("myModal");
@@ -93,16 +184,15 @@
 		}
 	}
 	
-	$("#check_box").click(function() {
-		
-		$(".icheckbox_flat-pink").toggleClass("check-img");
-	});
+
+	
 	$(".con").click(function() {
 		$(".continent-item").removeClass("active-continent");
 		$(".continent-text").removeClass("active");
 		$(this).parent().parent().addClass("active-continent");
 		$(this).parent().addClass("active");
 	});
+	
 	</script>
 </body>
 </html>
