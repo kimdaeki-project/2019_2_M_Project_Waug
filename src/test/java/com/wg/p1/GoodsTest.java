@@ -61,7 +61,7 @@ public class GoodsTest extends testAbstractCase{
 		goodsVO.setQtt(2);
 		goodsVO.setTitle("titel");
 		goodsVO.setT_num(2);
-		goodsVO.setImg("img");
+		goodsVO.setImg("./resources/images/test.jpg");
 		//wish
 		//info
 		goodsVO.setCate_num(1);
