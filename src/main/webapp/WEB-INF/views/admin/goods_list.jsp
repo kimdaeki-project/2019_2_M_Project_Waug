@@ -28,6 +28,7 @@
 					<th>상품명</th>
 					<th>도시</th>
 					<th>테마</th>
+					<th>카테고리</th>
 					<th>가격</th>
 					<th>할인</th>
 					<th>수량</th>
@@ -45,6 +46,7 @@
 						<td>${vo.title}</td>
 						<td>${vo.city_name}</td>
 						<td>${vo.t_title}</td>
+						<td>${vo.cate_name}</td>
 						<td>${vo.price}</td>
 						<td>${vo.discount}</td>
 						<td>${vo.qtt}</td>
@@ -65,7 +67,7 @@
 					<option id="cate" value="cate">카테고리</option>
 				</select> 
 				
-				<input type="text" id="search" name="search" value="">
+				<input type="text" id="search" name="search" value="${pager.search}">
 				
 				<button>검색</button>
 			</form>
@@ -87,9 +89,12 @@
 				
 	</div>
 	<script type="text/javascript">
-	  	
-	 	
-	  </script>
+	var kind = '${pager.kind}';
+	if(kind==''){
+		kind='good';
+	}
+	$("#"+kind).prop("selected", true);
+	</script>
 
 
 </body>

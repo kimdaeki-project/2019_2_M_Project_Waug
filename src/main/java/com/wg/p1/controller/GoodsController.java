@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
+import com.wg.p1.model.ThemeVO;
 import com.wg.p1.service.ReviewService;
+import com.wg.p1.model.CategoryVO;
 import com.wg.p1.model.GoodsVO;
 
 import com.wg.p1.model.CartVO;
@@ -71,7 +73,7 @@ public class GoodsController {
 	}
 	
 	@GetMapping("goods_write")
-	public void goods_write() throws Exception{
+	public void goods_write(ModelAndView mv) throws Exception{
 		
 	}
 }

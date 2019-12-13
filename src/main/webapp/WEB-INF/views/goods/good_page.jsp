@@ -239,7 +239,7 @@
    </div>
    
    <!--  -->
-   <div id="myModal" class="modal">
+   <div id="myModal1" class="modal">
   <span class="close cursor" onclick="closeModal()" style="color: white;">&times;</span>
   <div class="modal-content">
 
@@ -300,11 +300,11 @@
    
 <script type="text/javascript">
 function openModal() {
-	  document.getElementById("myModal").style.display = "block";
+	  document.getElementById("myModal1").style.display = "block";
 	}
 
 	function closeModal() {
-	  document.getElementById("myModal").style.display = "none";
+	  document.getElementById("myModal1").style.display = "none";
 	}
 
 	var slideIndex = 1;
