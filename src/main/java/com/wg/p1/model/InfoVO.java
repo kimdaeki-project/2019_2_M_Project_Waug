@@ -23,7 +23,14 @@ public class InfoVO {
 	private String using_time;			//이용시간
 	private String pick_up;
 	private String people;
+	private int goods_num;	
 	
+	public int getGoods_num() {
+		return goods_num;
+	}
+	public void setGoods_num(int goods_num) {
+		this.goods_num = goods_num;
+	}
 	public String getDelivery_time() {
 		return delivery_time;
 	}

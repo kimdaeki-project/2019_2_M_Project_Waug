@@ -63,33 +63,28 @@ public class AdminController {
 	}
 	
 	@PostMapping("goods_add")
-	public void goods_add(GoodsVO goodsVO) throws Exception{
+	public void goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
 		
 		System.out.println(goodsVO.getCity_num());
 		System.out.println(goodsVO.getCate_num());
 		System.out.println(goodsVO.getT_num());
-	}
-	
-	@RequestMapping("goods_add_test")
-	public void goods_add_test() throws Exception{
 		
+//		**************** for test ****************
+		System.out.println("goods_add_result !!!!");
+		System.out.println("infoVO : "+infoVO.getBoucher());
+		
+		System.out.println(file.length);
+		for(int i=0;i<file.length;i++) {
+			System.out.println(i+"번째 파일");
+			System.out.println(file[i].getName());
+			System.out.println(file[i].getOriginalFilename());
+		}
+		
+		System.out.println("-----------goodsVO---------");
+		System.out.println("goodsVO.getProgram() : "+goodsVO.getProgram());
 	}
 	
-	@PostMapping("goods_add_result")
-	public void goods_add_result(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
-//		System.out.println("goods_add_result !!!!");
-//		System.out.println("infoVO : "+infoVO.getBoucher());
-//		
-//		System.out.println(file.length);
-//		for(int i=0;i<file.length;i++) {
-//			System.out.println(i+"번째 파일");
-//			System.out.println(file[i].getName());
-//			System.out.println(file[i].getOriginalFilename());
-//		}
-//		
-//		System.out.println("-----------goodsVO---------");
-//		System.out.println("goodsVO.getProgram() : "+goodsVO.getProgram());
-	}
+	
 	
 	
 	

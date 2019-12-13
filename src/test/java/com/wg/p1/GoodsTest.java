@@ -44,7 +44,7 @@ public class GoodsTest extends testAbstractCase{
 		assertNotNull(info);
 	}
 	
-	@Test
+	//@Test
 	public void insertgoodsVO()	throws Exception{
 		
 		Date date = new Date(119, 11, 12);
@@ -81,7 +81,7 @@ public class GoodsTest extends testAbstractCase{
 		assertEquals(1, result);
 	}
 	
-	//@Test
+	@Test
 	public void infoInsert()throws Exception{
 		InfoVO info=new InfoVO();
 		info.setBoucher("바우처");
@@ -91,6 +91,7 @@ public class GoodsTest extends testAbstractCase{
 		info.setPeople("2명");
 		info.setPick_up("호텔 픽업");
 		info.setUsing_time("8 시간");
+		info.setDuration("듀레이션");
 		
 		int result=goodsDAO.infoInsert(info);
 		assertEquals(1, result);
