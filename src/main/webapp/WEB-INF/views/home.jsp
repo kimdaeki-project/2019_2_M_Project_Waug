@@ -6,7 +6,7 @@
 <html>
 <head>
 <title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
-<link rel="shortcut icon" href="./resources/favicon-32x32.png"
+<link rel="shortcut icon" href="./resources/FAVICON_WAUG_64.ico"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
