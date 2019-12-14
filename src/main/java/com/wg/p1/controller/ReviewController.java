@@ -3,6 +3,7 @@ package com.wg.p1.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -80,10 +81,12 @@ public class ReviewController {
 	}
 	
 	@PostMapping("reviewImages")
-	public ModelAndView reviewImages(MultipartFile file, ModelAndView mv) throws Exception{
+	public ModelAndView reviewImages(MultipartFile file, ModelAndView mv, HttpSession session) throws Exception{
 		System.out.println("hello");
 		System.out.println(file.getOriginalFilename());
-		
+		String filename = reviewService.reviewImage(file, session);
+		mv.addObject("filename", filename);
+		mv.setViewName("common/reviewFilesAjax");
 		return mv;
 	}
 }

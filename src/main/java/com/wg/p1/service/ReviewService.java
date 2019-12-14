@@ -3,17 +3,22 @@ package com.wg.p1.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.wg.p1.dao.ReviewDAO;
 import com.wg.p1.model.ReviewVO;
+import com.wg.p1.util.FileSaver;
 import com.wg.p1.util.Pager;
 
 @Service
 public class ReviewService {
 	@Inject
-	ReviewDAO reviewDAO;
+	private ReviewDAO reviewDAO;
+	@Inject
+	private FileSaver fileSaver;
 	
 	public int reviewWrite(ReviewVO reviewVO) throws Exception{
 		String name = reviewVO.getRv_writer();
@@ -55,5 +60,13 @@ public class ReviewService {
 	}
 	public ReviewVO reviewLatest(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewLatest(reviewVO);
+	}
+	public String reviewImage(MultipartFile file,HttpSession session) throws Exception{
+		
+		String realPath=session.getServletContext().getRealPath("resources/images/reviews");
+		System.out.println(realPath);
+		String filename = fileSaver.save(realPath, file);
+		
+		return filename;
 	}
 }

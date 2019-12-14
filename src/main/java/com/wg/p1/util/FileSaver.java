@@ -1,3 +1,4 @@
+
 package com.wg.p1.util;
 
 import java.io.File;
@@ -13,6 +14,7 @@ public class FileSaver {
 	public String save(String realPath, MultipartFile multipartFile) throws Exception {
 		
 		File file=new File(realPath);
+		System.out.println(realPath);
 		if(!file.exists()) {
 			file.mkdirs();
 		}

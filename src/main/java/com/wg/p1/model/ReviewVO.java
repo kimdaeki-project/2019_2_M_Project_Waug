@@ -1,5 +1,7 @@
 package com.wg.p1.model;
 
+import java.util.List;
+
 public class ReviewVO {
 	
 	private int rv_num;
@@ -15,7 +17,15 @@ public class ReviewVO {
 	private String rv_acontents;
 	private double rv_avg;
 	private int rv_total;
+	private List<ReviewImgVO> images;
 	
+	
+	public List<ReviewImgVO> getImages() {
+		return images;
+	}
+	public void setImages(List<ReviewImgVO> images) {
+		this.images = images;
+	}
 	public double getRv_avg() {
 		return rv_avg;
 	}

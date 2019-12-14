@@ -67,7 +67,11 @@
 								</span> <span class="star-score-sort"> (${dto.rv_score}/5) </span> <span
 									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
-							<p class="comment_msg" >${dto.rv_contents}</p>
+							<p class="comment_msg" >${dto.rv_contents}
+								<c:forEach items="${dto.images}" var="image">
+									${image.img_name}
+								</c:forEach>
+							</p>
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
 								<!-- 관리자만 보이게 -->
@@ -512,7 +516,8 @@
 	            cache: false,
 	            timeout: 600000,
 	            success: function (data) {
-	                alert("complete");
+	                data=data.trim();
+	                $("#preview-img").append(data);
 	            },
 	            error: function (e) {
 	                console.log("ERROR : ", e);
