@@ -402,3 +402,41 @@ textarea:focus{
 	text-align: left;
 	color: rgb(51,51,51);
 }
+.comment-write-img{
+	width: 470px;
+	height: 76px;
+	margin-left: 83.1px;
+	position: relative;
+	top: -89px;
+	/* 학원가서 조절 */
+	
+}
+.comment-file-img{
+	width: 74px;
+	height: 74px;
+	float: left;
+	margin-right: 5px;
+}
+.comment-file-img img{
+	float: left;
+	position: relative;
+	top: -20px;
+}
+.comment-write-btn-wrapper{
+	position: relative;
+	top: -80px;
+	/* 학원가서 조절 */
+}
+.fa-minus-circle{
+	color: rgb(255,51,102);
+	width: 20px;
+	height: 20px;
+	float: right;
+	font-size: 20px;
+	position: relative;
+	z-index: 10;
+	top: 2px;
+}
+.del-img{
+	float: right;
+}

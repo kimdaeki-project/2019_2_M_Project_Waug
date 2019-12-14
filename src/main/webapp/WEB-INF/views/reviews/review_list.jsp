@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
@@ -35,13 +36,11 @@
 						<h3>이용 후기</h3>
 					</div>
 					<div class="add-list">
-					<c:forEach items="${list}" var="dto">
-					<div id="comment${dto.rv_num}" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
+						<c:forEach items="${list}" var="dto">
+							<div id="comment${dto.rv_num}" class="item-comment clearfix">
+								<div class="comment-content">
+									<div class="star-score-space">
 								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
-
 								<span class="star-score-sort">
 									<div
 										class="rating-container rating-xxs rating-animate rating-disabled star-float">
@@ -105,7 +104,7 @@
 						<div class="modal-dialog">
 
 							<div class="modal-content">
-								<div class="modal-header">이용 후기</div>
+								<div class="modal-header">이용 후기11</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
@@ -154,21 +153,22 @@
 											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
 									</form>
-									<div class="form-group comment-write-btn-wrapper">
+									<div class="form-group comment-write-btn-wrapper2">
 										<div class="camera">
-											<form id="frm-review-file">
+											<form id="frm-review-file" method="post" enctype="multipart/form-data" class="test">
 												<label for="input_comment_img_new"> <img
 													style="padding-top: 17px; width: 62px; padding-left: 11px;"
 													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
+													type="file" name="file" id="input_comment_img_new" class="hide input_comment_img_new">
 												</label>
 											</form>
 										</div>
 
 									</div>
-									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img"></div>
+									<div class="comment-write-img" >
+										<div class="comment-img-list" id="preview-img">
+											<!-- append 위치 -->
+										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="write" style="float: right;">
@@ -496,6 +496,35 @@
 			});
 		});
 		
+		/* 사진 테스트 */
+		$(".input_comment_img_new").change(function() {
+			//Get form
+	        var form = $(this).parent().parent()[0];
+	        // Create an FormData object 
+	        var data = new FormData(form);
+	        $.ajax({
+	            type: "POST",
+	            enctype: 'multipart/form-data',
+	            url: "./reviewImages",
+	            data: data,
+	            processData: false,
+	            contentType: false,
+	            cache: false,
+	            timeout: 600000,
+	            success: function (data) {
+	                alert("complete");
+	            },
+	            error: function (e) {
+	                console.log("ERROR : ", e);
+	                alert("fail");
+	            }
+	        });
+			
+			/* $.get("./reviewImages", function(data) {
+				data=data.trim();
+				$("#preview-img").append(data);
+			}); */
+		});
 	
 	</script>
 

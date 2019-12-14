@@ -88,17 +88,18 @@ public class HomeController {
 	@RequestMapping("search")
 	public ModelAndView Search(Pager pager, ModelAndView mv) throws Exception{
 		
-		System.out.println(pager.getSearch().equals(""));
+		
 		if(pager.getSearch().equals("")) {
-			mv.addObject("search", 0);
+			mv.addObject("result", 0);
 		}else {
 			List<NationVO> citysearch = goodsService.Citysearch(pager);
 			List<GoodsVO> goodssearch = goodsService.Goodssearch(pager);
 			mv.addObject("cities", citysearch);
 			mv.addObject("goods", goodssearch);
-			mv.addObject("search", 1);
+			mv.addObject("result", 1);
 		}
 			mv.setViewName("common/searchAjax");
+			mv.addObject("search", pager.getSearch());
 		return mv;
 		
 	}

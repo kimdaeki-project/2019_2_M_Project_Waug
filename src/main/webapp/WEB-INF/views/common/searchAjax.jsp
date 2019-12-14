@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 			
-			<c:if test="${search eq 1}">
-			
+			<c:if test="${result eq 1}">
+
+
+출처: https://cofs.tistory.com/45 [CofS]
 			<div class="searchresult-content searchresult-items">
 				<div>
 					<div class="searchresultitem-container searchresultitem-container-searched">
@@ -36,7 +39,7 @@
 				</div>
 			</div>
 			</c:if>
-			<c:if test="${search eq 0}">
+			<c:if test="${result eq 0}">
 				<div class="searchresult-content">
 							<div class="searchresultitem-container">
 								<div class="searchresultitem-title">빠른 검색</div>
