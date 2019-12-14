@@ -1,5 +1,6 @@
 package com.wg.p1.service;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -7,30 +8,65 @@ import org.springframework.web.multipart.MultipartFile;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
+import com.wg.p1.util.CouponMaker;
+import com.wg.p1.util.FileSaver;
 
 @Service
 public class AdminService {
 
 	@Inject
 	private GoodsDAO goodsDAO;
-	
-	public void goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
-		System.out.println(goodsVO.getCity_num());
-		System.out.println(goodsVO.getCate_num());
-		System.out.println(goodsVO.getT_num());
-		
-		System.out.println("**************** for test ****************");
-		System.out.println("test : AdminService");
-		System.out.println("infoVO : "+infoVO.getBoucher());
-		
-		System.out.println(file.length);
+	@Inject
+	private FileSaver fileSaver;
+
+	public int addGoods(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO, HttpSession session)throws Exception{
+		CouponMaker couponMaker=new CouponMaker();;
+		//대표이미지 저장하기
+
+		System.out.println("City num : "+goodsVO.getCity_num());
+		System.out.println("City name : "+goodsVO.getCity_name());
+
+		//파일 저장하기(sub 이미지 저장)
+		String realPath=session.getServletContext().getRealPath("resources/images/goods");
+		String fileName="";
 		for(int i=0;i<file.length;i++) {
-			System.out.println(i+"번째 파일");
-			System.out.println(file[i].getName());
-			System.out.println(file[i].getOriginalFilename());
+			fileName=fileSaver.save(realPath, file[i]);			
+			switch (i) {
+			case 0: 
+				goodsVO.setImg1(fileName);
+				System.out.println("img1Saved");
+				break;
+			case 1:
+				goodsVO.setImg2(fileName);
+				System.out.println("img3Saved");
+				break;
+			case 2:
+				goodsVO.setImg3(fileName);
+				System.out.println("img4Saved");
+				break;
+			case 3:
+				goodsVO.setImg4(fileName);
+				System.out.println("img4Saved");
+			}
 		}
-		
-		System.out.println("-----------goodsVO---------");
-		System.out.println("goodsVO.getProgram() : "+goodsVO.getProgram());
+
+		//1-2
+		goodsVO.setCoupon(couponMaker.makeCoupon(goodsVO.getCity_num()));
+		goodsVO.setCity_name(goodsDAO.getCityName(goodsVO.getCity_num()));
+		goodsVO.setImg("./resources/images/test.jpg");
+
+
+		int rsGoods=goodsDAO.goodsInsert(goodsVO);
+		System.out.println("test : goodsService.addGoods.rsGoods : "+rsGoods);
+
+		//get goodsNum
+		int maxGoodsNum=goodsDAO.maxGoodsNum();
+
+		//2.infoVO
+		infoVO.setGoods_num(maxGoodsNum);
+		rsGoods=goodsDAO.infoInsert(infoVO);
+		System.out.println("test : goodsService.addGoods.rsInfo : "+rsGoods);
+
+		return rsGoods;
 	}
 }

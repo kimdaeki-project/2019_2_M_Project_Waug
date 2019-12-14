@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import com.wg.p1.model.InfoVO;
 
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
-
+import com.wg.p1.service.AdminService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.util.Pager;
 
@@ -28,6 +29,8 @@ import com.wg.p1.util.Pager;
 public class AdminController {
 	@Inject
 	private GoodsService goodsService;
+	@Inject
+	private AdminService adminService;
 	
 	
 	@RequestMapping("admin_main")
@@ -62,8 +65,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("goods_add")
-	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
-		int result=goodsService.addGoods(goodsVO, file, infoVO);
+	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session) throws Exception{
+		int result=adminService.addGoods(goodsVO, file, infoVO, session);
 		ModelAndView mv=new ModelAndView();
 		String path="../admin/goods_list";
 		String msg="goods 추가 성공";
@@ -75,7 +78,7 @@ public class AdminController {
 			mv.addObject("path", path);
 			mv.addObject("msg", msg);
 		}
-		
+		mv.setViewName("common/common_result");
 		return mv;
 	}
 	
