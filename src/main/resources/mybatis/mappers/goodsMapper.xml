@@ -26,6 +26,9 @@
 	select * from goods where city_num=49
 </select>
 <!-- 퀵서치 끝  -->
+<delete id="goodsDelete" parameterType="GoodsVO">
+	delete from goods where goods_num=${goods_num}
+</delete>
 
 <select id="getCityName" parameterType="Integer" resultType="String">
 	select city_name from nationinfo where city_num=#{city_num}

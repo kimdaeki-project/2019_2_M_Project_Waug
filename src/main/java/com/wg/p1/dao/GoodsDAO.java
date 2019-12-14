@@ -20,6 +20,10 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+	//goodsDelete
+	public int goodsDelete(GoodsVO goodsVO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"goodsDelete", goodsVO);
+	}
 
 	//quick Search
 	public List<GoodsVO> quickSearch_usim() throws Exception{

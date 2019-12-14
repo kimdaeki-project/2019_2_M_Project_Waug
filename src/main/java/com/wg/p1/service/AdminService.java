@@ -69,4 +69,12 @@ public class AdminService {
 
 		return rsGoods;
 	}
+	
+	public int goodsDelete(GoodsVO goodsVO) throws Exception{
+		int result=goodsDAO.goodsDelete(goodsVO);
+		return result;
+	}
+	
+	
+	
 }

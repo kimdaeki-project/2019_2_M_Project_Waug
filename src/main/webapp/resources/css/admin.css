@@ -1,0 +1,398 @@
+*{margin: 0px; padding: 0px;}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:#fce4f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #da1d84; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.good_contents_titles{
+   height: 53px;
+   background-image: linear-gradient(#f4f4f4, #f6f6f6, white);
+   border-bottom: 2px solid #f6f6f6;
+   border-top: 1px solid #f4f4f4;
+   margin-top: 53px;
+
+}
+.good_contents_titles_fixed{
+   margin-top: 71px;
+}
+/*goods*/
+.good_img_wrapper{
+   height: 544px;
+   width: 100%;
+   background: green;
+   display: flex;
+   margin-top:70px;
+   padding: 0px;
+}
+.good_img_titleBox{
+   width: 50%;
+   height: 544px;
+   background: green;
+   border-bottom: 8px solid black;
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+}
+.good_btn_wishlist{
+   position: absolute;
+   right: 25px;
+   top: 25px;
+   color:white;
+}
+.good_img_title{
+   cursor: pointer;
+}
+.good_img_title img{
+   width: 100%;
+   height: 536px;
+}
+.good_img_divideBox{
+   height: 534px;
+   width: 50%;
+   background: gold;
+    display: inline-block;
+   position: relative;
+}
+.good_img_small_wrapper{
+	height: 272px;
+   width: 100%;
+	background:red;
+   display: inline-flex;
+}
+.good_img_small{
+   cursor: pointer;
+   margin: 0px;
+   width:50%;
+   height: 272px;
+   background:blue;
+   border-left: 8px solid black;
+   border-bottom: 8px solid black;
+}
+.good_img_small img{
+   width: 100%;
+   height: 264px;
+}
+/* detail */
+.good_detail_wrapper{
+   clear: both;
+   background:black;
+   width:100%;
+   height: 665px;
+   color: white;
+}
+.good_detailBox{
+   width: 1200px;                                     /*나중에 수정*/
+   height: 655px;
+   margin: 0 auto;
+}
+.good_info_wrapper{
+   width: 585px;
+   height: 655px;
+   float: left;
+   display: block;
+}
+.good_info_padding{
+   margin: 0;
+   padding: 30px 20px 0 20px;
+   width: 545px;
+   height: 625px;
+}
+.good_info_area{
+   height: 20px;
+   margin-bottom: 10px;
+   font-size: 20px;
+}
+img.good_icon{
+   width: 20px;
+   height: 20px;
+   padding-right: 10px;
+}
+input[type="file"].subImg{
+	
+}
+.good_title{
+   width: 100%;
+   font-size: 2em;
+   font-weight:600;
+}
+.good_category_wrapper{
+   width: 545px;
+   margin-top: 16px;
+   height: 66px;
+   display: flex;
+}
+.good_category>a{
+   text-decoration: none;
+   color:white;
+}
+/*for toggle*/
+.category_forToggle{
+   text-decoration: none;
+   color: black;
+}
+.good_category{
+   text-decoration: none;
+   display: white;
+   margin: 14px 14px 0px 0px;
+   border:1px solid white;
+   border-radius: 3px;
+   font-size: 14px;
+   height: 38px;
+   text-align: center;
+   padding: 6px 14px;
+   font-size: 14px;
+   font-weight: 600;
+   line-height: 28px;
+}
+.good_info{
+   border-top: 1px solid white;
+   margin-top: 30px;
+   padding: 30px 0px;
+   height: 328px;
+}
+.good_info_nextdate{
+   color:rgb(255, 255, 255);
+   display:flex;
+   font-family:"Noto Sans KR", "Noto Sans Korean", Roboto, Sans-serif;
+   font-size:14px;
+   font-weight: 700;
+}
+.good_key_infoBox{
+   height: 172px;
+   padding: 20px 0;
+   display: flex;
+   flex-wrap: wrap;
+}
+.good_keyBox{
+   width: 250px;
+   height: 19px;
+   padding: 10px 10px 10px 0;
+   display: flex;
+   margin: 2px 2px 2px 0;
+   font-size:13px;
+}
+
+.good_bookBox{
+   width: 428px;
+   padding:20px;
+   margin: 34px 0px 34px 105px;
+   border:1px solid #999999;
+   border-radius: 3px;
+}
+.good_bookInfo{
+   height: 109px;
+}
+.good_priceBox{
+   height: 27px;
+   font-size:18px;
+   font-weight:600;
+}
+.good_reservationBox{
+   height: 26.5px;
+   margin-bottom: 15px;
+}
+.good_reservation_btn{
+   height: 40.5px;
+   width: 386px;
+   background:white;
+   font-size: 16px;
+   text-align: center;
+   line-height: 40.5px;
+   color: #272822;
+   background-size: cover;
+   cursor: pointer;
+}                              /*fixed*/
+.good_bookBox_fixed{
+   position: fixed;
+   top: 50px;
+}
+.good_bookBox_toggle{
+   color:#272822;
+   border:1px solid #999999;
+   background:white;
+}
+.good_reservation_btn_fixed{
+   height: 40.5px;
+   width: 386px;
+   background:linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
+   font-size: 16px;
+   text-align: center;
+   line-height: 40.5px;
+   color: white;
+   background-size: cover;
+}
+
+.st{
+height: 20px;
+color:black;
+}
+.bk{color:black;}
+.locationBox{
+width:200px;
+hei:40px;
+color:black;}
+.good_key_infoBox{height: auto;}
+.good_keyBox{height: auto; padding:5px 5px 5px 0;}
+img.good_icon{width:30px; height: 30px;}
+
+
+}
+.container{
+   width: 100%;
+   background:gold;
+}
+.good_container_flex{
+   width: 1200px;                                     /*나중에 수정*/
+   margin: 0 auto;
+}
+.good_detail_info_wrapper{
+   width: max;
+}
+.good_detail_infoBox{
+      width: max;
+      padding:30px 20px 0 20px;
+      margin: 10px 15px 0 15px;
+      overflow: hidden;
+}
+.good_detail_title{
+   width:600px;
+   height: 36px;
+   padding-bottom: 14px;
+   font-size:24px;
+   font-weight:600;
+}
+.good_ul{
+   width: 580px;
+   padding-left: 20px;
+   margin: 16px 0;
+   background: white
+}
+.good_ul li{
+   height: 22px;
+   padding-bottom: 8px;
+   font-weight:400;
+}
+.good_ul li:first-child{
+   color:#33cc99;
+}
+.good_comentBox{
+   height: 56px;
+   padding-bottom: 20px;
+   margin: 10px 0 20px 0;
+   display: flex;
+}
+.good_coment_sample{
+   height: 86.4px;
+   padding: 10px 0;
+   margin: 10px 0;
+}
+.good_coment_rate{
+   height: 56px;
+   width: 66px;
+   font-family:Roboto;
+   font-size:46px;
+   font-weight:900;
+   display: block;
+}
+.good_coment_rateInfo{
+   display:flex;
+   flex-direction:column;
+   font-family:"Noto Sans KR", "Noto Sans Korean", Roboto, Sans-serif;
+   width: 90px;
+   height: 56px;
+   margin-left: 20px;
+}
+.good_coment_star{
+   color: RGB(217, 28, 131);
+}
+.good_coment_count{
+   font-size:16px;
+   font-weight:600;
+}
+.good_coment_sampleInfo{
+   display: flex;
+}
+p.good_coment_sample_user{
+   font-weight: 300;
+   font-size: 16px;
+}
+p.good_coment_sample_date{
+   width:120px; 
+   height: 22px;
+   color: RGB(196, 184, 184);
+   font-weight: 600;
+   padding-left: 20px;
+   font-size: 15px;
+}
+.good_coment_text{
+   height: 20px;
+   color: #101010;
+   margin-top: 20px;
+}
+.good_container_btn{
+   width: 250px;
+   height: 40px;
+   border:1px solid #db1c84;
+   margin:20px 194px 0 194px;
+   padding: 10px 40px;
+   color:#db1c84;
+   text-align: center;
+}
+.optionbg{
+   background: #f5f5f5;
+   padding: 30px 20px;
+   margin: 30px 15px 0 15px;
+}
+.good_option_wrapper{
+   width: 560px;
+   background: white;
+   height: 44px;
+   border-radius: 5px;
+   margin-top: 10px;
+   display: flex;
+}
+.good_option_selectBox{
+   width: 90%;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+   height: 24px;
+   padding: 10px 20px;
+   flex-direction: row;
+   font-size: 16px;
+   display: flex;
+}
+.good_option_arrowBox{
+   display: flex;
+   width: 10%;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+.good_option_arrowIcon{
+   width: 16px;
+   height: 8px;
+   margin: 18px auto;
+   text-align: center;
+}
+.good_arrowIcon{
+   width: 16px;
+   height: 8px;
+   display: block;
+}
+
+
