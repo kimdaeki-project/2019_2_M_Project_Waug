@@ -20,6 +20,10 @@ height: 20px;
 color:black;
 }
 .bk{color:black;}
+.locationBox{
+width:200px;
+hei:40px;
+color:black;}
 </style>
 </head>
 <body>
@@ -27,21 +31,21 @@ color:black;
 	<select name="city_num">
 		<option>도시를 선택하세요</option>
 		<c:forEach items="${cityar}" var="vo">
-			<option value="${vo.city_num}">${vo.city_name}</option>
+			<option value="${vo.city_num}" >${vo.city_name}</option>
 		</c:forEach>
 	</select>
 	
 	<select name="t_num">
 		<option>테마를 선택하세요</option>
 		<c:forEach items="${themear}" var="vo">
-			<option value="${vo.t_num}">${vo.t_title}</option>
+			<option value="${vo.t_num}" >${vo.t_title}</option>
 		</c:forEach>
 	</select>
 	
 	<select name="cate_num">
 		<option>카테고리를 선택하세요</option>
 		<c:forEach items="${catear}" var="vo">
-			<option value="${vo.cate_num}">${vo.cate_name}</option>
+			<option value="${vo.cate_num}" >${vo.cate_name}</option>
 		</c:forEach>
 	</select>
 	
@@ -69,14 +73,12 @@ color:black;
          	<div class="good_info_padding">
          		<div class="good_info_area"><img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674923909136.svg"/></img>다낭</div>
          		<div class="good_title" ><input type="text" name="title" style="color:black"></div>
-         		<div class="good_category_wrapper">
-         			<div class="good_category"><a href="#">조인 투어</a></div>
-         			<div class="good_category"><a href="#">역사 & 문화 투어</a></div>
-         			<input type="checkbox" name="category" value="">??
-         			
+         		<div class="good_category_wrapper">         			
          		</div>
          		<div class="good_info">
-         			<div class="good_info_nextdate">내일부터 가능????</div>
+         			<div class="good_info_nextdate">
+         				사용가능날짜 <input type="date" name="able" class="st">
+         			</div>
          			<div class="good_key_infoBox">
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674927522196.svg" />
@@ -111,12 +113,9 @@ color:black;
          					<input type="text" name="language" placeholder="언어) 영어" class="st">
          				</div>
          			</div>
-         			<div class="good_couponBox">
-         				<div class="good_coupon">
-         					<div class="good_coupon_title">title</div>
-         					<div class="good_coupon_info">information</div>
-         				</div>
-         			</div>
+         			ex)45.1423/45.1453<br>
+         			<input type="text" class="locationBox" name="location" placeholder="ex)45.1423/45.1453">
+         			
          		</div>
          	</div>
          </div>
@@ -138,7 +137,7 @@ color:black;
    			<div class="good_detail_info_wrapper">
    				<div class="good_detail_infoBox">
    					<div class="good_detail_title">매력포인트(ul 사용)</div>							<!-- 매력포인트 -->
-   					<textarea id="point" name="point"></textarea>
+   					<textarea id="point" name="charming"></textarea>
    				</div>
    				<br><br><br>
    				<div class="good_detail_infoBox optionbg">

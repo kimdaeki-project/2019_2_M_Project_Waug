@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ import com.wg.p1.model.InfoVO;
 
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
-
+import com.wg.p1.service.AdminService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.util.Pager;
 
@@ -28,6 +29,8 @@ import com.wg.p1.util.Pager;
 public class AdminController {
 	@Inject
 	private GoodsService goodsService;
+	@Inject
+	private AdminService adminService;
 	
 	
 	@RequestMapping("admin_main")
@@ -59,29 +62,24 @@ public class AdminController {
 		
 		mv.setViewName("admin/goods_add");
 		return mv;
-		
 	}
 	
 	@PostMapping("goods_add")
-	public void goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO) throws Exception{
-		
-		System.out.println(goodsVO.getCity_num());
-		System.out.println(goodsVO.getCate_num());
-		System.out.println(goodsVO.getT_num());
-		
-//		**************** for test ****************
-		System.out.println("goods_add_result !!!!");
-		System.out.println("infoVO : "+infoVO.getBoucher());
-		
-		System.out.println(file.length);
-		for(int i=0;i<file.length;i++) {
-			System.out.println(i+"번째 파일");
-			System.out.println(file[i].getName());
-			System.out.println(file[i].getOriginalFilename());
+	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session) throws Exception{
+		int result=adminService.addGoods(goodsVO, file, infoVO, session);
+		ModelAndView mv=new ModelAndView();
+		String path="../admin/goods_list";
+		String msg="goods 추가 성공";
+		if(result>0) {
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
+		}else {
+			msg="goods 추가 실패";
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
 		}
-		
-		System.out.println("-----------goodsVO---------");
-		System.out.println("goodsVO.getProgram() : "+goodsVO.getProgram());
+		mv.setViewName("common/common_result");
+		return mv;
 	}
 	
 	

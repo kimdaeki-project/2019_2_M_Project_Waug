@@ -20,6 +20,7 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+
 	//quick Search
 	public List<GoodsVO> quickSearch_usim() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"quickSearch_usim");
@@ -29,6 +30,22 @@ public class GoodsDAO {
 	}
 	public List<GoodsVO> quickSearch_jr() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"quickSearch_jr");
+	}
+
+	//getCityName 도시 번호로 도시이름 가져오기
+	public String getCityName(int city_num) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getCityName", city_num);
+	}
+	
+	//maxGoodsNum
+	public int maxGoodsNum() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"maxGoodsNum");
+	}
+
+	//infoInsert
+	public int infoInsert(InfoVO infoVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"infoInsert", infoVO);
+
 	}
 	public List<GoodsVO> quickSearch_eurail() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"quickSearch_eurail");
