@@ -6,11 +6,17 @@
 <mapper namespace="reviewMapper">
 	<!-- 글쓰기 -->
   	<insert id="reviewWrite" parameterType="ReviewVO" >
-  		insert into review1 values(review_SEQ.nextval, 1, #{email}, #{rv_writer}, #{rv_contents},
+  		<selectKey order="BEFORE" resultType="Integer" keyProperty="rv_num">
+			select review_SEQ.nextval from dual
+		</selectKey>
+  		insert into review1 values(#{rv_num}, 1, #{email}, #{rv_writer}, #{rv_contents},
   		sysdate, #{rv_score}, 0, 'aname', sysdate, 'acontents')
-  	
   	</insert>
   	
+  	<!-- 리뷰파일글쓰기 -->
+  	<insert id="review_imgWrite" parameterType="ReviewImgVO">
+  		insert into review_img values(review_img_SEQ.nextval, #{rv_num}, #{img_name})
+  	</insert>
   	<!-- 전체조회 -->
 	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
 		select * from

@@ -24,7 +24,10 @@ public class ReviewService {
 			name = name.concat("*");
 		}
 		reviewVO.setRv_writer(name);
-		return reviewDAO.reviewWrite(reviewVO);
+		int result = reviewDAO.reviewWrite(reviewVO);
+		System.out.println(reviewVO.getRv_num());
+		
+		return result;
 	}
 	
 	public List<ReviewVO> reviewList(Pager pager) throws Exception{
