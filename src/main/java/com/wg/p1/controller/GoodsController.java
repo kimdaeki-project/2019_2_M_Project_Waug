@@ -38,7 +38,7 @@ public class GoodsController {
 		
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
-		reviewVO.setGoods_num(1);
+		reviewVO.setGoods_num(7);
 		reviewVO =reviewService.review_avg_total(reviewVO);
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		mv.addObject("review", reviewVO);
@@ -76,4 +76,7 @@ public class GoodsController {
 	public void goods_write(ModelAndView mv) throws Exception{
 		
 	}
+	
+	
+
 }
