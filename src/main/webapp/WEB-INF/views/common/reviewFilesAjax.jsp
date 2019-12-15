@@ -6,6 +6,6 @@
 <i class="fa fa-minus-circle"></i>
 </div>
 <img src="../resources/images/reviews"+${filename} style="width: 74px; height: 74px;">
-<input type="hidden" >
+<input type="hidden" value="${filename}" name="images">
 </div>
 												
