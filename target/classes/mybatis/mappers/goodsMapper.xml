@@ -112,11 +112,11 @@ select max(goods_num) from goods
 	</select>
 	
   <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
-  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num,sell, 1 add
+  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num,sell
 		from goods 
 		where goods_num in(select goods_num from wishlist where email=#{m_pk})
 	union
-	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num,sell, 1 add
+	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num,sell
 		from goods
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
 		order by sell desc

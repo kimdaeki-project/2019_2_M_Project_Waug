@@ -116,11 +116,19 @@ public class AdminController {
 	
 	@GetMapping("goods_update")
 	public Model goods_update(GoodsVO goodsVO, Model model)throws Exception{
+		//category, nation, theme LIST
+		List<CategoryVO> catear = goodsService.CateAll();
+		List<NationVO> cityar = goodsService.CityAll();
+		List<ThemeVO> themear = goodsService.ThemeAll();
+		
 		ArrayList<Object> goods=adminService.goods_update(goodsVO);
 		InfoVO info=(InfoVO)goods.get(0);
 		GoodsVO goodsVO2=(GoodsVO)goods.get(1);
 		model.addAttribute("info", info);
 		model.addAttribute("goodsVO2", goodsVO2);
+		model.addAttribute("cityar", cityar);
+		model.addAttribute("themear", themear);
+		model.addAttribute("catear", catear);
 		
 		return model;
 	}
