@@ -12,7 +12,6 @@
   		insert into review1 values(#{rv_num}, 1, #{email}, #{rv_writer}, #{rv_contents},
   		sysdate, #{rv_score}, 0, 'aname', sysdate, 'acontents')
   	</insert>
-  	
   	<!-- 리뷰파일글쓰기 -->
   	<insert id="review_imgWrite" parameterType="ReviewImgVO">
   		insert into review_img values(review_img_SEQ.nextval, #{rv_num}, #{img_name})
@@ -67,8 +66,8 @@
 
 	</select>
 	<!-- 글하나 조회 -->
-	<select id="reviewSelect" parameterType="ReviewVO" resultType="ReviewVO">
-		select * from review1 where rv_num=#{rv_num}
+	<select id="reviewSelect" parameterType="ReviewVO" resultMap="reviewFile">
+		select * from review1 full outer join review_img using(rv_num) where rv_num=#{rv_num}
 	</select>
 	
 	<!-- 리뷰삭제 -->

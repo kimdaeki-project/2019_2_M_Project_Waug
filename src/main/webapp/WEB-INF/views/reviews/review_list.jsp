@@ -68,10 +68,15 @@
 									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
 							<p class="comment_msg" >${dto.rv_contents}
-								<c:forEach items="${dto.images}" var="image">
-									${image.img_name}
-								</c:forEach>
 							</p>
+								<c:forEach items="${dto.images}" var="image">
+									<c:if test="${not empty image.img_name}">
+										<img src="../resources/images/reviews/${image.img_name}" style="width: 74px; height: 74px;" class="tttt" id="${image.img_name}">
+										
+										
+									</c:if>
+								</c:forEach>
+								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
 								<!-- 관리자만 보이게 -->
@@ -156,7 +161,9 @@
 											style="height: 246px;"
 											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
-									</form>
+									<div class="img_input_wrapper">
+									</div>
+									</form><!-- form 원래 끝나는 위치 -->
 									<div class="form-group comment-write-btn-wrapper2">
 										<div class="camera">
 											<form id="frm-review-file" method="post" enctype="multipart/form-data" class="test">
@@ -249,21 +256,19 @@
 											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
 									</form>
-									<div class="form-group comment-write-btn-wrapper">
+									<div class="form-group comment-write-btn-wrapper2">
 										<div class="camera">
-											<form id="frm-review-file">
-												<label for="input_comment_img_new"> <img
-													style="padding-top: 17px; width: 62px; padding-left: 11px;"
-													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
+											<form id="frm-review-file"  method="post" enctype="multipart/form-data" class="test">
+												<label for="input_comment_img_new"> 
+													<img style="padding-top: 17px; width: 62px; padding-left: 11px;" src="https://www.waug.com/images/ic_comment_camera_web.svg">
+													<input type="file" id="input_comment_img_new" class="hide input_comment_img_new" accept="image/*">
 												</label>
 											</form>
 										</div>
-
 									</div>
 									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img"></div>
+										<div class="comment-img-list" id="preview-img">
+										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="write" style="float: right;">
@@ -420,6 +425,10 @@
 			}
 		}); */
 		
+		$(".tttt").click(function() {
+			var url = $(this).attr('id');
+			window.open('http://localhost/p1/resources/images/reviews/'+url);
+		})
 		
 		/* 별점 */
 		
@@ -447,7 +456,7 @@
 				data=data.trim();
 				$(".add-list").append(data);
 			});
-			if(curPage >= ${totalPage} ){
+			if(curPage > ${totalPage} ){
 				$("#add_review").css("display","none");
 			}
 		});
@@ -519,7 +528,11 @@
 	            	timeout: 600000,
 	            	success: function (data) {
 	                	data=data.trim();
-	                	$("#preview-img").append(data);
+
+	                	var im = data.split('////');
+
+	                	$(".img_input_wrapper").append(im[0]);
+	                	$("#preview-img").append(im[1]);
 	            	},
 	            	error: function (e) {
 	                	console.log("ERROR : ", e);

@@ -5,8 +5,6 @@
 			
 			<c:if test="${result eq 1}">
 
-
-출처: https://cofs.tistory.com/45 [CofS]
 			<div class="searchresult-content searchresult-items">
 				<div>
 					<div class="searchresultitem-container searchresultitem-container-searched">

@@ -41,9 +41,9 @@ public class ReviewController {
 	}
 	
 	@PostMapping("review_write")
-	public String review_Write(ReviewVO reviewVO) throws Exception{
+	public String review_Write(ReviewVO reviewVO, String[] rv_images) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = reviewService.reviewWrite(reviewVO);
+		int result = reviewService.reviewWrite(reviewVO,rv_images);
 		
 		//mv.setViewName("reviews/review_list");
 		return "redirect:review_list";
