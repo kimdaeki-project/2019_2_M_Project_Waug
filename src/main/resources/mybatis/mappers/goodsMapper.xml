@@ -54,7 +54,7 @@ select max(goods_num) from goods
 	
 	insert into goods values(goods_seq.nextval, #{price}, #{discount}, #{coupon},
 	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
-	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4})
+	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4},0)
 </insert>
 
 
@@ -112,13 +112,14 @@ select max(goods_num) from goods
 	</select>
 	
   <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
-  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num
+  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num,sell, 1 add
 		from goods 
 		where goods_num in(select goods_num from wishlist where email=#{m_pk})
 	union
-	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num
+	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num,sell, 1 add
 		from goods
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
+		order by sell desc
   </select>
 
   <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">

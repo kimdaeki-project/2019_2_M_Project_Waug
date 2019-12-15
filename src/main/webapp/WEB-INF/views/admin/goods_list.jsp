@@ -18,12 +18,12 @@
 		<div class="jumbotron page-header">
 			<h1>Goods List</h1>
 		</div>
-		
+	<form action="goods_delete" method="post" id="delete">	
 		<table class="table"  >
 			<thead >
 				<tr class="info">
-					
-					<th><input type="checkbox" id="checkAll"></th>
+					<th>num</th>
+					<th><input type="checkbox" id="checkAll">Goods_Num</th>
 					<th>이미지</th>
 					<th>상품명</th>
 					<th>도시</th>
@@ -39,9 +39,10 @@
 
 			<tbody>
 
-				<c:forEach items="${list}" var="vo">
+				<c:forEach items="${list}" var="vo" varStatus="status">
 					<tr class="warning">
-						<td><input type="checkbox" class="productCheck product" value=""></td>
+						<td>${status.count}</td>
+						<td><input type="checkbox" class="productCheck" value="${vo.goods_num}" name="goods_num">${vo.goods_num}</td>
 						<td><img src="${vo.img}" style="width: 200px; height: 130px;"></td>
 						<td>${vo.title}</td>
 						<td>${vo.city_name}</td>
@@ -50,13 +51,13 @@
 						<td>${vo.price}</td>
 						<td>${vo.discount}</td>
 						<td>${vo.qtt}</td>
-						<td><input type="button" value="정보 수정" ></td>
+						<td><input type="button" value="정보 수정" onclick="location.href='./goods_update?goods_num=${vo.goods_num}'" ></td>
 					</tr>
 				</c:forEach>
 
 			</tbody>
 		</table>
-
+</form>
 		<div >
 			<form action="./goods_list" id="frm">
 				<input type="hidden" id="curPage" value="1" name="curPage">
@@ -94,6 +95,19 @@
 		kind='good';
 	}
 	$("#"+kind).prop("selected", true);
+	
+	
+	
+	//전체 체크시
+	$('#checkAll').click(function(){
+		var all=$(this).is(':checked');
+		$('.productCheck').prop("checked", all);
+	});
+	
+	$('#pro_del').click(function(){
+		$('#delete').submit();
+	})
+	
 	</script>
 
 

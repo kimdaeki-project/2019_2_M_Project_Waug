@@ -1,12 +1,14 @@
 package com.wg.p1.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -82,9 +84,46 @@ public class AdminController {
 		return mv;
 	}
 	
+	@PostMapping("goods_delete")
+	public ModelAndView goods_delete(int[] goods_num)throws Exception{
+		boolean deleteCheck=true;
+		ModelAndView mv=new ModelAndView();
+		for (int i = 0; i < goods_num.length; i++) {
+			GoodsVO goodsVO=new GoodsVO();
+			goodsVO.setGoods_num(goods_num[i]);
+			int temp=adminService.goodsDelete(goodsVO);
+			if(temp<1) {
+				System.out.println("delete fail : "+goods_num[i]);
+				deleteCheck=false;
+			}
+		}
+		String msg="delete success";
+		String path="./goods_list";
+		if(deleteCheck) {
+			//success
+			mv.addObject("msg", msg);
+			mv.addObject("path", path);
+		}
+		else {
+			//fail
+			msg="delete fail";
+			mv.addObject("msg", msg);
+			mv.addObject("path", path);
+		}
+		mv.setViewName("common/common_result");
+		return mv;
+	}
 	
-	
-	
+	@GetMapping("goods_update")
+	public Model goods_update(GoodsVO goodsVO, Model model)throws Exception{
+		ArrayList<Object> goods=adminService.goods_update(goodsVO);
+		InfoVO info=(InfoVO)goods.get(0);
+		GoodsVO goodsVO2=(GoodsVO)goods.get(1);
+		model.addAttribute("info", info);
+		model.addAttribute("goodsVO2", goodsVO2);
+		
+		return model;
+	}
 	
 	
 }

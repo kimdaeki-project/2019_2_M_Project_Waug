@@ -1,4 +1,7 @@
 package com.wg.p1.service;
+
+import java.util.ArrayList;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -53,7 +56,8 @@ public class AdminService {
 		//1-2
 		goodsVO.setCoupon(couponMaker.makeCoupon(goodsVO.getCity_num()));
 		goodsVO.setCity_name(goodsDAO.getCityName(goodsVO.getCity_num()));
-		goodsVO.setImg("./resources/images/test.jpg");
+		goodsVO.setLocation(goodsDAO.getCityName(goodsVO.getCity_num()));
+		goodsVO.setImg(goodsVO.getImg());
 
 
 		int rsGoods=goodsDAO.goodsInsert(goodsVO);
@@ -66,7 +70,7 @@ public class AdminService {
 		infoVO.setGoods_num(maxGoodsNum);
 		rsGoods=goodsDAO.infoInsert(infoVO);
 		System.out.println("test : goodsService.addGoods.rsInfo : "+rsGoods);
-
+		
 		return rsGoods;
 	}
 	
@@ -75,6 +79,13 @@ public class AdminService {
 		return result;
 	}
 	
-	
+	public ArrayList<Object> goods_update(GoodsVO goodsVO) throws Exception{
+		InfoVO infovo=goodsDAO.selectGoodsInfo(goodsVO.getGoods_num());
+		GoodsVO goodsVO2=goodsDAO.goosSelectOne(goodsVO.getGoods_num());
+		ArrayList<Object> goods=new ArrayList<Object>();
+		goods.add(infovo);
+		goods.add(goodsVO2);
+		return goods;
+	}
 	
 }

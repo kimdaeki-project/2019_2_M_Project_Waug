@@ -43,7 +43,7 @@
 .good_img_titleBox{
    width: 50%;
    height: 544px;
-   background: green;
+   background: yellowgreen;
    border-bottom: 8px solid black;
    position: relative;
    display: inline-block;
@@ -80,7 +80,7 @@
    margin: 0px;
    width:50%;
    height: 272px;
-   background:blue;
+   background:gold;
    border-left: 8px solid black;
    border-bottom: 8px solid black;
 }

@@ -16,10 +16,10 @@
 <link rel="stylesheet" href="../resources/css/admin.css">
 </head>
 <body>
-	<form action="goods_add" method="post" enctype="multipart/form-data">
+	<form action="goods_update" method="post" enctype="multipart/form-data">
 	<select name="city_num" id="city_num">
 		<option value="0">도시를 선택하세요</option>
-		<c:forEach items="${cityar}" var="vo">
+		<c:forEach items="${goods.goodsVO2}" var="vo">
 			<option value="${vo.city_num}" >${vo.city_name}</option>
 		</c:forEach>
 	</select>
@@ -36,24 +36,24 @@
 		<c:forEach items="${catear}" var="vo">
 			<option value="${vo.cate_num}" >${vo.cate_name}</option>
 		</c:forEach>
-	</select>
+	</select> 
 	<!-- 위에가 용주형꺼 -->
 	<div class="good_img_wrapper">
       <div class="good_img_titleBox">
          <div class="good_img_title">
          <div style="margin: 0 auto; line-height:536px; width:300px; height: 30px;">
-         	<input type="text" name="img" id="titleImg" style="width:300px; height: 30px;">
+         	<input type="text" name="img" id="titleImg" style="width:300px; height: 30px;" value="${goodsVO2.img}">
          </div>
          </div>
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1"></div>
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2"></div>      
+         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1" value="${goodsVO2.img1 }"></div>
+         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2" value="${goodsVO2.img2 }"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small">img 4<input type="file" name="file" class="subImg" id="subImg3"></div>
-        <div class="good_img_small">img 5<input type="file" name="file" class="subImg" id="subImg4"></div> 
+        <div class="good_img_small">img 4<input type="file" name="file" class="subImg" id="subImg3" value="${goodsVO2.img3 }"></div>
+        <div class="good_img_small">img 5<input type="file" name="file" class="subImg" id="subImg4" value="${goodsVO2.img4 }"></div> 
       </div>
       </div>
    </div>
@@ -62,12 +62,12 @@
          <div class="good_info_wrapper">
          	<div class="good_info_padding">
          		<div class="good_info_area">Goods title</div>
-         		<div class="good_title" ><input type="text" name="title" style="color:black"></div>
+         		<div class="good_title" ><input type="text" name="title" style="color:black" value="${goodsVO2.title }"></div>
          		<div class="good_category_wrapper">         			
          		</div>
          		<div class="good_info">
          			<div class="good_info_nextdate">
-         				사용가능날짜 <input type="date" name="able" class="st">
+         				사용가능날짜(able)<br> <input type="date" name="able" class="st" value="${goodsVO2.able }>
          			</div>
          			<div class="good_key_infoBox">
          				<div class="good_keyBox">
@@ -162,9 +162,9 @@
          <div class="good_info_wrapper">
          	<div class="good_bookBox">
          		<div class="good_bookInfo">
-         			<div class="good_priceBox"><input type="text" name="price" placeholder="price" class="bk"></div>
-         			<div class="good_reservationBox"><input type="text" name="discount" placeholder="discount" class="bk"></div>
-         			<div class="good_reservationBox"><input type="text" name="qtt" placeholder="qtt" class="bk"></div>
+         			<div class="good_priceBox"><input type="text" name="price" placeholder="price" class="bk" value="${goodsVO2.price}"></div>
+         			<div class="good_reservationBox"><input type="text" name="discount" placeholder="discount" class="bk" value="${goodsVO2.discount}"></div>
+         			<div class="good_reservationBox"><input type="text" name="qtt" placeholder="qtt" class="bk" value="${goodsVO2.qtt}"></div>
          			<div class="good_reservation_btn">등록하기</div>
          		</div>
          	</div>
@@ -177,7 +177,7 @@
    			<div class="good_detail_info_wrapper">
    				<div class="good_detail_infoBox">
    					<div class="good_detail_title">매력포인트(ul 사용)</div>							<!-- 매력포인트 -->
-   					<textarea id="point" name="charming"></textarea>
+   					<textarea id="point" name="charming" >${goodsVO2.charming}</textarea>
    				</div>
    				<br><br><br>
    				<div class="good_detail_infoBox optionbg">
@@ -204,24 +204,26 @@
                <div class="good_detail_infoBox">
                   <div class="good_detail_title">프로그램</div>
                
-                  <textarea id="program" name="program"></textarea>
+                  <textarea id="program" name="program" >
+                  ${goodsVO2.program }
+                  </textarea>
                   
                  
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">포함사항(ul)</div>
                   
                           
-               <textarea id="included" name="included"></textarea>
+               <textarea id="included" name="included" >${goodsVO2.included}</textarea>
               
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">불포함 사항(ul)</div>
-                  <textarea id="not_included" name="not_included"></textarea>
+                  <textarea id="not_included" name="not_included" >${goodsVO2.not_included}</textarea>
                   
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">사용 방법</div>
-                   <textarea id="how_to_use" name="how_to_use"></textarea> 
+                   <textarea id="how_to_use" name="how_to_use" >${goodsVO2.how_to_use}</textarea> 
                
                   
                </div>
