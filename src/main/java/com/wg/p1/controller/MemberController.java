@@ -24,7 +24,7 @@ public class MemberController {
 	private MemberServiceImpl memberService;
 	
 	@GetMapping(value = "join")
-	public void memberJoin(List<MemberVO> ar) throws Exception{
+	public void memberJoin() throws Exception{
 	
 		
 	}
