@@ -8,5 +8,9 @@
   <insert id="city_add" parameterType="NationVO">
   	insert into nationinfo values (nationinfo_seq.nextval, #{continents},#{nation},#{city_name},#{city_img},#{city_img2},0)
   </insert>
+  <select id="city_list" resultType="NationVO">
+  	select city_name from nationinfo
+  </select>
+  
   
   </mapper>

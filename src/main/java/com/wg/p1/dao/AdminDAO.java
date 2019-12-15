@@ -1,5 +1,7 @@
 package com.wg.p1.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,4 +20,7 @@ public class AdminDAO {
 		return sqlSession.insert(NAMESPACE+"city_add",nationVO);
 	}
 
+	public List<NationVO> city_list() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"city_list");
+	}
 }

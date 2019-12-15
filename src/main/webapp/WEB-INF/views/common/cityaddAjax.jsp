@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-		<option>나라</option>
-		<c:forEach items="${nation}" var="n">
-			<option>${n}</option>
-		</c:forEach>
+<option>나라</option>
+<c:forEach items="${nation}" var="n">
+	<option>${n}</option>
+</c:forEach>

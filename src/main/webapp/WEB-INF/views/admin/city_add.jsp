@@ -57,7 +57,7 @@
 
 		$.get("./city_add2?continents="+continents, function(data) {
 			data = data.trim();
-			$("#nations").html(data);
+			$("#nation").html(data);
 		});
 	});
 	

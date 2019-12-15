@@ -15,7 +15,7 @@
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 
-<div class="travel_main" style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=1680x640);">
+<div class="travel_main" id="backimg" style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=1680x640);">
 	<div class="travel_main_cover" style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15602446750719.png);">
 		<div class="travel_category_container">
 			<!-- test -->
@@ -376,6 +376,24 @@
 		$('.travel_modal_totalArea_nav>span').click(function(){
 			$('.travel_modal_totalArea').css("display","none");
 		});
+	});
+	
+	
+	//페이지 탭 누를때 백그라운드 이미지 변경
+	$('#li_all').click(function() {
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018315959.png?s=1680x640)");
+	});
+	$('#li_usimANDwifi').click(function() {
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=1680x640)");
+	});
+	$('#li_airport_Transportation').click(function() {
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018798116.png?s=1680x640)");
+	});
+	$('#li_japenPath').click(function() {
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018926570.png?s=1680x640)");
+	});
+	$('#li_UrailPath').click(function() {
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591019070628.png?s=1680x640)");
 	});
 </script>
 </body>
