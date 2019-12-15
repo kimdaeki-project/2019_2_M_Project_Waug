@@ -499,38 +499,48 @@
 					$(".radiostar2").eq(strings[0]-1).attr("checked",true);
 			});
 		});
-		
+		var count = 0;
 		/* 사진 테스트 */
 		$(".input_comment_img_new").change(function() {
-			//Get form
-	        var form = $(this).parent().parent()[0];
-	        // Create an FormData object 
-	        var data = new FormData(form);
-	        $.ajax({
-	            type: "POST",
-	            enctype: 'multipart/form-data',
-	            url: "./reviewImages",
-	            data: data,
-	            processData: false,
-	            contentType: false,
-	            cache: false,
-	            timeout: 600000,
-	            success: function (data) {
-	                data=data.trim();
-	                $("#preview-img").append(data);
-	            },
-	            error: function (e) {
-	                console.log("ERROR : ", e);
-	                alert("fail");
-	            }
-	        });
-			
-			/* $.get("./reviewImages", function(data) {
-				data=data.trim();
-				$("#preview-img").append(data);
-			}); */
+			if(count<5){
+				
+				//Get form
+	        	var form = $(this).parent().parent()[0];
+	       	 	// Create an FormData object 
+	        	var data = new FormData(form);
+	        	$.ajax({
+	            	type: "POST",
+	            	enctype: 'multipart/form-data',
+	            	url: "./reviewImages",
+	            	data: data,
+	            	processData: false,
+	            	contentType: false,
+	            	cache: false,
+	            	timeout: 600000,
+	            	success: function (data) {
+	                	data=data.trim();
+	                	$("#preview-img").append(data);
+	            	},
+	            	error: function (e) {
+	                	console.log("ERROR : ", e);
+	                	alert("fail");
+	            	}
+	       		});
+				count=count+1;
+			}else{
+				alert('더 이상 첨부할 수 없습니다.');
+			}
+	        
 		});
-	
+		
+		
+		/* 서버에서 이미지 삭제 */
+		$("#modal-review").on("click", ".fa-minus-circle",function(){
+			var fname = $(this).parent().parent().children('input').val();
+			$(this).parent().parent().remove();
+			count=count-1;
+		});
+		
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>
