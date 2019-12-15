@@ -61,6 +61,7 @@ public class ReviewController {
 	public ModelAndView reviewSelect(ReviewVO reviewVO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		reviewVO = reviewService.reviewSelect(reviewVO);
+		reviewVO.setRv_contents(reviewVO.getRv_contents().replace("</br>", "\r\n"));
 		mv.addObject("select", reviewVO);
 		mv.setViewName("common/reviewselectAjax");
 		

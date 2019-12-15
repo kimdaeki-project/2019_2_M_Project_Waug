@@ -267,7 +267,7 @@
 										</div>
 									</div>
 									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img">
+										<div class="comment-img-list" id="preview-img1">
 										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
@@ -346,19 +346,7 @@
 											placeholder="관리자의 답변을 작성해주세요." name="rv_acontents"></textarea>
 									</div>
 									</form>
-									<div class="form-group comment-write-btn-wrapper">
-										<div class="camera">
-											<form id="frm-review-file">
-												<label for="input_comment_img_new"> <img
-													style="padding-top: 17px; width: 62px; padding-left: 11px;"
-													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
-												</label>
-											</form>
-										</div>
-
-									</div>
+									
 									<div class="comment-write-img">
 										<div class="comment-img-list" id="preview-img"></div>
 									</div>
@@ -486,15 +474,16 @@
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
 				console.log(data);
-				var strings = data.split('/');
+				var strings = data.split('///');
+				alert(strings[2]);
+				alert(strings[3]);
 				$("#comment_write_msg2").val(strings[1]);
 	
 					$(".update_rv_num").val(num);
 					$(".radiostar").eq(strings[0]-1).attr("checked",true);
-				
+					$("#preview-img1").html(strings[2]);
 			});
 		});
-		
 
 		/* 리뷰 답변창 내용 받아오기 */
 		$("#content").on("click", ".btn-review-reply", function() {
@@ -502,7 +491,7 @@
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
 				console.log(data);
-				var strings = data.split('/');
+				var strings = data.split('///');
 				$("#comment_write_msg3").html(strings[1]);
 					$(".update_rv_num").val(num);
 					$(".radiostar2").eq(strings[0]-1).attr("checked",true);
@@ -553,7 +542,7 @@
 			$(this).parent().parent().remove();
 			count=count-1;
 		});
-		
+		/*수정창 -버튼 이벤트 전파, 사진추가, count값 받기*/
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>
