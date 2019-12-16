@@ -149,13 +149,14 @@
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
 	
-	/* $("#btn-out-accept").click(function() {
+	/*
+	$("#btn-out-accept").click(function() {
 		$.post("../member/memberDelete",${memberVO.email},function(){
 			
 		});
-		/* location.href="../member/memberDelete" */
-/* 	});
-	 */ 
+		location.href="../member/memberDelete" 
+ 	});
+	*/ 
 	
 	
 
@@ -183,7 +184,7 @@
 		$(this).parent().addClass("active");
 	});
 	
-	console.log("gg");
+
 	
 	</script>
 

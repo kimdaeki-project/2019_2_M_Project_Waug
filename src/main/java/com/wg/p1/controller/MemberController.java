@@ -50,7 +50,24 @@ public class MemberController {
 	}
 	
 	
-	
+	@GetMapping("facebooklogin")
+	public ModelAndView facebookLogin(String email, MemberVO memberVO,HttpSession session) throws Exception{
+		System.out.println(email);
+		memberVO.setM_pk("f_"+email);
+		memberVO = memberService.memberLogin(memberVO);
+		
+		String msg="로그인실패";
+		if(memberVO!=null) {
+			msg="로그인성공";
+			session.setAttribute("memberVO", memberVO);
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", msg);
+		mv.setViewName("common/common_ajaxResult");
+		
+		return mv;
+	}
 	
 	
 	@GetMapping("kakao")
@@ -73,6 +90,29 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("kakaologin")
+	public ModelAndView kakaoLogin(String email, MemberVO memberVO,HttpSession session) throws Exception{
+	
+		memberVO.setM_pk("k_"+email);
+		memberVO = memberService.memberLogin(memberVO);
+		
+		String msg="로그인실패";
+		if(memberVO!=null) {
+			msg="로그인성공";
+			session.setAttribute("memberVO", memberVO);
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", msg);
+		mv.setViewName("common/common_ajaxResult");
+		
+		return mv;
+	}
+	
+	
+
+	
+	
 	@PostMapping(value = "join")
 	public ModelAndView memberJoin(MemberVO memberVO) throws Exception{
 		
@@ -94,6 +134,9 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	
+	
 	@GetMapping(value = "login")
 	public void memberLogin() throws Exception{
 		
@@ -102,6 +145,7 @@ public class MemberController {
 	@PostMapping(value = "login")
 	public ModelAndView memberLogin(MemberVO memberVO, HttpSession session) throws Exception {
 		
+		memberVO.setM_pk("w_"+memberVO.getEmail());
 		memberVO = memberService.memberLogin(memberVO);
 		
 		String msg="로그인실패";

@@ -5,10 +5,10 @@
 		<!-- 리스트시작 -->
 				<div class="col-md-3">
 					<ul class="submenu">
-						<li>
+						<li >
 							<div>
 								<img class="category-icon" src="https://www.waug.com/images/ic_update_profile.svg">
-								<a href="mypage">여행자 정보등록</a>
+								<a href="mypage" class="active">여행자 정보등록</a>
 							</div>
 						</li>
 						<li>

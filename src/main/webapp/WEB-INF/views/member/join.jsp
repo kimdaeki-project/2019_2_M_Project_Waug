@@ -12,17 +12,28 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
-
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
 
 <title>Insert title here</title>
 <style type="text/css">
-
-#fb-btn{
-/* 	display: none; */
+.fb_iframe_widget iframe {
+    opacity: 0;
 }
+.fb_iframe_widget {
+  background-image: url(https://www.waug.com/images/facebook.svg);
+  background-repeat: no-repeat; 
+}
+#kakao-login-btn{
+   opacity: 0;
+}
+.sns-login-kakao-logo{
+   position: relative;
+   left: -30px;
+   cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -54,25 +65,26 @@
 					
 					
 				</div>
-				<!-- 페이스북 -->
+				
 
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
-				</div>		
+				</div>
+				
+				<!-- 페이스북 -->	
 				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
-				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login" onclick="facebook_join()">
-					 
-				<img src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
-				<span class="sns-login-text sns-login-text-facebook">회원가입</span>
-					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn">
-					</fb:login-button> 
-					
+				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
+					<div style="margin-top: 8px;  float: left; margin-left: 115px;">
+						<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn" class="sns-login-facebook-logo">
+						</fb:login-button> 
+					</div>
+					<span class="sns-login-text sns-login-text-facebook" style="float: left; margin-left: 5px;">회원가입</span>
 				</div>
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
-					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
-					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
+					<a id="kakao-login-btn"></a><img src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
+					<span class="sns-login-text sns-login-text-kakao" style="position: relative; left: -30px;">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
 				<!-- 네이버 -->
@@ -84,9 +96,9 @@
 				</div>
 				<!-- 구글 -->
 				<div class="btn-login-sns-box login-form-box" id="google_login">
-				<div class="g-signin2" data-onsuccess="onSignIn"></div>
-				<!-- 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
+				<!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+				 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> 
 				</div>
 				<div style="margin-top: -14px">
 					<div class="sign-up-check-box">
@@ -105,16 +117,18 @@
 			
 		}
 	
+		$(".sns-login-kakao-logo").click(function() {
+	         $("#kakao-login-btn").click();
+	      });
 	
-	
-		/* 구글 로그인 api*/
-		function onSignIn(googleUser) {
+ 		/* 구글 로그인 api*/
+/*		function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
 		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 		  console.log('Name: ' + profile.getName());
 		  console.log('Image URL: ' + profile.getImageUrl());
 		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		}
+		} */
 	
 		/* 	  카카오 로그인 api */
 		 //<![CDATA[
