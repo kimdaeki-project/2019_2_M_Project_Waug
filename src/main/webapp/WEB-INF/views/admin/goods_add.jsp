@@ -153,9 +153,9 @@
          					</select>
          				</div>
          			</div>
-         			ex)45.1423/45.1453<br>
-         			<input type="text" class="locationBox" name="location" placeholder="ex)45.1423/45.1453">
-         			
+         			googleMap<br>
+         			horizontal <input type="text" class="locationBox" name="horizontal" placeholder="ex)45.1423/45.1453">	<br>
+         			vertical <input type="text" class="locationBox" name="vertical" placeholder="ex)45.1423/45.1453">	
          		</div>
          	</div>
          </div>
@@ -336,8 +336,8 @@ $('#subImg3').change(function() {
 $('#subImg4').change(function() {
 	subImg4=true;
 });
-$('.good_reservation_btn').click(function(){
 
+$('.good_reservation_btn').click(function(){
 	if($('#using_time').val()!="0"){
 		using_time=true;
 	}
