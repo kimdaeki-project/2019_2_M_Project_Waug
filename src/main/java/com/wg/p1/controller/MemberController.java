@@ -51,6 +51,8 @@ public class MemberController {
 	
 	
 	
+	
+	
 	@GetMapping("kakao")
 	public ModelAndView kakao(String nickname,String email, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -106,7 +108,6 @@ public class MemberController {
 		if(memberVO!=null) {
 			msg="로그인성공";
 			session.setAttribute("memberVO", memberVO);
-			//session.setAttribute("wishlist", memberVO.getWishlist());
 		}
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("memberVO", memberVO);
