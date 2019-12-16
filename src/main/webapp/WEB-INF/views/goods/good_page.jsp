@@ -56,7 +56,7 @@
          		<div class="good_info_area"><img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674923909136.svg"/>${goods.location}</div>
          		<div class="good_title">${goods.title}</div>
          		<div class="good_category_wrapper">
-         			<div class="good_category"><a href="#">조인 투어 category 받아오기~~~</a></div>
+         			<div class="good_category"><a href="#">${category}</a></div>
          		</div>
          		<div class="good_info">
          			<div class="good_info_nextdate">${goods.able} 부터 가능</div>
@@ -94,10 +94,10 @@
          					<!-- 언어선택 -->${info.language }
          				</div>
          			</div>
-         			<c:if test="${goods.coupon !empty}">
+         			<c:if test="${goods.coupon ne null}">
          				<div class="good_couponBox">
 	         				<div class="good_coupon">
-	         					<div class="good_coupon_title">title</div>
+	         					<div class="good_coupon_title">쿠폰</div>
 	         					<div class="good_coupon_info">${goods.coupon}</div>
 	         				</div>
          				</div>

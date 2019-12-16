@@ -49,6 +49,8 @@ public class GoodsController {
 		reviewVO.setGoods_num(7);
 		reviewVO =reviewService.review_avg_total(reviewVO);
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
+		List<CategoryVO> cateAll=goodsService.CateAll();
+		mv.addObject("category", cateAll.get(goodsVO.getCate_num()-1).getCate_name());
 		mv.addObject("review", reviewVO);
 		mv.addObject("review2", reviewVO2);
 		mv.addObject("cartVO", cartVO);
