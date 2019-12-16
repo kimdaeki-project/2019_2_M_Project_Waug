@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+th {
+text-align: center;
+}
+
+</style>
 </head>
 <body>
 
@@ -27,6 +33,7 @@
 					<th>테마명</th>
 					<th>소제목</th>
 					<th>주제</th>
+					<th>정보 수정</th>
 				</tr>
 
 			</thead>
@@ -34,13 +41,12 @@
 			<tbody>
 
 				<c:forEach items="${list}" var="vo">
-					<tr class="warning">
+					<tr class="odd">
 						<td><input type="checkbox" class="productCheck product" value=""></td>
 						<td><img src="${vo.t_img}" style="width: 200px; height: 130px;"></td>
 						<td>${vo.t_title}</td>
 						<td>${vo.t_subtitle}</td>
 						<td>${vo.t_subject}</td>
-
 						<td><input type="button" value="정보 수정" ></td>
 					</tr>
 				</c:forEach>
