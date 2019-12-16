@@ -67,5 +67,12 @@ public class GoodsTest extends testAbstractCase{
 		
 		assertEquals(1, result);
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
 }

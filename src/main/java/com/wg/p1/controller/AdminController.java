@@ -133,5 +133,30 @@ public class AdminController {
 		return model;
 	}
 	
+	@PostMapping("goods_update")
+	public ModelAndView goods_update(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session)throws Exception{
+		System.out.println("**************************************controller test");
+		System.out.println("adminController.goods_num : "+goodsVO.getGoods_num());
+		System.out.println("goodsVO.getImg() : "+goodsVO.getImg());
+		System.out.println("goodsVO.getCity_name() : "+goodsVO.getCity_name());
+		System.out.println("goodsVO.getCity_num() : "+goodsVO.getCity_num());
+		//goods update
+		int goods=adminService.goodsUpdate_goods(goodsVO, file, session);
+		System.out.println("goods update result : "+goods);
+		//info update
+		int info=adminService.goodsUpdate_info(infoVO);
+		System.out.println("info update result : "+info);
+		ModelAndView mv=new ModelAndView();
+		String path="./goods_list";
+		String msg="수정 성공";
+		if(info+goods<2) {
+			//fail
+			msg="수정 실패"	;
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", path);
+		mv.setViewName("common/common_result");
+		return mv;
+	}
 	
 }

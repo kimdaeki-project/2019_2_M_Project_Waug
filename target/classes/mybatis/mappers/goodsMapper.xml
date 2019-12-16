@@ -6,6 +6,22 @@
 <mapper namespace="goodsMapper">
 
 
+<update id="goodsUpdate" parameterType="GoodsVO">
+	update goods 
+	set
+	price=#{price},	DISCOUNT=#{discount},LOCATION=#{location},ABLE=#{able},CITY_NUM=#{city_num},O_NUM=#{o_num},QTT=#{qtt},TITLE=#{title},
+	T_NUM=#{t_num},IMG=#{img},CATE_NUM=#{cate_num},PROGRAM=#{program},CHARMING=#{charming},INCLUDED=#{included},NOT_INCLUDED=#{not_included},HOW_TO_USE=#{how_to_use},
+	REMEMBER=#{remember},CANCEL=#{cancel},IMG1=#{img1},IMG2=#{img2},IMG3=#{img3},IMG4=#{img4}
+	where
+	goods_num=#{goods_num}
+</update>
+<update id="infoUpdate" parameterType="InfoVO">
+	update info
+	set
+	DELIVERY_TIME=#{delivery_time},DURATION=#{duration},LANGUAGE=#{language},BOUCHER=#{boucher},CANCEL=#{cancel},USING_TIME=#{using_time},PICK_UP=#{pick_up},PEOPLE=#{people}
+	where
+	goods_num=#{goods_num}
+</update>
 <!-- 퀵서치 -->
 <select id="quickSearch_usim" resultType="GoodsVO">
 	select * from goods where title like '%포켓%'

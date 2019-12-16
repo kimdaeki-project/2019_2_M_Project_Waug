@@ -48,7 +48,7 @@
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1"></div>
+         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1" accept=".jpg"></div>
          <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2"></div>      
       </div>
       <div class="good_img_small_wrapper">

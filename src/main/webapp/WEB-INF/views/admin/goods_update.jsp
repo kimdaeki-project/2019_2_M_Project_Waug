@@ -49,8 +49,12 @@
 	<input type="text" id="getImg2" value="${goodsVO2.img2}">
 	<input type="text" id="getImg3" value="${goodsVO2.img3}">
 	<input type="text" id="getImg4" value="${goodsVO2.img4}">
-
+	
+	
+	
 	<form action="goods_update" method="post" enctype="multipart/form-data">
+
+	goods_num : <input type="text" value="${goodsVO2.goods_num}" name="goods_num" readonly="readonly"><br>
 		<select name="city_num" id="city_num">
 			<option value="0">도시를 선택하세요</option>
 			<c:forEach items="${cityar}" var="vo">
@@ -81,12 +85,11 @@
 			<div class="good_img_divideBox">
 				<div class="good_img_small_wrapper">
 					<div class="good_img_small">
-						<input type="file" name="file" class="subImg" id="subImg1" 
-							value="../resources/images/goods/${goodsVO2.img1 }">
+						<input type="file" name="file" class="subImg" id="subImg1" value="${goodsVO2.img1 }">
 							<!--   <input type="file" value="c:/passwords.txt"> -->
 					</div>
 					<div class="good_img_small">
-						<input type="file" name="file" class="subImg" id="subImg2" src="../resources/images/goods/${goodsVO2.img2}">
+						<input type="file" name="file" class="subImg" id="subImg2" value="${goodsVO2.img2}">
 					</div>
 				</div>
 				<div class="good_img_small_wrapper">
@@ -448,7 +451,7 @@ $('.good_reservation_btn').click(function(){
 	}
 	
 	// if all true >> submit()
-	if(using_time&&pick_up&&people&&boucher&&delivery_time&&duration&&cancel&&language){
+	if(using_time&&pick_up&&people&&boucher&&delivery_time&&duration&&cancel&&language&&subImg1&&subImg2&&subImg3&&subImg4){
 		alert('all true');
 		$("form").submit();
 	}
@@ -482,7 +485,7 @@ $(window).ready(function() {
 	$('#cancel').val(getCancel);
 	$('#language').val(getLanguage);
 	
-	$('#')
+	
 	
 });
 	</script>
