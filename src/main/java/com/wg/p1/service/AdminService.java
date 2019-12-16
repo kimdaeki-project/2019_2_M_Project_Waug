@@ -66,8 +66,6 @@ public class AdminService {
 	public int addGoods(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO, HttpSession session)throws Exception{
 		CouponMaker couponMaker=new CouponMaker();;
 		//대표이미지 저장하기
-		System.out.println("City num : "+goodsVO.getCity_num());
-		System.out.println("City name : "+goodsVO.getCity_name());
 		//파일 저장하기(sub 이미지 저장)
 		String realPath=session.getServletContext().getRealPath("resources/images/goods");
 		String fileName="";

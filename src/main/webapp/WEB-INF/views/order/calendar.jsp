@@ -28,18 +28,26 @@
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
+		
+			<select class="credit_select" id="checkOptionTime" name="o_time">
+				<option value="0" >시간을 선택해 주세요</option>
+				<c:forEach items="${goodsOption}" var="option">
+				<option>${option.o_time}</option>
+				</c:forEach>
+			</select>
+			<br><br>
 			<div class="reser_numberOfUserBox">
 				<div class="reser_user_adult">성인</div>
 				<div class="reser_user_number">
 					<div class="user_num_controll" id="minus" onclick="minus()"> - </div>
-					<div id="user_num_show">0</div>
+					<div id="user_num_show"></div>
 					<div class="user_num_controll" id="plus" onclick="plus()"> + </div>
 				</div>
 			</div>
 			<div class="reservation_btn_wrapper">
 			<div id="reservation_users_order_total_price">TOTAL PRICE</div>
-				<button id="cart_btn" type="submit">장바구니</button>
-				<button id="reservation_btn">예약하기</button>
+				<input type="button"  id="cart_btn" value="장바구니">
+				<input type="button"   id="reservation_btn" value="예약하기">
 			</div>
 		</div>
 	</div>
@@ -84,13 +92,16 @@
 		</div>
 	</div>
 </div>
-<input type="text" value="${goods.title}" id="goodsTitle" name="title">
-<input type="text" value="${goods.price}" id="goodsPrice" name="price">
-<input type="date" value="${goods.able }" id="goodsAble" name="able">
+<input type="text" value="${goods.goods_num}" id="goodsTitle" name="goods_num" hidden="hidden">
+<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
+<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
+<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
+<input type="number" id="people" name="people" value="0" hidden="hidden">
 
 <script type="text/javascript">
 	$("#cart_btn").click(function() {
 		$("#formId").attr("action","../my/cart");
+		$("#formId").submit();
 	});
 
 	//창띄우면 popup 숨기기
@@ -281,26 +292,28 @@
 		
 		function minus(){
 			var curNum=0;
-			 curNum=$('#user_num_show').html();
+			 curNum=$('#people').val();
 			if(curNum<=0){
-				$('#user_num_show').html("0");
+				$('#people').val(0);				///문제될시 타입 확인
 			}else{
 				curNum--;
 			}
-			$('#user_num_show').html(curNum);
+			$('#people').val(curNum);
+			$('#user_num_show').html($('#people').val());
 			showTotalPrice();
 		}
 		
 		function plus(){
-			var curNum=$('#user_num_show').html();
+			var curNum=$('#people').val();
 			curNum++;
-			$('#user_num_show').html(curNum);
+			$('#people').val(curNum);
+			$('#user_num_show').html($('#people').val());
 			showTotalPrice();
 		}
 		
 		function showTotalPrice(){
-			var people=$('#user_num_show').html();
-			var price=$('.reser_option_item_price').html();
+			var people=$('#people').val();
+			var price=$('#goodsPrice').val();
 			var totalPrice=people*price;
 			var commaNum=numberWithCommas(totalPrice);
 			$('#reservation_users_order_total_price').html(commaNum);
@@ -311,8 +324,31 @@
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 
+		//flag check
+		var checkPeople=false;		
+		var checkOptionTime=false;
+		
+		
+		
 		$('#reservation_btn').click(function(){
-			alert('dfkjldsafkljdkj');
+			console.log($('#checkOptionTime').val());
+			console.log("typeof"+typeof $('#checkOptionTime').val());
+			console.log("############################");
+			console.log($('#people').val());
+		
+			if($('#checkOptionTime').val()!="0"){
+				checkOptionTime=true;
+			}
+			if($('#people').val()!=0){
+				checkPeople=true;
+			}
+			if(checkOptionTime&&checkPeople){
+				alert('dfkjldsafkljdkj');
+				$("#formId").submit();
+			}
+			else{
+				alert('모두 선택해 주세요');
+			}
 		});
 </script>
 </body>
