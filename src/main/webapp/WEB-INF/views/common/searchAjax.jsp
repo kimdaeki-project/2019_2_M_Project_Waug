@@ -13,7 +13,7 @@
 						<div class="searchresultitem-items searchresultitem-items-searched">
 							<div class="searchresultitem-item-searched">
 								<c:forEach items="${cities}" var="city">
-								<div class="searchresultitem-item">
+								<div class="searchresultitem-item" onclick="location.href='./goods/goods_area?city_num=${city.city_num}';" style="cursor: pointer;" >
 									<div>${city.city_name}</div>
 								</div>
 								</c:forEach>
