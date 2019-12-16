@@ -31,6 +31,9 @@ public class ReviewDAO {
 	public int review_imgWrite(ReviewImgVO reviewImgVO) throws Exception{
 		return sqlSession.insert(NAMESPACE+"review_imgWrite", reviewImgVO);
 	}
+	public int review_imgDelete(ReviewImgVO reviewImgVO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"review_imgDelete", reviewImgVO);
+	}
 	
 	public int reviewCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"reviewCount", pager);

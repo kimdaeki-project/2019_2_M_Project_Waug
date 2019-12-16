@@ -16,6 +16,10 @@
   	<insert id="review_imgWrite" parameterType="ReviewImgVO">
   		insert into review_img values(review_img_SEQ.nextval, #{rv_num}, #{img_name})
   	</insert>
+  	<!-- 리뷰파일삭제하기 -->
+  	<delete id="review_imgDelete" parameterType="ReviewImgVO">
+  		delete review_img where rv_img_num = #{rv_img_num}
+  	</delete>
   	<!-- 전체조회 -->
 	<select id="reviewList1" resultType="ReviewVO" parameterType="Pager">
 		select * from

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wg.p1.model.ReviewImgVO;
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.ReviewService;
 import com.wg.p1.util.Pager;
@@ -69,13 +70,17 @@ public class ReviewController {
 		
 	}
 	@PostMapping("review_update")
-	public String reviewUpdate(ReviewVO reviewVO) throws Exception{
-		int result = reviewService.reviewUpdate(reviewVO);
+	public String reviewUpdate(ReviewVO reviewVO,String[] rv_images) throws Exception{
+		
+		
+		reviewVO.setRv_contents(reviewVO.getRv_contents().replace("\r\n", "</br>"));
+		int result = reviewService.reviewUpdate(reviewVO, rv_images);
 		
 		return "redirect:review_list";
 	}
 	@PostMapping("review_reply")
 	public String reviewReply(ReviewVO reviewVO) throws Exception{
+		reviewVO.setRv_acontents(reviewVO.getRv_acontents().replace("\r\n", "</br>"));
 		int result = reviewService.reviewReply(reviewVO);
 		
 		return "redirect:review_list";
@@ -90,4 +95,12 @@ public class ReviewController {
 		mv.setViewName("common/reviewFilesAjax");
 		return mv;
 	}
+	@GetMapping("reviewImageDelete")
+	public ModelAndView reviewImageDelete(ReviewImgVO reviewImgVO, ModelAndView mv) throws Exception{
+		System.out.println(reviewImgVO.getRv_img_num());
+		int result = reviewService.review_imgDelete(reviewImgVO);
+		mv.setViewName("common/common_ajaxResult");
+		return mv;
+	}
+	
 }

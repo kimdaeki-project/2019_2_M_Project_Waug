@@ -73,15 +73,17 @@
 			</form>
 		</div>
 
-		<div >
+		<div style="margin: auto;">
 			<ul class="pagination">
-				
-					<li><span id="" class="list">이전</span></li>
-				
-				
-					<li><span id="" class="list"></span></li>
-				
-				
+				<c:if test="${pager.curBlock gt 1}">
+					<li><span class="list" id="${pager.startNum-1}">이전</span></li>
+				</c:if>
+				<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+					<li><span class="list" id="${i}">${i}</span></li>
+				</c:forEach>
+				<c:if test="${pager.curBlock ne pager.totalBlock}">
+					<li><span class="list" id="${pager.lastNum+1}">다음</span></li>
+				</c:if>
 			</ul>
 		</div>
 					<button class="btn btn-primary" onclick="location.href='./goods_add'">상품 등록</button>
@@ -94,6 +96,12 @@
 		kind='good';
 	}
 	$("#"+kind).prop("selected", true);
+	
+	$(".list").click(function() {
+		$("#curPage").val($(this).attr("id"))
+		$("#frm").submit();
+	});
+	
 	</script>
 
 

@@ -14,9 +14,18 @@
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
-
 <title>Insert title here</title>
+<style type="text/css">
+#kakao-login-btn{
+	opacity: 0;
+}
+.sns-login-kakao-logo{
+	position: relative;
+	left: -45px;
+}
+</style>
 </head>
+
 <body>
 
 
@@ -56,8 +65,10 @@
 			
 					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
 					
-					<span id="status" value="checking..."> </span>
-					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
+					
+					<label>
+					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" size="xlarge"></fb:login-button>
+					</label>
 					
 					<!-- <div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
 						<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
@@ -67,7 +78,7 @@
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
-					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
+					<a id="kakao-login-btn"></a><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo" style="position: relative;">
 					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
@@ -93,12 +104,14 @@
 				</div>			
 			</div>
 		</div>
+		<a href="#" onclick="fb_login();"><img src="images/fb_login_awesome.jpg" border="0" alt=""></a>
 	</div>
 
 	<script type="text/javascript">
 		/* 네이버 로그인 */
-
-	
+		$(".sns-login-kakao-logo").click(function() {
+			$("#kakao-login-btn").click();
+		});
 	
 	
 		/* 구글 로그인 api*/

@@ -48,6 +48,9 @@ public class ReviewService {
 		
 		return result;
 	}
+	public int review_imgDelete(ReviewImgVO reviewImgVO) throws Exception{
+		return reviewDAO.review_imgDelete(reviewImgVO);
+	}
 	
 	public List<ReviewVO> reviewList(Pager pager) throws Exception{
 		pager.makeRow();
@@ -62,8 +65,18 @@ public class ReviewService {
 		return reviewDAO.reviewSelect(reviewVO);
 		
 	}
-	public int reviewUpdate(ReviewVO reviewVO) throws Exception{
-		return reviewDAO.reviewUpdate(reviewVO);
+	public int reviewUpdate(ReviewVO reviewVO, String[] images) throws Exception{
+		int result = reviewDAO.reviewUpdate(reviewVO);
+		if(images!=null) {
+			for (int i = 0; i < images.length; i++) {
+				ReviewImgVO reviewImgVO = new ReviewImgVO();
+				reviewImgVO.setRv_num(reviewVO.getRv_num());
+				reviewImgVO.setImg_name(images[i]);
+				reviewDAO.review_imgWrite(reviewImgVO);
+			};
+		};
+		
+		return result;
 	}
 	public int reviewReply(ReviewVO reviewVO) throws Exception{
 		return reviewDAO.reviewReply(reviewVO);

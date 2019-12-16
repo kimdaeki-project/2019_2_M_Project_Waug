@@ -575,38 +575,6 @@
 			관리자페이지
 		</button>
 		
-		<div class="searchresult-content searchresult-items">
-				<div>
-					<div class="searchresultitem-container searchresultitem-container-searched">
-						<div class="searchresultitem-title">지역
-						</div>
-						<div class="searchresultitem-items searchresultitem-items-searched">
-							<div class="searchresultitem-item-searched">
-								<c:forEach begin="1" end="15">
-								<div class="searchresultitem-item">
-									<b>도시 이름</b>
-								</div>
-								</c:forEach>
-							</div>
-						</div>
-					</div>
-					<div class="searchresultitem-container searchresultitem-container-searched">
-						<div class="searchresultitem-title">상품
-						</div>
-						<div class="searchresultitem-items searchresultitem-items-searched">
-							<div class="searchresultitem-item-searched">
-								<c:forEach begin="1" end="10">
-								<div class="searchresultitem-item">
-									<b>상품명명명명며염여명며염여며염여며여</b>
-								</div>
-								</c:forEach>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 
