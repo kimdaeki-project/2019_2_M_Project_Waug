@@ -148,7 +148,16 @@
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
-	
+	window.onload = function() {
+		var loca = $(location).attr('href');
+		loca = loca.substring(23);
+
+		$(".layout").each(function() {
+			if($(this).attr("id") == loca){
+				$(this).css('color', '#d91c84');
+			}
+		});
+	}
 	/* $("#btn-out-accept").click(function() {
 		$.post("../member/memberDelete",${memberVO.email},function(){
 			

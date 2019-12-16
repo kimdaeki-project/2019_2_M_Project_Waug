@@ -573,6 +573,14 @@
 				countreview = countreview-1;
 			};
 		});
+		/* 수정창 새로 등록된 사진 삭제 */
+
+		$("#modal-update").on("click", ".fa-minus-circle",function(){
+			var fname = $(this).parent().parent().children('input').val();
+			$(this).parent().parent().remove();
+			countreview=countreview-1;
+		});
+		
 		
 		/* 리뷰창 사진 추가  */
 		$("#input_comment_img_new2").change(function() {
