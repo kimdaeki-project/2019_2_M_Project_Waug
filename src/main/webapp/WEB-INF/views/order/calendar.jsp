@@ -14,6 +14,8 @@
 <body>
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
+
+
 <div id="reser_page_div">
 	<!-- modal -->
 	<form action="info" id = "formId" method="POST">
@@ -22,7 +24,7 @@
 			<span id="reser_modal_close">&times;</span>
 			 <input type="hidden" name="goods_num" value="7" > 
 			<div class="reser_modal_info">
-				<div class="reser_modal_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
+				<div class="reser_modal_title">${goods.title }</div>
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
@@ -35,7 +37,7 @@
 				</div>
 			</div>
 			<div class="reservation_btn_wrapper">
-			<div id="reservation_users_order_total_price"></div>
+			<div id="reservation_users_order_total_price">TOTAL PRICE</div>
 				<button id="cart_btn" type="submit">장바구니</button>
 				<button id="reservation_btn">예약하기</button>
 			</div>
@@ -46,7 +48,7 @@
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
 			<div class="reser_title">
-				와그 핑크 바나힐 일일 투어 (다낭 출발)
+				${goods.title }
 			</div>
 		</div>
 		<div class="reser_division">
@@ -73,7 +75,7 @@
 				<div class="reser_option_selected_date" >2020-02-08aaa</div>
 				<div class="reser_option_list">
 					<div class="reser_option_item">
-						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)222</div>
+						<div class="reser_option_item_title">${goods.title}</div>
 						<div class="reser_option_item_price">34000HHHHHaaa</div>
 					</div>
 				</div>
@@ -82,14 +84,14 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
+<input type="text" value="${goods.title}" id="goodsTitle" name="title">
+<input type="text" value="${goods.price}" id="goodsPrice" name="price">
+<input type="date" value="${goods.able }" id="goodsAble" name="able">
 
+<script type="text/javascript">
 	$("#cart_btn").click(function() {
 		$("#formId").attr("action","../my/cart");
-		
 	});
-
-
 
 	//창띄우면 popup 숨기기
 	$(window).ready(function(){
@@ -107,8 +109,7 @@
 		modalBox.style.display = "block";
 	}
 	
-	function showModal(event,year,month,date){
-		
+	function showModal(event,year,month,date){	
 		event.stopPropagation();
 		modalBox.style.display = "block";
 		/* <div class="reser_modal_info">
@@ -117,7 +118,6 @@
 			<div class="reser_modal_option_date">2019-12-03</div>
 		</div> */
 		$('.reser_modal_option_date').html(year+"-"+month+"-"+date);
-		
 	}
 
 	//다른곳 눌렀을때 modal 닫기
@@ -132,12 +132,8 @@
 		modalBox.style.display="none";
 	}
 
-$('#reservation_btn').click(function(){
-	alert('dfkjldsafkljdkj');
-})
-
 	var cal=new Date();
-
+	
 	function makeCalendar(){
 		$('#showMonth').html(cal.getMonth()+1);
 		$('#showYear').html(cal.getFullYear());
@@ -246,8 +242,8 @@ $('#reservation_btn').click(function(){
 		var reser_option_item=document.createElement("div");
 		var reser_option_item_title=document.createElement("div");	//바나힐 핑크 패키지 투어 (다낭 시내)
 		var reser_option_item_price=document.createElement("div");	//34000
-		reser_option_item_title.innerHTML="바나힐 핑크 패키지 투어 (다낭 시내)";
-		reser_option_item_price.innerHTML="34000";
+		reser_option_item_title.innerHTML=$('#goodsTitle').val();
+		reser_option_item_price.innerHTML=$('#goodsPrice').val();;
 		
 		reser_option_list.className+="reser_option_list";
 		reser_option_item.className+="reser_option_item";
@@ -314,6 +310,10 @@ $('#reservation_btn').click(function(){
 		function numberWithCommas(x) {
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
+
+		$('#reservation_btn').click(function(){
+			alert('dfkjldsafkljdkj');
+		});
 </script>
 </body>
 </html>
