@@ -117,6 +117,18 @@
 		$('#delete').submit();
 	})
 	
+	//전체 체크 감지해서 해제
+	$('.productCheck').click(function() {
+	var ck= true;
+	$('.productCheck').each(function() {
+	
+		if(!$(this).prop("checked")){
+			ck=false;
+		}
+	});
+
+	$('#checkAll').prop("checked",ck);	
+	});
 
 	</script>
 

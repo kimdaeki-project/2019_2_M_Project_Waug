@@ -15,4 +15,20 @@
   	select city_name from nationinfo where city_name=#{city_name}
   </select>
   
+  <insert id="addTheme" parameterType="ThemeVO">
+  		insert into theme values(theme_seq.nextval, #{t_title}, #{t_img}, #{t_subtitle}, #{t_subject})
+  		
+  	</insert>
+  	
+  	<select id="selectTheme" parameterType="ThemeVO" resultType="ThemeVO">
+  		select * from theme where t_num = #{t_num}
+  	</select>
+  	
+  	<update id="theme_update" parameterType="ThemeVO">
+  		update theme set t_title=#{t_title}, t_img=#{t_img}, t_subtitle=#{t_subtitle} , t_subject=#{t_subject} where t_num=#{t_num}
+  	</update>
+  	
+  	<delete id="theme_delete" parameterType="ThemeVO">
+  		delete theme where t_num=#{t_num}
+  	</delete>
   </mapper>

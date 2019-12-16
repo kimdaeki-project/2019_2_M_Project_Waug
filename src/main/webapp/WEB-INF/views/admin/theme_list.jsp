@@ -24,7 +24,7 @@ text-align: center;
 		<div class="jumbotron page-header">
 			<h1>Theme List</h1>
 		</div>
-		
+		<form action="theme_delete" method="post" id="delete">	
 		<table class="table"  >
 			<thead >
 				<tr class="info">
@@ -42,24 +42,48 @@ text-align: center;
 
 				<c:forEach items="${list}" var="vo">
 					<tr class="odd">
-						<td><input type="checkbox" class="productCheck product" value=""></td>
+						<td><input type="checkbox" class="productCheck product" name="t_num" value="${vo.t_num}"></td>
 						<td><img src="${vo.t_img}" style="width: 200px; height: 130px;"></td>
 						<td>${vo.t_title}</td>
 						<td>${vo.t_subtitle}</td>
 						<td>${vo.t_subject}</td>
-						<td><input type="button" value="정보 수정" ></td>
+						<td><input type="button" value="정보 수정" onclick="location.href='./theme_update?t_num=${vo.t_num}'"></td>
 					</tr>
 				</c:forEach>
 
 			</tbody>
 		</table>
+		</form>
 				<div style="margin-top: 30px; margin-bottom: 100px;">
 					<button class="btn btn-primary" onclick="location.href='./theme_add'" style="float: right;">상품 등록</button>
 					<button class="btn btn-danger" id="pro_del" style="float: right;">상품 삭제</button>
 				</div>
 				
 	</div>
+<script type="text/javascript">
+$('#checkAll').click(function(){
+	var all=$(this).is(':checked');
+	$('.productCheck').prop("checked", all);
+});
 
+
+$('#pro_del').click(function(){
+	$('#delete').submit();
+});
+
+$('.productCheck').click(function() {
+	var ck= true;
+	$('.productCheck').each(function() {
+	
+		if(!$(this).prop("checked")){
+			ck=false;
+		}
+	});
+
+	$('#checkAll').prop("checked",ck);	
+});
+
+</script>
 
 
 </body>

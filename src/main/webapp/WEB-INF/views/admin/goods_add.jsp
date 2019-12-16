@@ -221,7 +221,7 @@
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">사용 방법</div>
-                   <textarea id="how_to_use" name="how_to_use"></textarea> 
+                  <textarea id="how_to_use" name="how_to_use"></textarea> 
                
                   
                </div>

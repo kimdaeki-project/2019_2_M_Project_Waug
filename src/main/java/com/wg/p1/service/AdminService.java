@@ -17,6 +17,7 @@ import com.wg.p1.util.FileSaver;
 import java.util.List;
 import com.wg.p1.dao.AdminDAO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ThemeVO;
 
 @Service
 public class AdminService {
@@ -136,5 +137,19 @@ public class AdminService {
 		return goods;
 	}
 	
-
+	//테마추가
+	public int addTheme(ThemeVO themeVO) throws Exception{
+		return adminDAO.addTheme(themeVO);
+	}
+	//테마하나조회
+	public ThemeVO selectTheme(ThemeVO themeVO) throws Exception{
+		return adminDAO.selectTheme(themeVO);
+	}
+	
+	public int theme_update(ThemeVO themeVO) throws Exception{
+		return adminDAO.theme_update(themeVO);
+	}
+	public int theme_delete(ThemeVO themeVO) throws Exception{
+		return adminDAO.theme_delete(themeVO);
+	}
 }

@@ -34,9 +34,6 @@ import com.wg.p1.util.Pager;
 public class AdminController {
 	@Inject
 	private GoodsService goodsService;
-	//임시로만든 inject
-	@Inject
-	private adService adService;
 	@Inject
 	private AdminService adminService;
 	@RequestMapping("admin_main")
@@ -180,7 +177,7 @@ public class AdminController {
 	@PostMapping("theme_add")
 	public ModelAndView theme_add(ModelAndView mv, ThemeVO themeVO) throws Exception{
 		
-		int result = adService.addTheme(themeVO);
+		int result = adminService.addTheme(themeVO);
 		String msg = "등록 실패";
 		if(result >0) {
 			msg="등록 성공";
@@ -191,6 +188,51 @@ public class AdminController {
 		mv.setViewName("common/common_result");
 		return mv;
 	}
+	//테마수정페이지
+	@GetMapping("theme_update")
+	public ModelAndView theme_update(ThemeVO themeVO,ModelAndView mv) throws Exception{
+		themeVO = adminService.selectTheme(themeVO);
+		
+		mv.addObject("dto", themeVO);
+		mv.setViewName("admin/theme_update");
+		return mv;
+	}
+	
+	@PostMapping("theme_update")
+	public ModelAndView theme_updates(ThemeVO themeVO,ModelAndView mv) throws Exception{
+		int result = adminService.theme_update(themeVO);
+		
+		String msg = "수정 실패";
+		if(result > 0) {
+			msg = "수정 성공";
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../admin/theme_list");
+		mv.setViewName("common/common_result");
+		
+		return mv;
+	}
+	@RequestMapping("theme_delete")
+	public ModelAndView theme_delete(int[] t_num,ModelAndView mv) throws Exception{
+			int result = 0;
+		for (int j = 0; j < t_num.length; j++) {
+			ThemeVO themeVO = new ThemeVO();
+			themeVO.setT_num(t_num[j]);
+			result = adminService.theme_delete(themeVO);
+		}
+		
+		String msg = "삭제 실패";
+		if(result>0) {
+			msg="삭제 성공";
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../admin/theme_list");
+		mv.setViewName("common/common_result");
+		
+		return mv;
+	}
+	
+	
 	
 	@PostMapping("goods_delete")
 	public ModelAndView goods_delete(int[] goods_num)throws Exception{
