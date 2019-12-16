@@ -148,6 +148,7 @@
 	<!-- footer -->
 	<c:import url="../layout/Footer.jsp"/>
 	<script type="text/javascript">
+
 	window.onload = function() {
 		var loca = $(location).attr('href');
 		loca = loca.substring(23);
@@ -162,9 +163,9 @@
 		$.post("../member/memberDelete",${memberVO.email},function(){
 			
 		});
-		/* location.href="../member/memberDelete" */
-/* 	});
-	 */ 
+		location.href="../member/memberDelete" 
+ 	});
+	*/ 
 	
 	
 
@@ -192,7 +193,7 @@
 		$(this).parent().addClass("active");
 	});
 	
-	console.log("gg");
+
 	
 	</script>
 

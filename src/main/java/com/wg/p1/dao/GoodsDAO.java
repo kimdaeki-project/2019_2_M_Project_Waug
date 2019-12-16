@@ -20,6 +20,19 @@ public class GoodsDAO {
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="goodsMapper.";
 	
+	//infoUpdate
+	public int infoUpdate(InfoVO infoVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"infoUpdate", infoVO);
+	}
+	//goodsUpdate
+	public int goodsUpdate(GoodsVO goodsVO)throws Exception{
+		System.out.println("goodsDAO : goods_num : "+goodsVO.getGoods_num());
+		return sqlSession.update(NAMESPACE+"goodsUpdate", goodsVO);
+	}
+	//goodsDelete
+	public int goodsDelete(GoodsVO goodsVO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"goodsDelete", goodsVO);
+	}
 
 	//quick Search
 	public List<GoodsVO> quickSearch_usim() throws Exception{

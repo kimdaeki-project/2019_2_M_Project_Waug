@@ -58,5 +58,21 @@ public class GoodsTest extends testAbstractCase{
 		System.out.println("Test : coupon : "+ coupon);
 		assertNotNull(coupon);
 	}
-
+	
+	//@Test
+	public void goodsDelete()throws Exception{
+		GoodsVO good=new GoodsVO();
+		good.setGoods_num(88);
+		int result=goodsDAO.goodsDelete(good);
+		
+		assertEquals(1, result);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

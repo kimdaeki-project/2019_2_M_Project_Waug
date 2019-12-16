@@ -5,10 +5,12 @@
 		<!-- 리스트시작 -->
 				<div class="col-md-3">
 					<ul class="submenu">
-						<li>
+						<li >
 							<div>
 								<img class="category-icon" src="https://www.waug.com/images/ic_update_profile.svg">
+
 								<a href="mypage" id="mypage" class="layout">여행자 정보등록</a>
+
 							</div>
 						</li>
 						<li>
@@ -44,7 +46,9 @@
 						<li>
 							<div>
 								<img class="category-icon" src="https://www.waug.com/images/ic_logout.svg">
-								<a href="" class="layout">로그아웃</a>
+
+								<a href="../member/logout">로그아웃</a>
+
 							</div>
 						</li>
 						

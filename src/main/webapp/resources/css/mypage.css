@@ -66,6 +66,9 @@ ul{
  	font-size: 12px;
  	font-weight: bold;
  }
+.active{
+ 	color:#d91c84;
+ }
 
 /* 마이페이지 */
 
