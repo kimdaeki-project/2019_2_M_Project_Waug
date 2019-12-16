@@ -239,7 +239,7 @@
 				<div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 					
-					<c:forEach  items="${list}" var="vo">
+					<c:forEach  items="${list}" var="vo" begin="0" end="6">
 			
 						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=7';">
 
@@ -266,7 +266,7 @@
 									<div class="good-card-title">${vo.title}</div>
 									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
 									<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
-									<div class="good-card-buy-cnt">63,512 예약</div>
+									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
 									
 								</div>
 								</a>

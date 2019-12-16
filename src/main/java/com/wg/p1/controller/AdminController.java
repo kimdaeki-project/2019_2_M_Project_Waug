@@ -1,6 +1,9 @@
 package com.wg.p1.controller;
 
 
+import java.io.File;
+import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -189,9 +192,79 @@ public class AdminController {
 		return mv;
 	}
 	
+	@PostMapping("goods_delete")
+	public ModelAndView goods_delete(int[] goods_num)throws Exception{
+		boolean deleteCheck=true;
+		ModelAndView mv=new ModelAndView();
+		for (int i = 0; i < goods_num.length; i++) {
+			GoodsVO goodsVO=new GoodsVO();
+			goodsVO.setGoods_num(goods_num[i]);
+			int temp=adminService.goodsDelete(goodsVO);
+			if(temp<1) {
+				System.out.println("delete fail : "+goods_num[i]);
+				deleteCheck=false;
+			}
+		}
+		String msg="delete success";
+		String path="./goods_list";
+		if(deleteCheck) {
+			//success
+			mv.addObject("msg", msg);
+			mv.addObject("path", path);
+		}
+		else {
+			//fail
+			msg="delete fail";
+			mv.addObject("msg", msg);
+			mv.addObject("path", path);
+		}
+		mv.setViewName("common/common_result");
+		return mv;
+	}
 	
+	@GetMapping("goods_update")
+	public Model goods_update(GoodsVO goodsVO, Model model)throws Exception{
+		//category, nation, theme LIST
+		List<CategoryVO> catear = goodsService.CateAll();
+		List<NationVO> cityar = goodsService.CityAll();
+		List<ThemeVO> themear = goodsService.ThemeAll();
+		
+		ArrayList<Object> goods=adminService.goods_update(goodsVO);
+		InfoVO info=(InfoVO)goods.get(0);
+		GoodsVO goodsVO2=(GoodsVO)goods.get(1);
+		model.addAttribute("info", info);
+		model.addAttribute("goodsVO2", goodsVO2);
+		model.addAttribute("cityar", cityar);
+		model.addAttribute("themear", themear);
+		model.addAttribute("catear", catear);
+		
+		return model;
+	}
 	
-	
-	
+	@PostMapping("goods_update")
+	public ModelAndView goods_update(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session)throws Exception{
+		System.out.println("**************************************controller test");
+		System.out.println("adminController.goods_num : "+goodsVO.getGoods_num());
+		System.out.println("goodsVO.getImg() : "+goodsVO.getImg());
+		System.out.println("goodsVO.getCity_name() : "+goodsVO.getCity_name());
+		System.out.println("goodsVO.getCity_num() : "+goodsVO.getCity_num());
+		//goods update
+		int goods=adminService.goodsUpdate_goods(goodsVO, file, session);
+		System.out.println("goods update result : "+goods);
+		//info update
+		int info=adminService.goodsUpdate_info(infoVO);
+		System.out.println("info update result : "+info);
+		ModelAndView mv=new ModelAndView();
+		String path="./goods_list";
+		String msg="수정 성공";
+		if(info+goods<2) {
+			//fail
+			msg="수정 실패"	;
+		}
+		mv.addObject("msg", msg);
+		mv.addObject("path", path);
+		mv.setViewName("common/common_result");
+		return mv;
+	}
 	
 }

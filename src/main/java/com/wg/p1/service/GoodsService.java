@@ -28,6 +28,10 @@ public class GoodsService {
 	@Inject
 	private GoodsDAO goodsDAO;
 
+	//selectGoodsInfo
+	public InfoVO selectGoodsInfo(int goods_num)throws Exception{
+		return goodsDAO.selectGoodsInfo(goods_num);
+	}
 
 	//quickSearch
 	public List<GoodsVO> quickSearch_usim() throws Exception{

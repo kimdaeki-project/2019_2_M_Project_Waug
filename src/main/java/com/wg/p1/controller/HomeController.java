@@ -86,6 +86,7 @@ public class HomeController {
 		
 		return mv;
 	}
+
 	//메인페이지 검색창용
 	@RequestMapping("search")
 	public ModelAndView Search(Pager pager, ModelAndView mv) throws Exception{
@@ -112,7 +113,7 @@ public class HomeController {
 		
 		
 	}
-	
+
 	@RequestMapping(value = "/mailSender") 
 	public void mailSender(HttpServletRequest request, ModelMap mo) throws AddressException, MessagingException { 
 		

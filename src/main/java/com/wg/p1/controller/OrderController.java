@@ -12,4 +12,9 @@ public class OrderController {
 	public void calendar(int goods_num) {
 		System.out.println("test : orderController > calendar(int "+goods_num+")");
 	}
+	
+	@GetMapping("info")
+	public void info() {
+		
+	}
 }

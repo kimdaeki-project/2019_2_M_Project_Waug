@@ -36,6 +36,16 @@ public class GoodsVO {
 	private String t_title;
 	private String city_name;
 	private String cate_name;
+	private int sell;
+	
+	
+	
+	public int getSell() {
+		return sell;
+	}
+	public void setSell(int sell) {
+		this.sell = sell;
+	}
 	public int getGoods_num() {
 		return goods_num;
 	}
