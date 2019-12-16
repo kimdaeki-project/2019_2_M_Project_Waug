@@ -16,7 +16,7 @@
 <c:import url="../layout/CityList.jsp"/>
 <div id="reser_page_div">
 	<!-- modal -->
-	<form action="./" id = "formId" method="POST">
+	<form action="info" id = "formId" method="POST">
 	<div id="reser_modal">
 		<div class="reser_modal_wrapper">
 			<span id="reser_modal_close">&times;</span>
@@ -70,11 +70,11 @@
 		
 			<div class="reser_option_title">
 				<!-- 날짜를 먼저 선택해주세요. -->
-				<div class="reser_option_selected_date" >2020-02-08</div>
+				<div class="reser_option_selected_date" >2020-02-08aaa</div>
 				<div class="reser_option_list">
 					<div class="reser_option_item">
-						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)</div>
-						<div class="reser_option_item_price">34000HHHHH</div>
+						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)222</div>
+						<div class="reser_option_item_price">34000HHHHHaaa</div>
 					</div>
 				</div>
 			</div>
@@ -133,10 +133,7 @@
 	}
 
 $('#reservation_btn').click(function(){
-	//0이면
-
-		location.href="./info";
-
+	alert('dfkjldsafkljdkj');
 })
 
 	var cal=new Date();

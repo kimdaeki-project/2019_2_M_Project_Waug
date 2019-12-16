@@ -41,9 +41,7 @@ public class GoodsController {
 		//파라미터 n이 들어오는걸 num에 매핑시킨다
 		
 		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
-		System.out.println("GoodsController : goods : "+goodsVO.getLocation());
 		InfoVO infoVO=goodsService.selectGoodsInfo(goods_num);
-		System.out.println("test : people : "+infoVO.getPeople());
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
 		reviewVO.setGoods_num(7);

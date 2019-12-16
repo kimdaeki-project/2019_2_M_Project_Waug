@@ -87,15 +87,6 @@ public class HomeController {
 		
 		return mv;
 	}
-
-
-
-	@RequestMapping("order/***")
-	public void orderFolder() {
-
-		
-		
-	}
 	
 	@RequestMapping(value = "/mailSender") 
 	public void mailSender(HttpServletRequest request, ModelMap mo) throws AddressException, MessagingException { 
