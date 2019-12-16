@@ -13,57 +13,47 @@
 <!-- include summernote css/js -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-<link rel="stylesheet" href="../resources/css/goods.css">
-<style>
-.st{
-height: 20px;
-color:black;
-}
-.bk{color:black;}
-.locationBox{
-width:200px;
-hei:40px;
-color:black;}
-</style>
+<link rel="stylesheet" href="../resources/css/admin.css">
 </head>
 <body>
 	<form action="goods_add" method="post" enctype="multipart/form-data">
-	<select name="city_num">
-		<option>도시를 선택하세요</option>
+	<select name="city_num" id="city_num">
+		<option value="0">도시를 선택하세요</option>
 		<c:forEach items="${cityar}" var="vo">
 			<option value="${vo.city_num}" >${vo.city_name}</option>
 		</c:forEach>
 	</select>
 	
 	<select name="t_num">
-		<option>테마를 선택하세요</option>
+		<option value="0">테마를 선택하세요</option>
 		<c:forEach items="${themear}" var="vo">
 			<option value="${vo.t_num}" >${vo.t_title}</option>
 		</c:forEach>
 	</select>
 	
 	<select name="cate_num">
-		<option>카테고리를 선택하세요</option>
+		<option value="0">카테고리를 선택하세요</option>
 		<c:forEach items="${catear}" var="vo">
 			<option value="${vo.cate_num}" >${vo.cate_name}</option>
 		</c:forEach>
 	</select>
-	
 	<!-- 위에가 용주형꺼 -->
 	<div class="good_img_wrapper">
       <div class="good_img_titleBox">
-         
-         <div class="good_img_title"></div>
-        
+         <div class="good_img_title">
+         <div style="margin: 0 auto; line-height:536px; width:300px; height: 30px;">
+         	<input type="text" name="img" id="titleImg" style="width:300px; height: 30px;">
+         </div>
+         </div>
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><input type="file" name="file"></div>
-         <div class="good_img_small"><input type="file" name="file"></div>      
+         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1" accept=".jpg"></div>
+         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small">img 4<input type="file" name="file"></div>
-        <div class="good_img_small">img 5<input type="file" name="file"></div> 
+        <div class="good_img_small">img 4<input type="file" name="file" class="subImg" id="subImg3"></div>
+        <div class="good_img_small">img 5<input type="file" name="file" class="subImg" id="subImg4"></div> 
       </div>
       </div>
    </div>
@@ -71,7 +61,7 @@ color:black;}
       <div class="good_detailBox">
          <div class="good_info_wrapper">
          	<div class="good_info_padding">
-         		<div class="good_info_area"><img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674923909136.svg"/></img>다낭</div>
+         		<div class="good_info_area">Goods title</div>
          		<div class="good_title" ><input type="text" name="title" style="color:black"></div>
          		<div class="good_category_wrapper">         			
          		</div>
@@ -82,35 +72,85 @@ color:black;}
          			<div class="good_key_infoBox">
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674927522196.svg" />
-         					<input type="text" name="using_time" placeholder="이용시간) 8시간 이용" class="st">
+         					<select name="using_time" class="st" id="using_time">
+         						<option value="0">이용시간을 선택하세요</option>
+         						<option value="1시간 이용">1시간 이용</option>
+         						<option value="2시간 이용">2시간 이용</option>
+         						<option value="3시간 이용">3시간 이용</option>
+         						<option value="4시간 이용">4시간 이용</option>
+         						<option value="5시간 이용">5시간 이용</option>
+         						<option value="6시간 이용">6시간 이용</option>
+         						<option value="7시간 이용">7시간 이용</option>
+         						<option value="8시간 이용">8시간 이용</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674929816073.svg" />
-         					<input type="text" name="pick_up" placeholder="픽업)호텔 픽업" class="st">
+         					<select name="pick_up" class="st" id="pick_up">
+         						<option value="0">픽업을 선택하세요</option>
+         						<option>호텔 픽업</option>
+         						<option>호텔 픽업</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674929156333.svg" />
-         					<input type="text" name="people" placeholder="인원} 2명" class="st">
+         					<select name="people" class="st" id="people" >
+         						<option value="0">인원수를 선택하세요</option>
+         						<option>1명</option>
+         						<option>2명</option>
+         						<option>3명</option>
+         						<option>4명</option>
+         						<option>5명</option>
+         						<option>6명</option>
+         						<option>7명</option>
+         						<option>8명</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674928069478.svg" />
-         					<input type="text" name="boucher" placeholder="바우처) 모바일 바우처 사용" class="st">
+         					<select name="boucher" class="st" id="boucher">
+         						<option value="0">바우처를 선택하세요</option>
+         						<option>모바일 바우처 사용</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674930838942.svg" />
-         					<input type="text" name="delivery_time" placeholder="확정) 48시간 내 확정" class="st">
+         					<select name="delivery_time" id="delivery_time" class="st">
+         						<option value="0">확정시간을 선택하세요</option>
+         						<option>1시간 내 확정</option>
+         						<option>2시간 내 확정</option>
+         						<option>4시간 내 확정</option>
+         						<option>6시간 내 확정</option>
+         						<option>12시간 내 확정</option>
+         						<option>24시간 내 확정</option>
+         						<option>48시간 내 확정</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674930325915.svg" />
-         					<input type="text" name="duration" placeholder="사용날짜) 지정일사용" class="st">
+         					<select name="duration" id="duration" class="st">
+         						<option value="0">사용 날짜를 선택하세요</option>
+         						<option>지정일 사용</option>
+         						<option>지정일 사용</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674926699506.svg" />
-         					<input type="text" name="cancel" placeholder="취소가능) 취소가능" class="st">
+         					<select name="cancel" id="cancel" class="st">
+         						<option value="0">취소 가능 여부를 선택하세요</option>
+         						<option>취소 가능</option>
+         						<option>취소 불가</option>
+         					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674928656190.svg" />
-         					<input type="text" name="language" placeholder="언어) 영어" class="st">
+         					<select name="language" id="language" class="st">
+         						<option value="0">언어를 선택하세요</option>
+         						<option>영어</option>
+         						<option>한국어</option>
+         						<option>중국어</option>
+         						<option>일본어</option>
+         					</select>
          				</div>
          			</div>
          			ex)45.1423/45.1453<br>
@@ -166,61 +206,23 @@ color:black;}
                
                   <textarea id="program" name="program"></textarea>
                   
-                  <!-- <p>2019년 핫한 여행 관광지로 떠오른 베트남에도 핑크 버스가 드디어 상륙! 그 중에서도 다낭의 필수 관광지인 바나힐로 핑크 버스투어와 함께 편하게 떠나보세요. 바나힐은 매년 150만 명의 여행객이 방문하는 곳으로 추아산의 정상에 위치해 있답니다. 바나힐 어드벤처에 가기 위해서는 케이블카에 반드시 탑승해야해요. 세계에서 두 번째로 긴 5,800m의 케이블카를 타고 멋진 전망을 감상해보세요. 특히 케이블카에서 보는 안개가 덮힌 다낭의 모습은 정말 아름다워요.</p>
-                  <p>바나힐 역에 도착하면 알록달록한 꽃으로 둘러 쌓인  27m 높이의 불상을 만날 수 있어요. 또한 패밀리 엔터테인먼트 센터(FEC), 링엄사, 프렌치 빌리지, 르 자뎅 다무르, 묘비 사원, 린추아린투 사원, 알파인 코스터 등 다양한 볼거리가 있어요. 와그에서 새롭게 준비한 와그 핑크 바나힐 일일 투어를 예약하고 모두 즐겨보세요.</p>
-                  <p><img src="15734565973785.png"></p>
-                  <span class="mark">▲</span><span>드디어 베트남에도 와그 핑크 버스 투어가 상륙했어요!</span>
-                  <div class="subtitle">선택 가능 옵션</div>
-                  <div class="subtitle">1. 바나힐 핑크 패키지 투어 :</div>
-                  <p>
-                     왕복 호텔 픽업
-                     <br>바나힐 입장권(어트랙션, 케이블카 포함)
-                     <br>아라팡 레스토랑에서 점심 식사 (현지식 뷔페)
-                     <br>영어 가이드
-                     <br>생수 1병
-                  </p>
-                  <div class="subtitle">2. 바나힐 핑크 실속 투어 :</div>
-                  <p>
-                     왕복 호텔 픽업
-<br>바나힐 입장권(어트랙션, 케이블카 포함)
-<br>영어 가이드
-                  </p>
-                  <div class="subtitle">투어 일정</div>
-                  <ul>
-                     <li>오전 07:30 - 호텔 픽업 서비스</li> 
-                     <li>오전 09:30 - 10:00 바나힐 도착 및 케이블카 탑승</li>
-                     <li>오전 09:30 - 10:00 바나힐 도착 및 케이블카 탑승</li>
-                     <li>오전 09:30 - 10:00 바나힐 도착 및 케이블카 탑승</li>
-                  </ul>
-               </div> -->
+                 
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">포함사항(ul)</div>
                   
                           
                <textarea id="included" name="included"></textarea>
               
-                  <!-- <ul>
-                     <li>유모차 대여</li>
-                     <li>유모차 대여</li>
-                     <li>유모차 대여</li>
-                  </ul> -->
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">불포함 사항(ul)</div>
                   <textarea id="not_included" name="not_included"></textarea>
-                  <!-- <ul>
-                     <li>유모차 대여</li>
-                     <li>유모차 대여</li>
-                     <li>유모차 대여</li>
-                  </ul> -->
+                  
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">사용 방법</div>
                    <textarea id="how_to_use" name="how_to_use"></textarea> 
-                  <!-- <ul>
-                     <li>이메일로 제공된 바우처 인쇄 혹은 모바일 바우처 사용</li>
-                     <li>이메일로 제공된 바우처 인쇄 혹은 모바일 바우처 사용</li>
-                  </ul> -->
+               
                   
                </div>
    			</div>
@@ -264,6 +266,8 @@ color:black;}
 			height : 120,
 		});
 		
+		
+		
 	/* 밑에 내꺼 */
 	//섬머노트
 $("#point").summernote({
@@ -299,10 +303,84 @@ $('#how_to_use').summernote({
 	height : 300
 });
 
-$('.good_reservation_btn').click(function(){
-	$("form").submit();
- });
 
+
+//****************value check before submit****************
+//city, theme, category values
+var city_num=false;
+var t_num=false;
+var cate_num=false;
+//info values
+var using_time=false;
+var pick_up=false;
+var people=false;
+var boucher=false;
+var delivery_time=false;
+var duration=false;
+var cancel=false;
+var language=false;
+var subImg1=false;
+var subImg2=false;
+var subImg3=false;
+var subImg4=false;
+
+$('#subImg1').change(function() {
+	subImg1=true;
+});
+$('#subImg2').change(function() {
+	subImg2=true;
+});
+$('#subImg3').change(function() {
+	subImg3=true;
+});
+$('#subImg4').change(function() {
+	subImg4=true;
+});
+$('.good_reservation_btn').click(function(){
+
+	if($('#using_time').val()!="0"){
+		using_time=true;
+	}
+	if($('#pick_up').val()!="0"){
+		pick_up=true;
+	}
+	if($('#people').val()!="0"){
+		people=true;
+	}
+	if($('#boucher').val()!="0"){
+		boucher=true;
+	}
+	if($('#delivery_time').val()!="0"){
+		delivery_time=true;
+	}
+	if($('#duration').val()!="0"){
+		duration=true;
+	}
+	if($('#cancel').val()!="0"){
+		cancel=true;
+	}
+	if($('#language').val()!="0"){
+		language=true;
+	}
+	if($('#city_num').val()!="0"){
+		city_num=true;
+	}
+	if($('#t_num').val()!="0"){
+		t_num=true;
+	}
+	if($('#cate_num').val()!="0"){
+		cate_num=true;
+	}
+	
+	// if all true > submit()
+	if(using_time&&pick_up&&people&&boucher&&delivery_time&&duration&&cancel&&language){
+		alert('all true');
+		$("form").submit();
+	}
+	else{
+		alert("모두 입력해주세요");
+	}
+})
 	</script>
 
 </body>
