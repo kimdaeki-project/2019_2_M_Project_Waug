@@ -22,4 +22,8 @@ public class AdminService {
 	public List<NationVO> city_list() throws Exception{
 		return adminDAO.city_list();
 	}
+	
+	public NationVO check_city(NationVO nationVO) throws Exception{
+		return adminDAO.check_city(nationVO);
+	}
 }

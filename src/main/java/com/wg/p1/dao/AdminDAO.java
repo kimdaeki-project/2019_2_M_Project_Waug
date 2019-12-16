@@ -23,4 +23,8 @@ public class AdminDAO {
 	public List<NationVO> city_list() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"city_list");
 	}
+	
+	public NationVO check_city(NationVO nationVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"check_city", nationVO);
+	}
 }

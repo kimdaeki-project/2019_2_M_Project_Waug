@@ -9,8 +9,10 @@
   	insert into nationinfo values (nationinfo_seq.nextval, #{continents},#{nation},#{city_name},#{city_img},#{city_img2},0)
   </insert>
   <select id="city_list" resultType="NationVO">
-  	select city_name from nationinfo
+  	select * from nationinfo
   </select>
-  
+   <select id="check_city" resultType="NationVO" parameterType="NationVO">
+  	select city_name from nationinfo where city_name=#{city_name}
+  </select>
   
   </mapper>
