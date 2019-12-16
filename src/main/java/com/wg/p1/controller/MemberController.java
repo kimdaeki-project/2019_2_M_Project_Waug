@@ -24,7 +24,7 @@ public class MemberController {
 	private MemberServiceImpl memberService;
 	
 	@GetMapping(value = "join")
-	public void memberJoin(List<MemberVO> ar) throws Exception{
+	public void memberJoin() throws Exception{
 	
 		
 	}
@@ -48,6 +48,8 @@ public class MemberController {
 		
 		return mv;
 	}
+	
+	
 	
 	
 	
@@ -106,7 +108,6 @@ public class MemberController {
 		if(memberVO!=null) {
 			msg="로그인성공";
 			session.setAttribute("memberVO", memberVO);
-			//session.setAttribute("wishlist", memberVO.getWishlist());
 		}
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("memberVO", memberVO);

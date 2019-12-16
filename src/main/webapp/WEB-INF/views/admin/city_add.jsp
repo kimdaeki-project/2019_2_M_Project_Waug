@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-<h1>도시 추가 페이지</h1>
+<h1 style="text-align: center;">도시 추가 페이지</h1>
 
 
 
@@ -47,16 +47,16 @@
 	</select>
 
       <label for="usr">도시:</label>
-      <input type="text" class="form-control" id="city_name" name="city_name" required="required">
+      <input type="text" class="form-control" id="city_name" name="city_name" required="required" placeholder="도시 이름을 입력 해 주세요">
       <div>
       	<p id="city_result"></p>
       </div>
       <label for="usr">도시이미지1:</label>
-      <input type="text" class="form-control" id="usr" name="city_img">
+      <input type="text" class="form-control" id="usr" name="city_img" placeholder="이미지 url을 입력 해 주세요" required="required">
       <label for="usr">도시이미지2:</label>
-      <input type="text" class="form-control" id="usr" name="city_img2">
+      <input type="text" class="form-control" id="usr" name="city_img2" placeholder="이미지 url을 입력 해 주세요" required="required">
     </div>
-  	<button type="submit" class="btn btn-default">확인</button>
+  	<button type="submit" class="btn btn-default" style="float: right;">확인</button>
   </form>
 </div>
 

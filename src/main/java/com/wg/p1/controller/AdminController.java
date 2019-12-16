@@ -52,9 +52,6 @@ public class AdminController {
 	@PostMapping("city_add")
 	public ModelAndView city_add(NationVO nationVO, ModelAndView mv) throws Exception{
 		
-		
-		List<NationVO> ar =  adminService.city_list();
-		
 		String msg = "";
 		
 		int result = adminService.city_add(nationVO);
@@ -71,7 +68,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("check_city")
-	public ModelAndView check_city(ModelAndView mv, NationVO nationVO,String city_name) throws Exception{
+	public ModelAndView check_city(ModelAndView mv, NationVO nationVO) throws Exception{
 
 		nationVO = adminService.check_city(nationVO);
 		
