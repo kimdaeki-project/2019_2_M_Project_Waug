@@ -92,7 +92,7 @@
 		</div>
 	</div>
 </div>
-<input type="text" value="${goods.goods_num}" id="goodsTitle" name="goods_num" hidden="hidden">
+<input type="text" value="${goods.goods_num}" name="goods_num" hidden="hidden">
 <input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
 <input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
 <input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
@@ -331,10 +331,6 @@
 		
 		
 		$('#reservation_btn').click(function(){
-			console.log($('#checkOptionTime').val());
-			console.log("typeof"+typeof $('#checkOptionTime').val());
-			console.log("############################");
-			console.log($('#people').val());
 		
 			if($('#checkOptionTime').val()!="0"){
 				checkOptionTime=true;
@@ -342,8 +338,8 @@
 			if($('#people').val()!=0){
 				checkPeople=true;
 			}
+			
 			if(checkOptionTime&&checkPeople){
-				alert('dfkjldsafkljdkj');
 				$("#formId").submit();
 			}
 			else{
