@@ -2,12 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 					<c:forEach items="${list}" var="dto">
-					<div id="comment${dto.rv_num}" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
+							<div id="comment${dto.rv_num}" class="item-comment clearfix">
+								<div class="comment-content">
+									<div class="star-score-space">
 								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
-
 								<span class="star-score-sort">
 									<div
 										class="rating-container rating-xxs rating-animate rating-disabled star-float">
@@ -34,7 +32,16 @@
 								</span> <span class="star-score-sort"> (${dto.rv_score}/5) </span> <span
 									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
-							<p class="comment_msg" >${dto.rv_contents}</p>
+							<p class="comment_msg" >${dto.rv_contents}
+							</p>
+								<c:forEach items="${dto.images}" var="image">
+									<c:if test="${not empty image.img_name}">
+										<img src="../resources/images/reviews/${image.img_name}" style="width: 74px; height: 74px;" class="tttt" id="${image.img_name}">
+										
+										
+									</c:if>
+								</c:forEach>
+								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
 								<!-- 관리자만 보이게 -->

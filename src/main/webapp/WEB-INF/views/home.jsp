@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="false"%>
 <html>
 <head>
 <title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
-<link rel="shortcut icon" href="./resources/favicon-32x32.png"
+<link rel="shortcut icon" href="./resources/FAVICON_WAUG_64.ico"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -40,7 +41,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?1</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?2</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -197,9 +198,11 @@
 						<div
 							class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-active"
 							style="margin-right : 16px;">
+							<a href="./search/quickSearch">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=330x233');">
 								<div class="main-watem-text">유심 & 와이파이</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15628256865214.png?s=330x233');">

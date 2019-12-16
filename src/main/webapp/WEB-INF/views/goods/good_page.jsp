@@ -385,7 +385,7 @@ function openModal() {
    
    
    // Get the modal
-		var modal = document.getElementById("myModal");
+		var modal = document.getElementById("myModal1");
 		// Get the button that opens the modal
 		var btn2 = document.getElementById("myBtn");
 		// When the user clicks the button, open the modal 

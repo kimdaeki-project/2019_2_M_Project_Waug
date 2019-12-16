@@ -1,19 +1,26 @@
 package com.wg.p1.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.CategoryVO;
 import com.wg.p1.model.GoodsVO;
+
+import com.wg.p1.model.InfoVO;
+
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
+import com.wg.p1.service.AdminService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.adService;
 import com.wg.p1.util.Pager;
@@ -26,7 +33,8 @@ public class AdminController {
 	//임시로만든 inject
 	@Inject
 	private adService adService;
-	
+	@Inject
+	private AdminService adminService;
 	@RequestMapping("admin_main")
 	public String admin_main() throws Exception{
 		
@@ -56,15 +64,24 @@ public class AdminController {
 		
 		mv.setViewName("admin/goods_add");
 		return mv;
-		
 	}
 	
 	@PostMapping("goods_add")
-	public void goods_add(GoodsVO goodsVO) throws Exception{
-		
-		System.out.println(goodsVO.getCity_num());
-		System.out.println(goodsVO.getCate_num());
-		System.out.println(goodsVO.getT_num());
+	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session) throws Exception{
+		int result=adminService.addGoods(goodsVO, file, infoVO, session);
+		ModelAndView mv=new ModelAndView();
+		String path="../admin/goods_list";
+		String msg="goods 추가 성공";
+		if(result>0) {
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
+		}else {
+			msg="goods 추가 실패";
+			mv.addObject("path", path);
+			mv.addObject("msg", msg);
+		}
+		mv.setViewName("common/common_result");
+		return mv;
 	}
 	//관리자 테마리스트 페이지
 	@GetMapping("theme_list")
@@ -94,6 +111,10 @@ public class AdminController {
 		mv.setViewName("common/common_result");
 		return mv;
 	}
+	
+	
+	
+	
 	
 	
 }

@@ -3,11 +3,13 @@ package com.wg.p1.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.ReviewVO;
@@ -39,9 +41,9 @@ public class ReviewController {
 	}
 	
 	@PostMapping("review_write")
-	public String review_Write(ReviewVO reviewVO) throws Exception{
+	public String review_Write(ReviewVO reviewVO, String[] rv_images) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = reviewService.reviewWrite(reviewVO);
+		int result = reviewService.reviewWrite(reviewVO,rv_images);
 		
 		//mv.setViewName("reviews/review_list");
 		return "redirect:review_list";
@@ -76,5 +78,15 @@ public class ReviewController {
 		int result = reviewService.reviewReply(reviewVO);
 		
 		return "redirect:review_list";
+	}
+	
+	@PostMapping("reviewImages")
+	public ModelAndView reviewImages(MultipartFile file, ModelAndView mv, HttpSession session) throws Exception{
+		System.out.println("hello");
+		System.out.println(file.getOriginalFilename());
+		String filename = reviewService.reviewImage(file, session);
+		mv.addObject("filename", filename);
+		mv.setViewName("common/reviewFilesAjax");
+		return mv;
 	}
 }

@@ -6,18 +6,55 @@
 <mapper namespace="reviewMapper">
 	<!-- 글쓰기 -->
   	<insert id="reviewWrite" parameterType="ReviewVO" >
-  		insert into review1 values(review_SEQ.nextval, 1, #{email}, #{rv_writer}, #{rv_contents},
+  		<selectKey order="BEFORE" resultType="Integer" keyProperty="rv_num">
+			select review_SEQ.nextval from dual
+		</selectKey>
+  		insert into review1 values(#{rv_num}, 1, #{email}, #{rv_writer}, #{rv_contents},
   		sysdate, #{rv_score}, 0, 'aname', sysdate, 'acontents')
-  	
   	</insert>
-  	
+  	<!-- 리뷰파일글쓰기 -->
+  	<insert id="review_imgWrite" parameterType="ReviewImgVO">
+  		insert into review_img values(review_img_SEQ.nextval, #{rv_num}, #{img_name})
+  	</insert>
   	<!-- 전체조회 -->
-	<select id="reviewList" resultType="ReviewVO" parameterType="Pager">
+	<select id="reviewList1" resultType="ReviewVO" parameterType="Pager">
 		select * from
 		(select R.*, rownum N from
 		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
 		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents from review1 where goods_num = 1
 		order by rv_num desc) R)
+		where N between #{startRow} and #{lastRow}
+	</select>
+	
+	<resultMap type="ReviewVO" id="reviewFile">
+		<id property="rv_num" column="rv_num"/>
+		<result property="goods_num" column="goods_num"/>
+		<result property="email" column="email"/>
+		<result property="rv_writer" column="rv_writer"/>
+		<result property="rv_contents" column="rv_contents"/>
+		<result property="rv_reg_date" column="rv_reg_date"/>
+		<result property="rv_score" column="rv_score"/>
+		<result property="rv_ex" column="rv_ex"/>
+		<result property="rv_aname" column="rv_aname"/>
+		<result property="rv_adate" column="rv_adate"/>
+		<result property="rv_acontents" column="rv_acontents"/>
+		<collection property="images" javaType="java.util.List" ofType="ReviewImgVO">
+			<id property="rv_img_num" column="rv_img_num"/>
+			<result property="rv_num" column="rv_num"/>
+			<result property="img_name" column="img_name"/>
+		</collection>
+		
+	</resultMap>
+	
+	<!-- 전체조회테스트 -->
+	<select id="reviewList" parameterType="Pager" resultMap="reviewFile">
+		select * from
+		(select R.*, rownum N from
+		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
+		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents,img_name from review1 full outer join
+        review_img
+        using(rv_num)
+        where goods_num = 1 order by rv_num desc) R)
 		where N between #{startRow} and #{lastRow}
 	</select>
 	
@@ -29,8 +66,8 @@
 
 	</select>
 	<!-- 글하나 조회 -->
-	<select id="reviewSelect" parameterType="ReviewVO" resultType="ReviewVO">
-		select * from review1 where rv_num=#{rv_num}
+	<select id="reviewSelect" parameterType="ReviewVO" resultMap="reviewFile">
+		select * from review1 full outer join review_img using(rv_num) where rv_num=#{rv_num}
 	</select>
 	
 	<!-- 리뷰삭제 -->

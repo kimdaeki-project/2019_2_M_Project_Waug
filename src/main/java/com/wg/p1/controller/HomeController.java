@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,6 +57,7 @@ public class HomeController {
 		 * mv.addObject("wishlistVO", session.getAttribute("wishlistVO"));
 		 		
 	}*/
+
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO)throws Exception{
@@ -88,17 +90,18 @@ public class HomeController {
 	@RequestMapping("search")
 	public ModelAndView Search(Pager pager, ModelAndView mv) throws Exception{
 		
-		System.out.println(pager.getSearch().equals(""));
+		
 		if(pager.getSearch().equals("")) {
-			mv.addObject("search", 0);
+			mv.addObject("result", 0);
 		}else {
 			List<NationVO> citysearch = goodsService.Citysearch(pager);
 			List<GoodsVO> goodssearch = goodsService.Goodssearch(pager);
 			mv.addObject("cities", citysearch);
 			mv.addObject("goods", goodssearch);
-			mv.addObject("search", 1);
+			mv.addObject("result", 1);
 		}
 			mv.setViewName("common/searchAjax");
+			mv.addObject("search", pager.getSearch());
 		return mv;
 		
 	}

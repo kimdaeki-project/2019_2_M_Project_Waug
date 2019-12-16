@@ -101,16 +101,21 @@ public class MyController {
 		MemberVO memberVO2 = (MemberVO)session.getAttribute("memberVO");
 		memberVO.setM_pk(memberVO2.getM_pk());
 		
+		String msg="";
 		int result=0;
-		for (int i = 0; i < cart_num.length; i++) {
-			
-			result = cartService.cartDel(cart_num[i]);
+		
+		if(cart_num==null) {
+			msg="삭제 할 상품을 선택 해 주세요";
+		}else {
+			for (int i = 0; i < cart_num.length; i++) {
+				
+				result = cartService.cartDel(cart_num[i]);
+			}
+			if(result>0) {
+				msg="삭제성공";
+			}
 		}
 		
-		String msg="실패";
-		if(result>0) {
-			msg="삭제성공";
-		}
 		
 		mv.addObject("msg", msg);
 		mv.addObject("path", "cart");
@@ -190,5 +195,20 @@ public class MyController {
 		mv.addObject("list", ar);
 		mv.setViewName("my/wishlist");
 		return mv;
+	}
+	
+	@GetMapping("order")
+	public void myOrder() throws Exception{
+		
+	}
+	
+	@GetMapping("coupon")
+	public void myCoupon() throws Exception{
+		
+	}
+	
+	@GetMapping("point")
+	public void myPoint() throws Exception{
+		
 	}
 }
