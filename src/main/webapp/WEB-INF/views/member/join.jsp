@@ -30,7 +30,6 @@
 }
 .sns-login-kakao-logo{
    position: relative;
-   left: -30px;
    cursor: pointer;
 }
 
@@ -84,7 +83,7 @@
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
 					<a id="kakao-login-btn"></a><img src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
-					<span class="sns-login-text sns-login-text-kakao" style="position: relative; left: -30px;">회원가입</span>
+					<span class="sns-login-text sns-login-text-kakao" style="position: relative; ">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
 				<!-- 네이버 -->
@@ -112,15 +111,65 @@
 	</div>
 
 	<script type="text/javascript">
-		/* 네이버 로그인 */
-		function facebook_join() {
-			
+		
+		/* 네이버 로그인 */	
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "M7C187iCGvZmwwLw6s5T",
+				callbackUrl: "member/join",
+				isPopup: false,
+				loginButton: {color: "green", type: 3, height: 60}
+			}
+		);
+		/* (4) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
+		naverLogin.init();
+		
+		/* (4-1) 임의의 링크를 설정해줄 필요가 있는 경우 */
+		$("#gnbLogin").attr("href", naverLogin.generateAuthorizeUrl());
+
+		/* (5) 현재 로그인 상태를 확인 */
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+					setLoginStatus();
+				}
+			});
+		});
+
+		/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+		function setLoginStatus() {
+			var profileImage = naverLogin.user.getProfileImage();
+			var nickName = naverLogin.user.getNickName();
+			$("#naverIdLogin_loginButton").html('<br><br><img src="' + profileImage + '" height=50 /> <p>' + nickName + '님 반갑습니다.</p>');
+			$("#gnbLogin").html("Logout");
+			$("#gnbLogin").attr("href", "#");
+			/* (7) 로그아웃 버튼을 설정하고 동작을 정의합니다. */
+			$("#gnbLogin").click(function () {
+				naverLogin.logout();
+				location.reload();
+			});
 		}
-	
-		$(".sns-login-kakao-logo").click(function() {
-	         $("#kakao-login-btn").click();
-	      });
-	
+
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
+					var email = naverLogin.user.getEmail();
+					if( email == undefined || email == null) {
+						alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+						/* (5-1) 사용자 정보 재동의를 위하여 다시 네아로 동의페이지로 이동함 */
+						naverLogin.reprompt();
+						return;
+					}
+
+					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/sample/main.html");
+				} else {
+					console.log("callback 처리에 실패하였습니다.");
+				}
+			});
+		});
+
  		/* 구글 로그인 api*/
 /*		function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
@@ -174,6 +223,10 @@
 		        alert(JSON.stringify(err));
 		      }
 		    });
+			$(".sns-login-kakao-logo").click(function() {
+		         $("#kakao-login-btn").click();
+		      });
+		
 		  //]]>	
 
 		/* 페이스북 로그인 api */

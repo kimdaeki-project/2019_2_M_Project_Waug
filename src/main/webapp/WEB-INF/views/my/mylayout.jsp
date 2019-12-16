@@ -44,7 +44,7 @@
 						<li>
 							<div>
 								<img class="category-icon" src="https://www.waug.com/images/ic_logout.svg">
-								<a href="">로그아웃</a>
+								<a href="../member/logout">로그아웃</a>
 							</div>
 						</li>
 						
