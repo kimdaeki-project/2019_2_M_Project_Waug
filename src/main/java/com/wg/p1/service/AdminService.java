@@ -76,7 +76,7 @@ public class AdminService {
 		return rsGoods;
 	}
 
-	
+	//도시추가페이지
 	public int city_add(NationVO nationVO) throws Exception{
 		return adminDAO.city_add(nationVO);
 	}

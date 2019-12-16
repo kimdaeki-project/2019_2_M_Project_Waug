@@ -41,7 +41,7 @@ public class AdminController {
 	}
 	
 
-	
+	//도시추가
 	@GetMapping("city_add")
 	public ModelAndView city_add(String continents, ModelAndView mv) throws Exception{
 		
