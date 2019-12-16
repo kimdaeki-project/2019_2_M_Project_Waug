@@ -43,7 +43,7 @@ body{
 	width: 912px;
 	border-top: solid 1px rgba(0,0,0,0.05);
 	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	padding: 10px 4px 4px 4px;
 	font-size: 15px;
 }
@@ -326,7 +326,7 @@ textarea:focus{
 	padding: 24px 24px 10px 24px;
 	border-radius: 4px;
 	width: 912px;
-	height: 130px;
+	min-height: 130px;
 }
 .rating3{
   display: inline-block;
@@ -439,4 +439,8 @@ textarea:focus{
 }
 .del-img{
 	float: right;
+}
+
+.delete-db{
+	color: gray;
 }

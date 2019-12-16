@@ -118,7 +118,7 @@
 					</div>
 					<div class="modal-body">
 							<input type="text" value="${memberVO.email}" name="email" hidden="">
-							<div style="font-size: 13px; ">탈퇴 후에는 "chlgpgus57@naver.com"으로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.</div>
+							<div style="font-size: 13px; ">탈퇴 후에는 "${memberVO.email}"으로 다시 가입할 수 없으며 아이디와 데이터는 복구할 수 없습니다.</div>
 							<label>
 								
 								<div style="margin-top: 10px;">

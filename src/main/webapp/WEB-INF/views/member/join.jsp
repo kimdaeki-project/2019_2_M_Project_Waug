@@ -11,12 +11,22 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
+
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
-
 <title>Insert title here</title>
+<style type="text/css">
+
+
+#fb-btn{
+/* 	display: none; */
+
+}
+</style>
 </head>
+
 <body>
 
 
@@ -51,23 +61,21 @@
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
 				</div>		
-				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
-					<!-- <img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo" onclick="nightDayHandler(this);">
-			
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
+
+				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
+				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login" onclick="facebook_join()">
+					 
+				<img src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
+				<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn">
+					</fb:login-button> 
+
 					
-					<span id="status" value="checking..."> </span>
-					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
-					
-					<!-- <div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
-						<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
-					</div> -->
 				</div>
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
-					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
+					<a id="kakao-login-btn"></a><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo" style="position: relative;">
 					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
@@ -93,14 +101,17 @@
 				</div>			
 			</div>
 		</div>
+		<a href="#" onclick="fb_login();"><img src="images/fb_login_awesome.jpg" border="0" alt=""></a>
 	</div>
 
 	<script type="text/javascript">
 		/* 네이버 로그인 */
 
+		function facebook_join() {
+			
+		}
 	
-	
-	
+
 		/* 구글 로그인 api*/
 		function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
@@ -134,10 +145,10 @@
 			        	}, 
 			        	success : function(result)
 			        	{
-			        	  alert('회원가입성공');    
+			        	  alert(res.properties.nickname+'회원님 환영합니다!');    
 			        	},
 			        	error: function(result) {
-						  alert('회원가입실패');
+						  alert('이미 가입된 이메일입니다.');
 						},
 						complete : function() {
 							location.href="../";
@@ -200,18 +211,11 @@
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
 	
-		  FB.getLoginStatus(function(response) {
-			    statusChangeCallback(response);
-			    console.log(response);
-			});
-		  
 
 		  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-			    console.log('Welcome!  Fetching your information.... ');
 			    FB.api('/me', function(response) {
 			      console.log('Successful login for: ' + response.name);
-			      document.getElementById('status').innerHTML =
-			        'Thanks for logging in, ' + response.name + '!';
+
 			    });
 			    FB.api('/me?fields=id,name,email', function(response) {
 			    	 console.log(response);
@@ -226,10 +230,10 @@
 			        	},
 			        	success : function(result)
 			        	{
-			        	  alert('회원가입성공');    
+			        	  alert(response.name+'회원님 환영합니다!');    
 			        	},
 			        	error: function(result) {
-						  alert('회원가입실패');
+						  alert('이미 가입된 이메일입니다.');
 						},
 						complete : function() {
 							location.href="../";
