@@ -11,6 +11,10 @@ import com.wg.p1.model.InfoVO;
 import com.wg.p1.util.CouponMaker;
 import com.wg.p1.util.FileSaver;
 
+import java.util.List;
+import com.wg.p1.dao.AdminDAO;
+import com.wg.p1.model.NationVO;
+
 @Service
 public class AdminService {
 
@@ -18,6 +22,8 @@ public class AdminService {
 	private GoodsDAO goodsDAO;
 	@Inject
 	private FileSaver fileSaver;
+	@Inject
+	private AdminDAO adminDAO;
 
 	public int addGoods(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO, HttpSession session)throws Exception{
 		CouponMaker couponMaker=new CouponMaker();;
@@ -68,5 +74,18 @@ public class AdminService {
 		System.out.println("test : goodsService.addGoods.rsInfo : "+rsGoods);
 
 		return rsGoods;
+	}
+
+	
+	public int city_add(NationVO nationVO) throws Exception{
+		return adminDAO.city_add(nationVO);
+	}
+	
+	public List<NationVO> city_list() throws Exception{
+		return adminDAO.city_list();
+	}
+	
+	public NationVO check_city(NationVO nationVO) throws Exception{
+		return adminDAO.check_city(nationVO);
 	}
 }

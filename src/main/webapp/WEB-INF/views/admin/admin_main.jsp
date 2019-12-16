@@ -12,10 +12,10 @@ h1{
 </style>
 </head>
 <body>
-관리자 페이지
-<h1>도시 리스트</h1>
-<h1>테마 추가</h1>
-<h1>테마 삭제</h1>
-<h1 onclick="location.href='./goods_list';" style="cursor: pointer;">상품 리스트</h1>
+	관리자 페이지
+	<h1 onclick="location.href='./city_add';" style="cursor: pointer;">도시 리스트</h1>
+	<h1>테마 추가</h1>
+	<h1>테마 삭제</h1>
+	<h1 onclick="location.href='./goods_list';" style="cursor: pointer;">상품 리스트</h1>
 </body>
 </html>
