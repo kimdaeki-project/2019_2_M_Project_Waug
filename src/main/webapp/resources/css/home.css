@@ -130,6 +130,9 @@
 	font-weight: 500;
 	color: white;
 }
+.searchresult-container-display{
+	display: flex !important;
+}
 .searchresult-container{
 	width: 540px;
 	height: 483px;
