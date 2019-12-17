@@ -36,9 +36,14 @@ public class AdminController {
 	private GoodsService goodsService;
 	@Inject
 	private AdminService adminService;
+	
+	@RequestMapping("")
+	public String AdminControllermain() throws Exception{
+		return "admin/admin_main";
+	}
+	
 	@RequestMapping("admin_main")
 	public String admin_main() throws Exception{
-		
 		return "admin/admin_main";
 	}
 	
