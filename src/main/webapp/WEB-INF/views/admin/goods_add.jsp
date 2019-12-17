@@ -153,9 +153,9 @@
          					</select>
          				</div>
          			</div>
-         			ex)45.1423/45.1453<br>
-         			<input type="text" class="locationBox" name="location" placeholder="ex)45.1423/45.1453">
-         			
+         			googleMap<br>
+         			horizontal <input type="text" class="locationBox" name="horizontal" placeholder="ex)45.1423/45.1453">	<br>
+         			vertical <input type="text" class="locationBox" name="vertical" placeholder="ex)45.1423/45.1453">	
          		</div>
          	</div>
          </div>
@@ -274,37 +274,30 @@ $("#point").summernote({
 	placeholder: '매력 포인트 (ul로 작성)',
 	height : 300
 });
-
 //program
 $('#program').summernote({
 	placeholder: 'program info',
     tabsize: 5,
     height: 700
 });
-
 //included
 $('#included').summernote({
 	placeholder: ' included',
 	tabsize: 5,
 	height : 300
 });
-
 //not_included
 $('#not_included').summernote({
 	placeholder: 'not_included',
 	tabsize: 5,
 	height : 300
 });
-
 //how_to_use
 $('#how_to_use').summernote({
 	placeholder: '사용방법, 미팅 포인트, 등등',
 	
 	height : 300
 });
-
-
-
 //****************value check before submit****************
 //city, theme, category values
 var city_num=false;
@@ -323,7 +316,6 @@ var subImg1=false;
 var subImg2=false;
 var subImg3=false;
 var subImg4=false;
-
 $('#subImg1').change(function() {
 	subImg1=true;
 });
@@ -337,7 +329,6 @@ $('#subImg4').change(function() {
 	subImg4=true;
 });
 $('.good_reservation_btn').click(function(){
-
 	if($('#using_time').val()!="0"){
 		using_time=true;
 	}
