@@ -3,6 +3,7 @@ package com.wg.p1.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,9 +38,17 @@ public class OrderController {
 	}
 	
 	@PostMapping("info")
-	public void info(GoodsOptionVO goodsOptionVO, GoodsVO goodsVO) throws Exception{
+	public Model info(GoodsOptionVO goodsOptionVO, GoodsVO goodsVO, int people, Model model) throws Exception{
 		System.out.println("goodsOptionVO.getO_time() : "+goodsOptionVO.getO_time());
 		System.out.println("GoodsVO.getNumbaer : "+goodsVO.getGoods_num() );
-		
+		System.out.println("people : "+ people);
+		model.addAttribute("people", people);
+		return model;
 	}
+	
+//	goods		calendar		info			order
+//	get			get				post			post	
+//	-goods_num	-goods_num		-booker_info	-reservation	
+//								-goods		
+	
 }

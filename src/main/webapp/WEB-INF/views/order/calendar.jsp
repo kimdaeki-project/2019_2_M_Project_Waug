@@ -51,6 +51,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="text" id="people" name="people" value="0" hidden="hidden">
 	</form>
 	<!-- modal -->
 	<div class="reser-flex-box">
@@ -92,11 +93,11 @@
 		</div>
 	</div>
 </div>
-<input type="text" value="${goods.goods_num}" id="goodsTitle" name="goods_num" hidden="hidden">
+<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
 <input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
 <input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
 <input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
-<input type="number" id="people" name="people" value="0" hidden="hidden">
+
 
 <script type="text/javascript">
 	$("#cart_btn").click(function() {
@@ -334,7 +335,6 @@
 				checkPeople=true;
 			}
 			if(checkOptionTime&&checkPeople){
-				alert('dfkjldsafkljdkj');
 				$("#formId").submit();
 			}
 			else{
