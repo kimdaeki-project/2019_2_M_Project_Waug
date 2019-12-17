@@ -37,20 +37,21 @@ public class GoodsVO {
 	private String city_name;
 	private String cate_name;
 	private int sell;
-	private float horizontal;
-	private float vertical;
+	private double horizontal;
+	private double vertical;
 	
 	
-	public float getHorizontal() {
+	
+	public double getHorizontal() {
 		return horizontal;
 	}
-	public void setHorizontal(float horizontal) {
+	public void setHorizontal(double horizontal) {
 		this.horizontal = horizontal;
 	}
-	public float getVertical() {
+	public double getVertical() {
 		return vertical;
 	}
-	public void setVertical(float vertical) {
+	public void setVertical(double vertical) {
 		this.vertical = vertical;
 	}
 	public int getSell() {

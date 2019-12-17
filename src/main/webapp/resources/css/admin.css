@@ -462,6 +462,10 @@ th{text-align: center;}
 	color:white;
 	font-weight: 500;
 }
+.profileNameBox>a{
+	color:white;
+	text-decoration: none;
+}
 .menuWrapper{
 	width: 200px;
 	height: all;

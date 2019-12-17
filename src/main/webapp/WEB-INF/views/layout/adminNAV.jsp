@@ -8,10 +8,10 @@
 			<div class="profileBox">
 				<div class="profileImgBox">
 					<div class="profile_img">
-						<h3><a href="admin_main">WAUG</a></h3>
+						<h3><a href="../">WAUG</a></h3>
 					</div>
 				</div>
-				<div class="profileNameBox">admin</div>
+				<div class="profileNameBox"><a href="admin_main">admin</a></div>
 			</div>
 		</div>
 		<div class="menuWrapper">
