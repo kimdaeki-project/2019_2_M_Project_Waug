@@ -36,7 +36,7 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	@RequestMapping("good_page")
-	public ModelAndView goods(@RequestParam(value="goods_num")int goods_num,ModelAndView mv, CartVO cartVO)throws Exception{
+	public ModelAndView goods(int goods_num,ModelAndView mv, CartVO cartVO)throws Exception{
 		//@RequestParam(value = "n") int num
 		//파라미터 n이 들어오는걸 num에 매핑시킨다
 		
@@ -44,7 +44,7 @@ public class GoodsController {
 		InfoVO infoVO=goodsService.selectGoodsInfo(goods_num);
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
-		reviewVO.setGoods_num(7);
+		reviewVO.setGoods_num(122);
 		reviewVO =reviewService.review_avg_total(reviewVO);
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		List<CategoryVO> cateAll=goodsService.CateAll();
