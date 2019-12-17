@@ -153,14 +153,9 @@
          					</select>
          				</div>
          			</div>
-         					<div class="good_key_infoBox">
-								<div class="good_keyBox">
-	         						horizontal &nbsp;<input type="text" class="locationBox" name="horizontal" placeholder="ex)45.1423" value="${goodsVO2.horizontal}">	
-	         					</div>
-	         					<div class="good_keyBox">
-	         						vertical &nbsp;<input type="text" class="locationBox" name="vertical" placeholder="ex)45.1423" value="${goodsVO2.vertical}">	
-	         					</div>
-							</div>
+         			ex)45.1423/45.1453<br>
+         			<input type="text" class="locationBox" name="location" placeholder="ex)45.1423/45.1453">
+         			
          		</div>
          	</div>
          </div>
@@ -341,8 +336,8 @@ $('#subImg3').change(function() {
 $('#subImg4').change(function() {
 	subImg4=true;
 });
-
 $('.good_reservation_btn').click(function(){
+
 	if($('#using_time').val()!="0"){
 		using_time=true;
 	}

@@ -37,22 +37,9 @@ public class GoodsVO {
 	private String city_name;
 	private String cate_name;
 	private int sell;
-	private float horizontal;
-	private float vertical;
 	
 	
-	public float getHorizontal() {
-		return horizontal;
-	}
-	public void setHorizontal(float horizontal) {
-		this.horizontal = horizontal;
-	}
-	public float getVertical() {
-		return vertical;
-	}
-	public void setVertical(float vertical) {
-		this.vertical = vertical;
-	}
+	
 	public int getSell() {
 		return sell;
 	}

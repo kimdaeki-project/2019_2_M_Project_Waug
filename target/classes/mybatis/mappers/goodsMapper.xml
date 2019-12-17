@@ -70,7 +70,7 @@ select max(goods_num) from goods
 	
 	insert into goods values(goods_seq.nextval, #{price}, #{discount}, #{coupon},
 	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
-	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4},0,#{horizontal},#{vertical})
+	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4},0)
 </insert>
 
 

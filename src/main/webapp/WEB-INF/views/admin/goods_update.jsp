@@ -211,15 +211,8 @@
 									</select>
 								</div>
 							</div>
-
-							<div class="good_key_infoBox">
-								<div class="good_keyBox">
-	         						horizontal &nbsp;<input type="text" class="locationBox" name="horizontal" placeholder="ex)45.1423" value="${goodsVO2.horizontal}">	
-	         					</div>
-	         					<div class="good_keyBox">
-	         						vertical &nbsp;<input type="text" class="locationBox" name="vertical" placeholder="ex)45.1423" value="${goodsVO2.vertical}">	
-	         					</div>
-							</div>
+							위도/경도 [구글API]<br> <input type="text" class="locationBox"
+								name="location" placeholder="ex)45.1423/45.1453">
 
 						</div>
 					</div>

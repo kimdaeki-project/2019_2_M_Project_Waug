@@ -160,7 +160,6 @@ public class AdminController {
 		mv.setViewName("common/common_result");
 		return mv;
 	}
-	
 	//관리자 테마리스트 페이지
 	@GetMapping("theme_list")
 	public ModelAndView theme_list(ModelAndView mv) throws Exception{

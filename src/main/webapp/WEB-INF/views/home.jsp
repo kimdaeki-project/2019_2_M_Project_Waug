@@ -241,7 +241,7 @@
 					
 					<c:forEach  items="${list}" var="vo" begin="0" end="6">
 			
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="event.stopPropagation(); location.href='goods/good_page?goods_num=7';">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=7';">
 
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								
@@ -579,9 +579,7 @@
 	</div>
 
 	<script type="text/javascript">
-			
-	
-	
+		
 		$(document).scroll(function() {
 			console.log($(this).scrollTop());
 		})
@@ -621,12 +619,10 @@
 		});
 		
 		$("#search").blur(function() {
-				
-				if ($(this).attr("placeholder") == "") {
-					$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-				}
-				$(".searchresult-container").css("display", "none");
-			
+			if ($(this).attr("placeholder") == "") {
+				$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
+		}
+			$(".searchresult-container").css("display", "none");
 		});
 		
 		$("#search").keyup(function() {
@@ -662,7 +658,7 @@
 		/* 위시리스트 jquery */
 		
 		$(".good-card-wish-btn").click(function() {
-			
+
 			var goods_num = $(this).attr("title");
 			
 			if($(this).hasClass("good-card-wish-btn-whis")){
@@ -698,8 +694,6 @@
 					},
 		    	});  
 			}
-			event.stopImmediatePropagation();
-			
 		});
 		/* 모달 */
 		// Get the modal
