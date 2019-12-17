@@ -619,10 +619,26 @@
 		});
 		
 		$("#search").blur(function() {
+
 			if ($(this).attr("placeholder") == "") {
 				$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
 		}
 			$(".searchresult-container").css("display", "none");
+
+				
+				if ($(this).attr("placeholder") == "") {
+					$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
+				}
+				$(".searchresult-container").css("display", "none");
+				
+				/* setInterval(() => {
+					if ($(this).attr("placeholder") == "") {
+						$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
+					}
+					$(".searchresult-container").css("display", "none");
+				}, 250); */
+				
+
 		});
 		
 		$("#search").keyup(function() {
