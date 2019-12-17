@@ -6,20 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style type="text/css">
-  	#img{
-  	width: 800px;
-  	height: 400px;
-  	margin-left: 116px;
-  	margin-bottom: 20px;
-  	display: none;
-  	}
-  </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/admin.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<div class="container">
+<body>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView">
+	<div class="width1600px">
   <h2>Insert Theme</h2>
   <form class="form-horizontal" action="theme_add" method="post">
     <div class="form-group">
@@ -50,6 +46,8 @@
     </div>
    		<button class="btn btn-primary" style="float: right;">테마등록</button>
   </form>
+</div>
+</div>
 </div>
 	<script type="text/javascript">
 		

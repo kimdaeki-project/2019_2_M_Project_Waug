@@ -1,23 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-h1{
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" href="../resources/css/admin.css">
 </head>
 <body>
-관리자 페이지
-<h1>테마 추가</h1>
-<h1>테마 삭제</h1>
-<h1 onclick="location.href='./theme_list'" style="cursor: pointer;">테마 리스트</h1>
-<h1 onclick="location.href='./goods_list';" style="cursor: pointer;">상품 리스트</h1>
-<h1 onclick="location.href='./city_add';" style="cursor: pointer;">도시 리스트</h1>
-<h1 onclick="location.href='./goods_list';" style="cursor: pointer;">상품 리스트</h1>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView">
+	<div class="width1600px">
+		main view
+	</div>
+</div>
+</div>
 </body>
 </html>

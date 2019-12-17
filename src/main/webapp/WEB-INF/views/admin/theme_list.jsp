@@ -8,22 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/admin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-th {
-text-align: center;
-}
-
-</style>
 </head>
 <body>
-
-	<div class="container">
-		
-		<div class="jumbotron page-header">
-			<h1>Theme List</h1>
-		</div>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView">
+	<div class="width1600px">
 		<form action="theme_delete" method="post" id="delete">	
 		<table class="table"  >
 			<thead >
@@ -59,6 +52,8 @@ text-align: center;
 					<button class="btn btn-danger" id="pro_del" style="float: right;">상품 삭제</button>
 				</div>
 				
+	</div>
+	</div>
 	</div>
 <script type="text/javascript">
 $('#checkAll').click(function(){
