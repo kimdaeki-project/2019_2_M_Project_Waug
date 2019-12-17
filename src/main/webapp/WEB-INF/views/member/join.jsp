@@ -11,11 +11,29 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
 
 <title>Insert title here</title>
+<style type="text/css">
+.fb_iframe_widget iframe {
+    opacity: 0;
+}
+.fb_iframe_widget {
+  background-image: url(https://www.waug.com/images/facebook.svg);
+  background-repeat: no-repeat; 
+}
+#kakao-login-btn{
+   opacity: 0;
+}
+.sns-login-kakao-logo{
+   position: relative;
+   cursor: pointer;
+}
+
+</style>
 </head>
 <body>
 
@@ -46,29 +64,26 @@
 					
 					
 				</div>
-				<!-- 페이스북 -->
+				
 
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
-				</div>		
-				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
-					<!-- <img alt="" src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo" onclick="nightDayHandler(this);">
-			
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
-					
-					<span id="status" value="checking..."> </span>
-					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();"></fb:login-button>
-					
-					<!-- <div id="fb-root" style="margin-top: -35px; margin-left: 70px; opacity: 0;">
-						<div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-						<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v5.0&appId=2398490247082536&autoLogAppEvents=1"></script>
-					</div> -->
+				</div>
+				
+				<!-- 페이스북 -->	
+				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
+				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login">
+					<div style="margin-top: 8px;  float: left; margin-left: 115px;">
+						<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn" class="sns-login-facebook-logo">
+						</fb:login-button> 
+					</div>
+					<span class="sns-login-text sns-login-text-facebook" style="float: left; margin-left: 5px;">회원가입</span>
 				</div>
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
-					<a id="kakao-login-btn"><img alt="" src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo"></a>
-					<span class="sns-login-text sns-login-text-kakao">회원가입</span>
+					<a id="kakao-login-btn"></a><img src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
+					<span class="sns-login-text sns-login-text-kakao" style="position: relative; ">회원가입</span>
 				</div>
 				<!-- 카카오 끝 -->
 				<!-- 네이버 -->
@@ -80,9 +95,9 @@
 				</div>
 				<!-- 구글 -->
 				<div class="btn-login-sns-box login-form-box" id="google_login">
-				<div class="g-signin2" data-onsuccess="onSignIn"></div>
-				<!-- 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
-					<span class="sns-login-text sns-login-text-facebook">회원가입</span> -->
+				<!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+				 	<img alt="" src="https://www.waug.com/images/google.svg" class="sns-login-google-logo">
+					<span class="sns-login-text sns-login-text-facebook">회원가입</span> 
 				</div>
 				<div style="margin-top: -14px">
 					<div class="sign-up-check-box">
@@ -96,19 +111,73 @@
 	</div>
 
 	<script type="text/javascript">
-		/* 네이버 로그인 */
+		
+		/* 네이버 로그인 */	
+		var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "M7C187iCGvZmwwLw6s5T",
+				callbackUrl: "member/join",
+				isPopup: false,
+				loginButton: {color: "green", type: 3, height: 60}
+			}
+		);
+		/* (4) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
+		naverLogin.init();
+		
+		/* (4-1) 임의의 링크를 설정해줄 필요가 있는 경우 */
+		$("#gnbLogin").attr("href", naverLogin.generateAuthorizeUrl());
 
-	
-	
-	
-		/* 구글 로그인 api*/
-		function onSignIn(googleUser) {
+		/* (5) 현재 로그인 상태를 확인 */
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+					setLoginStatus();
+				}
+			});
+		});
+
+		/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
+		function setLoginStatus() {
+			var profileImage = naverLogin.user.getProfileImage();
+			var nickName = naverLogin.user.getNickName();
+			$("#naverIdLogin_loginButton").html('<br><br><img src="' + profileImage + '" height=50 /> <p>' + nickName + '님 반갑습니다.</p>');
+			$("#gnbLogin").html("Logout");
+			$("#gnbLogin").attr("href", "#");
+			/* (7) 로그아웃 버튼을 설정하고 동작을 정의합니다. */
+			$("#gnbLogin").click(function () {
+				naverLogin.logout();
+				location.reload();
+			});
+		}
+
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
+					var email = naverLogin.user.getEmail();
+					if( email == undefined || email == null) {
+						alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+						/* (5-1) 사용자 정보 재동의를 위하여 다시 네아로 동의페이지로 이동함 */
+						naverLogin.reprompt();
+						return;
+					}
+
+					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/sample/main.html");
+				} else {
+					console.log("callback 처리에 실패하였습니다.");
+				}
+			});
+		});
+
+ 		/* 구글 로그인 api*/
+/*		function onSignIn(googleUser) {
 		  var profile = googleUser.getBasicProfile();
 		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 		  console.log('Name: ' + profile.getName());
 		  console.log('Image URL: ' + profile.getImageUrl());
 		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		}
+		} */
 	
 		/* 	  카카오 로그인 api */
 		 //<![CDATA[
@@ -134,10 +203,10 @@
 			        	}, 
 			        	success : function(result)
 			        	{
-			        	  alert('회원가입성공');    
+			        	  alert(res.properties.nickname+'회원님 환영합니다!');    
 			        	},
 			        	error: function(result) {
-						  alert('회원가입실패');
+						  alert('이미 가입된 이메일입니다.');
 						},
 						complete : function() {
 							location.href="../";
@@ -154,6 +223,10 @@
 		        alert(JSON.stringify(err));
 		      }
 		    });
+			$(".sns-login-kakao-logo").click(function() {
+		         $("#kakao-login-btn").click();
+		      });
+		
 		  //]]>	
 
 		/* 페이스북 로그인 api */
@@ -200,18 +273,11 @@
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
 	
-		  FB.getLoginStatus(function(response) {
-			    statusChangeCallback(response);
-			    console.log(response);
-			});
-		  
 
 		  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-			    console.log('Welcome!  Fetching your information.... ');
 			    FB.api('/me', function(response) {
 			      console.log('Successful login for: ' + response.name);
-			      document.getElementById('status').innerHTML =
-			        'Thanks for logging in, ' + response.name + '!';
+
 			    });
 			    FB.api('/me?fields=id,name,email', function(response) {
 			    	 console.log(response);
@@ -226,10 +292,10 @@
 			        	},
 			        	success : function(result)
 			        	{
-			        	  alert('회원가입성공');    
+			        	  alert(response.name+'회원님 환영합니다!');    
 			        	},
 			        	error: function(result) {
-						  alert('회원가입실패');
+						  alert('이미 가입된 이메일입니다.');
 						},
 						complete : function() {
 							location.href="../";
