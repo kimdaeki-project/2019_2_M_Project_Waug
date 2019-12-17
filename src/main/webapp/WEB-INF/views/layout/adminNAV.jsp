@@ -8,7 +8,7 @@
 			<div class="profileBox">
 				<div class="profileImgBox">
 					<div class="profile_img">
-						<h3>WAUG</h3>
+						<h3><a href="admin_main">WAUG</a></h3>
 					</div>
 				</div>
 				<div class="profileNameBox">admin</div>
@@ -20,6 +20,8 @@
 				<a href="theme_list"><li>테마 리스트</li></a>
 				<a href="goods_list"><li>상품 리스트</li></a>
 				<a href="goods_add"><li>상품 추가</li></a>
+				<a href="city_add"><li>도시 추가</li></a>
+				
 			</ul>
 		</div>
 		</div>
