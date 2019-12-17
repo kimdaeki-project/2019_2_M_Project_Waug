@@ -51,6 +51,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="text" id="people" name="people" value="0" hidden="hidden">
 	</form>
 	<!-- modal -->
 	<div class="reser-flex-box">
@@ -92,29 +93,26 @@
 		</div>
 	</div>
 </div>
-<input type="text" value="${goods.goods_num}" name="goods_num" hidden="hidden">
+<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
 <input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
 <input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
 <input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
-<input type="number" id="people" name="people" value="0" hidden="hidden">
+
 
 <script type="text/javascript">
 	$("#cart_btn").click(function() {
 		$("#formId").attr("action","../my/cart");
 		$("#formId").submit();
 	});
-
 	//창띄우면 popup 숨기기
 	$(window).ready(function(){
 		$('.reser_modal').hide();
 	});
-
 	//show modal popup
 	var item=document.getElementsByClassName("reser_option_item")[0];
 	var modalBox=document.getElementById("reser_modal");
 	var close=document.getElementById("reser_modal_close");
 	//var span = document.getElementsByClassName("close")[0];
-
 	//눌렀을 때 modal 띄우기
 	item.onclick=function(){
 		modalBox.style.display = "block";
@@ -130,19 +128,16 @@
 		</div> */
 		$('.reser_modal_option_date').html(year+"-"+month+"-"+date);
 	}
-
 	//다른곳 눌렀을때 modal 닫기
 	window.onclick=function(event){
 		if(event.target==modalBox){
 			modalBox.style.display="none";
 		}
 	}
-
 	//x표시 눌렀을때 modal 닫기
 	close.onclick=function(){
 		modalBox.style.display="none";
 	}
-
 	var cal=new Date();
 	
 	function makeCalendar(){
@@ -183,12 +178,10 @@
 			choosedDate(tmp);	
 		});
 	}
-
 	function prevMonth(){
 		cal=new Date(cal.getFullYear(),cal.getMonth()-1,cal.getDate());
 		makeCalendar();
 	}
-
 	function nextMonth(){
 		cal=new Date(cal.getFullYear(),cal.getMonth()+1,cal.getDate());
 		makeCalendar();
@@ -323,7 +316,6 @@
 		function numberWithCommas(x) {
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
-
 		//flag check
 		var checkPeople=false;		
 		var checkOptionTime=false;
@@ -331,6 +323,10 @@
 		
 		
 		$('#reservation_btn').click(function(){
+			console.log($('#checkOptionTime').val());
+			console.log("typeof"+typeof $('#checkOptionTime').val());
+			console.log("############################");
+			console.log($('#people').val());
 		
 			if($('#checkOptionTime').val()!="0"){
 				checkOptionTime=true;
@@ -338,7 +334,6 @@
 			if($('#people').val()!=0){
 				checkPeople=true;
 			}
-			
 			if(checkOptionTime&&checkPeople){
 				$("#formId").submit();
 			}

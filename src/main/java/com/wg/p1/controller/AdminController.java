@@ -36,9 +36,14 @@ public class AdminController {
 	private GoodsService goodsService;
 	@Inject
 	private AdminService adminService;
+	
+	@RequestMapping("")
+	public String AdminControllermain() throws Exception{
+		return "admin/admin_main";
+	}
+	
 	@RequestMapping("admin_main")
 	public String admin_main() throws Exception{
-		
 		return "admin/admin_main";
 	}
 	
@@ -160,7 +165,6 @@ public class AdminController {
 		mv.setViewName("common/common_result");
 		return mv;
 	}
-	
 	//관리자 테마리스트 페이지
 	@GetMapping("theme_list")
 	public ModelAndView theme_list(ModelAndView mv) throws Exception{

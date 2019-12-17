@@ -15,7 +15,7 @@ public class OrderDAO {
 	@Inject
 	private SqlSession sqlSession;
 	private static final String NAMESPACE="orderMapper.";
-	
+
 	//selectOptionTime
 	public List<GoodsOptionVO> selectOptionTime()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"selectOptionTime");

@@ -16,6 +16,6 @@ public class GoodsOptionVO {
 	public void setO_time(String o_time) {
 		this.o_time = o_time;
 	}
-	
-	
+
+
 }
