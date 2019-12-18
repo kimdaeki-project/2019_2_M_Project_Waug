@@ -133,11 +133,19 @@ public class MyController {
 	@PostMapping("cart")
 	public ModelAndView cart(CartVO cartVO, HttpSession session,int goods_num, ModelAndView mv,OptionVO optionVO) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
+		
+		int result = optionService.optionAdd(optionVO);
+
+		
+		
 		cartVO.setEmail(memberVO.getM_pk());
+		
+		
 		cartVO.setGoods_num(goods_num);
 		cartVO.setO_num(optionVO.getO_num());
-		int result = optionService.optionAdd(optionVO);
+		
 		int result2 = cartService.cartAdd(cartVO);
+		
 		if(result>0) {
 			System.out.println("성공");
 			System.out.println(result2);

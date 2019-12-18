@@ -70,12 +70,11 @@
 										</td>
 										<td class="text-center">${vo.o_date2}<br>${vo.o_time}</td>
 										<td>
-											<div>예약내용</div>
-											<div>x${vo.o_people}</div>
-											<div>${vo.discount}</div>
+											<div>${vo.title} 성인</div>
+											<div>￦  ${vo.price} x ${vo.o_people}</div>
 											
 										</td>
-										<td class="text-center"><input type="hidden" name ="price" value="가격">옵션포함총금액</td>
+										<td class="text-center"><input type="hidden" name ="price" value="가격">￦ ${cartSum}</td>
 										
 									</tr>
 									</c:forEach>

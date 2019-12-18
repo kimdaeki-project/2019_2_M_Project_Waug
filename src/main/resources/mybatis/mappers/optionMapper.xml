@@ -6,7 +6,10 @@
   <mapper namespace="optionMapper">
   
   <insert id="optionAdd" parameterType="OptionVO">
-  	insert into goods_option(o_num, o_time, o_people, o_date) values(option_seq.nextval, #{o_time}, #{o_people},#{o_date})
+  	<selectKey order="BEFORE" resultType="Integer" keyProperty="o_num">
+  		select option_seq.nextval from dual
+  	</selectKey>
+  	insert into goods_option(o_num, o_time, o_people, o_date) values(#{o_num}, #{o_time}, #{o_people},#{o_date})
   </insert>
   
   
