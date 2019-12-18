@@ -5,6 +5,23 @@
   
 <mapper namespace="goodsMapper">
 
+
+<update id="goodsUpdate" parameterType="GoodsVO">
+	update goods 
+	set
+	price=#{price},	DISCOUNT=#{discount},LOCATION=#{location},ABLE=#{able},CITY_NUM=#{city_num},O_NUM=#{o_num},QTT=#{qtt},TITLE=#{title},
+	T_NUM=#{t_num},IMG=#{img},CATE_NUM=#{cate_num},PROGRAM=#{program},CHARMING=#{charming},INCLUDED=#{included},NOT_INCLUDED=#{not_included},HOW_TO_USE=#{how_to_use},
+	REMEMBER=#{remember},CANCEL=#{cancel},IMG1=#{img1},IMG2=#{img2},IMG3=#{img3},IMG4=#{img4}
+	where
+	goods_num=#{goods_num}
+</update>
+<update id="infoUpdate" parameterType="InfoVO">
+	update info
+	set
+	DELIVERY_TIME=#{delivery_time},DURATION=#{duration},LANGUAGE=#{language},BOUCHER=#{boucher},CANCEL=#{cancel},USING_TIME=#{using_time},PICK_UP=#{pick_up},PEOPLE=#{people}
+	where
+	goods_num=#{goods_num}
+</update>
 <!-- 퀵서치 -->
 <select id="quickSearch_usim" resultType="GoodsVO">
 	select * from goods where title like '%포켓%'
@@ -25,17 +42,37 @@
 	select * from goods where city_num=49
 </select>
 <!-- 퀵서치 끝  -->
+<delete id="goodsDelete" parameterType="GoodsVO">
+	delete from goods where goods_num=${goods_num}
+</delete>
+
+<select id="getCityName" parameterType="Integer" resultType="String">
+	select city_name from nationinfo where city_num=#{city_num}
+</select>
+
+<select id="maxGoodsNum" resultType="Integer">
+select max(goods_num) from goods
+</select>
+
+<insert id="infoInsert" parameterType="InfoVO">
+		<selectKey order="BEFORE" resultType="Integer" keyColumn="goods_num">
+			select max(goods_num) from goods
+		</selectKey>
+	insert into info values(#{goods_num},#{delivery_time},#{duration},#{language},#{boucher},#{cancel},#{using_time},#{pick_up},#{people})
+</insert>
+
 
 <select id="selectGoodsInfo" resultType="InfoVO" parameterType="Integer">
 	select * from info where goods_num=#{goods_num}
 </select>
 
 <insert id="goodsInsert" parameterType="GoodsVO">
-	insert into goods values(#{goods_num}, #{price}, #{discount}, #{coupon},
+	
+	insert into goods values(goods_seq.nextval, #{price}, #{discount}, #{coupon},
 	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
-	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4})
+	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4},0,#{horizontal},#{vertical})
 </insert>
-<!-- 12.11 updat******************************************* -->
+
 
 
 	<sql id="bs">
@@ -91,13 +128,14 @@
 	</select>
 	
   <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
-  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num
+  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num,sell
 		from goods 
 		where goods_num in(select goods_num from wishlist where email=#{m_pk})
 	union
-	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num
+	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num,sell
 		from goods
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
+		order by sell desc
   </select>
 
   <select id="goodsSelectOne" resultType="GoodsVO" parameterType="Integer">
@@ -121,4 +159,14 @@
   <select id="cateList" resultType="CategoryVO">
   	select * from category
   </select>
+  
+  <!-- 도시검색 -->
+  <select id="searchcity" parameterType="Pager" resultType="NationVO">
+  	select city_num, city_name from nationinfo where city_name like '%'||#{search}||'%'
+  </select>
+  <!-- 상품검색 -->
+  <select id="searchgoods" parameterType="Pager" resultType="GoodsVO">
+  	select goods_num, title from goods where title like '%'||#{search}||'%'
+  </select>
+  
 </mapper>

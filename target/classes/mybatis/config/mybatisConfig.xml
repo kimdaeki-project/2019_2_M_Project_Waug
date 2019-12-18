@@ -18,6 +18,8 @@
 		<typeAlias type="com.wg.p1.model.ThemeVO" alias="ThemeVO"/>
 		<typeAlias type="com.wg.p1.model.CategoryVO" alias="CategoryVO"/>
 		<typeAlias type="com.wg.p1.model.CartVO" alias="CartVO"/>
-
+		<typeAlias type="com.wg.p1.model.ReviewImgVO" alias="ReviewImgVO"/>
+		<typeAlias type="com.wg.p1.model.GoodsOptionVO" alias="GoodsOptionVO"/>
+		
 	</typeAliases>
 </configuration>

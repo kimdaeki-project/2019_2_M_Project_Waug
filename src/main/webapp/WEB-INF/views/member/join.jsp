@@ -15,15 +15,17 @@
 <c:import url="../layout/bootstrap.jsp"/>
 <link href="../resources/css/all.css" rel="stylesheet"> 
 <link href="../resources/css/member.css" rel="stylesheet"> 
-
 <title>Insert title here</title>
 <style type="text/css">
+
+
 .fb_iframe_widget iframe {
     opacity: 0;
 }
 .fb_iframe_widget {
   background-image: url(https://www.waug.com/images/facebook.svg);
   background-repeat: no-repeat; 
+
 }
 #kakao-login-btn{
    opacity: 0;
@@ -35,6 +37,7 @@
 
 </style>
 </head>
+
 <body>
 
 
@@ -68,6 +71,18 @@
 
 				<div class="login-sns-or-box">
 					<hr class="login-sns-or-border"><span class="login-sns-or-text">or</span><hr class="login-sns-or-border">
+
+				</div>		
+
+				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
+				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login" onclick="facebook_join()">
+					 
+				<img src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
+				<span class="sns-login-text sns-login-text-facebook">회원가입</span>
+					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn">
+					</fb:login-button> 
+
+
 				</div>
 				
 				<!-- 페이스북 -->	
@@ -78,12 +93,15 @@
 						</fb:login-button> 
 					</div>
 					<span class="sns-login-text sns-login-text-facebook" style="float: left; margin-left: 5px;">회원가입</span>
+
 				</div>
 				<!-- 페이스북 끝-->
 				<!-- 카카오 -->
 				<div  class="btn-login-sns-box login-form-box panel-body" >
+
 					<a id="kakao-login-btn"></a><img src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
 					<span class="sns-login-text sns-login-text-kakao" style="position: relative; ">회원가입</span>
+
 				</div>
 				<!-- 카카오 끝 -->
 				<!-- 네이버 -->
@@ -108,76 +126,11 @@
 				</div>			
 			</div>
 		</div>
+		<a href="#" onclick="fb_login();"><img src="images/fb_login_awesome.jpg" border="0" alt=""></a>
 	</div>
 
 	<script type="text/javascript">
-		
-		/* 네이버 로그인 */	
-		var naverLogin = new naver.LoginWithNaverId(
-			{
-				clientId: "M7C187iCGvZmwwLw6s5T",
-				callbackUrl: "member/join",
-				isPopup: false,
-				loginButton: {color: "green", type: 3, height: 60}
-			}
-		);
-		/* (4) 네아로 로그인 정보를 초기화하기 위하여 init을 호출 */
-		naverLogin.init();
-		
-		/* (4-1) 임의의 링크를 설정해줄 필요가 있는 경우 */
-		$("#gnbLogin").attr("href", naverLogin.generateAuthorizeUrl());
 
-		/* (5) 현재 로그인 상태를 확인 */
-		window.addEventListener('load', function () {
-			naverLogin.getLoginStatus(function (status) {
-				if (status) {
-					/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
-					setLoginStatus();
-				}
-			});
-		});
-
-		/* (6) 로그인 상태가 "true" 인 경우 로그인 버튼을 없애고 사용자 정보를 출력합니다. */
-		function setLoginStatus() {
-			var profileImage = naverLogin.user.getProfileImage();
-			var nickName = naverLogin.user.getNickName();
-			$("#naverIdLogin_loginButton").html('<br><br><img src="' + profileImage + '" height=50 /> <p>' + nickName + '님 반갑습니다.</p>');
-			$("#gnbLogin").html("Logout");
-			$("#gnbLogin").attr("href", "#");
-			/* (7) 로그아웃 버튼을 설정하고 동작을 정의합니다. */
-			$("#gnbLogin").click(function () {
-				naverLogin.logout();
-				location.reload();
-			});
-		}
-
-		window.addEventListener('load', function () {
-			naverLogin.getLoginStatus(function (status) {
-				if (status) {
-					/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
-					var email = naverLogin.user.getEmail();
-					if( email == undefined || email == null) {
-						alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-						/* (5-1) 사용자 정보 재동의를 위하여 다시 네아로 동의페이지로 이동함 */
-						naverLogin.reprompt();
-						return;
-					}
-
-					window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/sample/main.html");
-				} else {
-					console.log("callback 처리에 실패하였습니다.");
-				}
-			});
-		});
-
- 		/* 구글 로그인 api*/
-/*		function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-		} */
 	
 		/* 	  카카오 로그인 api */
 		 //<![CDATA[

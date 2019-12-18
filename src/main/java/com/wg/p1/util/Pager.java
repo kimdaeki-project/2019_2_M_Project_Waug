@@ -6,6 +6,14 @@ public class Pager {
 	private Integer perPage;//페이지 당 글 갯수
 	private String kind; //검색종류
 	private String search; //검색어
+	private String goods_num; // 리뷰검색용
+	
+	public String getGoods_num() {
+		return goods_num;
+	}
+	public void setGoods_num(String goods_num) {
+		this.goods_num = goods_num;
+	}
 	public String getKind() {
 		return kind;
 	}

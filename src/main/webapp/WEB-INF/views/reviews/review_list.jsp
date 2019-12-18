@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Insert title her11e1</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
@@ -35,13 +36,11 @@
 						<h3>이용 후기</h3>
 					</div>
 					<div class="add-list">
-					<c:forEach items="${list}" var="dto">
-					<div id="comment${dto.rv_num}" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
+						<c:forEach items="${list}" var="dto">
+							<div id="comment${dto.rv_num}" class="item-comment clearfix">
+								<div class="comment-content">
+									<div class="star-score-space">
 								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
-
 								<span class="star-score-sort">
 									<div
 										class="rating-container rating-xxs rating-animate rating-disabled star-float">
@@ -68,7 +67,16 @@
 								</span> <span class="star-score-sort"> (${dto.rv_score}/5) </span> <span
 									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
-							<p class="comment_msg" >${dto.rv_contents}</p>
+							<p class="comment_msg" >${dto.rv_contents}
+							</p>
+								<c:forEach items="${dto.images}" var="image">
+									<c:if test="${not empty image.img_name}">
+										<img src="../resources/images/reviews/${image.img_name}" style="width: 74px; height: 74px;" class="tttt" id="${image.img_name}">
+										
+										
+									</c:if>
+								</c:forEach>
+								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
 								<!-- 관리자만 보이게 -->
@@ -153,22 +161,25 @@
 											style="height: 246px;"
 											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
-									</form>
-									<div class="form-group comment-write-btn-wrapper">
+									<div class="img_input_wrapper">
+									</div>
+									</form><!-- form 원래 끝나는 위치 -->
+									<div class="form-group comment-write-btn-wrapper2">
 										<div class="camera">
-											<form id="frm-review-file">
+											<form id="frm-review-file" method="post" enctype="multipart/form-data" class="test">
 												<label for="input_comment_img_new"> <img
 													style="padding-top: 17px; width: 62px; padding-left: 11px;"
 													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
+													type="file" name="file" id="input_comment_img_new" class="hide input_comment_img_new" accept=".jpg, .gif, .png, .jpeg">
 												</label>
 											</form>
 										</div>
 
 									</div>
-									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img"></div>
+									<div class="comment-write-img" >
+										<div  id="preview-img" class="comment-img-list">
+											<!-- append 위치 -->
+										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="write" style="float: right;">
@@ -195,7 +206,7 @@
 						<div class="modal-dialog">
 
 							<div class="modal-content">
-								<div class="modal-header">이용 후기</div>
+								<div class="modal-header">후기 수정</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
@@ -244,22 +255,23 @@
 											style="height: 246px;"
 											placeholder="해당 상품은 어땠나요? 여러분의 이야기를 들려주세요." name="rv_contents"></textarea>
 									</div>
+									<div class="img_input_wrapper2">
+									</div>
 									</form>
-									<div class="form-group comment-write-btn-wrapper">
+									<div class="form-group comment-write-btn-wrapper2">
 										<div class="camera">
-											<form id="frm-review-file">
-												<label for="input_comment_img_new"> <img
-													style="padding-top: 17px; width: 62px; padding-left: 11px;"
-													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
+											<form id="frm-review-file" method="post" enctype="multipart/form-data" class="test">
+												<label for="input_comment_img_new2"> 
+													<img style="padding-top: 17px; width: 62px; padding-left: 11px;" src="https://www.waug.com/images/ic_comment_camera_web.svg">
+													<input type="file" id="input_comment_img_new2" name="file" class="hide input_comment_img_new2" accept="image/*">
 												</label>
 											</form>
 										</div>
-
 									</div>
 									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img"></div>
+										<div id="preview-img1" class="comment-img-list">
+										<!-- append 위치 -->
+										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="write" style="float: right;">
@@ -337,21 +349,10 @@
 											placeholder="관리자의 답변을 작성해주세요." name="rv_acontents"></textarea>
 									</div>
 									</form>
-									<div class="form-group comment-write-btn-wrapper">
-										<div class="camera">
-											<form id="frm-review-file">
-												<label for="input_comment_img_new"> <img
-													style="padding-top: 17px; width: 62px; padding-left: 11px;"
-													src="https://www.waug.com/images/ic_comment_camera_web.svg"> <input
-													type="file" id="input_comment_img_new" class="hide"
-													accept="image/*">
-												</label>
-											</form>
-										</div>
-
-									</div>
+									
 									<div class="comment-write-img">
-										<div class="comment-img-list" id="preview-img"></div>
+										<div class="comment-img-list" >
+										</div>
 									</div>
 									<div class="form-group comment-write-btn-wrapper">
 										<div class="write" style="float: right;">
@@ -400,12 +401,28 @@
 	</div>
 	<script type="text/javascript">
 		var curPage = 1;
+		/* 영하테스트 */
+		/* $(window).scroll(function() {
+			
+			if($(window).scrollTop() == $(document).height() - $(window).height()){
+				
+				curPage = curPage+1;
+				$.get("./review_lists?curPage="+curPage, function(data){
+					data=data.trim();
+					$(".add-list").append(data);
+				});
+				if(curPage >= ${totalPage} ){
+					$("#add_review").css("display","none");
+				}
+			}
+		}); */
 		
+		$(".tttt").click(function() {
+			var url = $(this).attr('id');
+			window.open('http://localhost/p1/resources/images/reviews/'+url);
+		})
 		
 		/* 별점 */
-		$(':radio').change(function() {
-  		console.log('New star rating: ' + this.value);
-		});
 		
 		/* 글작성  폼 submit*/
 		$("#btn-comment-submit").click(function() {
@@ -413,6 +430,9 @@
 		});
 		
 		/* 글수정 폼 submit */
+		$("#content").on("click", "#btn-update-submit", function() {
+		});
+		
 		$("#btn-update-submit").click(function() {
 			$(".review-form2").submit();
 		});
@@ -428,48 +448,187 @@
 				data=data.trim();
 				$(".add-list").append(data);
 			});
-			if(curPage >= ${totalPage} ){
+			if(curPage > ${totalPage} ){
 				$("#add_review").css("display","none");
 			}
 		});
 		
+		
+		
 		/* 리뷰 삭제 */
-		$(".btn-review-delete").click(function() {
+		$("#content").on("click", ".btn-review-delete", function() {
 			if(confirm("정말 삭제하시겠습니까?")){
 				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
-					
 				});
-				
 				location.reload();
 			}
 		});
-		
+		/* $(".btn-review-delete").click(function() {
+			if(confirm("정말 삭제하시겠습니까?")){
+				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
+				});
+				location.reload();
+			}
+		}); */
+		var countreview = 0;
 		/* 리뷰 수정창 내용 받아오기 */
-		$(".btn-review-update").click(function() {
+		$("#content").on("click", ".btn-review-update", function() {
+			
 			var num = $(this).val();
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
 				console.log(data);
-				var strings = data.split('/');
+				var strings = data.split('///');
+				//alert(strings[2]);
+				//alert(strings[3]);
+				countreview = strings[3].trim();
+				countreview = countreview*1;
+				alert(countreview);
 				$("#comment_write_msg2").val(strings[1]);
 	
 					$(".update_rv_num").val(num);
 					$(".radiostar").eq(strings[0]-1).attr("checked",true);
-				
+					$("#preview-img1").html(strings[2]);
 			});
 		});
-		/* 리뷰 수정창 내용 받아오기 */
-		$(".btn-review-reply").click(function() {
+
+		/* 리뷰 답변창 내용 받아오기 */
+		$("#content").on("click", ".btn-review-reply", function() {
 			var num = $(this).val();
 			$.get("./reviewSelect?rv_num="+num, function(data){
 				data=data.trim();
 				console.log(data);
-				var strings = data.split('/');
+				var strings = data.split('///');
 				$("#comment_write_msg3").html(strings[1]);
 					$(".update_rv_num").val(num);
 					$(".radiostar2").eq(strings[0]-1).attr("checked",true);
 			});
 		});
+		var count = 0;
+		/* 사진 테스트 */
+		$("#input_comment_img_new").change(function() {
+			if(count<5){
+				
+				var filename = $('#input_comment_img_new').val();
+				var extension = filename.replace(/^.*\./, '');
+				if (extension == filename) {
+			        extension = '';
+				} else {
+			        extension = extension.toLowerCase();
+			    }
+				
+				if( (extension != 'jpg') && (extension != 'png') ){
+					alert('지원하지 않는 형식의 파일입니다');
+				}else{
+					//Get form
+		        	var form = $(this).parent().parent()[0];
+		       	 	// Create an FormData object 
+		        	var data = new FormData(form);
+		        	$.ajax({
+		            	type: "POST",
+		            	enctype: 'multipart/form-data',
+		            	url: "./reviewImages",
+		            	data: data,
+		            	processData: false,
+		            	contentType: false,
+		            	cache: false,
+		            	timeout: 600000,
+		            	success: function (data) {
+		                	data=data.trim();
+
+		                	var im = data.split('////');
+
+		                	$(".img_input_wrapper").append(im[0]);
+		                	$("#preview-img").append(im[1]);
+		            	},
+		            	error: function (e) {
+		                	console.log("ERROR : ", e);
+		                	alert("fail");
+		            	}
+		       		});
+		        	count=count+1;
+				}
+			}else{
+				alert('더 이상 첨부할 수 없습니다.');
+			}
+	        
+		});
+		
+		
+		/* 서버에서 이미지 삭제 */
+		$("#modal-review").on("click", ".fa-minus-circle",function(){
+			var fname = $(this).parent().parent().children('input').val();
+			$(this).parent().parent().remove();
+			count=count-1;
+		});
+		/*수정창 -버튼 이벤트 전파, 사진삭제, count값 받기*/
+		
+		/* 수정창 원래 등록된 사진 삭제 */
+		$("#modal-update").on("click", ".delete-db", function(){
+			if(confirm('정말 삭제하시겠습니까? \n글 수정을 취소해도 이 사진은 사라집니다')){
+				var id = $(this).attr('id');
+				$.get("./reviewImageDelete?rv_img_num="+id,function(data){
+				});
+				$(this).parent().parent().remove();
+				countreview = countreview-1;
+			};
+		});
+		/* 수정창 새로 등록된 사진 삭제 */
+
+		$("#modal-update").on("click", ".fa-minus-circle",function(){
+			var fname = $(this).parent().parent().children('input').val();
+			$(this).parent().parent().remove();
+			countreview=countreview-1;
+		});
+		
+		
+		/* 리뷰창 사진 추가  */
+		$("#input_comment_img_new2").change(function() {
+			if(countreview<5){
+				
+				var filename = $('#input_comment_img_new2').val();
+				var extension = filename.replace(/^.*\./, '');
+				if (extension == filename) {
+			        extension = '';
+				} else {
+			        extension = extension.toLowerCase();
+			    }
+				
+				if( (extension != 'jpg') && (extension != 'png') ){
+					alert('지원하지 않는 형식의 파일입니다');
+				}else{
+		        	var form = $(this).parent().parent()[0];
+		        	var data = new FormData(form);
+		        	$.ajax({
+		            	type: "POST",
+		            	enctype: 'multipart/form-data',
+		            	url: "./reviewImages",
+		            	data: data,
+		            	processData: false,
+		            	contentType: false,
+		            	cache: false,
+		            	timeout: 600000,
+		            	success: function (data) {
+		                	data=data.trim();
+
+		                	var im = data.split('////');
+		                	$(".img_input_wrapper2").append(im[0]);
+		                	$("#preview-img1").append(im[1]);
+		            	},
+		            	error: function (e) {
+		                	console.log("ERROR : ", e);
+		                	alert("fail");
+		            	}
+		       		});
+		        	countreview = countreview+1
+		        	alert(countreview);
+				}
+			}else{
+				alert('더 이상 첨부할 수 없습니다.');
+			}
+	        
+		});
+		
 	</script>
 
 	<c:import url="../layout/Footer.jsp"></c:import>

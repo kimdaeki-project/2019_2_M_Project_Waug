@@ -13,6 +13,7 @@ import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
 import com.wg.p1.model.WishListVO;
+import com.wg.p1.util.CouponMaker;
 
 public class GoodsTest extends testAbstractCase{
 
@@ -45,41 +46,33 @@ public class GoodsTest extends testAbstractCase{
 	}
 	
 	//@Test
-	public void insertgoodsVO()	throws Exception{
+	public void infoInsert()throws Exception{
 		
-		Date date = new Date(119, 11, 12);
-		GoodsVO goodsVO=new GoodsVO();
+	}
+	
+	//@Test
+	public void couponTest()	throws Exception{
+		CouponMaker cm=new CouponMaker();
+		String coupon=cm.makeCoupon(9);
 		
-		goodsVO.setGoods_num(1013);
-		goodsVO.setPrice(2400);
-		goodsVO.setDiscount(42);
-		goodsVO.setCoupon("232");
-		goodsVO.setLocation("newyork");
-		goodsVO.setAble(date);
-		goodsVO.setCity_num(4);
-		goodsVO.setO_num(2);
-		goodsVO.setQtt(2);
-		goodsVO.setTitle("titel");
-		goodsVO.setT_num(2);
-		goodsVO.setImg("./resources/images/test.jpg");
-		//wish
-		//info
-		goodsVO.setCate_num(1);
-		goodsVO.setProgram("12");
-		goodsVO.setCharming("12");
-		goodsVO.setIncluded("12");
-		goodsVO.setNot_included("!2");
-		goodsVO.setHow_to_use("12");
-		goodsVO.setRemember("12");
-		goodsVO.setCancel("12");
-		goodsVO.setImg1("12");
-		goodsVO.setImg2("12");
-		goodsVO.setImg3("12");
-		goodsVO.setImg4("12");
-		int result=goodsDAO.goodsInsert(goodsVO);
-		System.out.println(result);
+		System.out.println("Test : coupon : "+ coupon);
+		assertNotNull(coupon);
+	}
+	
+	//@Test
+	public void goodsDelete()throws Exception{
+		GoodsVO good=new GoodsVO();
+		good.setGoods_num(88);
+		int result=goodsDAO.goodsDelete(good);
+		
 		assertEquals(1, result);
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

@@ -1,16 +1,21 @@
 package com.wg.p1.service;
 
+
+import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.multipart.MultipartFile;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.CategoryVO;
 import com.wg.p1.model.GoodsVO;
+import com.wg.p1.model.InfoVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
+import com.wg.p1.util.CouponMaker;
+import com.wg.p1.util.FileSaver;
 import com.wg.p1.util.Pager;
 import com.wg.p1.model.MemberVO;
 
@@ -19,8 +24,14 @@ import com.wg.p1.model.MemberVO;
 public class GoodsService {
 
 	@Inject
+	private FileSaver fileSaver;
+	@Inject
 	private GoodsDAO goodsDAO;
 
+	//selectGoodsInfo
+	public InfoVO selectGoodsInfo(int goods_num)throws Exception{
+		return goodsDAO.selectGoodsInfo(goods_num);
+	}
 
 	//quickSearch
 	public List<GoodsVO> quickSearch_usim() throws Exception{
@@ -39,7 +50,6 @@ public class GoodsService {
 	public List<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
 		return goodsDAO.goodsRecomand(memberVO);
 	}
-	
 	
 	//인기도시
 	public List<NationVO> CityList() throws Exception{
@@ -80,5 +90,13 @@ public class GoodsService {
 		return goodsDAO.CateAll();
 	}
 	
+	//메인페이지 검색용 - 도시
+	public List<NationVO> Citysearch(Pager pager) throws Exception{
+		return goodsDAO.Citysearch(pager);
+	}
+	//메인페이지 검색용 - 상품
+	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
+		return goodsDAO.Goodssearch(pager);
+	}
 	
 }

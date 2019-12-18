@@ -19,7 +19,7 @@ public class GoodsVO {
 	private String img;						//대표 이미지(썸네일)
 	private List<WishListVO> wishlist;		//위시리스트		//list!
 	private InfoVO infoVO;					//상품 정보		//object
-	private int cate_num;				//도시 이름
+	private int cate_num;				//
 	private String program;
 	private String charming;
 	private String included;
@@ -36,6 +36,29 @@ public class GoodsVO {
 	private String t_title;
 	private String city_name;
 	private String cate_name;
+	private int sell;
+	private float horizontal;
+	private float vertical;
+	
+	
+	public float getHorizontal() {
+		return horizontal;
+	}
+	public void setHorizontal(float horizontal) {
+		this.horizontal = horizontal;
+	}
+	public float getVertical() {
+		return vertical;
+	}
+	public void setVertical(float vertical) {
+		this.vertical = vertical;
+	}
+	public int getSell() {
+		return sell;
+	}
+	public void setSell(int sell) {
+		this.sell = sell;
+	}
 	public int getGoods_num() {
 		return goods_num;
 	}
@@ -157,12 +180,25 @@ public class GoodsVO {
 		this.how_to_use = how_to_use;
 	}
 	public String getRemember() {
+		if(remember==null) {
+			remember="<ul>\\r\\n\" + \r\n" + 
+					"				\"	<li>예약 확정 바우처를 받기 전까지는 예약 확정이 아닙니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>영업일 기준 1일 전에 예약해주셔야해요.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>신장 100cm 미만은 무료 이용이 가능합니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>이용일 3일 전부터는 픽업 호텔 변경이 불가합니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>조인투어로 다른 팀과 함께 진행됩니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>신장 100cm - 139cm까지는 어린이 요금이 적용됩니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>신장 140cm 이상인데 어린이 요금으로 결제할 경우 현장에서 추가 비용이 청구됩니다.</li>\\r\\n\" + \r\n" + 
+					"				\"	<li>날씨 및 현지상황 등에 따라 일정이 유동적으로 변경될 수 있습니다.</li>\\r\\n\" + \r\n" + 
+					"				\"</ul>";
+		}
 		return remember;
 	}
 	public void setRemember(String remember) {
 		this.remember = remember;
 	}
 	public String getCancel() {
+			
 		return cancel;
 	}
 	public void setCancel(String cancel) {

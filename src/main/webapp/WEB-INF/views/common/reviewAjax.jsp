@@ -2,12 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 					<c:forEach items="${list}" var="dto">
-					<div id="comment${dto.rv_num}" class="item-comment clearfix">
-						<div class="comment-content">
-
-							<div class="star-score-space">
+							<div id="comment${dto.rv_num}" class="item-comment clearfix">
+								<div class="comment-content">
+									<div class="star-score-space">
 								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
-
 								<span class="star-score-sort">
 									<div
 										class="rating-container rating-xxs rating-animate rating-disabled star-float">
@@ -34,9 +32,24 @@
 								</span> <span class="star-score-sort"> (${dto.rv_score}/5) </span> <span
 									class="comment-list-title" style="float: right;">${dto.rv_reg_date}</span>
 							</div>
-							<p class="comment_msg" >${dto.rv_contents}</p>
+							<p class="comment_msg" >${dto.rv_contents}
+							</p>
+								<c:forEach items="${dto.images}" var="image">
+									<c:if test="${not empty image.img_name}">
+										<img src="../resources/images/reviews/${image.img_name}" style="width: 74px; height: 74px;" class="tttt" id="${image.img_name}">
+										
+										
+									</c:if>
+								</c:forEach>
+								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
+								<!-- 관리자만 보이게 -->
+								<button value="${dto.rv_num}"data-goodidx="${dto.goods_num}"
+									data-idx="${dto.rv_num}" data-toggle="modal"
+									data-target="#modal-reply"
+									class="btn btn-review-reply outline btn-sm" type="button">답변</button>
+								<!-- 관리자만 보이게 -->	
 								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-update"
@@ -47,4 +60,14 @@
 							<!-- 여기까지 if문으로 감싸기 -->
 						</div>
 					</div>
+					<c:if test="${dto.rv_ex eq 1}">
+					<div style="position: relative; padding-bottom: 20px; margin-top: -16px;">
+             		   <div class="waug-comment-box">
+                   		 <span style="font-weight: bold;">${dto.rv_aname}</span>
+                   			 <span style="margin-left: 4px; color: #aaa;">${dto.rv_adate}</span>
+                    			<p class="comment_msg">${dto.rv_acontents}
+								</p>
+                		</div>
+           			 </div>
+					</c:if>
 					</c:forEach>
