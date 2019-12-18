@@ -579,7 +579,7 @@
 		
 		
 			
-	
+	<input type="file" id="ttse">
 		
 		
 		<c:import url="./layout/Footer.jsp"></c:import>
@@ -807,7 +807,10 @@
 		        $('.nav-wrapper').removeClass('nav_toggle');
 		     }
 		  });
-
+	$("#ttse").change(function() {
+		$(this).val("");
+		return false;
+	})
 	</script>
 </body>
 </html>

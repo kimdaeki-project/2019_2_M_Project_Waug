@@ -45,14 +45,16 @@
 		hidden="hidden">
 	<input type="text" id="getLanguage" value="${info.language }"
 		hidden="hidden">
-	<input type="text" id="getImg1" value="${goodsVO2.img1}">
-	<input type="text" id="getImg2" value="${goodsVO2.img2}">
-	<input type="text" id="getImg3" value="${goodsVO2.img3}">
-	<input type="text" id="getImg4" value="${goodsVO2.img4}">
 	
 	
 	
 	<form action="goods_update" method="post" enctype="multipart/form-data">
+	<input type="text"  class="img" name="img" id="titleImg"
+							style="width: 500px; height: 30px;" value="${goodsVO2.img}">
+	<input type="text" class="img"  name="img1" id="getImg1" value="${goodsVO2.img1}">
+	<input type="text" class="img"  name="img2" id="getImg2" value="${goodsVO2.img2}">
+	<input type="text" class="img"  name="img3" id="getImg3" value="${goodsVO2.img3}">
+	<input type="text" class="img"  name="img4" id="getImg4" value="${goodsVO2.img4}">
 
 	goods_num : <input type="text" value="${goodsVO2.goods_num}" name="goods_num" readonly="readonly"><br>
 		<select name="city_num" id="city_num">
@@ -74,33 +76,18 @@
 		<!-- 위에가 용주형꺼 -->
 		<div class="good_img_wrapper">
 			<div class="good_img_titleBox">
-				<div class="good_img_title">
-					<div
-						style="margin: 0 auto; line-height: 536px; width: 500px; height: 30px;">
-						<input type="text" name="img" id="titleImg"
-							style="width: 500px; height: 30px;" value="${goodsVO2.img}">
-					</div>
+				<div class="good_img_title" id="img" style="display: block; width:1000px;  height: 534px; margin-left: 0px; background: url('${goodsVO2.img}');">
+
 				</div>
 			</div>
 			<div class="good_img_divideBox">
 				<div class="good_img_small_wrapper">
-					<div class="good_img_small">
-						<input type="file" name="file" class="subImg" id="subImg1" value="${goodsVO2.img1 }">
-							<!--   <input type="file" value="c:/passwords.txt"> -->
-					</div>
-					<div class="good_img_small">
-						<input type="file" name="file" class="subImg" id="subImg2" value="${goodsVO2.img2}">
-					</div>
+					<div class="good_img_small" id="img1" style="background-repeat: no-repeat; background-position: center; background: url('${goodsVO2.img1}');"></div>
+					<div class="good_img_small" id="img2" style="background-repeat: no-repeat; background-position: center; background: url('${goodsVO2.img2}');"></div>
 				</div>
 				<div class="good_img_small_wrapper">
-					<div class="good_img_small">
-						img 4<input type="file" name="file" class="subImg" id="subImg3"
-							value="${goodsVO2.img3 }">
-					</div>
-					<div class="good_img_small">
-						img 5<input type="file" name="file" class="subImg" id="subImg4"
-							value="${goodsVO2.img4 }">
-					</div>
+					<div class="good_img_small" id="img3" style="background-repeat: no-repeat; background-position: center; background: url('${goodsVO2.img3}');"></div>
+					<div class="good_img_small" id="img4" style="background-repeat: no-repeat; background-position: center; background: url('${goodsVO2.img4}');"></div>
 				</div>
 			</div>
 		</div>
@@ -111,13 +98,13 @@
 						<div class="good_info_area">Goods title</div>
 						<div class="good_title">
 							<input type="text" name="title" style="color: black"
-								value="${goodsVO2.title }">
+								value="${goodsVO2.title}">
 						</div>
 						<div class="good_category_wrapper"></div>
 						<div class="good_info">
 							<div class="good_info_nextdate">
 								사용가능날짜(able)<br> <input type="date" name="able" class="st"
-									value="${goodsVO2.able }">
+									value="${goodsVO2.able}">
 							</div>
 							<div class="good_key_infoBox">
 								<div class="good_keyBox">
@@ -397,7 +384,7 @@ var delivery_time=false;
 var duration=false;
 var cancel=false;
 var language=false;
-var subImg1=false;
+/* var subImg1=false;
 var subImg2=false;
 var subImg3=false;
 var subImg4=false;
@@ -413,7 +400,7 @@ $('#subImg3').change(function() {
 });
 $('#subImg4').change(function() {
 	subImg4=true;
-});
+}); */
 
 $('.good_reservation_btn').click(function(){
 
@@ -452,7 +439,7 @@ $('.good_reservation_btn').click(function(){
 	}
 	
 	// if all true >> submit()
-	if(using_time&&pick_up&&people&&boucher&&delivery_time&&duration&&cancel&&language&&subImg1&&subImg2&&subImg3&&subImg4){
+	if(using_time&&pick_up&&people&&boucher&&delivery_time&&duration&&cancel&&language){
 		alert('all true');
 		$("form").submit();
 	}
@@ -489,6 +476,23 @@ $(window).ready(function() {
 	
 	
 });
+	/* //페이지 로딩이후 사진띄우기
+	window.onload = function(){
+		$(".img").each(function() {
+			var image = $(this).val();
+			var div = $(this).arrt('name');
+			$("#"+div).css({"background":"url("+image+")", 'background-repeat' : 'no-repeat', 'background-position':'center center'});
+		})
+	}; */
+	//사진 주소 입력시 사진 보여주기
+	$(".img").change(function() {
+		var image = $(this).val();
+		alert(image);
+		var div = $(this).attr('name');
+		alert(div);
+		$("#"+div).css({"background":"url("+image+")", 'background-repeat' : 'no-repeat', 'background-position':'center center'});
+		
+	});
 	</script>
 </body>
 </html>

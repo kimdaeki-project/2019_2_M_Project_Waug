@@ -35,7 +35,7 @@ body{background:#f7f7f7;}
 .good_img_wrapper{
    height: 544px;
    width: 100%;
-   background: green;
+   /* background: green; */
    display: flex;
    margin-top:70px;
    padding: 0px;
@@ -43,7 +43,6 @@ body{background:#f7f7f7;}
 .good_img_titleBox{
    width: 50%;
    height: 544px;
-   background: yellowgreen;
    border-bottom: 8px solid black;
    position: relative;
    display: inline-block;
@@ -65,14 +64,14 @@ body{background:#f7f7f7;}
 .good_img_divideBox{
    height: 534px;
    width: 50%;
-   background: gold;
+   /* background: gold; */
     display: inline-block;
    position: relative;
 }
 .good_img_small_wrapper{
 	height: 272px;
    width: 100%;
-	background:red;
+	/* background:red; */
    display: inline-flex;
 }
 .good_img_small{
@@ -80,7 +79,9 @@ body{background:#f7f7f7;}
    margin: 0px;
    width:50%;
    height: 272px;
-   background:gold;
+   background-repeat : no-repeat;
+   background-position : center;
+   background-size : cover;
    border-left: 8px solid black;
    border-bottom: 8px solid black;
 }

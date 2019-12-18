@@ -34,9 +34,10 @@ public class AdminService {
 		return infoVO_update;
 	}
 	
-	public int goodsUpdate_goods(GoodsVO goodsVO, MultipartFile[] file, HttpSession session)throws Exception{
+	public int goodsUpdate_goods(GoodsVO goodsVO, HttpSession session)throws Exception{
 	//대표이미지 저장하기
-
+		
+		/*
 		//파일 저장하기(sub 이미지 저장)
 		String realPath=session.getServletContext().getRealPath("resources/images/goods");
 		String fileName="";
@@ -56,7 +57,8 @@ public class AdminService {
 				goodsVO.setImg4(fileName);
 			}
 		}
-			System.out.println("adminService : test-------------------------------");
+		*/
+		System.out.println("adminService : test-------------------------------");
 			
 			
 		int goodsVO_update=goodsDAO.goodsUpdate(goodsVO);
@@ -64,8 +66,9 @@ public class AdminService {
 		return goodsVO_update;
 	}
 	
-	public int addGoods(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO, HttpSession session)throws Exception{
-		CouponMaker couponMaker=new CouponMaker();;
+	public int addGoods(GoodsVO goodsVO, InfoVO infoVO, HttpSession session)throws Exception{
+		CouponMaker couponMaker=new CouponMaker();
+		/*
 		//대표이미지 저장하기
 		System.out.println("City num : "+goodsVO.getCity_num());
 		System.out.println("City name : "+goodsVO.getCity_name());
@@ -92,6 +95,7 @@ public class AdminService {
 				System.out.println("img4Saved");
 			}
 		}
+		*/
 		//1-2
 		goodsVO.setCoupon(couponMaker.makeCoupon(goodsVO.getCity_num()));
 		goodsVO.setCity_name(goodsDAO.getCityName(goodsVO.getCity_num()));
