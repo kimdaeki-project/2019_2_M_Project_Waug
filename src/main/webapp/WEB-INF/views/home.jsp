@@ -37,11 +37,13 @@
 </style>
 </head>
 <body>
+	<div id="body">
 	<c:import url="./layout/home_nav.jsp"/>
+	
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?2</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?12</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -241,7 +243,7 @@
 					
 					<c:forEach  items="${list}" var="vo" begin="0" end="6">
 			
-						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=7';">
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=${vo.goods_num}';">
 
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								
@@ -577,7 +579,7 @@
 		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
-
+</div>
 	<script type="text/javascript">
 		
 		$(document).scroll(function() {
@@ -613,33 +615,37 @@
 			}, 5000);
 
 		/* 검색창 jquery */
-		$("#search").focus(function() {
+		$("#search").click(function(event) {
+			
 			$(this).attr("placeholder", "");
-			$(".searchresult-container").css("display", "flex");
+			$(".searchresult-container").addClass('searchresult-container-display');
+			
+			event.stopImmediatePropagation();
 		});
 		
-		$("#search").blur(function() {
 
+		/* 블러하면 사라지기 */
+		
+		/* $("#search").blur(function() {
+				
 			if ($(this).attr("placeholder") == "") {
 				$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-		}
+			}
 			$(".searchresult-container").css("display", "none");
-
-				
-				if ($(this).attr("placeholder") == "") {
-					$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-				}
-				$(".searchresult-container").css("display", "none");
-				
-				/* setInterval(() => {
-					if ($(this).attr("placeholder") == "") {
-						$(this).attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-					}
-					$(".searchresult-container").css("display", "none");
-				}, 250); */
-				
+			$(".searchresult-container").removeClass('searchresult-container-display');
+			
+		}); */
+		
+		/* 마우스리브 사라지기 */
+		$("#body").click(function() {
+			if ($("#search").attr("placeholder") == "") {
+				$("#search").attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
+			}
+			/* $(".searchresult-container").css("display", "none"); */
+			$(".searchresult-container").removeClass('searchresult-container-display');
 
 		});
+		
 		
 		$("#search").keyup(function() {
 			var search = $(this).val();

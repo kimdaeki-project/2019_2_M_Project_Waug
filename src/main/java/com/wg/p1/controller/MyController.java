@@ -142,6 +142,7 @@ public class MyController {
 		int count = wishlistService.wishCount(goods_num,email);
 		
 		String msg="위시리스트 등록 성공";
+		
 		if(count==0) {
 			result = wishlistService.wishAdd(wishListVO);
 

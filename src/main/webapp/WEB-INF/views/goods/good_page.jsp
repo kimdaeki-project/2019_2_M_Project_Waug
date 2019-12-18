@@ -35,17 +35,17 @@
       <div class="good_img_titleBox">
          <div class="good_btn_wishlist good_like"></div>
          
-         <div class="good_img_title"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" onclick="openModal();currentSlide(1)"></div>
+         <div class="good_img_title"><img src="${goods.img }" onclick="openModal();currentSlide(1)"></div>
         
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" onclick="openModal();currentSlide(2)"></div>
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" onclick="openModal();currentSlide(3)"></div>      
+         <div class="good_img_small"><img src="${goods.img1 }" onclick="openModal();currentSlide(2)"></div>
+         <div class="good_img_small"><img src="${goods.img2 }" onclick="openModal();currentSlide(3)"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" onclick="openModal();currentSlide(4)"></div>
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" onclick="openModal();currentSlide(5)"></div> 
+        <div class="good_img_small"><img src="${goods.img3 }" onclick="openModal();currentSlide(4)"></div>
+        <div class="good_img_small"><img src="${goods.img4 }" onclick="openModal();currentSlide(5)"></div> 
       </div>
       </div>
    </div>
@@ -264,23 +264,23 @@
   <div class="modal-content">
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587">
+      <img src="${goods.img }">
     </div>
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295">
+      <img src="${goods.img1 }">
     </div>
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295">
+      <img src="${goods.img2 }">
     </div>
     
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295">
+      <img src="${goods.img3 }">
     </div>
     
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295">
+      <img src="${goods.img4 }">
     </div>
     
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -288,19 +288,19 @@
 
 
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" style="height: 130px;" onclick="currentSlide(1)">
+      <img class="demo cursor" src="${goods.img }" style="height: 130px;" onclick="currentSlide(1)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" style="height: 130px;" onclick="currentSlide(2)">
+      <img class="demo cursor" src="${goods.img1 }" style="height: 130px;" onclick="currentSlide(2)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" style="height: 130px;"  onclick="currentSlide(3)">
+      <img class="demo cursor" src="${goods.img2}" style="height: 130px;"  onclick="currentSlide(3)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" style="height: 130px;" onclick="currentSlide(4)">
+      <img class="demo cursor" src="${goods.img3 }" style="height: 130px;" onclick="currentSlide(4)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" style="height: 130px;" onclick="currentSlide(5)">
+      <img class="demo cursor" src="${goods.img4 }" style="height: 130px;" onclick="currentSlide(5)">
     </div>
   </div>
 </div>
