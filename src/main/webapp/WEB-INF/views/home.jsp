@@ -182,7 +182,7 @@
 		<!------------------------------------------------ The Modal ------------------------------------------------>
 		<div class="main-item-container">
 			<div class="mainbanner-container">
-				<a href="https://www.waug.com/event/event.html?idx=311"> <img
+				<a href="./order/couponinfo"> <img
 					alt="promotion banner"
 					src="https://d2mgzmtdeipcjp.cloudfront.net/files/promotionbanner/2019/12/02/15752526973480.png">
 				</a>

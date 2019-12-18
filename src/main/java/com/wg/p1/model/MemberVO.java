@@ -15,8 +15,14 @@ public class MemberVO {
 	private String img;
 	private int goods_num;
 	private List<WishListVO> wishlist;
+	private List<MyCouponVO> myCoupon;
 	
-	
+	public List<MyCouponVO> getMyCoupon() {
+		return myCoupon;
+	}
+	public void setMyCoupon(List<MyCouponVO> myCoupon) {
+		this.myCoupon = myCoupon;
+	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;
 	}

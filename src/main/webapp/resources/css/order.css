@@ -716,4 +716,14 @@ input[type="email"].input_md{
 	font-weight:500;
 }
 
-
+/* 쿠폰발급페이지 */
+#event-wrapper{
+	margin-top: 70px;
+}
+#event-content img{
+	width: 100%;
+	vertical-align: middle;
+}
+.event-content-button-content{
+	margin-top:-5px;
+}

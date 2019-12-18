@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wg.p1.model.CartVO;
+import com.wg.p1.model.CouponVO;
+import com.wg.p1.model.OptionVO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
+import com.wg.p1.model.MyCouponVO;
 import com.wg.p1.model.WishListVO;
 import com.wg.p1.service.CartService;
+import com.wg.p1.service.CouponService;
 import com.wg.p1.service.MemberServiceImpl;
 import com.wg.p1.service.WishListService;
 
@@ -35,6 +39,8 @@ public class MyController {
 	private WishListService wishlistService;
 	@Inject
 	private CartService cartService;
+	@Inject
+	private CouponService couponService;
 	
 	@RequestMapping(value = "mypage")
 	public void my(HttpSession session) throws Exception{
@@ -46,6 +52,56 @@ public class MyController {
 	@PostMapping(value = "mypage")
 	public void my() {
 		
+	}
+	
+
+	@GetMapping("couponAdd")
+	public ModelAndView myCouponAdd(String c_code, HttpSession session, ModelAndView mv) throws Exception{
+		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
+		
+		MyCouponVO myCouponVO = new MyCouponVO();
+		myCouponVO.setC_code(c_code);
+		myCouponVO.setM_pk(memberVO.getM_pk());
+		
+		String m_pk= memberVO.getM_pk();
+	
+		List<CouponVO> ar = couponService.myCoupon(memberVO);
+	
+		mv.addObject("path", "../my/coupon");
+		int result = 0;
+		int count = couponService.couponCount(m_pk, c_code);
+		String msg="이미 발급받은 쿠폰입니다.";
+		
+		if(count ==0) {
+			 result = couponService.myCouponAdd(myCouponVO);
+			if(result>0) {	
+				
+				msg="쿠폰이 발급되었습니다!";
+			}
+		}else {
+			mv.addObject("path","../");
+		}
+		
+		
+		mv.addObject("list", ar);
+		mv.addObject("msg",msg);
+	
+		mv.setViewName("common/common_result");
+		return mv;
+	}
+	@GetMapping("coupon")
+	public ModelAndView coupon(HttpSession session, ModelAndView mv, MyCouponVO myCouponVO) throws Exception{
+		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
+		
+		int c_count_before = couponService.myCouponBeforeCount(memberVO);
+		int c_count_after = couponService.myCouponAfterCount(memberVO);
+		List<CouponVO> ar = couponService.myCoupon(memberVO);
+		
+		mv.addObject("list", ar);
+		mv.addObject("c_count_before", c_count_before);
+		mv.addObject("c_count_after", c_count_after);
+		mv.setViewName("my/coupon");
+		return mv;
 	}
 
 	//장바구니 리스트
@@ -71,11 +127,11 @@ public class MyController {
 	
 	//장바구니 추가
 	@PostMapping("cart")
-	public ModelAndView cart(CartVO cartVO, HttpSession session,int goods_num, ModelAndView mv) throws Exception{
+	public ModelAndView cart(CartVO cartVO, HttpSession session,int goods_num, ModelAndView mv,OptionVO optionVO) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
 		cartVO.setEmail(memberVO.getM_pk());
 		cartVO.setGoods_num(goods_num);
-		
+		cartVO.setO_num(optionVO.getO_num());
 		int result = cartService.cartAdd(cartVO);
 		if(result>0) {
 			System.out.println("성공");
@@ -120,7 +176,6 @@ public class MyController {
 		mv.addObject("msg", msg);
 		mv.addObject("path", "cart");
 		mv.setViewName("common/common_result");
-		
 		
 		return mv;
 	}
@@ -203,10 +258,7 @@ public class MyController {
 		
 	}
 	
-	@GetMapping("coupon")
-	public void myCoupon() throws Exception{
-		
-	}
+
 	
 	@GetMapping("point")
 	public void myPoint() throws Exception{
