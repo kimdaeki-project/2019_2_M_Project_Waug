@@ -6,17 +6,27 @@
 <mapper namespace="cartMapper">
 	<!-- 장바구니 추가 -->
 	<insert id="cartAdd" parameterType="CartVO">
-		insert into cart(cart_num,goods_num,o_num,email) values(cart_seq.nextval, #{goods_num},1,#{email})
+		insert into cart(cart_num,goods_num,o_num,email) values(cart_seq.nextval, #{goods_num},#{o_num},#{email})
 	</insert>
 	<!-- 삭제 -->
 	<delete id="cartDel" parameterType="Integer">
 		delete cart where cart_num=#{cart_num}
 	</delete>
   	<!-- 내 장바구니 -->
-  	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
+<!--   	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
   		select c.cart_num, g.goods_num, g.title, g.price, g.discount, g.img
   			from cart c, goods g
   		where c.goods_num=g.goods_num and c.email=#{m_pk}	
+  	</select>
+  	 -->
+  	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
+  	select c.cart_num, c.goods_num, c.email, o.o_num, o.o_time, o.o_people, o.o_date, g.img, to_char(o.o_date, 'yyyy-mm-dd') o_date2, g.title, g.price, g.discount
+		from cart c inner join goods_option o
+		on c.o_num=o.o_num
+		inner join goods g
+		on g.goods_num=c.goods_num
+		where c.email=#{m_pk}
+  	
   	</select>
   	<!-- 장바구니 금액 합계 -->
    	<select id="cartSum" parameterType="MemberVO" resultType="Integer">

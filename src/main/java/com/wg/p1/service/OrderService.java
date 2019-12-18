@@ -8,18 +8,23 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wg.p1.dao.OptionDAO;
 import com.wg.p1.dao.OrderDAO;
 import com.wg.p1.model.BookerInfoVO;
-import com.wg.p1.model.GoodsOptionVO;
+
+import com.wg.p1.model.OptionVO;
+
 
 @Service
 public class OrderService {
 
 	@Inject
 	private OrderDAO orderDAO;
+
 	private List<BookerInfoVO> booker;
-	public List<GoodsOptionVO> selectOptionTime()throws Exception{
-		List<GoodsOptionVO> ar=orderDAO.selectOptionTime();
+
+	public List<OptionVO> selectOptionTime()throws Exception{
+		List<OptionVO> ar=orderDAO.selectOptionTime();
 		return ar;
 	}
 	
@@ -56,5 +61,7 @@ public class OrderService {
 		List<BookerInfoVO> bookerInfo=orderDAO.selectBookerInfo(b_num);
 		return bookerInfo;
 	}
+
+
 	
 }

@@ -13,10 +13,13 @@
 	insert into booker_info values(book_seq.nextval,#{b_name},#{b_email},#{sns},#{b_visit},#{b_gender},#{b_num},#{firstName},#{lastName},#{passport})
 </insert>
 
-<select id="selectOptionTime" resultType="GoodsOptionVO">
+
+<select id="selectOptionTime" resultType="OptionVO">
 	select * from goods_option	
 </select>
+
 <select id="selectBookerInfo" parameterType="Integer" resultType="BookerInfoVO">
 	select * from booker_info where b_ref=#{b_num}
 </select>
+
 </mapper>
