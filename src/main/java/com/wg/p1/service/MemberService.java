@@ -17,5 +17,10 @@ public interface MemberService {
 		public int memberDelete(MemberVO memberVO) throws Exception;
 		//select
 		public MemberVO memberSelect(MemberVO memberVO) throws Exception;
-
+		//update
+		public int passwordUpdate(MemberVO memberVO) throws Exception;
+		//memberFind
+		public MemberVO memberFind(MemberVO memberVO) throws Exception;
+		//memberFind2
+		public MemberVO memberFind2(MemberVO memberVO) throws Exception;
 }

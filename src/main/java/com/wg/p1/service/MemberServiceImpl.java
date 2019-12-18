@@ -1,5 +1,7 @@
 package com.wg.p1.service;
 
+import java.util.UUID;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -15,8 +17,11 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public int memberJoin(MemberVO memberVO) throws Exception {
+		String filename =UUID.randomUUID().toString();
+		memberVO.setUuid(filename);
 		return memberDAO.memberJoin(memberVO);
 	}
+
 
 	@Override
 	public MemberVO memberLogin(MemberVO memberVO) throws Exception {
@@ -43,6 +48,20 @@ public class MemberServiceImpl implements MemberService {
 	public int socialJoin(MemberVO memberVO) throws Exception {
 		
 		return memberDAO.socialJoin(memberVO);
+	}
+	@Override
+	public int passwordUpdate(MemberVO memberVO) throws Exception {
+		String filename =UUID.randomUUID().toString();
+		memberVO.setUuid(filename);
+		return memberDAO.passwordUpdate(memberVO);
+	}
+	@Override
+	public MemberVO memberFind(MemberVO memberVO) throws Exception {
+		return memberDAO.memberFind(memberVO);
+	}
+	@Override
+	public MemberVO memberFind2(MemberVO memberVO) throws Exception {
+		return memberDAO.memberFind2(memberVO);
 	}
 	
 }

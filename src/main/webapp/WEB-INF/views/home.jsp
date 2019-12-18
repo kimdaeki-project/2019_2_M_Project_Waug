@@ -577,6 +577,11 @@
 			관리자페이지
 		</button>
 		
+		
+			
+	
+		
+		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 </div>

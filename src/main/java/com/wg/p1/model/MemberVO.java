@@ -15,8 +15,15 @@ public class MemberVO {
 	private String img;
 	private int goods_num;
 	private List<WishListVO> wishlist;
+	private String uuid;
 	
 	
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;
 	}

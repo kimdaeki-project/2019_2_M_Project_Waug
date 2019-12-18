@@ -6,7 +6,7 @@
 <mapper namespace="memberMapper">
   	
 	<insert id="memberJoin" parameterType="MemberVO">
-		insert into member(m_pk,social,email,pw,name) values(#{m_pk},#{social},#{email},#{pw},#{name})
+		insert into member(m_pk,social,email,pw,name, uuid) values(#{m_pk},#{social},#{email},#{pw},#{name}, #{uuid})
 	</insert>  
   
   	<insert id="socialJoin" parameterType="MemberVO">
@@ -17,7 +17,19 @@
   		where m_pk=#{m_pk}
   	</select>
   	
+  	<update id="passwordUpdate" parameterType="MemberVO">
+  		update member set
+  			pw=#{pw}, uuid=#{uuid} where m_pk=#{m_pk}
   	
+  	</update>
+  	<select id="memberFind" parameterType="MemberVO" resultType="MemberVO">
+  		select * from member where m_pk = #{m_pk}
+  	</select>
+  	
+  	<select id="memberFind2" parameterType="MemberVO" resultType="MemberVO">
+  		select * from member where uuid=#{uuid}
+  	</select>
+
   	
   	<update id="memberUpdate" parameterType="MemberVO">
   		update member set 
@@ -32,4 +44,6 @@
   	<delete id="memberDelete" parameterType="MemberVO">
   		delete member where email=#{email}
   	</delete>
+  	
+  	
 </mapper>

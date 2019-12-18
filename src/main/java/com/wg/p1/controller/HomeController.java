@@ -195,8 +195,10 @@ public class HomeController {
 
 	Transport.send(mimeMessage); //javax.mail.Transport.send() 이용 
 	}
-
-
+	
+	
+	
+	
 }
 
 
