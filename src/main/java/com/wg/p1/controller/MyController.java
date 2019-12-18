@@ -116,15 +116,12 @@ public class MyController {
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		List<GoodsVO> ar = cartService.myCart(memberVO);
 		
-		ar = optionService.optionList(optionVO);
-		
 		int cartCount = cartService.cartCount(memberVO);
 		
 		
 		mv.addObject("cartCount", cartCount);
 		int cartSum = cartService.cartSum(memberVO);
 		mv.addObject("list", ar);
-		//mv.addObject("list2", ar2);
 		mv.addObject("cartVO", cartVO);
 		mv.addObject("cartSum",cartSum);
 		mv.setViewName("my/cart");

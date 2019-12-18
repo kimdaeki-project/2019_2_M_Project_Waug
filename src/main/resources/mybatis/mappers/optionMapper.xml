@@ -12,6 +12,6 @@
   
     <!-- 옵션리스트 -->
   <select id="optionList" parameterType="OptionVO" resultType="GoodsVO">
-  	select * from goods_option
+  	select o_num, o_time, o_people, to_char(o_date,'yyyy-mm-dd') o_date from goods_option
   </select>
   </mapper>

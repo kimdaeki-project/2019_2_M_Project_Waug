@@ -33,7 +33,7 @@
 			<select class="credit_select" id="checkOptionTime" name="o_time">
 						<option value="0" >시간을 선택해 주세요</option>
 					<c:forEach  var="i" begin="1" end="23">
-						<option value="o_time">${i}:00~${i+1}:00</option>
+						<option id="o_time">${i}:00~${i+1}:00</option>
 					</c:forEach>
 			</select>
 			<br><br>
@@ -99,6 +99,7 @@
 	<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
 	<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
 	<input type="date" id="date1" name="o_date" hidden="hidden">
+	<input type="date" id="time1" name="o_time">
 	</form>
 </div>
 

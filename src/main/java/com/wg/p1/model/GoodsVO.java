@@ -43,9 +43,16 @@ public class GoodsVO {
 	private String o_people;
 	private String o_date;
 	private String o_time;
+	private String o_date2;
 	
 	
 
+	public String getO_date2() {
+		return o_date2;
+	}
+	public void setO_date2(String o_date2) {
+		this.o_date2 = o_date2;
+	}
 	public String getO_people() {
 		return o_people;
 	}
