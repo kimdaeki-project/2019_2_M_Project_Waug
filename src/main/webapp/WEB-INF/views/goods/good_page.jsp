@@ -308,7 +308,7 @@
 <script>
       var map;
       function initMap() {
-    	var uluru = {lat: 37.5565, lng: 126.9195};
+    	var uluru = {lat:${goods.horizontal}, lng: ${goods.vertical}};
     	var map = new google.maps.Map(
     		document.getElementById('map'), {zoom: 16, center: uluru});
     		// The marker, positioned at Uluru

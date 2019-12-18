@@ -15,12 +15,13 @@
 <c:import url="../layout/nav.jsp"/>
 <div style="margin-top:80px;">
 	<div class="order_wrapper">
-	<form action="order" method="post">									<!-- <form action="order" method="post"> -->
+	<form action="./order1" method="post" id="formId">									<!-- <form action="order" method="post"> -->
+	<input type="text" name="goods_num" value="${goods.goods_num}" style="background:gold"> 
 		<div class="order_infoBox">
 			<div class="order_info_title">예약자 정보</div>
 			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
 			<div class="order_inputBox"><!-- input inside -->
-			<input type="text" value="email" name="email">
+			<input type="text" value="${member.email}" name="email" hidden="hidden">
 				<label>
 					<div class="order_info_fields_title">이름</div>
 					<div class="order_fields_input">
@@ -76,8 +77,8 @@
 				</label>
 				<br>
 				<div class="order_info_fields_title">성별</div>
-					남 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="남" > &nbsp;&nbsp;
-					여 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="여">
+					남 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="1"> &nbsp;&nbsp;
+					여 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="0">
 				</div>
 				
 		</div>
@@ -87,7 +88,7 @@
 		<div class="order_infoBox">
 			<div class="order_info_title">세부 정보</div>
 			<div class="order_info_title_text">세부정보를 반드시 입력해주시기 바랍니다.</div>
-			<div class="order_info_good_title">코타키나발루 3박 4일 수트라 하버 마젤란 / 전 일정 조식 + 왕복 픽업 (오후/인천 출발)</div>
+			<div class="order_info_good_title">${goods.title }</div>
 			<div class="order_inputBox">
 				<label>
 					<div class="order_info_fields_title">메신저 ID</div>
@@ -111,54 +112,6 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-var checkFname=false;
-var checkLname=false;
-var checkPhone=false;
-var checkPassport=false;
-var checkSNS=false;
-$('#sns').blur(function(){
-	checkSNS=checkIsVal($('#sns').val());
-	console.log("checkSNS : "+checkSNS);
-})
-$('#passport').blur(function(){
-	checkPassport=checkIsVal($('#passport').val());
-	console.log("checkPassport : "+checkPassport);
-});
-$('#phone').blur(function(){
-	checkPhone=checkIsVal($('#phone').val());
-	console.log("checkPhone : "+checkPhone);
-});
-$('#fname').blur(function(){
-	checkFname=checkIsVal($('#fname').val());
-	console.log("fname : "+checkFname);
-})
-$('#lname').blur(function(){
-	checkLname=checkIsVal($('#lname').val());
-	console.log("checkLname : "+checkLname);
-});
-function checkIsVal(value){
-	value.trim();
-	if(value!=""){
-		return true;
-	}
-	else{return false;}
-}
 
-	//예약하기 버튼 눌렀을때 다음페이지 넘어가기
-	$('#info_reservation_btn').click(function(){
-		if(checkFname&&checkLname&&checkPhone&&checkPassport&&checkSNS){
-			location.href="./order";			
-		}
-		else{
-			alert('모두 입력해주세요');
-		}
-	});
-
-	
-	
-	
-	
-</script>	
 </body>
 </html>
