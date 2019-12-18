@@ -13,8 +13,10 @@
 <body>
 <c:import url="../layout/nav.jsp"/>
 <div class="order_container">
+
 	<div class="order_row">
 		<!-- left -->
+		<input value="${goods.goods_num}" style="background:gold">
 		<div class="order_col_md">
 			<div class="order_user_infoBox">
 				<div class="order_user_infoBox_title">예약자 정보</div>
@@ -29,7 +31,7 @@
 				<div class="order_reser_info">
 					<img src="sample.jpg">
 					<div class="order_reser_info_text">
-						<b>asdfsaddsfasdfasdfasdfasdfasdff</b>
+						<b>${goods.title}</b>
 						<p>display: inline-block;display: inline-block;</p>
 					</div>
 				</div>

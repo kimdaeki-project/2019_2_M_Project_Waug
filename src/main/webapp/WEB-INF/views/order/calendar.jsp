@@ -22,7 +22,7 @@
 	<div id="reser_modal">
 		<div class="reser_modal_wrapper">
 			<span id="reser_modal_close">&times;</span>
-			 <input type="hidden" name="goods_num" value="7" > 
+			 <input type="hidden" name="goods_num" value="${goods.goods_num}" > 
 			<div class="reser_modal_info">
 				<div class="reser_modal_title">${goods.title }</div>
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>

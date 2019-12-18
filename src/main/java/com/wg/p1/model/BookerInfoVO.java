@@ -10,12 +10,11 @@ public class BookerInfoVO {
 //	B_REF	VARCHAR2(20 BYTE)
 	
 	private int b_num;			//예약시퀀스
-	private int res_num;		//예약번호
 	private String b_name;
 	private String sns;		//sns 계정
 	private String b_visit;		//방문시간
 	private int b_gender;
-	private String b_ref;	//ref : 같은 예약끼리 묶어놓기 위해서
+	private int b_ref;	//ref : 같은 예약끼리 묶어놓기 위해서
 	private String firstName;
 	private String lastName;
 	private String passport;
@@ -59,12 +58,6 @@ public class BookerInfoVO {
 	public void setB_num(int b_num) {
 		this.b_num = b_num;
 	}
-	public int getRes_num() {
-		return res_num;
-	}
-	public void setRes_num(int res_num) {
-		this.res_num = res_num;
-	}
 	public String getB_name() {
 		return b_name;
 	}
@@ -89,12 +82,13 @@ public class BookerInfoVO {
 	public void setB_gender(int b_gender) {
 		this.b_gender = b_gender;
 	}
-	public String getB_ref() {
+	public int getB_ref() {
 		return b_ref;
 	}
-	public void setB_ref(String b_ref) {
+	public void setB_ref(int b_ref) {
 		this.b_ref = b_ref;
 	}
+	
 	
 	
 }
