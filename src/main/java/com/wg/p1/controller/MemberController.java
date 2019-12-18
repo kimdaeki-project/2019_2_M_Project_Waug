@@ -117,6 +117,7 @@ public class MemberController {
 		memberVO.setM_pk("k_"+email);
 		memberVO = memberService.memberLogin(memberVO);
 		
+		
 		String msg="로그인실패";
 		if(memberVO!=null) {
 			msg="로그인성공";
