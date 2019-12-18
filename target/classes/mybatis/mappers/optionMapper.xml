@@ -6,11 +6,12 @@
   <mapper namespace="optionMapper">
   
   <insert id="optionAdd" parameterType="OptionVO">
-  	insert goods_option(o_num, o_time, o_people, o_date) values(option_seq.nextval, #{o_time}, #{o_people},#{o_date})
+  	insert into goods_option(o_num, o_time, o_people, o_date) values(option_seq.nextval, #{o_time}, #{o_people},#{o_date})
   </insert>
   
   
     <!-- 옵션리스트 -->
-  <select id="optionList">
+  <select id="optionList" parameterType="OptionVO" resultType="GoodsVO">
+  	select * from goods_option
   </select>
   </mapper>

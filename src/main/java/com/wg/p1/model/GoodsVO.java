@@ -40,8 +40,30 @@ public class GoodsVO {
 	private double horizontal;
 	private double vertical;
 	
+	private String o_people;
+	private String o_date;
+	private String o_time;
+	
 	
 
+	public String getO_people() {
+		return o_people;
+	}
+	public void setO_people(String o_people) {
+		this.o_people = o_people;
+	}
+	public String getO_date() {
+		return o_date;
+	}
+	public void setO_date(String o_date) {
+		this.o_date = o_date;
+	}
+	public String getO_time() {
+		return o_time;
+	}
+	public void setO_time(String o_time) {
+		this.o_time = o_time;
+	}
 	public double getHorizontal() {
 		return horizontal;
 	}

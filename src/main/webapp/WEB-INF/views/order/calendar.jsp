@@ -53,7 +53,7 @@
 		</div>
 	</div>
 	<input type="text" id="people" name="o_people" value="0" hidden="hidden">
-	</form>
+	
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
@@ -94,12 +94,14 @@
 		</div>
 		</div>
 	</div>
+	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
+	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
+	<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
+	<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
+	<input type="date" id="date1" name="o_date" hidden="hidden">
+	</form>
 </div>
-<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
-<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
-<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
-<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
-<input type="date" id="date1">
+
 
 <script type="text/javascript">
 	//장바구니에 상품넣기

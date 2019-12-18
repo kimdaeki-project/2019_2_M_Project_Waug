@@ -68,7 +68,7 @@
 												${vo.title}
 											</a>
 										</td>
-										<td class="text-center">예약날짜</td>
+										<td class="text-center">${vo.o_date},${vo.o_time}</td>
 										<td>
 											<div>예약내용</div>
 											<div>${vo.discount}</div>

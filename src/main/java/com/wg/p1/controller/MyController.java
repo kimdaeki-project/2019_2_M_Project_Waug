@@ -24,6 +24,8 @@ import com.wg.p1.model.WishListVO;
 import com.wg.p1.service.CartService;
 import com.wg.p1.service.CouponService;
 import com.wg.p1.service.MemberServiceImpl;
+import com.wg.p1.service.OptionService;
+import com.wg.p1.service.OrderService;
 import com.wg.p1.service.WishListService;
 
 import oracle.net.aso.e;
@@ -41,6 +43,8 @@ public class MyController {
 	private CartService cartService;
 	@Inject
 	private CouponService couponService;
+	@Inject
+	private OptionService optionService;
 	
 	@RequestMapping(value = "mypage")
 	public void my(HttpSession session) throws Exception{
@@ -106,18 +110,21 @@ public class MyController {
 
 	//장바구니 리스트
 	@GetMapping("cart")
-	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
+	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO, OptionVO optionVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		List<GoodsVO> ar = cartService.myCart(memberVO);
 		
+		ar = optionService.optionList(optionVO);
 		
 		int cartCount = cartService.cartCount(memberVO);
-		System.out.println(cartCount);
+		
+		
 		mv.addObject("cartCount", cartCount);
 		int cartSum = cartService.cartSum(memberVO);
 		mv.addObject("list", ar);
+		//mv.addObject("list2", ar2);
 		mv.addObject("cartVO", cartVO);
 		mv.addObject("cartSum",cartSum);
 		mv.setViewName("my/cart");
@@ -132,9 +139,11 @@ public class MyController {
 		cartVO.setEmail(memberVO.getM_pk());
 		cartVO.setGoods_num(goods_num);
 		cartVO.setO_num(optionVO.getO_num());
-		int result = cartService.cartAdd(cartVO);
+		int result = optionService.optionAdd(optionVO);
+		int result2 = cartService.cartAdd(cartVO);
 		if(result>0) {
 			System.out.println("성공");
+			System.out.println(result2);
 		}else {
 			System.out.println("실패");
 		}

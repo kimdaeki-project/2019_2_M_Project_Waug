@@ -16,12 +16,7 @@ public class OrderService {
 
 	@Inject
 	private OrderDAO orderDAO;
-	@Inject
-	private OptionDAO optionDAO;
-	
-	public int optionAdd(OptionVO optionVO) throws Exception{
-		return optionDAO.optionAdd(optionVO);
-	}
+
 	
 	/*
 	 * public List<OptionVO> selectOptionTime()throws Exception{ List<OptionVO>
