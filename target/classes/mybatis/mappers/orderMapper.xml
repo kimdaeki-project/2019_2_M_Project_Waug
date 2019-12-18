@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orderMapper">
 
+
 <insert id="insertBookerInfo" parameterType="BookerInfoVO">
 	<selectKey order="BEFORE" resultType="Integer" keyProperty="b_num">
 		select book_seq.nextval from dual
@@ -14,7 +15,12 @@
 	insert into booker_info values(book_seq.nextval,#{b_name},#{b_email},#{sns},#{b_visit},#{b_gender},#{b_num},#{firstName},#{lastName},#{passport},#{email})
 </insert>
 
-<select id="selectOptionTime" resultType="GoodsOptionVO">
+
+<select id="selectOptionTime" resultType="OptionVO">
 	select * from goods_option	
 </select>
+
+
+
+
 </mapper>

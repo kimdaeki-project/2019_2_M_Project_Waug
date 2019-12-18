@@ -121,7 +121,7 @@
 									</a>
 									<form action="review_write" method="post" class="review-form">
 									<!-- rv_writer 멤버session에서 받아와야함-->
-										<input type="text" name="rv_writer" value="pyj" style="display: none;">
+										<input type="text" name="rv_writer" value="${memberVO.name}" style="display: none;">
 										<input type="hidden" name="email" value="pyj9088@gmail.com">
 									<!-- 이 2개 -->
 									<div class="pull-left">

@@ -24,16 +24,17 @@
 			<span id="reser_modal_close">&times;</span>
 			 <input type="hidden" name="goods_num" value="${goods.goods_num}" > 
 			<div class="reser_modal_info">
-				<div class="reser_modal_title">${goods.title }</div>
+				<div class="reser_modal_tile">${goods.title}</div>
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
 		
+		
 			<select class="credit_select" id="checkOptionTime" name="o_time">
-				<option value="0" >시간을 선택해 주세요</option>
-				<c:forEach items="${goodsOption}" var="option">
-				<option>${option.o_time}</option>
-				</c:forEach>
+						<option value="0" >시간을 선택해 주세요</option>
+					<c:forEach  var="i" begin="1" end="23">
+						<option>${i}:00~${i+1}:00</option>
+					</c:forEach>
 			</select>
 			<br><br>
 			<div class="reser_numberOfUserBox">
@@ -51,8 +52,8 @@
 			</div>
 		</div>
 	</div>
-	<input type="text" id="people" name="people" value="0" hidden="hidden">
-	</form>
+	<input type="text" id="people" name="o_people" value="0" hidden="hidden">
+	
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
@@ -82,6 +83,7 @@
 			<div class="reser_option_title">
 				<!-- 날짜를 먼저 선택해주세요. -->
 				<div class="reser_option_selected_date" >2020-02-08aaa</div>
+				<input type="text" value="">
 				<div class="reser_option_list">
 					<div class="reser_option_item">
 						<div class="reser_option_item_title">${goods.title}</div>
@@ -92,14 +94,18 @@
 		</div>
 		</div>
 	</div>
+	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
+	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
+	<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
+	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden">
+	<input type="date" id="date1" name="o_date">
+<!-- 	<input type="text" id="time1" name="o_time"> -->
+	</form>
 </div>
-<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
-<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
-<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
-<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
 
 
 <script type="text/javascript">
+	//장바구니에 상품넣기
 	$("#cart_btn").click(function() {
 		$("#formId").attr("action","../my/cart");
 		$("#formId").submit();
@@ -218,6 +224,7 @@
 		console.log("choosedDate test year : "+year);
 		console.log("choosedDate test month : "+month);
 		console.log("choosedDate test date : "+date);
+		document.getElementById("date1").value = year+"-"+month+"-"+date;
 		fillDate(year,month,date);
 	}
 	

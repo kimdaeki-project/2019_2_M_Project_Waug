@@ -9,9 +9,9 @@
 <update id="goodsUpdate" parameterType="GoodsVO">
 	update goods 
 	set
-	price=#{price},	DISCOUNT=#{discount},LOCATION=#{location},ABLE=#{able},CITY_NUM=#{city_num},O_NUM=#{o_num},QTT=#{qtt},TITLE=#{title},
+	price=#{price},	DISCOUNT=#{discount},ABLE=#{able},CITY_NUM=#{city_num},QTT=#{qtt},TITLE=#{title},
 	T_NUM=#{t_num},IMG=#{img},CATE_NUM=#{cate_num},PROGRAM=#{program},CHARMING=#{charming},INCLUDED=#{included},NOT_INCLUDED=#{not_included},HOW_TO_USE=#{how_to_use},
-	REMEMBER=#{remember},CANCEL=#{cancel},IMG1=#{img1},IMG2=#{img2},IMG3=#{img3},IMG4=#{img4}
+	REMEMBER=#{remember},CANCEL=#{cancel},IMG1=#{img1},IMG2=#{img2},IMG3=#{img3},IMG4=#{img4},horizontal=#{horizontal}, vertical=#{vertical}
 	where
 	goods_num=#{goods_num}
 </update>
@@ -69,7 +69,7 @@ select max(goods_num) from goods
 <insert id="goodsInsert" parameterType="GoodsVO">
 	
 	insert into goods values(goods_seq.nextval, #{price}, #{discount}, #{coupon},
-	#{location},#{able},#{city_num},#{o_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
+	#{location},#{able},#{city_num},#{qtt},#{title},#{t_num},#{img},0,#{cate_num},
 	#{program},#{charming},#{included},#{not_included},#{how_to_use},#{remember},#{cancel},#{img1},#{img2},#{img3},#{img4},0,#{horizontal},#{vertical})
 </insert>
 
@@ -128,11 +128,11 @@ select max(goods_num) from goods
 	</select>
 	
   <select id="goodsRecomand" parameterType="MemberVO"  resultType="GoodsVO">
-  	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img,1 wish,cate_num,sell
+  	select goods_num,price,discount,coupon,location,able,city_num,qtt, title,t_num,img,1 wish,cate_num,sell
 		from goods 
 		where goods_num in(select goods_num from wishlist where email=#{m_pk})
 	union
-	select goods_num,price,discount,coupon,location,able,city_num,o_num,qtt, title,t_num,img, wish, cate_num,sell
+	select goods_num,price,discount,coupon,location,able,city_num,qtt, title,t_num,img, wish, cate_num,sell
 		from goods
 		where goods_num not in(select goods_num from wishlist where email=#{m_pk})
 		order by sell desc
@@ -152,9 +152,7 @@ select max(goods_num) from goods
   <select id="themeList" resultType="ThemeVO">
   	select * from theme
   </select>
-  <!-- 옵션리스트 -->
-  <select id="optionList">
-  </select>
+
   <!-- 카테고리리스트 -->
   <select id="cateList" resultType="CategoryVO">
   	select * from category

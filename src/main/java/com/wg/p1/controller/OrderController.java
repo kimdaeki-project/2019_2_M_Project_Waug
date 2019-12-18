@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.BookerInfoVO;
-import com.wg.p1.model.GoodsOptionVO;
+
+
+import com.wg.p1.model.OptionVO;
+
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.GoodsService;
@@ -31,18 +33,28 @@ public class OrderController {
 	@Inject
 	private OrderService orderService;
 	private GoodsVO goodsVO;
-	private List<BookerInfoVO> booker;
+
+
+	@GetMapping("coupon")
+	public void coupon(String c_code) throws Exception{
+		System.out.println(c_code);  
+	}
+	
 	@GetMapping("calendar")
 	public Model calendar(int goods_num, Model model) throws Exception {
-		goodsVO=goodsService.selectOneGoods(goods_num);
-		List<GoodsOptionVO> goodsOptionVO=orderService.selectOptionTime();
-		model.addAttribute("goods", goodsVO);
-		model.addAttribute("goodsOption", goodsOptionVO);
+		
+		 System.out.println("test : orderController > calendar(int "+goods_num+")");
+		 goodsVO=goodsService.selectOneGoods(goods_num); 
+		// List<GoodsOptionVO> goodsOptionVO=orderService.selectOptionTime(); 
+		 model.addAttribute("goods",goodsVO); 
+		 //model.addAttribute("goodsOption", goodsOptionVO);
+		 
+
 		return model;
 	}
 	
 	@PostMapping("info")
-	public ModelAndView info(GoodsOptionVO goodsOptionVO, int goods_num, int people, HttpSession session) throws Exception{
+	public ModelAndView info( int goods_num, int people, HttpSession session) throws Exception{
 		ModelAndView mv=new ModelAndView();
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
@@ -63,9 +75,16 @@ public class OrderController {
 			mv.addObject("people", people);
 			mv.addObject("goods", goodsVO);
 			mv.addObject("member", memberVO);
-			mv.addObject("goodsOption", goodsOptionVO);
+		//	mv.addObject("goodsOption", goodsOptionVO);
 			return mv;
-//		}
+	}
+
+	public Model info(OptionVO optionVO, GoodsVO goodsVO, int people, Model model) throws Exception{
+		System.out.println("goodsOptionVO.getO_time() : "+optionVO.getO_time());
+		System.out.println("GoodsVO.getNumbaer : "+goodsVO.getGoods_num() );
+		System.out.println("people : "+ people);
+		model.addAttribute("people", people);
+		return model;
 	}
 	
 	@PostMapping("order1")

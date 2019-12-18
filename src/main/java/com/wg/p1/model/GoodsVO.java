@@ -40,8 +40,38 @@ public class GoodsVO {
 	private double horizontal;
 	private double vertical;
 	
+	private String o_people;
+	private String o_date;
+	private String o_time;
+	private String o_date2;
 	
-	
+
+
+	public String getO_date2() {
+		return o_date2;
+	}
+	public void setO_date2(String o_date2) {
+		this.o_date2 = o_date2;
+	}
+	public String getO_people() {
+		return o_people;
+	}
+	public void setO_people(String o_people) {
+		this.o_people = o_people;
+	}
+	public String getO_date() {
+		return o_date;
+	}
+	public void setO_date(String o_date) {
+		this.o_date = o_date;
+	}
+	public String getO_time() {
+		return o_time;
+	}
+	public void setO_time(String o_time) {
+		this.o_time = o_time;
+	}
+
 	public double getHorizontal() {
 		return horizontal;
 	}
@@ -182,7 +212,9 @@ public class GoodsVO {
 	}
 	public String getRemember() {
 		if(remember==null) {
+
 			remember="<ul><li>예약 확정 바우처를 받기 전까지는 예약 확정이 아닙니다.</li><li>영업일 기준 1일 전에 예약해주셔야해요.</li><li>신장 100cm 미만은 무료 이용이 가능합니다.</li><li>이용일 3일 전부터는 픽업 호텔 변경이 불가합니다.</li><li>조인투어로 다른 팀과 함께 진행됩니다.</li><li>신장 100cm - 139cm까지는 어린이 요금이 적용됩니다.</li><li>신장 140cm 이상인데 어린이 요금으로 결제할 경우 현장에서 추가 비용이 청구됩니다.</li><li>날씨 및 현지상황 등에 따라 일정이 유동적으로 변경될 수 있습니다.</li></ul>";
+
 		}
 		return remember;
 	}
