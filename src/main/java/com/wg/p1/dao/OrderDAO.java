@@ -27,4 +27,8 @@ public class OrderDAO {
 	public int insertBookerInfo2(BookerInfoVO bookerInfoVO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"insertBookerInfo2", bookerInfoVO);
 	}
+	//selectBookerInfo
+	public List<BookerInfoVO> selectBookerInfo(int b_num)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"selectBookerInfo", b_num);
+	}
 }

@@ -69,18 +69,20 @@ public class OrderController {
 	}
 	
 	@PostMapping("order1")
-	public ModelAndView order(int goods_num, ModelAndView mv,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit,String b_name, String b_email)throws Exception{
+	public ModelAndView order(int people,int goods_num, ModelAndView mv,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit, String b_email)throws Exception{
 		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
-		
-		orderService.insertBookerInfo(firstName, lastName, passport, b_gender, sns, b_visit, b_name, b_email);
+		System.out.println("orderController  :");
+		System.out.println(b_gender);
+		for(int i=0;i<b_gender.length;i++) {
+			System.out.println("b_gender[i] : "+b_gender[i]);
+		}
+		int ref=orderService.insertBookerInfo(people,firstName, lastName, passport, b_gender, sns, b_visit, b_email);
+		List<BookerInfoVO> bookerInfo=orderService.selectBookerInfo(ref);
 		mv.addObject("goods", goodsVO);
+		mv.addObject("bookerInfo", bookerInfo);
 		mv.setViewName("order/order");
 		
 		return mv;
 	}
-//	goods		calendar		info			order
-//	get			get				post			post	
-//	-goods_num	-goods_num		-booker_info	-reservation	
-//								-goods		
 	
 }

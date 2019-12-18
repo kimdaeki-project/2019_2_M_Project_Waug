@@ -23,30 +23,38 @@ public class OrderService {
 		return ar;
 	}
 	
-	public int insertBookerInfo(String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit,String b_name, String b_email)throws Exception{
+	public int insertBookerInfo(int people,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit, String b_email)throws Exception{
 		BookerInfoVO bookerInfoVO = new BookerInfoVO();
 		bookerInfoVO.setFirstName(firstName[0]);
 		bookerInfoVO.setLastName(lastName[0]);
 		bookerInfoVO.setPassport(passport[0]);
 		bookerInfoVO.setSns(sns);
 		bookerInfoVO.setB_visit(b_visit);
+		String b_name=firstName[0]+" "+lastName[0];
 		bookerInfoVO.setB_name(b_name);
 		bookerInfoVO.setB_email(b_email);
 		int result = orderDAO.insertBookerInfo(bookerInfoVO);
 		System.out.println(bookerInfoVO.getB_num());
-		for(int i=1; i<firstName.length;i++) {
+		for(int i=1; i<people;i++) {
 			bookerInfoVO.setB_ref(bookerInfoVO.getB_num());
+			System.out.println(bookerInfoVO.getB_num());
 			bookerInfoVO.setFirstName(firstName[i]);
 			bookerInfoVO.setLastName(lastName[i]);
 			bookerInfoVO.setPassport(passport[i]);
-			bookerInfoVO.setB_gender(b_gender[i-1]);
+			bookerInfoVO.setB_gender(b_gender[i]);
 			bookerInfoVO.setSns(sns);
 			bookerInfoVO.setB_visit(b_visit);
+			b_name=firstName[i]+" "+lastName[i];
 			bookerInfoVO.setB_name(b_name);
-			bookerInfoVO.setB_email(b_email);
 			orderDAO.insertBookerInfo2(bookerInfoVO);
 		}
-		return result;
+		
+		return bookerInfoVO.getB_num();
+	}
+	
+	public List<BookerInfoVO> selectBookerInfo(int b_num) throws Exception{
+		List<BookerInfoVO> bookerInfo=orderDAO.selectBookerInfo(b_num);
+		return bookerInfo;
 	}
 	
 }

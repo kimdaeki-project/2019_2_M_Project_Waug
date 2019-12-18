@@ -16,42 +16,53 @@
 
 	<div class="order_row">
 		<!-- left -->
-		<input value="${goods.goods_num}" style="background:gold">
+		<input value="${goods.goods_num}" style="background:gold" hidden="hidden">
 		<div class="order_col_md">
 			<div class="order_user_infoBox">
 				<div class="order_user_infoBox_title">예약자 정보</div>
 				<table class="order_user_info_table">
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
+					<c:forEach items="${bookerInfo}" begin="0" end="0" var="booker">				
+						<tr><td>여권상 영문명</td><td>${booker.firstName}&nbsp;${booker.lastName}</td></tr>
+						<tr><td>바우처 이메일</td><td>${booker.b_email}</td></tr>
+					</c:forEach>
 				</table>
 			</div>
 			<div class="order_user_infoBox">
 				<div class="order_user_infoBox_title">Reservation Info</div>
 				<div class="order_reser_info">
-					<img src="sample.jpg">
+					<img src="${goods.img }">
 					<div class="order_reser_info_text">
 						<b>${goods.title}</b>
-						<p>display: inline-block;display: inline-block;</p>
+						<p>예약 날짜 띄우기</p>
 					</div>
 				</div>
-				<div class="order_reser_options">
-					<div class="order_reser_option_left">left side <p>성인</p></div>
-					<div class="order_reser_option_right">4500 x 1</div>
-				</div>
-				<div class="order_reser_options">
-					<div class="order_reser_option_left">left side <p>성인</p></div>
-					<div class="order_reser_option_right">4500 x 1</div>
-				</div>
+				<c:forEach items="${bookerInfo}" var="booker">
+					<div class="order_reser_options">
+						<div class="order_reser_option_left">${booker.firstName}&nbsp;${booker.lastName} 
+							<p>
+								<c:choose>
+									<c:when test="${booker.b_gender eq 1}">남자</c:when>
+									<c:when test="${booker.b_gender eq 0}">여자</c:when>
+								</c:choose>
+							</p>
+						</div>
+						<div class="order_reser_option_right">4500 x 1</div>
+					</div>
+				
+				</c:forEach> 
 				<div class="order_reser_border"></div>
 					<div class="order_reser_options">
-						<div class="order_reser_option_left">호텔 & 리조트명</div>
-						<div class="order_reser_option_right">adsf</div>
+						<div class="order_reser_option_left">SNS 아이디</div>
+						<div class="order_reser_option_right">
+							<c:forEach items="${bookerInfo}" var="booker" begin="0" end="0">${booker.sns}</c:forEach>
+						</div>
 					</div>
 					<div class="order_reser_options">
-						<div class="order_reser_option_left">호텔 & 리조트 주소</div>
-						<div class="order_reser_option_right">asfd123142</div>
-					</div>
+						<div class="order_reser_option_left">방문시간</div>
+						<div class="order_reser_option_right">
+							<c:forEach items="${bookerInfo}" var="booker" begin="0" end="0">${booker.b_visit}</c:forEach>
+						</div>
+					</div> 
 			</div>
 		</div>
 		<!-- right -->

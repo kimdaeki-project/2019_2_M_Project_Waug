@@ -16,7 +16,7 @@
 <div style="margin-top:80px;">
 	<div class="order_wrapper">
 	<form action="./order1" method="post" id="formId">									<!-- <form action="order" method="post"> -->
-	<input type="text" name="goods_num" value="${goods.goods_num}" style="background:gold"> 
+	<input type="text" name="goods_num" value="${goods.goods_num}" style="background:gold" hidden="hidden"> 
 		<div class="order_infoBox">
 			<div class="order_info_title">예약자 정보</div>
 			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
@@ -56,7 +56,7 @@
 		</div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->		
 		
-		<c:forEach begin="0" end="${people-1}">
+		<c:forEach begin="0" end="${people-1}" var="i">
 		<div class="order_infoBox">
 			<div class="order_info_title">사용자 정보</div>
 			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
@@ -77,8 +77,10 @@
 				</label>
 				<br>
 				<div class="order_info_fields_title">성별</div>
-					남 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="1"> &nbsp;&nbsp;
-					여 : <input type="radio" name="b_gendar" class="input_lg b_gendar" value="0">
+					<select name="b_gender">
+						<option value="1">남자</option>
+						<option value="0">여자</option>
+					</select>
 				</div>
 				
 		</div>
@@ -108,6 +110,7 @@
 		<div class="order_footer_wrapper">
 			<button class="order_submit" id="info_reservation_btn">예약하기</button>
 		</div>
+		<input type="text" id="people" name="people" value="${people}" hidden="hidden">
 		</form>
 	</div>
 </div>

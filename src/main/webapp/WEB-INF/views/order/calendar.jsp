@@ -31,9 +31,9 @@
 		
 			<select class="credit_select" id="checkOptionTime" name="o_time">
 				<option value="0" >시간을 선택해 주세요</option>
-				<c:forEach items="${goodsOption}" var="option">
-				<option>${option.o_time}</option>
-				</c:forEach>
+				
+				<option>15:00~16:00</option>
+				
 			</select>
 			<br><br>
 			<div class="reser_numberOfUserBox">
@@ -57,7 +57,7 @@
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
 			<div class="reser_title">
-				${goods.title }
+				${goods.title}
 			</div>
 		</div>
 		<div class="reser_division">
@@ -97,7 +97,7 @@
 <input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
 <input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
 <input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
-
+<input type="date" id="date1" hidden="hidden">
 
 <script type="text/javascript">
 	$("#cart_btn").click(function() {
@@ -218,6 +218,8 @@
 		console.log("choosedDate test year : "+year);
 		console.log("choosedDate test month : "+month);
 		console.log("choosedDate test date : "+date);
+		//document.getElementById("date1").value = "2014-02-09";
+		document.getElementById("date1").value = year+"-"+month+"-"+date;
 		fillDate(year,month,date);
 	}
 	
