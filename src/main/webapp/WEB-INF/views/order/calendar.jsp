@@ -31,10 +31,12 @@
 		
 		
 			<select class="credit_select" id="checkOptionTime" name="o_time">
+
 						<option value="0" >시간을 선택해 주세요</option>
 					<c:forEach  var="i" begin="1" end="23">
 						<option>${i}:00~${i+1}:00</option>
 					</c:forEach>
+
 			</select>
 			<br><br>
 			<div class="reser_numberOfUserBox">
@@ -58,7 +60,7 @@
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
 			<div class="reser_title">
-				${goods.title }
+				${goods.title}
 			</div>
 		</div>
 		<div class="reser_division">
@@ -102,6 +104,12 @@
 <!-- 	<input type="text" id="time1" name="o_time"> -->
 	</form>
 </div>
+
+<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
+<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
+<input type="text" value="${goods.price}" id="goodsPrice" name="price" hidden="hidden">
+<input type="date" value="${goods.able }" id="goodsAble" name="able" hidden="hidden">
+<input type="date" id="date1" hidden="hidden">
 
 
 <script type="text/javascript">
