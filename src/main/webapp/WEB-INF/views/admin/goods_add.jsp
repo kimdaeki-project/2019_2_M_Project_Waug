@@ -379,11 +379,8 @@ $('.good_reservation_btn').click(function(){
 	//사진 주소 입력시 사진 보여주기
 	$(".img").change(function() {
 		var image = $(this).val();
-		alert(image);
 		var div = $(this).attr('name');
-		alert(div);
 		$("#"+div).css({"background":"url("+image+")", 'background-repeat' : 'no-repeat', 'background-position':'center center'});
-		
 	});
 
 	</script>

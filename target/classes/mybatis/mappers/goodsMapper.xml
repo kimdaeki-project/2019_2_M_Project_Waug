@@ -145,7 +145,7 @@ select max(goods_num) from goods
   
   <!-- 도시리스트 -->
   <select id="cityList" resultType="NationVO">
-  	select * from nationinfo
+  	select * from nationinfo order by city_name
   </select>
   
   <!-- 테마리스트 -->
