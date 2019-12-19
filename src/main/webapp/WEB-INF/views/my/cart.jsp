@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,17 +65,17 @@
 											</a>
 										</td>
 										<td class="col-xs-2 text-center">
-											<a href="../goods/good_page">
+											<a href="../goods/good_page?goods_num=${vo.goods_num}">
 												${vo.title}
 											</a>
 										</td>
 										<td class="text-center">${vo.o_date2}<br>${vo.o_time}</td>
 										<td>
 											<div>${vo.title} 성인</div>
-											<div>￦  ${vo.price} x ${vo.o_people}</div>
+											<div><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/> x ${vo.o_people}</div>
 											
 										</td>
-										<td class="text-center"><input type="hidden" name ="price" value="가격">￦ ${cartSum}</td>
+										<td class="text-center"><input type="hidden" name ="price" value="가격"><fmt:formatNumber type="currency" value="${(vo.price-vo.price*vo.discount/100)*vo.o_people}" currencySymbol="₩ "/></td>
 										
 									</tr>
 									</c:forEach>
@@ -91,7 +92,7 @@
 							<div class="text-right">
 								<div class="order-total-price" >
 									총
-									<span>￦ ${cartSum}</span>
+									<span>￦ ${cartTotal}</span>
 								</div>
 								<div class="i-checks select-all">
 									<label>
@@ -105,7 +106,7 @@
 							</div>
 							
 							<div class="form-button-wrapper">
-								<button type="submit" class="btn-form-cancel">선택 삭제 ${cartCount}</button>
+								<button type="submit" class="btn-form-cancel">선택 삭제</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
 							</div>
 							

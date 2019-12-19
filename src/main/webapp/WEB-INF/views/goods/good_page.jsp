@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<input type="text" disabled="disabled" name="goods_num" value="7" id="goods_num">	
+<input type="text" disabled="disabled" name="goods_num" value="${goods_num}" id="goods_num">	
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
@@ -110,7 +110,9 @@
          		<div class="good_bookInfo">
          			<div class="good_priceBox">₩ ${goods.price}</div>
          			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> ${goods.sell} 예약</div>
+         			<a href="../order/calendar?goods_num=${goods.goods_num}">
          			<div class="good_reservation_btn">예약하기</div>
+         			</a>
          		</div>
          	</div>
          </div>
@@ -145,7 +147,7 @@
    						<div class="good_coment_star"><c:forEach begin="1" end="${review2.rv_score}">★</c:forEach></div>
    						<div class="good_coment_text">${review2.rv_contents}</div>
    					</div>
-   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list';">모든 후기 보러가기</div>
+   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list?goods_num=${goods.goods_num}';">모든 후기 보러가기</div>
    				</div>
    				<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
@@ -308,7 +310,7 @@
 <script>
       var map;
       function initMap() {
-    	var uluru = {lat:${goods.horizontal}, lng: ${goods.vertical}};
+    	var uluru = {lat:${goods.horizontal}, lng:${goods.vertical}};
     	var map = new google.maps.Map(
     		document.getElementById('map'), {zoom: 16, center: uluru});
     		// The marker, positioned at Uluru
@@ -316,7 +318,7 @@
      	 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOARpuS-ZWgj5gXhzLHOQTQ1-swU_VrFo&callback=initMap"
-    async defer></script>   
+    async defer></script>
    
 <script type="text/javascript">
 function openModal() {
@@ -377,14 +379,14 @@ function openModal() {
     });  
 
   
-
+/* 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
       location.href='../order/calendar?goods_num='+$('#goods_num').val();
       // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
       // onclick="location.href='goods';"
    });
-
+ */
    
 
    //스크롤 내리면 tabs보이기

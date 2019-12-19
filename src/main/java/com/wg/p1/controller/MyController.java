@@ -110,33 +110,32 @@ public class MyController {
 
 	//장바구니 리스트
 	@GetMapping("cart")
-	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO, OptionVO optionVO) throws Exception{
+	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		List<GoodsVO> ar = cartService.myCart(memberVO);
 		
 		int cartCount = cartService.cartCount(memberVO);
-		
+
 		
 		mv.addObject("cartCount", cartCount);
-		int cartSum = cartService.cartSum(memberVO);
+		int cartTotal = cartService.cartTotal(memberVO);
 		mv.addObject("list", ar);
 		mv.addObject("cartVO", cartVO);
-		mv.addObject("cartSum",cartSum);
+		mv.addObject("cartTotal",cartTotal);
+		System.out.println(cartTotal);
 		mv.setViewName("my/cart");
 		return mv;
 	}
 	
 	
 	//장바구니 추가
-	@PostMapping("cart")
+	@PostMapping("cartadd")
 	public ModelAndView cart(CartVO cartVO, HttpSession session,int goods_num, ModelAndView mv,OptionVO optionVO) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
 		
 		int result = optionService.optionAdd(optionVO);
-
-		
 		
 		cartVO.setEmail(memberVO.getM_pk());
 		
@@ -145,21 +144,18 @@ public class MyController {
 		cartVO.setO_num(optionVO.getO_num());
 		
 		int result2 = cartService.cartAdd(cartVO);
-		
+		String msg="";
 		if(result>0) {
-			System.out.println("성공");
+			msg="장바구니에 상품이 등록되었습니다! 장바구니로 이동합니다.";
 			System.out.println(result2);
 		}else {
-			System.out.println("실패");
+			msg="실패";
 		}
 		
-		
-		List<GoodsVO> ar = cartService.myCart(memberVO);
-		int cartSum = cartService.cartSum(memberVO);
-		mv.addObject("list", ar);
-		mv.addObject("cartVO", cartVO);
-		mv.addObject("cartSum",cartSum);
-		mv.setViewName("my/cart");
+	
+		mv.addObject("msg", msg);
+		mv.addObject("path", "../my/cart");
+		mv.setViewName("common/common_result");
 		
 		return mv;
 	}

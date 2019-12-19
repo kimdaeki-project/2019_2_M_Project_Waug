@@ -112,6 +112,7 @@ time, mark, audio, video {
    background:blue;
    border-left: 8px solid black;
    border-bottom: 8px solid black;
+   
 }
 .good_img_small img{
    width: 100%;
@@ -130,6 +131,7 @@ time, mark, audio, video {
    height: 655px;
    margin: 0 auto;
 }
+
 .good_info_wrapper{
    width: 585px;
    height: 655px;

@@ -31,6 +31,7 @@ public class ReviewController {
 	
 	@RequestMapping("review_list")
 	public ModelAndView review(Pager pager, ModelAndView mv) throws Exception{
+		System.out.println("페이져"+pager.getGoods_num());
 		List<ReviewVO> ar = reviewService.reviewList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("totalPage", pager.getTotalPage());
@@ -51,7 +52,7 @@ public class ReviewController {
 	@PostMapping("review_write")
 	public ModelAndView review_Write(ReviewVO reviewVO, String[] rv_images, HttpSession session) throws Exception{
 		
-		MemberVO memberVO= (MemberVO)session.getAttribute("memberVO");
+		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		ModelAndView mv = new ModelAndView();
 		
 		
@@ -66,9 +67,10 @@ public class ReviewController {
 		}
 		
 		mv.addObject("msg", msg);
-		mv.addObject("path", "../reviews/review_list");
+		mv.addObject("path", "../reviews/review_list?goods_num="+reviewVO.getGoods_num());
 		mv.setViewName("common/common_result");
 		//mv.setViewName("reviews/review_list");
+
 		return mv;
 		
 	}
@@ -98,14 +100,14 @@ public class ReviewController {
 		reviewVO.setRv_contents(reviewVO.getRv_contents().replace("\r\n", "</br>"));
 		int result = reviewService.reviewUpdate(reviewVO, rv_images);
 		
-		return "redirect:review_list";
+		return "redirect:review_list?goods_num="+reviewVO.getGoods_num();
 	}
 	@PostMapping("review_reply")
 	public String reviewReply(ReviewVO reviewVO) throws Exception{
 		reviewVO.setRv_acontents(reviewVO.getRv_acontents().replace("\r\n", "</br>"));
 		int result = reviewService.reviewReply(reviewVO);
 		
-		return "redirect:review_list";
+		return "redirect:review_list?goods_num="+reviewVO.getGoods_num();
 	}
 	
 	@PostMapping("reviewImages")

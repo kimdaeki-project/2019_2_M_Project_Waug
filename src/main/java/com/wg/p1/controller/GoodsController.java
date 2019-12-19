@@ -44,7 +44,8 @@ public class GoodsController {
 		InfoVO infoVO=goodsService.selectGoodsInfo(goods_num);
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
-		reviewVO.setGoods_num(122);
+		reviewVO.setGoods_num(goods_num);
+		reviewVO2.setGoods_num(goods_num);
 		reviewVO =reviewService.review_avg_total(reviewVO);
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		List<CategoryVO> cateAll=goodsService.CateAll();
@@ -53,8 +54,6 @@ public class GoodsController {
 		mv.addObject("review2", reviewVO2);
 		mv.addObject("cartVO", cartVO);
 		mv.setViewName("goods/good_page");
-		goodsVO.setHorizontal(37.556);
-		goodsVO.setVertical(126.919);
 		mv.addObject("goods", goodsVO);
 		mv.addObject("info", infoVO);
 		return mv;		

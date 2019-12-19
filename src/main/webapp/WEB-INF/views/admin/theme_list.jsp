@@ -15,12 +15,13 @@
 <body>
 <div class="wrapper">
 <c:import url="../layout/adminNAV.jsp"/>
-<div class="mainView">
-	<div class="width1600px">
+<div class="mainView col-md-10">
+	<div class="col-md-10 container">
+		<h3>테마 리스트</h3>
 		<form action="theme_delete" method="post" id="delete">	
-		<table class="table"  >
+		<table class="table table-striped"  >
 			<thead >
-				<tr class="info">
+				<tr>
 					<th><input type="checkbox" id="checkAll"></th>
 					<th>이미지</th>
 					<th>테마명</th>

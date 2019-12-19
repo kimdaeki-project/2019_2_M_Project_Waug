@@ -37,23 +37,23 @@
 			<option value="${vo.cate_num}" >${vo.cate_name}</option>
 		</c:forEach>
 	</select>
+         	<input type="text" name="img" class="img" style="width:300px; height: 30px;">
+         	<input type="text" name="img1" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img2" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img3" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img4" class="img" placeholder="이미지주소를 입력하세요">
 	<!-- 위에가 용주형꺼 -->
 	<div class="good_img_wrapper">
-      <div class="good_img_titleBox">
-         <div class="good_img_title">
-         <div style="margin: 0 auto; line-height:536px; width:300px; height: 30px;">
-         	<input type="text" name="img" id="titleImg" style="width:300px; height: 30px;">
-         </div>
-         </div>
+      <div class="good_img_titleBox" id="img" style="display: block; width:1000px;  height: 534px; margin-left: 0px;">
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1" accept=".jpg"></div>
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2"></div>      
+         <div class="good_img_small" id="img1"></div>
+         <div class="good_img_small" id="img2"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small">img 4<input type="file" name="file" class="subImg" id="subImg3"></div>
-        <div class="good_img_small">img 5<input type="file" name="file" class="subImg" id="subImg4"></div> 
+        <div class="good_img_small" id="img3">img 4</div>
+        <div class="good_img_small" id="img4">img 5</div> 
       </div>
       </div>
    </div>
@@ -376,6 +376,16 @@ $('.good_reservation_btn').click(function(){
 		alert("모두 입력해주세요");
 	}
 })
+	//사진 주소 입력시 사진 보여주기
+	$(".img").change(function() {
+		var image = $(this).val();
+		alert(image);
+		var div = $(this).attr('name');
+		alert(div);
+		$("#"+div).css({"background":"url("+image+")", 'background-repeat' : 'no-repeat', 'background-position':'center center'});
+		
+	});
+
 	</script>
 
 </body>

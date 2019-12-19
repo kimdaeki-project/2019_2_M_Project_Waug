@@ -26,7 +26,9 @@
 <link rel="stylesheet" href="resources/css/CityList.css">
 <link rel="stylesheet" href="resources/css/homenav.css">
 <style type="text/css">
-
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .active-continent{
 	color: #d91c84;
 }
@@ -200,35 +202,43 @@
 						<div
 							class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-active"
 							style="margin-right : 16px;">
-							<a href="./search/quickSearch">
+							<a href="./search/quickSearch?type=usim">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=330x233');">
 								<div class="main-watem-text">유심 & 와이파이</div>
 							</div>
 							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=airport">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15628256865214.png?s=330x233');">
 								<div class="main-watem-text">공항 이동수단</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=jr">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018926570.png?s=330x233');">
 								<div class="main-watem-text">일본 교통패스</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=eurail">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591019070628.png?s=330x233');">
 								<div class="main-watem-text">유레일 패스</div>
 							</div>
+							</a>
 						</div>
 					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
 			<div class="flex">
+				<a href="./search/quickSearch?type=all" style="cursor: pointer;">
 				<div class="main-itemsubbtn subbtn2">
 					<div class="text text2">전체 보기</div>
 				</div>
+				</a>
 			</div>
 		</div>
 		<div class="main-item-container">
@@ -247,7 +257,7 @@
 
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								
-								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}?s=266x175');">
 
 									<c:choose>
 										<c:when test="${vo.wish eq 1}">
@@ -267,7 +277,8 @@
 									</div>
 									<div class="good-card-title">${vo.title}</div>
 									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
-									<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
+									<div class="good-card-price"><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
+									<div class="good-card-coupon-text">${vo.discount}% 할인</div>
 									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
 									
 								</div>
@@ -576,12 +587,6 @@
 		<button onclick="location.href='./admin/admin_main'">
 			관리자페이지
 		</button>
-		
-		
-			
-	
-		
-		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 </div>
@@ -721,6 +726,7 @@
 					},
 		    	});  
 			}
+			event.stopImmediatePropagation();
 		});
 		/* 모달 */
 		// Get the modal
@@ -807,7 +813,10 @@
 		        $('.nav-wrapper').removeClass('nav_toggle');
 		     }
 		  });
-
+	$("#ttse").change(function() {
+		$(this).val("");
+		return false;
+	})
 	</script>
 </body>
 </html>
