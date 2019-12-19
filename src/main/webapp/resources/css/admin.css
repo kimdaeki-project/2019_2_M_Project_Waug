@@ -1,4 +1,6 @@
-*{margin: 0px; padding: 0px;}
+*{margin: 0px; padding: 0px;
+
+}
 body{background:#f7f7f7;}
 /* width */
 ::-webkit-scrollbar {
@@ -415,7 +417,7 @@ th{text-align: center;}
 }
 .sideViewAlpha{
 	background:rgba(0,0,0,0.2);
-	height: 1020px; 
+	height: 2396px;	
 }
 .mainView{
 	float:left;

@@ -14,17 +14,17 @@
 <body>
 <div class="wrapper">
 <c:import url="../layout/adminNAV.jsp"/>
-<div class="mainView">
+<div class="mainView col-md-10">
 	<div class="width1600px">
-  <h2>Insert Theme</h2>
+  <h3>테마 추가</h3>
   <form class="form-horizontal" action="theme_add" method="post">
-    <div class="form-group">
+    <div class="form-group col-md-10">
       <label class="col-sm-2 control-label">TITLE</label>
       <div class="col-sm-10">
         <input class="form-control" id="t_title" type="text" name="t_title" placeholder="테마제목을 입력하세요.">
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-10">
       <label class="col-sm-2 control-label">IMG</label>
       <div class="col-sm-10">
         <input class="form-control" id="t_img" type="text" name="t_img" placeholder="테마대표이미지 주소를 입력하세요.">
@@ -32,19 +32,22 @@
     </div>
     <div id="img">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-10">
       <label class="col-sm-2 control-label">SUBTITLE</label>
       <div class="col-sm-10">
         <input class="form-control" id="t_subtitle" type="text" name="t_subtitle" placeholder="테마부제목을 입력하세요..">
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-10">
       <label class="col-sm-2 control-label">SUBJECT</label>
       <div class="col-sm-10">
         <input class="form-control" id="t_subject" type="text" name="t_subject" placeholder="테마주제를 입력하세요.">
       </div>
+     
     </div>
-   		<button class="btn btn-primary" style="float: right;">테마등록</button>
+   	<div class="form-group col-md-10">
+   	 <button class="btn btn-default" style="float: right; margin-right: 15px;">테마등록</button>
+   	 </div>
   </form>
 </div>
 </div>

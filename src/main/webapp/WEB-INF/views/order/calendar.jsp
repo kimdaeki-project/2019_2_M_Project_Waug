@@ -109,9 +109,10 @@
 <script type="text/javascript">
 	//장바구니에 상품넣기
 	$("#cart_btn").click(function() {
-		$("#formId").attr("action","../my/cart");
+		$("#formId").attr("action","../my/cartadd");
 		$("#formId").submit();
 	});
+	
 	//창띄우면 popup 숨기기
 	$(window).ready(function(){
 		$('.reser_modal').hide();
