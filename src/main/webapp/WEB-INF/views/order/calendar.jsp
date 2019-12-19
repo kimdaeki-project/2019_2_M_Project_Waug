@@ -99,7 +99,7 @@
 	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
 	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
 	<input type="text" value="${goods.discount}" id="goodsPrice" name="discount" hidden="hidden">
-	<input type="date" value="${goods.able}" id="goodsAble" name="able"  hidden="hidden">
+	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden">
 	<input type="date" id="date1" name="o_date">
 <!-- 	<input type="text" id="time1" name="o_time"> -->
 	</form>
