@@ -26,7 +26,9 @@
 <link rel="stylesheet" href="resources/css/CityList.css">
 <link rel="stylesheet" href="resources/css/homenav.css">
 <style type="text/css">
-
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .active-continent{
 	color: #d91c84;
 }
@@ -250,21 +252,23 @@
 					<div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
 					
 					<c:forEach  items="${list}" var="vo" begin="0" end="6">
-					
-										<c:choose>
-											<c:when test="${vo.wish eq 1}">
-											<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
-											</c:when>
-											<c:when test="${vo.wish eq 0}">
-											<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
-											</c:when>
-										</c:choose>
-					
-					
-						<a href="goods/good_page?goods_num=${vo.goods_num}">
-							<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;">
-	
-								<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+
+			
+						<div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=${vo.goods_num}';">
+
+							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+								
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}?s=266x175');">
+
+									<c:choose>
+										<c:when test="${vo.wish eq 1}">
+										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
+										</c:when>
+										<c:when test="${vo.wish eq 0}">
+										<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
+										</c:when>
+									</c:choose>
+
 									
 									<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
 	
@@ -277,16 +281,18 @@
 										<div class="good-card-available-date point-color">
 											오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
 										</div>
-										<div class="good-card-title">${vo.title}</div>
-										<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
-										<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
-										<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
-										
+									<div class="good-card-title">${vo.title}</div>
+									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
+									<div class="good-card-price"><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
+									<div class="good-card-coupon-text">${vo.discount}% 할인</div>
+									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
+
 									</div>
+
 									
 								</div>
 							</div>
-						</a>
+						
 					</c:forEach>		
 					
 						<div class="goodlist-slide swiper-slide"
@@ -588,12 +594,13 @@
 		<button onclick="location.href='./admin/admin_main'">
 			관리자페이지
 		</button>
-		
+
 		
 			
 	
 		
 		<input type="text" value="${memberVO}" hidden="hidden" id="memberVO">
+
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 </div>
@@ -728,6 +735,7 @@
 				alert("로그인이 필요합니다.");
 				location.href="member/login";
 			}
+			event.stopImmediatePropagation();
 		});
 		/* 모달 */
 		// Get the modal
@@ -814,7 +822,10 @@
 		        $('.nav-wrapper').removeClass('nav_toggle');
 		     }
 		  });
-
+	$("#ttse").change(function() {
+		$(this).val("");
+		return false;
+	})
 	</script>
 </body>
 </html>

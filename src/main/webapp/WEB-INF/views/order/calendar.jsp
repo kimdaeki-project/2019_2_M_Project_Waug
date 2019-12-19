@@ -55,7 +55,7 @@
 		</div>
 	</div>
 	<input type="text" id="people" name="o_people" value="0" hidden="hidden">
-	
+	<input type="text" id="people_forInfo" name="people" hidden="hidden">
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
@@ -319,6 +319,7 @@
 			var price=$('#goodsPrice').val();
 			var totalPrice=people*price;
 			var commaNum=numberWithCommas(totalPrice);
+			$('#people_forInfo').val(people);
 			$('#reservation_users_order_total_price').html(commaNum);
 			console.log("commaNum type : "+typeof commaNum);
 		}
