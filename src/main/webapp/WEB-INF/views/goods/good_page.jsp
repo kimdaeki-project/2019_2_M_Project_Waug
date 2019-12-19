@@ -145,7 +145,7 @@
    						<div class="good_coment_star"><c:forEach begin="1" end="${review2.rv_score}">★</c:forEach></div>
    						<div class="good_coment_text">${review2.rv_contents}</div>
    					</div>
-   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list';">모든 후기 보러가기</div>
+   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list?goods_num=${goods.goods_num}';">모든 후기 보러가기</div>
    				</div>
    				<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
@@ -308,7 +308,7 @@
 <script>
       var map;
       function initMap() {
-    	var uluru = {lat:${goods.horizontal}, lng: ${goods.vertical}};
+    	var uluru = {lat:${goods.horizontal}, lng:${goods.vertical}};
     	var map = new google.maps.Map(
     		document.getElementById('map'), {zoom: 16, center: uluru});
     		// The marker, positioned at Uluru
@@ -316,7 +316,7 @@
      	 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOARpuS-ZWgj5gXhzLHOQTQ1-swU_VrFo&callback=initMap"
-    async defer></script>   
+    async defer></script>
    
 <script type="text/javascript">
 function openModal() {

@@ -26,6 +26,7 @@ public class ReviewController {
 	
 	@RequestMapping("review_list")
 	public ModelAndView review(Pager pager, ModelAndView mv) throws Exception{
+		System.out.println("페이져"+pager.getGoods_num());
 		List<ReviewVO> ar = reviewService.reviewList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("totalPage", pager.getTotalPage());
@@ -43,11 +44,12 @@ public class ReviewController {
 	
 	@PostMapping("review_write")
 	public String review_Write(ReviewVO reviewVO, String[] rv_images) throws Exception{
+		System.out.println(reviewVO.getGoods_num());
 		ModelAndView mv = new ModelAndView();
 		int result = reviewService.reviewWrite(reviewVO,rv_images);
 		
 		//mv.setViewName("reviews/review_list");
-		return "redirect:review_list";
+		return "redirect:review_list?goods_num="+reviewVO.getGoods_num();
 		
 	}
 	@GetMapping("review_delete")
@@ -76,14 +78,14 @@ public class ReviewController {
 		reviewVO.setRv_contents(reviewVO.getRv_contents().replace("\r\n", "</br>"));
 		int result = reviewService.reviewUpdate(reviewVO, rv_images);
 		
-		return "redirect:review_list";
+		return "redirect:review_list?goods_num="+reviewVO.getGoods_num();
 	}
 	@PostMapping("review_reply")
 	public String reviewReply(ReviewVO reviewVO) throws Exception{
 		reviewVO.setRv_acontents(reviewVO.getRv_acontents().replace("\r\n", "</br>"));
 		int result = reviewService.reviewReply(reviewVO);
 		
-		return "redirect:review_list";
+		return "redirect:review_list?goods_num="+reviewVO.getGoods_num();
 	}
 	
 	@PostMapping("reviewImages")

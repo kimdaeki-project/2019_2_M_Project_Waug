@@ -79,18 +79,22 @@
 								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
+								<c:if test="${memberVO.m_pk eq 'w_a@a.com'}">
 								<!-- 관리자만 보이게 -->
 								<button value="${dto.rv_num}"data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-reply"
 									class="btn btn-review-reply outline btn-sm" type="button">답변</button>
 								<!-- 관리자만 보이게 -->	
+								</c:if>
+							<c:if test="${dto.email eq memberVO.m_pk}">
 								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-update"
 									class="btn btn-review-update outline btn-sm" type="button" value="${dto.rv_num}">수정</button>
 								<button value="${dto.rv_num}" type="button"
 									class="btn btn-review-delete outline btn-sm">삭제</button>
+							</c:if>
 							</div>
 							<!-- 여기까지 if문으로 감싸기 -->
 						</div>
@@ -120,9 +124,10 @@
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_write" method="post" class="review-form">
+									<input type="hidden" name="goods_num" value="${param.goods_num}">
 									<!-- rv_writer 멤버session에서 받아와야함-->
-										<input type="text" name="rv_writer" value="pyj" style="display: none;">
-										<input type="hidden" name="email" value="pyj9088@gmail.com">
+										<input type="hidden" name="rv_writer" value="${memberVO.name}" style="display: none;">
+										<input type="hidden" name="email" value="${memberVO.m_pk}">
 									<!-- 이 2개 -->
 									<div class="pull-left">
 										<div class="row">
@@ -213,6 +218,7 @@
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_update" method="post" class="review-form2">
+									<input type="hidden" name="goods_num" value="${param.goods_num}">
 									<!-- rv_writer 멤버session에서 받아와야함-->
 										<input type="hidden" name="rv_num" class="update_rv_num">
 										<input type="text" name="rv_writer" value="pyj" style="display: none;">
@@ -304,6 +310,7 @@
 											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_reply" method="post" class="review-form3">
+									<input type="hidden" name="goods_num" value="${param.goods_num}">
 									<!-- rv_writer 멤버session에서 받아와야함-->
 										<input type="hidden" name="rv_num" class="update_rv_num">
 										<input type="text" name="rv_writer" value="pyj" style="display: none;">
@@ -444,7 +451,7 @@
 		/* 리뷰 더 보기 */
 		$("#add_review").click(function() {
 			curPage = curPage+1;
-			$.get("./review_lists?curPage="+curPage, function(data){
+			$.get("./review_lists?goods_num="+${param.goods_num}+"&&curPage="+curPage, function(data){
 				data=data.trim();
 				$(".add-list").append(data);
 			});

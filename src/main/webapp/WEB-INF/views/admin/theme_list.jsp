@@ -18,7 +18,7 @@
 <div class="mainView">
 	<div class="width1600px">
 		<form action="theme_delete" method="post" id="delete">	
-		<table class="table"  >
+		<table class="table">
 			<thead >
 				<tr class="info">
 					<th><input type="checkbox" id="checkAll"></th>
