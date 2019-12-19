@@ -62,32 +62,36 @@ public class MyController {
 	@GetMapping("couponAdd")
 	public ModelAndView myCouponAdd(String c_code, HttpSession session, ModelAndView mv) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
-		
-		MyCouponVO myCouponVO = new MyCouponVO();
-		myCouponVO.setC_code(c_code);
-		myCouponVO.setM_pk(memberVO.getM_pk());
-		
-		String m_pk= memberVO.getM_pk();
-	
-		List<CouponVO> ar = couponService.myCoupon(memberVO);
-	
-		mv.addObject("path", "../my/coupon");
-		int result = 0;
-		int count = couponService.couponCount(m_pk, c_code);
-		String msg="이미 발급받은 쿠폰입니다.";
-		
-		if(count ==0) {
-			 result = couponService.myCouponAdd(myCouponVO);
-			if(result>0) {	
-				
-				msg="쿠폰이 발급되었습니다!";
-			}
+		String msg="로그인이 필요합니다.";
+		if(memberVO==null) {
+			
+			mv.addObject("path", "../member/login");
 		}else {
-			mv.addObject("path","../");
+			MyCouponVO myCouponVO = new MyCouponVO();
+			myCouponVO.setC_code(c_code);
+			myCouponVO.setM_pk(memberVO.getM_pk());
+			
+			String m_pk= memberVO.getM_pk();
+		
+			List<CouponVO> ar = couponService.myCoupon(memberVO);
+		
+			mv.addObject("path", "../my/coupon");
+			int result = 0;
+			int count = couponService.couponCount(m_pk, c_code);
+			 msg="이미 발급받은 쿠폰입니다.";
+			
+				if(count ==0) {
+					 result = couponService.myCouponAdd(myCouponVO);
+					if(result>0) {	
+						
+						msg="쿠폰이 발급되었습니다!";
+					}
+				}else {
+					mv.addObject("path","../");
+				}
+				mv.addObject("list", ar);
 		}
-		
-		
-		mv.addObject("list", ar);
+	
 		mv.addObject("msg",msg);
 	
 		mv.setViewName("common/common_result");
@@ -136,25 +140,29 @@ public class MyController {
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
 		
 		int result = optionService.optionAdd(optionVO);
+		String msg="";
+		if(memberVO==null) {
+			mv.addObject("path", "../member/login");
+			mv.addObject("msg","로그인이 필요합니다.");
+		}else {
+		
 		
 		cartVO.setEmail(memberVO.getM_pk());
-		
-		
 		cartVO.setGoods_num(goods_num);
 		cartVO.setO_num(optionVO.getO_num());
 		
 		int result2 = cartService.cartAdd(cartVO);
-		String msg="";
-		if(result>0) {
-			msg="장바구니에 상품이 등록되었습니다! 장바구니로 이동합니다.";
-			System.out.println(result2);
-		}else {
-			msg="실패";
-		}
 		
-	
+			if(result>0) {
+				msg="장바구니에 상품이 등록되었습니다! 장바구니로 이동합니다.";
+				
+			}else {
+				msg="실패";
+			}
 		mv.addObject("msg", msg);
 		mv.addObject("path", "../my/cart");
+		}
+		
 		mv.setViewName("common/common_result");
 		
 		return mv;
@@ -198,31 +206,33 @@ public class MyController {
 		ModelAndView mv = new ModelAndView();
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		
-		String email= memberVO.getM_pk();
+			String email= memberVO.getM_pk();
+			
+			wishListVO.setEmail(email);
+			wishListVO.setGoods_num(goods_num);
+			
+			int result=0;
+			int count = wishlistService.wishCount(goods_num,email);
+			
+			String msg="위시리스트 등록 성공";
 		
-		wishListVO.setEmail(email);
-		wishListVO.setGoods_num(goods_num);
+			if(count==0) {
+				result = wishlistService.wishAdd(wishListVO);
+	
+			}else {
+				msg="이미 등록된 위시리스트입니다.";
+			}
+			
+			if(result>0) { 
+				System.out.println("성공"); 
+			}else { 
+				System.out.println("실패"); 
+			}
+			mv.addObject("msg", msg);
+			mv.addObject("result", result); 
+			mv.addObject("path","../");
 		
-		int result=0;
-		int count = wishlistService.wishCount(goods_num,email);
-		
-		String msg="위시리스트 등록 성공";
-		
-		if(count==0) {
-			result = wishlistService.wishAdd(wishListVO);
-
-		}else {
-			msg="이미 등록된 위시리스트입니다.";
-		}
-		
-		if(result>0) { 
-			System.out.println("성공"); 
-		}else { 
-			System.out.println("실패"); 
-		}
-
-		mv.addObject("msg", msg);
-		mv.addObject("result", result); 
+	
 		mv.setViewName("common/common_ajaxResult");
 		
 		return mv;

@@ -86,7 +86,7 @@ public class HomeController {
 		mv.addObject("citylist", cityar);
 		mv.addObject("europe_city", europe_city);
 		mv.addObject("asia_city", asia_city);
-		/* mv.addObject("memberVO", memberVO); */
+		mv.addObject("memberVO", memberVO);
 		mv.addObject("list", ar);
 		mv.setViewName("home");
 		
