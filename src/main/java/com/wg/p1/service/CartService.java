@@ -30,9 +30,9 @@ public class CartService {
 	public List<GoodsVO> myCart(MemberVO memberVO) throws Exception {
 		return cartDAO.myCart(memberVO);
 	}
-
-	public int cartSum(MemberVO memberVO) throws Exception{ 
-		return cartDAO.cartSum(memberVO);
+	//전체 장바구니 금액 합계
+	public int cartTotal(MemberVO memberVO) throws Exception{ 
+		return cartDAO.cartTotal(memberVO);
 	}
 
 	public int cartCount(MemberVO memberVO) throws Exception{

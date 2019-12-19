@@ -12,13 +12,7 @@
 	<delete id="cartDel" parameterType="Integer">
 		delete cart where cart_num=#{cart_num}
 	</delete>
-  	<!-- 내 장바구니 -->
-<!--   	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
-  		select c.cart_num, g.goods_num, g.title, g.price, g.discount, g.img
-  			from cart c, goods g
-  		where c.goods_num=g.goods_num and c.email=#{m_pk}	
-  	</select>
-  	 -->
+
   	<select id="myCart" parameterType="MemberVO" resultType="GoodsVO">
   	select c.cart_num, c.goods_num, c.email, o.o_num, o.o_time, o.o_people, o.o_date, g.img, to_char(o.o_date, 'yyyy-mm-dd') o_date2, g.title, g.price, g.discount
 		from cart c inner join goods_option o
@@ -28,13 +22,14 @@
 		where c.email=#{m_pk}
   	
   	</select>
-  	<!-- 장바구니 금액 합계 -->
-   	<select id="cartSum" parameterType="MemberVO" resultType="Integer">
+  	<!-- 장바구니 금액 총 합계 -->
+   	<select id="cartTotal" parameterType="MemberVO" resultType="Integer">
   		select NVL(SUM(g.discount*o.o_people),0) money
 		from cart c, goods g, goods_option o
 		where c.goods_num=g.goods_num and c.o_num= o.o_num and c.email=#{m_pk} 
   	</select> 
 	
+ 
 	<select id="cartCount" parameterType="MemberVO" resultType="Integer">
 		select count(*) from cart where email=#{m_pk}
 	</select>

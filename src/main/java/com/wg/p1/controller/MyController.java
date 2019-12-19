@@ -117,13 +117,14 @@ public class MyController {
 		List<GoodsVO> ar = cartService.myCart(memberVO);
 		
 		int cartCount = cartService.cartCount(memberVO);
-		
+
 		
 		mv.addObject("cartCount", cartCount);
-		int cartSum = cartService.cartSum(memberVO);
+		int cartTotal = cartService.cartTotal(memberVO);
 		mv.addObject("list", ar);
 		mv.addObject("cartVO", cartVO);
-		mv.addObject("cartSum",cartSum);
+		mv.addObject("cartTotal",cartTotal);
+		System.out.println(cartTotal);
 		mv.setViewName("my/cart");
 		return mv;
 	}
@@ -155,10 +156,10 @@ public class MyController {
 		
 		
 		List<GoodsVO> ar = cartService.myCart(memberVO);
-		int cartSum = cartService.cartSum(memberVO);
+		int cartTotal = cartService.cartTotal(memberVO);
 		mv.addObject("list", ar);
 		mv.addObject("cartVO", cartVO);
-		mv.addObject("cartSum",cartSum);
+		mv.addObject("cartTotal",cartTotal);
 		mv.setViewName("my/cart");
 		
 		return mv;

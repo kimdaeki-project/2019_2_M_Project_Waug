@@ -71,10 +71,10 @@
 										<td class="text-center">${vo.o_date2}<br>${vo.o_time}</td>
 										<td>
 											<div>${vo.title} 성인</div>
-											<div>￦  ${vo.price} x ${vo.o_people}</div>
+											<div>￦  ${vo.discount} x ${vo.o_people}</div>
 											
 										</td>
-										<td class="text-center"><input type="hidden" name ="price" value="가격">￦ ${cartSum}</td>
+										<td class="text-center"><input type="hidden" name ="price" value="가격">￦ ${vo.discount*vo.o_people}</td>
 										
 									</tr>
 									</c:forEach>
@@ -91,7 +91,7 @@
 							<div class="text-right">
 								<div class="order-total-price" >
 									총
-									<span>￦ ${cartSum}</span>
+									<span>￦ ${cartTotal}</span>
 								</div>
 								<div class="i-checks select-all">
 									<label>
@@ -105,7 +105,7 @@
 							</div>
 							
 							<div class="form-button-wrapper">
-								<button type="submit" class="btn-form-cancel">선택 삭제 ${cartCount}</button>
+								<button type="submit" class="btn-form-cancel">선택 삭제</button>
 								<button type="button" class="btn-form-submit">선택 구매</button>
 							</div>
 							
