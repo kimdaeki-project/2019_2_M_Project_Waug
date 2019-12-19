@@ -22,10 +22,9 @@ public class SearchController {
 	
 	//혜현 빠른검색
 	@GetMapping("quickSearch")
-	public ModelAndView quickSearch(ModelAndView mv) throws Exception{
+	public ModelAndView quickSearch(ModelAndView mv, String type) throws Exception{
 		List<GoodsVO> quickGoods_usim= goodsService.quickSearch_usim();
 		mv.addObject("quickGoods_usim",quickGoods_usim);
-
 		List<GoodsVO> quickGoods_airport = goodsService.quickSearch_airport();
 		mv.addObject("quickGoods_airport", quickGoods_airport);
 		
@@ -34,6 +33,19 @@ public class SearchController {
 		
 		List<GoodsVO> quickGoods_eurail = goodsService.quickSearch_eurail();
 		mv.addObject("quickGoods_eurail", quickGoods_eurail);
+		
+		/*
+		 if(type.equals("usim")) {
+			 	mv.addObject("type", "usim"); 
+		}else if(type.equals("airport")) {
+				mv.addObject("type", "airport"); 
+		}else if(type.equals("jr")) { 
+				mv.addObject("type", "jr"); 
+		}else {
+				mv.addObject("type", "eurail"); 
+		}
+		 
+		*/
 		
 		mv.setViewName("search/quickSearch");
 		return mv;

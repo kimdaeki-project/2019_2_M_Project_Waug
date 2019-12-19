@@ -32,12 +32,12 @@
 							<div class="nav nav-tabs" style="padding-right:0;">
 							   <a data-toggle="tab" href="#menu1"">
 							   <div id="coupon1" class="btn-my-coupon-list tab active-continent">
-							   사용 가능 쿠폰(3)
+							   사용 가능 쿠폰(${c_count_before})
 							   </div>
 							   </a>
 							   <a data-toggle="tab" href="#menu2"">
 							   <div id="coupon2" class="btn-my-coupon-list tab">
-							   사용/만료 쿠폰(1)
+							   사용/만료 쿠폰(${c_count_after})
 							   </div>
 							   </a>
 							</div>
@@ -66,12 +66,14 @@
 															</tr>
 														</thead>
 														<tbody>
+															<c:forEach items="${list}" var="vo">
 															<tr>
-																<td class="col-xs-3 text-center">바티칸 투어 추가 할인</td>
-																<td class="col-xs-2 text-center">VATICAN</td>
-																<td class="col-xs-2 text-center">30% 할인</td>
-																<td class="col-xs-3 text-center">2019.12.31까지</td>
+																<td class="col-xs-3 text-center">${vo.c_title}</td>
+																<td class="col-xs-2 text-center">${vo.c_code}</td>
+																<td class="col-xs-2 text-center">${vo.c_discount_info}</td>
+																<td class="col-xs-3 text-center">${vo.c_duration}</td>
 															</tr>
+															</c:forEach>
 														</tbody>
 													</table>
 												</div>

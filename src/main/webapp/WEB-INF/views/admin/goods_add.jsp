@@ -89,13 +89,15 @@
          					<select name="pick_up" class="st" id="pick_up">
          						<option value="0">픽업을 선택하세요</option>
          						<option>호텔 픽업</option>
-         						<option>호텔 픽업</option>
+         						<option>미팅 포인트 집결</option>
+         						<option>없음</option>
          					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674929156333.svg" />
          					<select name="people" class="st" id="people" >
          						<option value="0">인원수를 선택하세요</option>
+ 								<option>제한없음</option>
          						<option>1명</option>
          						<option>2명</option>
          						<option>3명</option>
@@ -117,6 +119,7 @@
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674930838942.svg" />
          					<select name="delivery_time" id="delivery_time" class="st">
          						<option value="0">확정시간을 선택하세요</option>
+         						<option>바우처 즉시 제공</option>
          						<option>1시간 내 확정</option>
          						<option>2시간 내 확정</option>
          						<option>4시간 내 확정</option>
@@ -131,7 +134,7 @@
          					<select name="duration" id="duration" class="st">
          						<option value="0">사용 날짜를 선택하세요</option>
          						<option>지정일 사용</option>
-         						<option>지정일 사용</option>
+         						<option>유효기간내 사용</option>
          					</select>
          				</div>
          				<div class="good_keyBox">
@@ -150,6 +153,7 @@
          						<option>한국어</option>
          						<option>중국어</option>
          						<option>일본어</option>
+         						<option>한국어 제공, 영어 제공, 태국어 제공</option>
          					</select>
          				</div>
          			</div>

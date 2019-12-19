@@ -184,7 +184,7 @@
 		<!------------------------------------------------ The Modal ------------------------------------------------>
 		<div class="main-item-container">
 			<div class="mainbanner-container">
-				<a href="https://www.waug.com/event/event.html?idx=311"> <img
+				<a href="./order/couponinfo"> <img
 					alt="promotion banner"
 					src="https://d2mgzmtdeipcjp.cloudfront.net/files/promotionbanner/2019/12/02/15752526973480.png">
 				</a>
@@ -202,35 +202,43 @@
 						<div
 							class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-active"
 							style="margin-right : 16px;">
-							<a href="./search/quickSearch">
+							<a href="./search/quickSearch?type=usim">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=330x233');">
 								<div class="main-watem-text">유심 & 와이파이</div>
 							</div>
 							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=airport">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15628256865214.png?s=330x233');">
 								<div class="main-watem-text">공항 이동수단</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=jr">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018926570.png?s=330x233');">
 								<div class="main-watem-text">일본 교통패스</div>
 							</div>
+							</a>
 						</div>
 						<div class="swiper-slide watemlist-slide swiper-slide-visible" style="margin-right : 16px;">
+							<a href="./search/quickSearch?type=eurail">
 							<div class="main-watem-container" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591019070628.png?s=330x233');">
 								<div class="main-watem-text">유레일 패스</div>
 							</div>
+							</a>
 						</div>
 					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
 			<div class="flex">
+				<a href="./search/quickSearch?type=all" style="cursor: pointer;">
 				<div class="main-itemsubbtn subbtn2">
 					<div class="text text2">전체 보기</div>
 				</div>
+				</a>
 			</div>
 		</div>
 		<div class="main-item-container">

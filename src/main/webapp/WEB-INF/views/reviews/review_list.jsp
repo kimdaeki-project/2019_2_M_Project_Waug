@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title her11e1</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
@@ -72,8 +72,6 @@
 								<c:forEach items="${dto.images}" var="image">
 									<c:if test="${not empty image.img_name}">
 										<img src="../resources/images/reviews/${image.img_name}" style="width: 74px; height: 74px;" class="tttt" id="${image.img_name}">
-										
-										
 									</c:if>
 								</c:forEach>
 								

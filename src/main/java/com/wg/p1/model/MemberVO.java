@@ -15,14 +15,25 @@ public class MemberVO {
 	private String img;
 	private int goods_num;
 	private List<WishListVO> wishlist;
+
 	private String uuid;
-	
+	private List<MyCouponVO> myCoupon;
 	
 	public String getUuid() {
 		return uuid;
 	}
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+
+	
+	public List<MyCouponVO> getMyCoupon() {
+		return myCoupon;
+	}
+	public void setMyCoupon(List<MyCouponVO> myCoupon) {
+		this.myCoupon = myCoupon;
+
 	}
 	public List<WishListVO> getWishlist() {
 		return wishlist;

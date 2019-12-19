@@ -14,20 +14,20 @@ public class BookerInfoVO {
 	private String sns;		//sns 계정
 	private String b_visit;		//방문시간
 	private int b_gender;
+	public int getB_gender() {
+		return b_gender;
+	}
+	public void setB_gender(int b_gender) {
+		this.b_gender = b_gender;
+	}
 	private int b_ref;	//ref : 같은 예약끼리 묶어놓기 위해서
 	private String firstName;
 	private String lastName;
 	private String passport;
 	private String b_email;	//바우처 수신용 이메일
-	private String email;
 	
 	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+
 	public String getB_email() {
 		return b_email;
 	}
@@ -76,12 +76,8 @@ public class BookerInfoVO {
 	public void setB_visit(String b_visit) {
 		this.b_visit = b_visit;
 	}
-	public int getB_gender() {
-		return b_gender;
-	}
-	public void setB_gender(int b_gender) {
-		this.b_gender = b_gender;
-	}
+	
+	
 	public int getB_ref() {
 		return b_ref;
 	}

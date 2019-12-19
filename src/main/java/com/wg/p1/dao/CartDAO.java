@@ -32,8 +32,8 @@ public class CartDAO {
 	}
 	
 	
-	public int cartSum(MemberVO memberVO) { 
-		return sqlSession.selectOne(NAMESPACE+"cartSum", memberVO); 
+	public int cartTotal(MemberVO memberVO) { 
+		return sqlSession.selectOne(NAMESPACE+"cartTotal", memberVO); 
 	}
 	 
 	public int cartCount(MemberVO memberVO) {

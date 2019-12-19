@@ -7,4 +7,24 @@
 	<select id="mySelect">
 		select * from member where
 	</select>  
+	
+	<insert id="myCouponAdd" parameterType="MyCouponVO">
+		insert into mycoupon(c_num, m_pk, c_code, c_isuse) values (cp_seq.nextval, #{m_pk},#{c_code},0)
+	</insert>
+	
+	<select id="myCoupon" parameterType="MemberVO" resultType="CouponVO">
+		select * from mycoupon inner join coupon_list using(c_code) where m_pk=#{m_pk}
+	</select>
+	
+	<select id="myCouponBeforeCount" parameterType="MemberVO" resultType="Integer">
+		select count(*) from mycoupon where m_pk=#{m_pk} and c_isuse=0
+	</select>
+	<select id="myCouponAfterCount" parameterType="MemberVO" resultType="Integer">
+		select count(*) from mycoupon where m_pk=#{m_pk} and c_isuse=1
+	</select>
+	<select id="couponCount" parameterType="java.util.Map" resultType="Integer">
+		select count(*) from mycoupon
+		where m_pk=#{m_pk} and c_code=#{c_code}
+	</select>
+	
 </mapper>
