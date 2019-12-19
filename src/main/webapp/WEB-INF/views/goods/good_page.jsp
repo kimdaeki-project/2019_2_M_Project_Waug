@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<input type="text" disabled="disabled" name="goods_num" value="7" id="goods_num">	
+<input type="text" disabled="disabled" name="goods_num" value="${goods_num}" id="goods_num">	
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
@@ -110,7 +110,9 @@
          		<div class="good_bookInfo">
          			<div class="good_priceBox">₩ ${goods.price}</div>
          			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> ${goods.sell} 예약</div>
+         			<a href="../order/calendar?goods_num=${goods.goods_num}">
          			<div class="good_reservation_btn">예약하기</div>
+         			</a>
          		</div>
          	</div>
          </div>
@@ -377,14 +379,14 @@ function openModal() {
     });  
 
   
-
+/* 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
       location.href='../order/calendar?goods_num='+$('#goods_num').val();
       // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
       // onclick="location.href='goods';"
    });
-
+ */
    
 
    //스크롤 내리면 tabs보이기

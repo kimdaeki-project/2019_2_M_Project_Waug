@@ -24,7 +24,7 @@
   	</select>
   	<!-- 장바구니 금액 총 합계 -->
    	<select id="cartTotal" parameterType="MemberVO" resultType="Integer">
-  		select NVL(SUM(g.discount*o.o_people),0) money
+  		select NVL(SUM((g.price-g.price*discount/100)*o.o_people),0) money
 		from cart c, goods g, goods_option o
 		where c.goods_num=g.goods_num and c.o_num= o.o_num and c.email=#{m_pk} 
   	</select> 
