@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.MyCouponVO;
 import com.wg.p1.model.ReviewImgVO;
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.service.CouponService;
+import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.ReviewService;
 import com.wg.p1.util.Pager;
 
@@ -28,12 +30,18 @@ public class ReviewController {
 	ReviewService reviewService;
 	@Inject
 	private CouponService couponService;
+	@Inject
+	private GoodsService goodsService;
+	
 	
 	@RequestMapping("review_list")
 	public ModelAndView review(Pager pager, ModelAndView mv) throws Exception{
 		System.out.println("페이져"+pager.getGoods_num());
 		List<ReviewVO> ar = reviewService.reviewList(pager);
+		GoodsVO goodsVO = goodsService.selectOneGoods(Integer.parseInt(pager.getGoods_num()));
+		
 		mv.addObject("list", ar);
+		mv.addObject("goodsVO", goodsVO);
 		mv.addObject("totalPage", pager.getTotalPage());
 		mv.setViewName("reviews/review_list");
 		return mv;

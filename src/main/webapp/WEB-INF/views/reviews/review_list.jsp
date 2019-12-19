@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,7 +120,7 @@
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
-											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
+											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_write" method="post" class="review-form">
 									<input type="hidden" name="goods_num" value="${param.goods_num}">
@@ -130,7 +131,16 @@
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
+										<c:choose>
+											<c:when test="${fn:length(goodsVO.title) gt 10}">
+												<h5 class="title comment-write-title">
+        											<c:out value="${fn:substring(goodsVO.title, 0, 10)}"></c:out>...
+												</h5>
+        									</c:when>
+        									<c:otherwise>
+        										<h5 class="title comment-write-title">${goodsVO.title}</h5>
+        									</c:otherwise>
+										</c:choose>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -213,7 +223,7 @@
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
-											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
+											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_update" method="post" class="review-form2">
 									<input type="hidden" name="goods_num" value="${param.goods_num}">
@@ -225,7 +235,7 @@
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<h5 class="title comment-write-title">대만 이지카드 (국내 공항 수령)</h5>
+											<h5 class="title comment-write-title">${goodsVO.title}</h5>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -305,7 +315,7 @@
 								<div class="modal-body" style="padding-bottom: 45px;">
 									<a href="../good/?idx=107382">
 										<div
-											style="background-image: url(https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/05/15623120666396.png); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
+											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
 									<form action="review_reply" method="post" class="review-form3">
 									<input type="hidden" name="goods_num" value="${param.goods_num}">
@@ -317,7 +327,7 @@
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<h5 class="title comment-reply-title">대만 이지카드 (국내 공항 수령)</h5>
+											<h5 class="title comment-reply-title">${goodsVO.title}</h5>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -389,7 +399,7 @@
 						<a type="button" id="btn-review-write" data-goodidx="107382"
 							data-toggle="modal" data-target="#modal-review"
 							class="reivew-foot-write-btn col-md-12 btn-form-submit "
-							style="color: white; text-align: center; text-decoration: none; cursor: pointer;">후기 작성하기</a>
+							style="color: white; text-align: center; text-decoration: none; cursor: pointer;" onclick="logincheck()">후기 작성하기</a>
 					</div>
 					<c:if test="${totalPage gt 1}">
 					<div class="text-center space-4 add-review-space" >
@@ -405,6 +415,13 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		function logincheck() {
+			if(${empty memberVO}){
+				alert('로그인 후 후기 작성이 가능합니다');
+				location.href="../member/login";
+			}
+		}
+	
 		var curPage = 1;
 		/* 영하테스트 */
 		/* $(window).scroll(function() {

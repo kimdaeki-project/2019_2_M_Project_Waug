@@ -45,7 +45,7 @@
 	<div id="main-wrapper">
 		<div id="main-header">
 			<div id="main-header-items">
-				<div class="text2">겨울 여행은 어디로 떠날까요?12</div>
+				<div class="text2">겨울 여행은 어디로 떠날까요?122</div>
 				<div class="search">
 					<div class="bar">
 						<div class="searchbar-input-container">
@@ -261,7 +261,7 @@
 
 									<c:choose>
 										<c:when test="${vo.wish eq 1}">
-										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
+										<div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}" ></div>
 										</c:when>
 										<c:when test="${vo.wish eq 0}">
 										<div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
@@ -287,125 +287,6 @@
 						</div>
 
 					</c:forEach>		
-					
-						<div class="goodlist-slide swiper-slide"
-							style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/26/15641209630398.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date">내일부터 사용가능</div>
-									<div class="good-card-title">프로모션: 와그 핑크 파타야 산호섬 해양 투어(파타야/방콕 출발)</div>
-									<div class="good-card-original-price">₩ 40,000</div>
-									<div class="good-card-price">₩ 15,000</div>
-									<div class="good-card-coupon-text">63% 할인</div>
-									<div class="good-card-buy-cnt">13,179 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725721059056.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">오늘부터 사용가능 
-										<img class="good-card-thunder-icon"src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">유니버셜 스튜디오™ 할리우드 1/2일권 (QR 코드즉시 입장)</div>
-									<div class="good-card-original-price">₩ 158,800</div>
-									<div class="good-card-price">₩ 98,200</div>
-									<div class="good-card-coupon-text">10% 할인</div>
-									<div class="good-card-buy-cnt">17,908 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/01/15725736800893.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color"> 오늘부터 사용가능 
-										<img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">홍콩 디즈니랜드 1/2일권</div>
-									<div class="good-card-original-price">₩ 107,831</div>
-									<div class="good-card-price"> ₩ 69,012</div>
-									<div class="good-card-coupon-text">10% 할인</div>
-									<div class="good-card-buy-cnt">70,974 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right: 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/15/15737865496525.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">오늘부터 사용가능
-										<img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">상하이 디즈니랜드® 입장권 (바우처 즉시 발급)</div>
-									<div class="good-card-original-price">₩ 57,079</div>
-									<div class="good-card-price">₩ 45,224</div>
-									<div class="good-card-coupon-text">10% 할인</div>
-									<div class="good-card-buy-cnt">30,038 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right : 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/09/23/15692164316838.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">오늘부터 사용가능 
-										<img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">와그 특가: 유니버셜 스튜디오 싱가포르 익스프레스패스</div>
-									<div class="good-card-original-price">₩ 45,739</div>
-									<div class="good-card-price">₩ 41,165</div>
-									<div class="good-card-buy-cnt">1,099 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide" style="margin-right : 18px;">
-							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/06/27/15616057795040.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">오늘부터 사용가능 
-										<img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">유니버셜 스튜디오 싱가포르 입장권 (바코드 즉시입장)</div>
-									<div class="good-card-original-price">₩ 59,000</div>
-									<div class="good-card-price">₩ 15,000</div>
-									<div class="good-card-buy-cnt">79,422 예약</div>
-								</div>
-							</div>
-						</div>
-						<div class="goodlist-slide swiper-slide"
-							style="margin-right : 18px;">
-							<div
-								class="good-card-wrapper swiper-slide onclick-cursor-pointer">
-								<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/08/05/15649717155481.png?s=266x175');">
-									<div class="good-card-wish-btn onclick-cursor-pointer"></div>
-								</div>
-								<div class="good-card-text-wrapper">
-									<div class="good-card-available-date point-color">오늘부터 사용가능
-									<img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
-									</div>
-									<div class="good-card-title">다낭 바나힐 입장권 (왕복 케이블카 포함)</div>
-									<div class="good-card-original-price">₩ 44,800</div>
-									<div class="good-card-price"> ₩ 26,900</div>
-									<div class="good-card-coupon-text">40% 할인</div>
-									<div class="good-card-buy-cnt">13,958 예약</div>
-								</div>
-							</div>
-						</div>
 					</div>
 					<div class="prev-btn" style="top:20%;">
 					<div style="opacity: 0;" class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
@@ -419,27 +300,78 @@
 				</div>
 			</div>
 		</div>
-		<div class="main-item-container">
+		 <div class="main-item-container">
+         <div class="main-itemtitle">
+            <div class="main-itemtitle-title">이런 여행은 어때요?</div>
+            <div class="main-itemtitle-sub">와그 에디터가 추천하는 여행을 만나보세요</div>
+         </div>
+         <div class="swiper-list-container container4">
+            <div class="swiper-container content popularTheme swiper-container-initialized swiper-container-horizontal">
+               <div class="swiper-wrapper">
+                  <a href="./goods/goods_themes">
+                  <div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;">
+                     <div class="theme-card-container">
+                        <div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725293615137.jpg?s=445x228');">
+                        </div>
+                        <div class="theme-card-content">
+                           <div class="theme-card-cc-category">Food</div>
+                           <div class="theme-card-cc-title">서울 레스토랑 할인 예약</div>
+                           <div class="theme-card-cc-content">미슐랭부터 인기 맛집까지</div>
+                        </div>
+                     </div>
+                  </div>
+                  </a>
+                  <div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
+                     <div class="theme-card-container">
+                        <div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230679474.jpg?s=445x228');">
+                        </div>
+                        <div class="theme-card-content">
+                           <div class="theme-card-cc-category">Tour</div>
+                           <div class="theme-card-cc-title">겨울 여행 유럽은 어때?</div>
+                           <div class="theme-card-cc-content">2019 유럽 투어 할인전!</div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="themelist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
+                     <div class="theme-card-container">
+                        <div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725287418372.png?s=445x228');">
+                        </div>
+                        <div class="theme-card-content">
+                           <div class="theme-card-cc-category">Hot</div>
+                           <div class="theme-card-cc-title">와그 오리지널 투어 오픈</div>
+                           <div class="theme-card-cc-content">와그가 직접 만든 퀄리티가 다른 투어</div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+            </div>
+         </div>
+      </div>
+		
+		<%-- <div class="main-item-container">
 			<div class="main-itemtitle">
-				<div class="main-itemtitle-title">이런 여행은 어때요?</div>
+				<div class="main-itemtitle-title">이런 여행은 어때요?2</div>
 				<div class="main-itemtitle-sub">와그 에디터가 추천하는 여행을 만나보세요</div>
 			</div>
 			<div class="swiper-list-container container4">
 				<div class="swiper-container content popularTheme swiper-container-initialized swiper-container-horizontal">
 					<div class="swiper-wrapper">
-						<a href="./goods/goods_themes">
-						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;">
+						<c:forEach items="${Themelist}" var="theme" begin="0" end="2">
+						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_themes?t_num=${theme.t_num}'">
 							<div class="theme-card-container">
-								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725293615137.jpg?s=445x228');">
+								<div class="theme-card-image" style="background-image: url('${theme.t_img}?s=445x228');">
 								</div>
 								<div class="theme-card-content">
-									<div class="theme-card-cc-category">Food</div>
-									<div class="theme-card-cc-title">서울 레스토랑 할인 예약</div>
-									<div class="theme-card-cc-content">미슐랭부터 인기 맛집까지</div>
+									<div class="theme-card-cc-category">${theme.t_subject}</div>
+									<div class="theme-card-cc-title">${theme.t_title}</div>
+									<div class="theme-card-cc-content">${theme.t_subtitle}</div>
 								</div>
 							</div>
 						</div>
-						</a>
+						</c:forEach>
+						
+						
 						<div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
 							<div class="theme-card-container">
 								<div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230679474.jpg?s=445x228');">
@@ -462,11 +394,12 @@
 								</div>
 							</div>
 						</div>
+						
 					</div>
 					<span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
 				</div>
 			</div>
-		</div>
+		</div> --%>
 		<div class="main-item-container">
 			<div class="main-itemtitle">
 				<div class="main-itemtitle-title">유럽으로 떠나는 휴가</div>
@@ -693,6 +626,7 @@
 
 			var goods_num = $(this).attr("title");
 			
+			
 			if($(this).hasClass("good-card-wish-btn-whis")){
 				$(this).removeClass("good-card-wish-btn-whis")
 				$.ajax({
@@ -725,7 +659,10 @@
 					  alert('fail');
 					},
 		    	});  
+				}
 			}
+			
+			
 			event.stopImmediatePropagation();
 		});
 		/* 모달 */
@@ -813,10 +750,8 @@
 		        $('.nav-wrapper').removeClass('nav_toggle');
 		     }
 		  });
-	$("#ttse").change(function() {
-		$(this).val("");
-		return false;
-	})
+	
+	
 	</script>
 </body>
 </html>

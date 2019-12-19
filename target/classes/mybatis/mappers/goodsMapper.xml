@@ -166,5 +166,9 @@ select max(goods_num) from goods
   <select id="searchgoods" parameterType="Pager" resultType="GoodsVO">
   	select goods_num, title from goods where title like '%'||#{search}||'%'
   </select>
+  <!-- 테마조회 -->
+  <select id="themeselect" parameterType="ThemeVO" resultType="ThemeVO">
+  	select * from theme where t_num = #{t_num}
   
+  </select>
 </mapper>

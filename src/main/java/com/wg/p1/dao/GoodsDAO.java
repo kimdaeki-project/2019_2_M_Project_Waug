@@ -118,7 +118,6 @@ public class GoodsDAO {
 	}
 	public List<ThemeVO> ThemeAll() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"themeList");
-
 	}
 	
 	//메인페이지 검색창전용-도시
@@ -129,5 +128,9 @@ public class GoodsDAO {
 	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"searchgoods", pager);
 	}
+	//테마페이지
+	public ThemeVO themeselect(ThemeVO themeVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"themeselect", themeVO);
+	} 
 	
 }

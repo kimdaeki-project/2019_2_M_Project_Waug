@@ -72,7 +72,12 @@ public class GoodsController {
 
 
 	@RequestMapping("goods_themes")
-	public void themes() throws Exception{
+	public ModelAndView themes(ThemeVO themeVO, ModelAndView mv) throws Exception{
+		themeVO = goodsService.themeselect(themeVO);
+		mv.addObject("ThemeVO", themeVO);
+		
+		mv.setViewName("goods/goods_themes");
+		return mv;
 	}
 	
 	@GetMapping("goods_write")

@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ThemeVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.util.Pager;
@@ -71,6 +72,8 @@ public class HomeController {
 		List<NationVO> europe_city = goodsService.EuropeList();
 		List<NationVO> asia_city = goodsService.AsiaList();
 		List<NationVO> cityar = goodsService.CityList();
+		List<ThemeVO> themelist = goodsService.ThemeAll();
+		System.out.println(themelist.size());
 		ModelAndView mv = new ModelAndView();
 		
 		memberVO = (MemberVO)session.getAttribute("memberVO");
@@ -88,6 +91,7 @@ public class HomeController {
 		mv.addObject("asia_city", asia_city);
 		/* mv.addObject("memberVO", memberVO); */
 		mv.addObject("list", ar);
+		mv.addObject("Themelist", themelist);
 		mv.setViewName("home");
 		
 		return mv;

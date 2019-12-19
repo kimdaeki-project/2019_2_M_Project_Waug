@@ -98,5 +98,8 @@ public class GoodsService {
 	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
 		return goodsDAO.Goodssearch(pager);
 	}
-	
+	//테마페이지
+	public ThemeVO themeselect(ThemeVO themeVO) throws Exception{
+		return goodsDAO.themeselect(themeVO);
+	}
 }
