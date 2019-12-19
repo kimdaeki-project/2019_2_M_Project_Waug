@@ -53,7 +53,6 @@ public class OrderService {
 			bookerInfoVO.setB_name(b_name);
 			orderDAO.insertBookerInfo2(bookerInfoVO);
 		}
-		
 		return bookerInfoVO.getB_num();
 	}
 	

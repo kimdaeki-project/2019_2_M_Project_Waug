@@ -56,7 +56,7 @@
 		</div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------ -->		
 		
-		<c:forEach begin="0" end="${people-1}" var="i">
+		<c:forEach begin="0" end="${option.o_people-1}" var="i">
 		<div class="order_infoBox">
 			<div class="order_info_title">사용자 정보</div>
 			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
@@ -110,7 +110,10 @@
 		<div class="order_footer_wrapper">
 			<button class="order_submit" id="info_reservation_btn">예약하기</button>
 		</div>
-		<input type="text" id="people" name="people" value="${people}" hidden="hidden">
+		<input type="text" id="o_num" name="o_num"  value="${option.o_num}" style="background:green">
+		<input type="text" id="o_tile" name="o_time"  value="${option.o_time}" style="background:tomato">
+		<input type="text" id="o_num" name="o_people"  value="${option.o_people}" style="background:gray">
+		<input type="text" id="o_date" name="o_date"  value="${option.o_date}" style="background:yellowgreen">
 		</form>
 	</div>
 </div>

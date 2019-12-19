@@ -731,3 +731,6 @@ input[type="email"].input_md{
 .event-content-button-content{
 	margin-top:-5px;
 }
+.hidden{
+	display: none;
+}

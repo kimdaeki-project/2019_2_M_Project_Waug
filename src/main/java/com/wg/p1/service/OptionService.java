@@ -22,4 +22,8 @@ public class OptionService {
 	public List<GoodsVO> optionList(OptionVO optionVO) throws Exception{
 		return optionDAO.optionList(optionVO);
 	}
+	public OptionVO optionSelectOne(int o_num)throws Exception{
+		return optionDAO.optionSelectOne(o_num);
+	}
+	
 }
