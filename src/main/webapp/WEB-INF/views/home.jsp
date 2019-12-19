@@ -26,7 +26,9 @@
 <link rel="stylesheet" href="resources/css/CityList.css">
 <link rel="stylesheet" href="resources/css/homenav.css">
 <style type="text/css">
-
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 .active-continent{
 	color: #d91c84;
 }
@@ -247,7 +249,7 @@
 
 							<div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
 								
-								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}');">
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}?s=266x175');">
 
 									<c:choose>
 										<c:when test="${vo.wish eq 1}">
@@ -267,8 +269,9 @@
 									</div>
 									<div class="good-card-title">${vo.title}</div>
 									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
-									<div class="good-card-price">₩ <fmt:formatNumber type="number" value="${vo.discount}"/></div>
-									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
+									<div class="good-card-price"><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
+									<div class="good-card-coupon-text">${vo.discount}% 할인</div>
+									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약123</div>
 									
 								</div>
 								</a>
