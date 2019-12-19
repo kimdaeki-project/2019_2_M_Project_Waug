@@ -279,7 +279,7 @@
 									<div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
 									<div class="good-card-price"><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 									<div class="good-card-coupon-text">${vo.discount}% 할인</div>
-									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약123</div>
+									<div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
 									
 								</div>
 								</a>
@@ -587,12 +587,6 @@
 		<button onclick="location.href='./admin/admin_main'">
 			관리자페이지
 		</button>
-		
-		
-			
-	<input type="file" id="ttse">
-		
-		
 		<c:import url="./layout/Footer.jsp"></c:import>
 	</div>
 </div>
@@ -732,6 +726,7 @@
 					},
 		    	});  
 			}
+			event.stopImmediatePropagation();
 		});
 		/* 모달 */
 		// Get the modal
