@@ -11,7 +11,6 @@
 <!-- <link rel="stylesheet" href="resources/css/home.css"> -->
 <link rel="stylesheet" href="../resources/css/goods.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
-<link rel="stylesheet" href="../resources/css/good_nav.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
@@ -22,7 +21,7 @@
 
 <body>
 <input type="text" disabled="disabled" name="goods_num" value="${goods_num}" id="goods_num">	
-<c:import url="../layout/nav.jsp"/>
+<c:import url="../layout/good_nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
 

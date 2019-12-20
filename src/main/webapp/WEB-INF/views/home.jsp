@@ -1,331 +1,167 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-
    pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
 <%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <%@ page session="false"%>
 
 <html>
-
 <head>
-
 <title class="next-head">짜그 WAUG - 전세계 액티비티, 입장권, 교통 , 유심</title>
-
 <link rel="shortcut icon" href="./resources/FAVICON_WAUG_64.ico"
-
    type="image/x-icon" />
-
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
 <!-- Latest compiled and minified CSS -->
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
 <!-- jQuery library -->
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
-
 <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-
 <script src="https://unpkg.com/swiper/js/swiper.js"></script>
-
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
-
 <link rel="stylesheet" href="resources/css/home.css">
-
 <link rel="stylesheet" href="resources/css/Footer.css">
-
 <link rel="stylesheet" href="resources/css/CityList.css">
-
 <link rel="stylesheet" href="resources/css/homenav.css">
-
 <style type="text/css">
-
 *{
-
    font-family: 'Noto Sans KR', sans-serif;
-
 }
-
 .active-continent{
-
    color: #d91c84;
-
 }
-
-
 
 .active2 a{
-
    color: #d91c84 !important;
-
 }
-
 </style>
-
 </head>
-
 <body>
-
    <div id="body">
-
    <c:import url="./layout/home_nav.jsp"/>
 
-   
-
    <div id="main-wrapper">
-
       <div id="main-header">
-
          <div id="main-header-items">
-
             <div class="text2">겨울 여행은 어디로 떠날까요?12</div>
-
             <div class="search">
-
                <div class="bar">
-
                   <div class="searchbar-input-container">
-
                      <div></div>
-
                      <input id="search" value="" placeholder="액티비티 또는 지역명으로 검색하세요">
-
                   </div>
-
                </div>
-
                <div class="searchresult-container" >
-
                   <div class="searchresult-content">
-
                      <div class="searchresultitem-container">
-
                         <div class="searchresultitem-title">빠른 검색</div>
-
                         <div class="searchresultitem-items">
-
                            <div class="searchresultitem-item">
-
                               <div>유심 & 와이파이</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>공항 이동수단</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>일본 교통패스</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>유레일 패스</div>
-
                            </div>
-
                         </div>
-
                      </div>
-
-                     <div id="container2"
-
-                        class="searchresultitem-container container2">
-
+                     <div id="container2" class="searchresultitem-container container2">
                         <div class="searchresultitem-title">인기 지역</div>
-
                         <div class="searchresultitem-items">
-
                            <div class="searchresultitem-item">
-
                               <div>방콕</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>오사카</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>도쿄</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>괌</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>세부</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>홍콩</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>제주도</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>싱가포르</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>다낭</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>타이페이</div>
-
                            </div>
-
                         </div>
-
                      </div>
-
                      <div class="searchresultitem-container">
-
                         <div class="searchresultitem-title">인기 액티비티</div>
-
                         <div class="searchresultitem-items">
-
                            <div class="searchresultitem-item">
-
                               <div>간사이공항 리무진 (난바, 가이유칸, USJ)</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>홍콩 옥토퍼스 카드 (국내공항수령)</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>한큐 투어리스트 패스 1/2일권</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>타이페이 101 타워 전망대 (QR 빠른 입장)</div>
-
                            </div>
-
                            <div class="searchresultitem-item">
-
                               <div>옥토퍼스 HKD 50 충전 (홍콩공항수령)</div>
-
                            </div>
-
                         </div>
-
                      </div>
-
                   </div>
-
                </div>
-
             </div>
-
          </div>
-
       </div>
-
       <div id="back-image1" class="image imageplus"></div>
-
       <div id="back-image2" class="image imageplus"></div>
-
       <div id="back-image3" class="image imageplus"></div>
-
       <div id="back-image4" class="image imageplus"></div>
-
       <div id="back-image5" class="image imageplus"></div>
-
    </div>
 
-
-
    <div id="main-container">
-
       <div class="main-item-container">
-
          <div class="main-itemtitle">
-
             <div class="main-itemtitle-title">인기 여행지</div>
-
             <div class="main-itemtitle-sub">2019년 가장 핫한 여행지를 추천해요</div>
-
          </div>
 
-
-
          <div class="swiper-list-container">
-
             <div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
-
                <div class="swiper-wrapper">
-
                <c:forEach items="${citylist}" var="dto">
-
                   <div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
-
                      <div class="area-card-container">
-
                         <div class="area-card-content swiper-lazy swiper-lazy-loaded"
-
                            style="background-image: url('${dto.city_img}');">
-
                         </div>
-
                         <div class="area-card-text">${dto.city_name}</div>
-
                      </div>
-
                   </div>
-
                </c:forEach>
 
-                  
-
                </div>
-
                <div class="prev-btn">
 
                <div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
