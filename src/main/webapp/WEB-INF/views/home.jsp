@@ -835,8 +835,6 @@
 			$(".swiper-button-prev").click();
 		});
 		
-	
-
 	 	$(document).scroll(function(){
 		     if($(document).scrollTop()>650){
 		        $('.nav-wrapper').addClass('nav_toggle');
