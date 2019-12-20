@@ -160,10 +160,8 @@
                      </div>
                   </div>
                </c:forEach>
-
                </div>
                <div class="prev-btn">
-
                <div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
 
                </div>
@@ -366,175 +364,64 @@
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
             </div>
          </div>
-
       </div>
-
       <div class="main-item-container">
-
          <div class="main-itemtitle">
-
             <div class="main-itemtitle-title">이런 여행은 어때요1?</div>
-
             <div class="main-itemtitle-sub">와그 에디터가 추천하는 여행을 만나보세요</div>
-
          </div>
-
          <div class="swiper-list-container container4">
-
             <div class="swiper-container content popularTheme swiper-container-initialized swiper-container-horizontal">
-
                <div class="swiper-wrapper">
-
                   <c:forEach items="${Themelist}" var="theme" begin="0" end="2">
-
                   <div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px; cursor: pointer;"
-
                   	onclick="location.href='./goods/goods_themes?t_num=${theme.t_num}'">
-
                      <div class="theme-card-container">
-
                         <div class="theme-card-image" style="background-image: url('${theme.t_img}?s=445x228');">
-
                         </div>
-
                         <div class="theme-card-content">
-
                            <div class="theme-card-cc-category">${theme.t_subject}</div>
-
                            <div class="theme-card-cc-title">${theme.t_title}</div>
-
                            <div class="theme-card-cc-content">${theme.t_subtitle}</div>
-
                         </div>
-
                      </div>
-
                   </div>
-
                   </c:forEach>
-
-                  
-
-                  <!-- <div class="themelist-slide swiper-slide swiper-slide-visible swiper-slide-next" style="margin-right : 16px;">
-
-                     <div class="theme-card-container">
-
-                        <div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230679474.jpg?s=445x228');">
-
-                        </div>
-
-                        <div class="theme-card-content">
-
-                           <div class="theme-card-cc-category">Tour</div>
-
-                           <div class="theme-card-cc-title">겨울 여행 유럽은 어때?</div>
-
-                           <div class="theme-card-cc-content">2019 유럽 투어 할인전!</div>
-
-                        </div>
-
-                     </div>
-
-                  </div>
-
-                  <div class="themelist-slide swiper-slide swiper-slide-visible" style="margin-right : 16px;">
-
-                     <div class="theme-card-container">
-
-                        <div class="theme-card-image" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/10/31/15725287418372.png?s=445x228');">
-
-                        </div>
-
-                        <div class="theme-card-content">
-
-                           <div class="theme-card-cc-category">Hot</div>
-
-                           <div class="theme-card-cc-title">와그 오리지널 투어 오픈</div>
-
-                           <div class="theme-card-cc-content">와그가 직접 만든 퀄리티가 다른 투어</div>
-
-                        </div>
-
-                     </div>
-
-                  </div> -->
-
                </div>
-
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
-
             </div>
-
          </div>
-
       </div>
-
       <div class="main-item-container">
-
          <div class="main-itemtitle">
-
             <div class="main-itemtitle-title">유럽으로 떠나는 휴가</div>
-
          </div>
-
-
-
          <div class="swiper-list-container">
-
             <div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
-
                <div class="swiper-wrapper">
-
                <c:forEach items="${europe_city}" var="dto">
-
                   <div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
-
                      <div class="area-card-container">
-
                         <div class="area-card-content swiper-lazy swiper-lazy-loaded"
-
                            style="background-image: url('${dto.city_img}');">
-
                         </div>
-
                         <div class="area-card-text">${dto.city_name}</div>
-
                      </div>
-
                   </div>
-
                </c:forEach>
-
-                  
-
                </div>
-
                <div class="prev-btn">
-
                <div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
-
                </div>
-
                </div>
-
                <div class="next-btn">
-
                <div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
-
                </div>
-
                </div>
-
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
-
             </div>
-
          </div>
-
-         
-
       </div>
-
       <div class="main-item-container">
          <div class="main-itemtitle">
             <div class="main-itemtitle-title">유럽에서 즐기는 액티비티</div>
@@ -581,89 +468,44 @@
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
             </div>
          </div>
-
       </div>
-
-
-
       <div class="main-item-container">
-
          <div class="main-itemtitle">
-
             <div class="main-itemtitle-title">아시아로 떠나는 휴가</div>
-
          </div>
-
-
-
          <div class="swiper-list-container">
-
             <div class="swiper-container swiper-container1 content popularArea swiper-container-initialized swiper-container-horizontal">
-
                <div class="swiper-wrapper">
-
                <c:forEach items="${asia_city}" var="dto">
-
                   <div class="arealist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right : 16px;" onclick="location.href='./goods/goods_area?city_num=${dto.city_num}'">
-
                      <div class="area-card-container">
-
                         <div class="area-card-content swiper-lazy swiper-lazy-loaded"
-
                            style="background-image: url('${dto.city_img}');">
-
                         </div>
-
                         <div class="area-card-text">${dto.city_name}</div>
-
                      </div>
-
                   </div>
-
                </c:forEach>
 
-                  
-
                </div>
-
                <div class="prev-btn">
-
                <div style="opacity: 0;" class="swiper-button-prev popularArea-prev main-swiper-prev-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-hidden="false">
-
                </div>
-
                </div>
-
                <div class="next-btn">
-
                <div style="opacity: 0;" class="swiper-button-next popularArea-next main-swiper-next-btn swiper-button-hidden" tabindex="0" role="button" aria-label="Next slide" aria-hidden="false">
-
                </div>
-
                </div>
-
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
-
             </div>
-
          </div>
-
-         
-
       </div>
-
       <div class="main-item-container">아시아에서 즐기는 액티비티</div>
-
       <div class="main-item-container">
-
          <div class="main-itemtitle">
-
             <div class="main-itemtitle-title">와그 파트너</div>
-
             <div class="main-itemtitle-sub">전세계의 파트너와 함께 다양한 프로모션을 제공해요</div>
-
          </div>
-
          <div class="swiper-list-container">
             <div class="swiper-container content partners swiper-container-initialized swiper-container-horizontal">
                <div class="swiper-wrapper waugpartner-container">
@@ -692,209 +534,110 @@
                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
             </div>
          </div>
-
       </div>
-
       <div class="main-item-container">
-
          <div class="waugappinfo-container">
-
             <img alt="app info image" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15500289017806.jpg?s=1366x470">
-
             <div class="waugappinfo-buttoncontainer">
-
                <div class="waugappinfo-text pc">
-
                   <div class="waugappinfo-title">Explore MORE</div>
-
-                  와그 앱을 다운받고 2% 추가 할인을 받으세요
-
+                  	와그 앱을 다운받고 2% 추가 할인을 받으세요
                </div>
-
                <div class="waugappinfo-button pc">
-
                   <img class="left" alt="ios download" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15440647759349.png?s=140x40">
-
                   <img class="right" alt="aos download" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15440647832570.png?s=140x40">
-
                </div>
-
             </div>
-
          </div>
-
       </div>
-
-      <button onclick="location.href='./admin/admin_main'">
-
-         관리자페이지
-
-      </button>
-
-
-
-      
-
-      
-
+      <button onclick="location.href='./admin/admin_main'">관리자페이지 </button>
 
 
       <c:import url="./layout/Footer.jsp"></c:import>
 
-      
+    
 
       <form action="/p1/" method="post" id="KRWJPY">
-
       	<input type="text" class="KRWJPY" name="rate">
-
       	<input type="text" name="logo" value="¥">
-
       	<input type="text" name="text" value="JPY 일본 엔(¥)">
-
       </form>
-
       <form action="/p1/" method="post" id="KRWUSD">
-
       	<input type="text" class="KRWUSD" name="rate">
-
       	<input type="text" name="logo" value="$">
-
       	<input type="text" name="text" value="USD 미국 달러(US$)">
-
       </form>
-
       <form action="/p1/" method="post" id="KRWEUR">
-
       	<input type="text" class="KRWEUR" name="rate">
-
       	<input type="text" name="logo" value="€">
-
       	<input type="text" name="text" value="EUR 유로 (€)">
-
       </form>
-
        <form action="/p1/" method="post" id="KRWCNY">
-
       	<input type="text" class="KRWCNY" name="rate" value="1">
-
       	<input type="text" name="logo" value="¥">
-
       	<input type="text" name="text" value="CNY 중국 위안(¥)">
-
       </form>
-
       <form action="/p1/" method="post" id="KRWKRW">
-
       	<input type="text" class="KRWKRW" name="rate" value="1">
-
       	<input type="text" name="logo" value="₩">
-
       	<input type="text" name="text" value="KRW 대한민국 원(₩)">
-
       </form>
-
    </div>
-
 </div>
-
-   <script type="text/javascript">
+<script type="text/javascript">
 
   		
-
-   
-
-   
-
    	  window.onload = function(){
 
 		$.ajax({
-
 			type:"GET",
-
 			url: "https://earthquake.kr:23490/query/KRWJPY,KRWUSD,KRWEUR,KRWCNY",
-
 			dataType:'json',
-
 			success:function(data){
-
 				console.log(data);
-
 				var KRWJPY = data.KRWJPY[0];
-
 				var KRWUSD = data.KRWUSD[0];
-
 				var KRWEUR = data.KRWEUR[0];
-
 				var KRWCNY = data.KRWCNY[0];
-
 				$(".KRWJPY").val(KRWJPY);
-
 				$(".KRWUSD").val(KRWUSD);
-
 				$(".KRWEUR").val(KRWEUR);
-
 				$(".KRWCNY").val(KRWCNY);
-
 			}
-
 		});
-
    		};
 
-   		
-
    		function KRWUSD() {
-
 			$("KRWUSD").submit();
-
 		}
 
 		function KRWKRW() {
-
 			$("KRWKRW").submit();
-
 		}
 
-   	  
-
+   	 
       /* $(document).scroll(function() {
 
          console.log($(this).scrollTop());
 
       }); */
 
-      
-
-      
-
+     
       var images = new Array();
 
-
-
-
-
       images[0] = "15749313219637";
-
       images[1] = "15749313311326";
-
       images[2] = "15749313431875";
-
       images[3] = "15749313553829";
-
       images[4] = "15749313677158";
 
       var div = new Array();
 
       div[0] = "#back-image1";
-
       div[1] = "#back-image2";
-
       div[2] = "#back-image3";
-
       div[3] = "#back-image4";
-
       div[4] = "#back-image5";
-
 
 
       var i = 0;
@@ -902,49 +645,28 @@
       /* 배경화면 전환 jquery */
 
       setInterval(function() {
-
          $(div[i]).fadeOut(1500, function() {
-
          });
-
          i = i + 1;
-
          if (i > 4) {
-
             i = 0;
-
          };
 
          $(div[i]).fadeIn(1500,function() {
-
             $(this).css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/"+ images[i] + ".jpg)");
-
                });
-
          }, 5000);
-
-
 
       /* 검색창 jquery */
 
       $("#search").click(function(event) {
-
-         
-
          $(this).attr("placeholder", "");
-
          $(".searchresult-container").addClass('searchresult-container-display');
 
-         
-
          event.stopImmediatePropagation();
-
       });
 
       
-
-
-
       /* 블러하면 사라지기 */
 
       
@@ -968,74 +690,43 @@
       }); */
 
       
-
       /* 검색창 사라지기 */
 
       $("#body").click(function() {
-
          if ($("#search").attr("placeholder") == "") {
-
             $("#search").attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
-
          }
-
          /* $(".searchresult-container").css("display", "none"); */
-
          $(".searchresult-container").removeClass('searchresult-container-display');
-
          //$(".popup-currency").removeClass('popup-currency-popup');
-
       });
 
       
-
-      
-
       $("#search").keyup(function() {
-
          var search = $(this).val();
-
          $.get("./search?search="+search,function(data){
-
             data=data.trim();
-
-            
-
             $(".searchresult-container").html(data);
-
          });
-
       })
 
-
-
       /* 검색창 호버? */
-
       $(".searchresult-container").on("mouseenter", ".searchresultitem-item",function(){
-
          $(this).toggleClass("mouseenter");
-
          $(this).children().css("color", "#d91c84");
-
       });
 
-      
 
       $(".searchresult-container").on("mouseleave", ".searchresultitem-item",function(){
-
          $(this).toggleClass("mouseenter");
-
          $(this).children().css("color", "#333333");
-
       });
 
 
-				
 		/* 위시리스트 jquery */
 		$(".good-card-wish-btn").click(function() {
-
 			var goods_num = $(this).attr("title");
-		
+	
 				if($(this).hasClass("good-card-wish-btn-whis")){
 					$(this).removeClass("good-card-wish-btn-whis")
 					$.ajax({
