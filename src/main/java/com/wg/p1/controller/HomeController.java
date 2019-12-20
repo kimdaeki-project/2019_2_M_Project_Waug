@@ -75,6 +75,8 @@ public class HomeController {
 		List<NationVO> asia_city = goodsService.AsiaList();
 		List<NationVO> cityar = goodsService.CityList();
 		List<ThemeVO> themelist = goodsService.ThemeAll();
+		List<GoodsVO> asia_activity = goodsService.asiaActivity();
+		
 		ModelAndView mv = new ModelAndView();
 		memberVO = (MemberVO)session.getAttribute("memberVO");
 		
@@ -94,6 +96,7 @@ public class HomeController {
 		mv.addObject("rate", exchange.getRate());
 		mv.addObject("logo", exchange.getLogo());
 		mv.addObject("text", exchange.getText());
+		mv.addObject("asia_activity", asia_activity);
 		return mv;
 	}
 

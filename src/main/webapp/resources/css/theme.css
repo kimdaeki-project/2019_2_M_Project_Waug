@@ -22,6 +22,7 @@
 	height: 480px;
 	background-size: cover !important;
 	background-repeat: no-repeat !important;
+	background-position: center;
 }
 .theme-header-opacity{
 	width: 100%;

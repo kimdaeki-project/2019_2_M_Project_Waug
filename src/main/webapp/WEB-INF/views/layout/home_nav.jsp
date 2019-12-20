@@ -44,20 +44,20 @@
 <div class="currency-wrapper">
 <div class="currency-title">주요 통화</div>
 <div class="currency-list">
-<div class="currency-item onclick-cursor-pointer active">
-<div class="currency-text" onclick="KRWUSD()">USD 미국 달러(US$)</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text currency-text2" onclick="KRWUSD()">USD 미국 달러(US$)</div>
 </div>
 <div class="currency-item onclick-cursor-pointer">
-<div class="currency-text" onclick="KRWKRW()">KRW 대한민국 원(₩)</div>
+<div class="currency-text currency-text2" onclick="KRWKRW()">KRW 대한민국 원(₩)</div>
 </div>
 <div class="currency-item onclick-cursor-pointer">
-<div class="currency-text" onclick="KRWJPY()">JPY 일본 엔(¥)</div>
+<div class="currency-text currency-text2" onclick="KRWJPY()">JPY 일본 엔(¥)</div>
 </div>
 <div class="currency-item onclick-cursor-pointer">
-<div class="currency-text" onclick="KRWCNY()">CNY 중국 위안(¥)</div>
+<div class="currency-text currency-text2" onclick="KRWCNY()">CNY 중국 위안(¥)</div>
 </div>
 <div class="currency-item onclick-cursor-pointer">
-<div class="currency-text" onclick="KRWEUR()">EUR 유로 (€)</div>
+<div class="currency-text currency-text2" onclick="KRWEUR()">EUR 유로 (€)</div>
 </div>
 </div>
 <div class="currency-title">기타 통화</div>

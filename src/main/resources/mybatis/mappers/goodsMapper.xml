@@ -171,4 +171,9 @@ select max(goods_num) from goods
   	select * from theme where t_num = #{t_num}
   
   </select>
+  
+  <!-- 아시아에서 즐기는 액티비티 -->
+  <select id="asiaActivity" resultType="GoodsVO">
+  	select * from goods inner join nationinfo using(city_num) where continents like '%아시아%' and cate_num =2
+  </select>
 </mapper>

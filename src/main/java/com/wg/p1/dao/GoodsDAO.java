@@ -132,4 +132,8 @@ public class GoodsDAO {
 		return sqlSession.selectOne(NAMESPACE+"themeselect", themeVO);
 	} 
 	
+	//아시아에서 즐기는 액티비티
+	public List<GoodsVO> asiaActivity() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"asiaActivity");
+	}
 }

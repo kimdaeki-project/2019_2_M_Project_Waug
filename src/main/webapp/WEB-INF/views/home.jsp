@@ -418,7 +418,55 @@
          </div>
          
       </div>
-      <div class="main-item-container">아시아에서 즐기는 액티비티</div>
+       <div class="main-item-container">
+         <div class="main-itemtitle">
+            <div class="main-itemtitle-title">아시아에서 즐기는 액티비티</div>
+            <div class="main-itemtitle-sub">아시아의 새로운 명소를 발견하고 특별한 경험을 만나보세요</div>
+         </div>
+         <h1>${sessionScope.wishlist.email}</h1>
+         <div class="swiper-list-container container3">
+            <div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
+               <div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+               <c:forEach  items="${asia_activity}" var="vo" begin="0" end="12">
+                  <div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=${vo.goods_num}';">
+                <div class="good-card-wrapper swiper-slide onclick-cursor-pointer">
+                        <div class="good-card-background-image-cover" style="background-image: url('${vo.img}?s=266x175');">
+                           <c:choose>
+                              <c:when test="${vo.wish eq 1}">
+                              <div class="good-card-wish-btn onclick-cursor-pointer good-card-wish-btn-whis" title="${vo.goods_num}"></div>
+                              </c:when>
+                              <c:when test="${vo.wish eq 0}">
+                              <div class="good-card-wish-btn onclick-cursor-pointer" title="${vo.goods_num}"></div>
+                              </c:when>
+                           </c:choose>
+                        </div>
+                  <div class="good-card-text-wrapper">
+                           <div class="good-card-available-date point-color">
+                              오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
+                           </div>
+                           <div class="good-card-title">${vo.title}</div>
+                           <div class="good-card-original-price"><fmt:formatNumber type="currency" value="${(vo.price*rate)}" currencySymbol="${logo} "/></div>
+                           <div class="good-card-price"><fmt:formatNumber type="currency" value="${(vo.price - (vo.price*vo.discount/100))*rate}" currencySymbol="${logo} "/></div>
+                           <div class="good-card-coupon-text">${vo.discount}% 할인</div>
+                           <div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
+                        </div>
+                     </div>
+                  </div>
+               </c:forEach>      
+               </div>
+               <div class="prev-btn" style="top:20%;">
+               <div style="opacity: 0;" class="swiper-button-prev popularGood-prev main-swiper-prev-btn main-goods-btn swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true">
+               </div>
+               </div>
+               <div class="next-btn" style="top:20%;">
+               <div style="opacity: 0;" class="swiper-button-next popularGood-next main-swiper-next-btn main-goods-btn" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+               </div>
+               </div>
+               <span class="swiper-notification" aria-live="assertive" aria-atomic="true"> </span>
+            </div>
+         </div>
+
+      </div>
       <div class="main-item-container">
          <div class="main-itemtitle">
             <div class="main-itemtitle-title">와그 파트너</div>
@@ -478,29 +526,29 @@
       <c:import url="./layout/Footer.jsp"></c:import>
       
       <form action="/p1/" method="post" id="KRWJPY">
-      	<input type="text" class="KRWJPY" name="rate">
-      	<input type="text" name="logo" value="¥">
-      	<input type="text" name="text" value="JPY 일본 엔(¥)">
+      	<input type="hidden" class="KRWJPY" name="rate">
+      	<input type="hidden" name="logo" value="¥">
+      	<input type="hidden" name="text" value="JPY 일본 엔(¥)">
       </form>
       <form action="/p1/" method="post" id="KRWUSD">
-      	<input type="text" class="KRWUSD" name="rate">
-      	<input type="text" name="logo" value="$">
-      	<input type="text" name="text" value="USD 미국 달러(US$)">
+      	<input type="hidden" class="KRWUSD" name="rate">
+      	<input type="hidden" name="logo" value="$">
+      	<input type="hidden" name="text" value="USD 미국 달러(US$)">
       </form>
       <form action="/p1/" method="post" id="KRWEUR">
-      	<input type="text" class="KRWEUR" name="rate">
-      	<input type="text" name="logo" value="€">
-      	<input type="text" name="text" value="EUR 유로 (€)">
+      	<input type="hidden" class="KRWEUR" name="rate">
+      	<input type="hidden" name="logo" value="€">
+      	<input type="hidden" name="text" value="EUR 유로 (€)">
       </form>
        <form action="/p1/" method="post" id="KRWCNY">
-      	<input type="text" class="KRWCNY" name="rate" value="1">
-      	<input type="text" name="logo" value="¥">
-      	<input type="text" name="text" value="CNY 중국 위안(¥)">
+      	<input type="hidden" class="KRWCNY" name="rate" value="1">
+      	<input type="hidden" name="logo" value="¥">
+      	<input type="hidden" name="text" value="CNY 중국 위안(¥)">
       </form>
       <form action="/p1/" method="post" id="KRWKRW">
-      	<input type="text" class="KRWKRW" name="rate" value="1">
-      	<input type="text" name="logo" value="₩">
-      	<input type="text" name="text" value="KRW 대한민국 원(₩)">
+      	<input type="hidden" class="KRWKRW" name="rate" value="1">
+      	<input type="hidden" name="logo" value="₩">
+      	<input type="hidden" name="text" value="KRW 대한민국 원(₩)">
       </form>
    </div>
 </div>
@@ -525,13 +573,30 @@
 				$(".KRWCNY").val(KRWCNY);
 			}
 		});
+		
+			/* var currate = ${text};
+			
+			$(".currency-text2")each(function() {
+				if($(this).html() ==currate){
+					$(this).addClass('active');
+				}
+			}) */
    		};
    		
    		function KRWUSD() {
-			$("KRWUSD").submit();
+			$("#KRWUSD").submit();
 		}
 		function KRWKRW() {
-			$("KRWKRW").submit();
+			$("#KRWKRW").submit();
+		}
+		function KRWJPY() {
+			$("#KRWJPY").submit();
+		}
+		function KRWCNY() {
+			$("#KRWCNY").submit();
+		}
+		function KRWEUR() {
+			$("#KRWEUR").submit();
 		}
    	  
       /* $(document).scroll(function() {
