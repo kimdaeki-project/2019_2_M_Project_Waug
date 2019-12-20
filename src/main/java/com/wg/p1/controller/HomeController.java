@@ -29,6 +29,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.wg.p1.model.Exchange;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ThemeVO;
@@ -66,24 +68,20 @@ public class HomeController {
 	}*/
 
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO)throws Exception{
+	@RequestMapping(value = "/")
+	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO,Exchange exchange)throws Exception{
 		List<GoodsVO> ar = new ArrayList<GoodsVO>();
 		List<NationVO> europe_city = goodsService.EuropeList();
 		List<NationVO> asia_city = goodsService.AsiaList();
 		List<NationVO> cityar = goodsService.CityList();
 		List<ThemeVO> themelist = goodsService.ThemeAll();
-		System.out.println(themelist.size());
 		ModelAndView mv = new ModelAndView();
-		
 		memberVO = (MemberVO)session.getAttribute("memberVO");
-		
 		
 		if(memberVO==null) {
 			memberVO = new MemberVO();
 			memberVO.setM_pk("a");
 		}
-		
 		ar = goodsService.goodsRecomand(memberVO);
 		session.getAttribute("wishlistVO");
 		mv.addObject("citylist", cityar);
@@ -93,7 +91,9 @@ public class HomeController {
 		mv.addObject("list", ar);
 		mv.addObject("Themelist", themelist);
 		mv.setViewName("home");
-		
+		mv.addObject("rate", exchange.getRate());
+		mv.addObject("logo", exchange.getLogo());
+		mv.addObject("text", exchange.getText());
 		return mv;
 	}
 

@@ -251,7 +251,7 @@
             <div class="swiper-container swiper-container2 container3 content popularGood swiper-container-initialized swiper-container-horizontal">
                <div class="swiper-wrapper container3" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
                
-               <c:forEach  items="${list}" var="vo">
+               <c:forEach  items="${list}" var="vo" begin="0" end="12">
          
                   <div class="goodlist-slide swiper-slide swiper-slide-visible swiper-slide-active" style="margin-right: 18px;" onclick="location.href='goods/good_page?goods_num=${vo.goods_num}';">
 
@@ -276,8 +276,8 @@
                               오늘부터 사용가능 <img class="good-card-thunder-icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15718112891153.svg">
                            </div>
                            <div class="good-card-title">${vo.title}</div>
-                           <div class="good-card-original-price">₩ <fmt:formatNumber type="number" value="${vo.price}"/></div>
-                           <div class="good-card-price"><fmt:formatNumber type="currency" value="${vo.price - (vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
+                           <div class="good-card-original-price"><fmt:formatNumber type="currency" value="${(vo.price*rate)}" currencySymbol="${logo} "/></div>
+                           <div class="good-card-price"><fmt:formatNumber type="currency" value="${(vo.price - (vo.price*vo.discount/100))*rate}" currencySymbol="${logo} "/></div>
                            <div class="good-card-coupon-text">${vo.discount}% 할인</div>
                            <div class="good-card-buy-cnt"><fmt:formatNumber type="number" value="${vo.sell}"/>예약</div>
                            
@@ -471,14 +471,74 @@
       <button onclick="location.href='./admin/admin_main'">
          관리자페이지
       </button>
+
+      
+      
+
       <c:import url="./layout/Footer.jsp"></c:import>
+      
+      <form action="/p1/" method="post" id="KRWJPY">
+      	<input type="text" class="KRWJPY" name="rate">
+      	<input type="text" name="logo" value="¥">
+      	<input type="text" name="text" value="JPY 일본 엔(¥)">
+      </form>
+      <form action="/p1/" method="post" id="KRWUSD">
+      	<input type="text" class="KRWUSD" name="rate">
+      	<input type="text" name="logo" value="$">
+      	<input type="text" name="text" value="USD 미국 달러(US$)">
+      </form>
+      <form action="/p1/" method="post" id="KRWEUR">
+      	<input type="text" class="KRWEUR" name="rate">
+      	<input type="text" name="logo" value="€">
+      	<input type="text" name="text" value="EUR 유로 (€)">
+      </form>
+       <form action="/p1/" method="post" id="KRWCNY">
+      	<input type="text" class="KRWCNY" name="rate" value="1">
+      	<input type="text" name="logo" value="¥">
+      	<input type="text" name="text" value="CNY 중국 위안(¥)">
+      </form>
+      <form action="/p1/" method="post" id="KRWKRW">
+      	<input type="text" class="KRWKRW" name="rate" value="1">
+      	<input type="text" name="logo" value="₩">
+      	<input type="text" name="text" value="KRW 대한민국 원(₩)">
+      </form>
    </div>
 </div>
    <script type="text/javascript">
-      
-      $(document).scroll(function() {
+  		
+   
+   
+   	  window.onload = function(){
+		$.ajax({
+			type:"GET",
+			url: "https://earthquake.kr:23490/query/KRWJPY,KRWUSD,KRWEUR,KRWCNY",
+			dataType:'json',
+			success:function(data){
+				console.log(data);
+				var KRWJPY = data.KRWJPY[0];
+				var KRWUSD = data.KRWUSD[0];
+				var KRWEUR = data.KRWEUR[0];
+				var KRWCNY = data.KRWCNY[0];
+				$(".KRWJPY").val(KRWJPY);
+				$(".KRWUSD").val(KRWUSD);
+				$(".KRWEUR").val(KRWEUR);
+				$(".KRWCNY").val(KRWCNY);
+			}
+		});
+   		};
+   		
+   		function KRWUSD() {
+			$("KRWUSD").submit();
+		}
+		function KRWKRW() {
+			$("KRWKRW").submit();
+		}
+   	  
+      /* $(document).scroll(function() {
          console.log($(this).scrollTop());
-      })
+      }); */
+      
+      
       var images = new Array();
 
 
@@ -530,14 +590,14 @@
          
       }); */
       
-      /* 마우스리브 사라지기 */
+      /* 검색창 사라지기 */
       $("#body").click(function() {
          if ($("#search").attr("placeholder") == "") {
             $("#search").attr("placeholder", "액티비티 또는 지역명으로 검색하세요");
          }
          /* $(".searchresult-container").css("display", "none"); */
          $(".searchresult-container").removeClass('searchresult-container-display');
-
+         //$(".popup-currency").removeClass('popup-currency-popup');
       });
       
       
@@ -627,6 +687,7 @@
             modal.style.display = "none";
          }
       }
+      
       $(".con").click(function() {
          $(".continent-item").removeClass("active-continent");
          $(".continent-text").removeClass("active2");

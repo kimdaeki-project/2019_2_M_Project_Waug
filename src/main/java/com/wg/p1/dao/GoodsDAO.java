@@ -75,7 +75,6 @@ public class GoodsDAO {
 	}
 
 	public List<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
-		System.out.println(memberVO.getM_pk());
 		return sqlSession.selectList(NAMESPACE+"goodsRecomand", memberVO);
 	}
 	
