@@ -13,6 +13,7 @@ public class ReservationVO {
 //	TOTALPRICE	NUMBER(10,0)
 //	GOODS_NUM	NUMBER(8,0)
 //	RES_REF	NUMBER(8,0)
+	
 	private int res_num;
 	private Date res_date;
 	private int o_num;
@@ -22,6 +23,7 @@ public class ReservationVO {
 	private int totalprice;
 	private int goods_num;
 	private int res_ref;
+	
 	public int getRes_num() {
 		return res_num;
 	}

@@ -37,7 +37,7 @@
 						<p>${option.o_date}</p>
 					</div>
 				</div>
-				<c:forEach items="${bookerInfo}" var="booker" varStatus="status">
+				<c:forEach items="${bookerInfo}" var="booker" begin="1" varStatus="status">
 					<div class="order_reser_options">
 						<div class="order_reser_option_left">${booker.firstName}&nbsp;${booker.lastName} 
 							<p>

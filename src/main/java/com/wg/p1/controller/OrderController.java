@@ -99,12 +99,15 @@ public class OrderController {
 	
 	@PostMapping("order1")
 	public ModelAndView order(OptionVO optionVO,int goods_num, ModelAndView mv,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit, String b_email)throws Exception{
-		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
 		System.out.println("orderController  :");
-		System.out.println(b_gender);
+		
+		
+		
+		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
 		for(int i=0;i<b_gender.length;i++) {
 			System.out.println("b_gender[i] : "+b_gender[i]);
 		}
+		
 		int ref=orderService.insertBookerInfo(Integer.parseInt(optionVO.getO_people()) ,firstName, lastName, passport, b_gender, sns, b_visit, b_email);
 		List<BookerInfoVO> bookerInfo=orderService.selectBookerInfo(ref);
 		System.out.println("order1Controller : date >>>"+optionVO.getO_date());
