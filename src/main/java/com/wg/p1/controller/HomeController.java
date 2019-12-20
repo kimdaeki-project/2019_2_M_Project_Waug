@@ -75,6 +75,7 @@ public class HomeController {
 		List<NationVO> asia_city = goodsService.AsiaList();
 		List<NationVO> cityar = goodsService.CityList();
 		List<ThemeVO> themelist = goodsService.ThemeAll();
+		List<GoodsVO> europeActivity = goodsService.europeActivity(goodsVO);
 		ModelAndView mv = new ModelAndView();
 		memberVO = (MemberVO)session.getAttribute("memberVO");
 		
@@ -84,6 +85,7 @@ public class HomeController {
 		}
 		ar = goodsService.goodsRecomand(memberVO);
 		session.getAttribute("wishlistVO");
+		mv.addObject("europeActivity", europeActivity);
 		mv.addObject("citylist", cityar);
 		mv.addObject("europe_city", europe_city);
 		mv.addObject("asia_city", asia_city);

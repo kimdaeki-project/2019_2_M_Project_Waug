@@ -131,5 +131,11 @@ public class GoodsDAO {
 	public ThemeVO themeselect(ThemeVO themeVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"themeselect", themeVO);
 	} 
-	
+	//테마 굿즈
+	public List<GoodsVO> themeGoodsSelct(ThemeVO themeVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"themeGoodsSelect", themeVO);
+	}
+	public List<GoodsVO> europeActivity(GoodsVO goodsVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"europeActivity", goodsVO);
+	}
 }

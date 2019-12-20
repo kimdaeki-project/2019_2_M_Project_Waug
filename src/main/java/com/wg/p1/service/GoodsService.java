@@ -102,4 +102,12 @@ public class GoodsService {
 	public ThemeVO themeselect(ThemeVO themeVO) throws Exception{
 		return goodsDAO.themeselect(themeVO);
 	}
+	//테마페이지 굿즈
+	public List<GoodsVO> themeGoodsSelect(ThemeVO themeVO) throws Exception{
+		return goodsDAO.themeGoodsSelct(themeVO);
+	}
+	
+	public List<GoodsVO> europeActivity(GoodsVO goodsVO) throws Exception{
+		return goodsDAO.europeActivity(goodsVO);
+	}
 }
