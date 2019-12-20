@@ -72,9 +72,13 @@ public class GoodsController {
 
 
 	@RequestMapping("goods_themes")
-	public ModelAndView themes(ThemeVO themeVO, ModelAndView mv) throws Exception{
+	public ModelAndView themes(ThemeVO themeVO,GoodsVO goodsVO, ModelAndView mv) throws Exception{
 		themeVO = goodsService.themeselect(themeVO);
+		List<GoodsVO> ar = goodsService.themeGoodsSelect(themeVO);
+		
 		mv.addObject("ThemeVO", themeVO);
+		mv.addObject("goodsVO", ar);
+		
 		
 		mv.setViewName("goods/goods_themes");
 		return mv;

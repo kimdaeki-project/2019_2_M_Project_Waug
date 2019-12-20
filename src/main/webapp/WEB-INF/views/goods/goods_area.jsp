@@ -179,14 +179,14 @@
 								
 								<ul class="category-list">
 									<li class="category-children-space" id="catselect1">
-										<div class="category-children-box category-selector1">
+									<!-- 	<div class="category-children-box category-selector1">
 											<a href="#" class="">현지 맛집 탐방</a>
 											<a href="#" class="category-selector1">카페 & 베이커리</a>
 											<a href="#" class="category-selector1">현금 푸드 쿠폰</a>
 											<a href="#" class="category-selector1">호텔 레스토랑</a>
 											<a href="#" class="category-selector1">바 & 나이트라이프</a>
 											<a href="#" class="category-selector1">미슐랭 가이드 레스토랑</a>
-										</div>
+										</div> -->
 										<div>
 											<img class="category-icon" src="../resources/images/cat_nav/10.svg">
 											<a href="">레스토랑 & 다이닝</a>
@@ -195,7 +195,7 @@
 
 									
 									<li class="category-children-space" id="catselect2">		
-										<div class="category-children-box category-selector2" >
+								<!-- 		<div class="category-children-box category-selector2" >
 											<a href="#" >이색 체험</a>
 											<a href="#" >실내 액티비티</a>
 											<a href="#" >키즈</a>
@@ -208,14 +208,14 @@
 											<a href="#" >스키 & 겨울 스포츠</a>
 											<a href="#" >케이블카 & 관람차</a>
 											<a href="#" >시티투어 버스</a>
-										</div>				
+										</div>	 -->			
 										<div>
 											<img class="category-icon" src="../resources/images/cat_nav/4.svg">
 											<a href="">액티비티 & 체험</a>
 										</div>
 									</li>		
 									<li class="category-children-space" id="catselect3">	
-										<div class="category-children-box category-selector3">
+						<!-- 				<div class="category-children-box category-selector3">
 											<a href="#" >조인투어</a>
 											<a href="#" >버스 투어</a>
 											<a href="#" >역사 & 문화 투어</a>
@@ -224,7 +224,7 @@
 											<a href="#" >시티 투어</a>
 											<a href="#" >골프</a>
 											<a href="#" >로컬가이드 워킹투어</a>
-										</div>								
+										</div>		 -->						
 										<div>
 											<img class="category-icon" src="../resources/images/cat_nav/3.svg">
 											<a href="">현지 투어</a>
@@ -232,10 +232,10 @@
 									</li>
 									
 									<li class="category-children-space" id="catselect4">						
-										<div class="category-children-box category-selector4">
+						<!-- 				<div class="category-children-box category-selector4">
 											<a href="#" >스파 & 마사지</a>
 											<a href="#" >라운지 서비스</a>
-										</div>		
+										</div> -->		
 										<div>
 											<img class="category-icon" src="../resources/images/cat_nav/2.svg">
 											<a href="">스파 & 라운지</a>
@@ -243,27 +243,27 @@
 									</li>
 									
 									<li class="category-children-space" id="catselect5">	
-										<div class="category-children-box category-selector5">
+							<!-- 			<div class="category-children-box category-selector5">
 											<a href="#" >편의 서비스</a>
 											<a href="#" >공항 셔틀 & 픽업서비스</a>
 											<a href="#" >주차권</a>
 											<a href="#" >도시간 이동 수단</a>
 											<a href="#" >유심 & 포켓와이파이</a>
 											<a href="#" >교통 패스</a>
-										</div>
+										</div> -->
 										<div id="catparent_10">
 											<img class="category-icon" src="../resources/images/cat_nav/11.svg">
 											<a href="">교통 & 와이파이</a>
 										</div>
 									</li>
 									<li class="category-children-space" id="catselect6">
-										<div class="category-children-box category-selector6">
+								<!-- 		<div class="category-children-box category-selector6">
 											<a href="#" >테마파크 & 워터파크</a>
 											<a href="#" >박물관 & 갤러리</a>
 											<a href="#" >동물원 & 아쿠아리움</a>
 											<a href="#" >쇼 & 퍼포먼스 공연</a>
 											<a href="#" >360 전망대</a>
-										</div>
+										</div> -->
 										<div id="catparent_10">
 											<img class="category-icon" src="../resources/images/cat_nav/6.svg">
 											<a href="">어트랙션 & 공연</a>
@@ -271,9 +271,9 @@
 									</li>
 				
 									<li class="category-children-space" id="catselect7">
-										<div class="category-children-box category-selector7">
+									<!-- 	<div class="category-children-box category-selector7">
 											<a href="#" >특가 패키지</a>
-										</div>		
+										</div>	 -->	
 										<div id="catparent_10">
 											<img class="category-icon" src="../resources/images/cat_nav/1170.svg">
 											<a href="">특가여행</a>

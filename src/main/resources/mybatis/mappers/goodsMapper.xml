@@ -169,11 +169,19 @@ select max(goods_num) from goods
   <!-- 테마조회 -->
   <select id="themeselect" parameterType="ThemeVO" resultType="ThemeVO">
   	select * from theme where t_num = #{t_num}
-  
   </select>
-  
+
   <!-- 아시아에서 즐기는 액티비티 -->
   <select id="asiaActivity" resultType="GoodsVO">
   	select * from goods inner join nationinfo using(city_num) where continents like '%아시아%' and cate_num =2
   </select>
+
+  <select id="themeGoodsSelect" parameterType="ThemeVO" resultType="GoodsVO">
+  	select * from goods where t_num = #{t_num}
+  </select>
+  <!-- 상품조회 -->
+  <select id="europeActivity" parameterType="GoodsVO" resultType="GoodsVO">
+  	select * from goods inner join nationinfo using(city_num) where continents like '%유럽%'  
+  </select>
+  
 </mapper>
