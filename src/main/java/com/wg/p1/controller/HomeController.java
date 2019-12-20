@@ -117,6 +117,7 @@ public class HomeController {
 		
 	}
 
+
 	@RequestMapping("order/***")
 	public void orderFolder() {
 
@@ -127,6 +128,7 @@ public class HomeController {
 		
 	}
 	
+
 	@RequestMapping(value = "/mailSender2") 
 	public void mailSender2(HttpServletRequest request, ModelMap mo, HttpSession session) throws AddressException, MessagingException { 
 	

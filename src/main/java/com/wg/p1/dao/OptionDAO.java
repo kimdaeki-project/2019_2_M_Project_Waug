@@ -23,4 +23,8 @@ public class OptionDAO {
 	public List<GoodsVO> optionList(OptionVO optionVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"optionList", optionVO);
 	}
+	
+	public OptionVO optionSelectOne(int o_num)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"optionSelectOne", o_num);
+	}
 }

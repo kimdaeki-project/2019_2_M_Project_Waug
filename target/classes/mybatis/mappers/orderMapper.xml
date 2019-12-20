@@ -7,7 +7,8 @@
 	<selectKey order="BEFORE" resultType="Integer" keyProperty="b_num">
 		select book_seq.nextval from dual
 	</selectKey>
-		insert into booker_info values(#{b_num},#{b_name},#{b_email},#{sns},#{b_visit},#{b_gender},#{b_num},#{firstName},#{lastName},#{passport})
+		insert into booker_info (b_num,b_name,b_email,sns,b_visit,b_gender,b_ref,firstName,lastName)
+		values(#{b_num},#{b_name},#{b_email},#{sns},#{b_visit},#{b_gender},#{b_num},#{firstName},#{lastName})
 </insert>
 <insert id="insertBookerInfo2" parameterType="BookerInfoVO">
 	insert into booker_info values(book_seq.nextval,#{b_name},#{b_email},#{sns},#{b_visit},#{b_gender},#{b_num},#{firstName},#{lastName},#{passport})

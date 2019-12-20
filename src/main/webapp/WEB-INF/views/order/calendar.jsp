@@ -55,7 +55,6 @@
 		</div>
 	</div>
 	<input type="text" id="people" name="o_people" value="0" hidden="hidden">
-	<input type="text" id="people_forInfo" name="people" hidden="hidden">
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
@@ -98,9 +97,9 @@
 	</div>
 	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
 	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
-	<input type="text" value="${goods.discount}" id="goodsPrice" name="discount" hidden="hidden">
-	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden">
-	<input type="date" id="date1" name="o_date">
+	<input type="text" value="${goods.discount}" id="goodsPrice" name="discount" hidden="hidden">			<!-- 여기 수정 -->
+	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden" >
+	<input type="date" id="date1" name="o_date" hidden="hidden">
 <!-- 	<input type="text" id="time1" name="o_time"> -->
 	</form>
 </div>
