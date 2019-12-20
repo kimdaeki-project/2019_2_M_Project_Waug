@@ -23,6 +23,6 @@
 		<typeAlias type="com.wg.p1.model.MyCouponVO" alias="MyCouponVO"/>
 		<typeAlias type="com.wg.p1.model.CouponVO" alias="CouponVO"/>
 		<typeAlias type="com.wg.p1.model.OptionVO" alias="OptionVO"/>
-
+		<typeAlias type="com.wg.p1.model.ReservationVO" alias="ReservationVO"/>
 	</typeAliases>
 </configuration>
