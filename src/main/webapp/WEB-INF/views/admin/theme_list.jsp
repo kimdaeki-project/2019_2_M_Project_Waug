@@ -41,7 +41,7 @@
 						<td>${vo.t_title}</td>
 						<td>${vo.t_subtitle}</td>
 						<td>${vo.t_subject}</td>
-						<td><input type="button" value="정보 수정" onclick="location.href='./theme_update?t_num=${vo.t_num}'"></td>
+						<td><input type="button" value="정보 수정" class="btn btn-default" onclick="location.href='./theme_update?t_num=${vo.t_num}'"></td>
 					</tr>
 				</c:forEach>
 

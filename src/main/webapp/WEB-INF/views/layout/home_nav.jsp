@@ -24,7 +24,7 @@
 				</div>
 		
 				<div class="nav-sub-menu-wrapper">
-					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">KRW 대한민국 원(￦)
+					<div id="change" class="nav-sub-menu-item onclick-cursor-pointer">${text}
 					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884125981.svg" class="more-icon more-icon-toggle">
 					</div>
 				<c:if test="${not empty sessionScope.memberVO}">
@@ -40,7 +40,58 @@
 		</div>
 	
 	</div>
-	
+<div class="popup-currency pc">
+<div class="currency-wrapper">
+<div class="currency-title">주요 통화</div>
+<div class="currency-list">
+<div class="currency-item onclick-cursor-pointer active">
+<div class="currency-text" onclick="KRWUSD()">USD 미국 달러(US$)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text" onclick="KRWKRW()">KRW 대한민국 원(₩)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text" onclick="KRWJPY()">JPY 일본 엔(¥)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text" onclick="KRWCNY()">CNY 중국 위안(¥)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text" onclick="KRWEUR()">EUR 유로 (€)</div>
+</div>
+</div>
+<div class="currency-title">기타 통화</div>
+<div class="currency-list">
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">AED U.A.E 디르함(د.إ)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">AUD 호주 달러(A$)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">CAD 캐나다 달러(C$)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">CHF 스위스 프랑(SFr)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">MYR 말레이시아 링깃(RM)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">NZD 뉴질랜드 달러(NZ$)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">RUB 러시아 루블(руб)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">THB 태국 바트(฿)</div>
+</div>
+<div class="currency-item onclick-cursor-pointer">
+<div class="currency-text">VND 베트남 동(₫)</div>
+</div>
+</div>
+</div>
+</div>
 	<script type="text/javascript">
 	
 
@@ -65,13 +116,17 @@
         }
         else{
            $('.nav-wrapper').addClass('nav_toggle');
-           console.log("yyyyyyyyyyyyyyy");	
            $('.logo').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15504566986967.png");
            $('.more-icon').attr("src","https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884525623.svg");
 
         }
      });
 	
+    /* 환율창 */
+    $("#change").click(function() {
+		$(".popup-currency").toggleClass('popup-currency-popup');
+	});
+    
 	</script>
 </body>
 </html>

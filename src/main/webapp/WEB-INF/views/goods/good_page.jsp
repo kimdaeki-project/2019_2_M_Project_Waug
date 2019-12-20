@@ -132,14 +132,18 @@
    				</div>
    				<div class="good_detail_infoBox">
    					<div class="good_detail_title">이용 후기</div>
-   					<div class="good_comentBox">
-   						<div class="good_coment_rate">${review.rv_avg}</div>
-   						<div class="good_coment_rateInfo">
-   							<div class="good_coment_star"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach></div>
-   							<div class="good_coment_count">후기 ${review.rv_total}개</div>
+   					<c:if test="${review.rv_total gt 0}">
+   						<div class="good_comentBox">
+   							<div class="good_coment_rate">${review.rv_avg}</div>
+   							<div class="good_coment_rateInfo">
+   								<div class="good_coment_star"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach></div>
+   								<div class="good_coment_count">후기 ${review.rv_total}개</div>
+   							</div>
    						</div>
-
-   					</div>
+   					</c:if>
+   					<c:if test="${review.rv_total eq 0}">
+   						<div class="good_coment_text">아직 후기가 없습니다. 첫 후기를 작성해 주세요.</div>
+   					</c:if>
    					<div class="good_coment_sample">
    						<div class="good_coment_sampleInfo">
    							<p class="good_coment_sample_user">${review2.rv_writer}</p><p class="good_coment_sample_date">${review2.rv_reg_date}</p>

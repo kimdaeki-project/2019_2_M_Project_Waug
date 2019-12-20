@@ -29,8 +29,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.wg.p1.model.Exchange;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ThemeVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.util.Pager;
@@ -65,22 +68,20 @@ public class HomeController {
 	}*/
 
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO)throws Exception{
+	@RequestMapping(value = "/")
+	public ModelAndView goodss(HttpSession session, MemberVO memberVO, GoodsVO goodsVO,Exchange exchange)throws Exception{
 		List<GoodsVO> ar = new ArrayList<GoodsVO>();
 		List<NationVO> europe_city = goodsService.EuropeList();
 		List<NationVO> asia_city = goodsService.AsiaList();
 		List<NationVO> cityar = goodsService.CityList();
+		List<ThemeVO> themelist = goodsService.ThemeAll();
 		ModelAndView mv = new ModelAndView();
-		
 		memberVO = (MemberVO)session.getAttribute("memberVO");
-		
 		
 		if(memberVO==null) {
 			memberVO = new MemberVO();
 			memberVO.setM_pk("a");
 		}
-		
 		ar = goodsService.goodsRecomand(memberVO);
 		session.getAttribute("wishlistVO");
 		mv.addObject("citylist", cityar);
@@ -88,8 +89,11 @@ public class HomeController {
 		mv.addObject("asia_city", asia_city);
 		mv.addObject("memberVO", memberVO);
 		mv.addObject("list", ar);
+		mv.addObject("Themelist", themelist);
 		mv.setViewName("home");
-		
+		mv.addObject("rate", exchange.getRate());
+		mv.addObject("logo", exchange.getLogo());
+		mv.addObject("text", exchange.getText());
 		return mv;
 	}
 
@@ -117,8 +121,7 @@ public class HomeController {
 	@RequestMapping("order/***")
 	public void orderFolder() {
 
-		
-		
+	
 	}
 	@RequestMapping("/test")
 	public void test() {

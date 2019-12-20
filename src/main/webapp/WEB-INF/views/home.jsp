@@ -694,7 +694,7 @@
 	$("#ttse").change(function() {
 		$(this).val("");
 		return false;
-	})
+	});
 	</script>
 </body>
 </html>

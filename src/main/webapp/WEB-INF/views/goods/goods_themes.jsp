@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title class="next-head">겨울 여행 유럽은 어때?</title>
+<title class="next-head">${ThemeVO.t_title}</title>
 <link rel="shortcut icon" href="../resources/favicon-32x32.png"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -25,12 +25,12 @@
 <c:import url="../layout/CityList.jsp" />
 	<div class="theme-header">
 		<div class="theme-header-wrapper">
-			<div class="theme-header-background-image pc" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230677427.jpg');">
+			<div class="theme-header-background-image pc" style="background: url('${ThemeVO.t_img}');">
 			</div>
 		<div class="theme-header-opacity">
 		</div>
 		<div class="theme-header-description">
-			<div class="theme-header-title">겨울 여행 유럽은 어때?111
+			<div class="theme-header-title">${ThemeVO.t_title}
 			</div>
 		</div>
 		</div>
