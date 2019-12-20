@@ -23,7 +23,22 @@ public class ReservationVO {
 	private int totalprice;
 	private int goods_num;
 	private int res_ref;
+	private String pay;
+	private String tid;
 	
+	
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+	public String getTid() {
+		return tid;
+	}
+	public void setTid(String tid) {
+		this.tid = tid;
+	}
 	public int getRes_num() {
 		return res_num;
 	}
