@@ -9,7 +9,7 @@
   		<selectKey order="BEFORE" resultType="Integer" keyProperty="rv_num">
 			select review_SEQ.nextval from dual
 		</selectKey>
-  		insert into review1 values(#{rv_num}, 1, #{email}, #{rv_writer}, #{rv_contents},
+  		insert into review1 values(#{rv_num}, #{goods_num}, #{email}, #{rv_writer}, #{rv_contents},
   		sysdate, #{rv_score}, 0, 'aname', sysdate, 'acontents')
   	</insert>
   	<!-- 리뷰파일글쓰기 -->
@@ -25,7 +25,7 @@
 		select * from
 		(select R.*, rownum N from
 		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
-		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents from review1 where goods_num = 1
+		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents from review1 where goods_num = #{goods_num}
 		order by rv_num desc) R)
 		where N between #{startRow} and #{lastRow}
 	</select>
@@ -55,10 +55,10 @@
 		select * from
 		(select R.*, rownum N from
 		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
-		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents,img_name from review1 full outer join
+		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents, img_name from review1 full outer join
         review_img
         using(rv_num)
-        where goods_num = 1 order by rv_num desc) R)
+        where goods_num = #{goods_num} order by rv_num desc) R)
 		where N between #{startRow} and #{lastRow}
 	</select>
 	
@@ -66,7 +66,7 @@
 	<select id="reviewCount" resultType="Integer"
 		parameterType="Pager">
 		select count(rv_num) from review1
-		where goods_num = 1
+		where goods_num = #{goods_num}
 
 	</select>
 	<!-- 글하나 조회 -->
@@ -92,14 +92,14 @@
 	
 	<!-- 별점평균, 전체리뷰수 가져오기 -->
 	<select id="review_avg_count" parameterType="ReviewVO" resultType="ReviewVO">
-		select round(avg(rv_score),1) rv_avg, count(rv_num) rv_total from review1 where goods_num=1
+		select round(avg(rv_score),1) rv_avg, count(rv_num) rv_total from review1 where goods_num=#{goods_num}
 	</select>
 	
 	<!-- 가장 최근 후기 불러오기 -->
 	<select id="reviewLatest" parameterType="ReviewVO" resultType="ReviewVO">
 		select * from        
 (select rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
-		, rv_score from review1 where goods_num = 1
+		, rv_score from review1 where goods_num = #{goods_num}
 		order by rv_num desc) R where rownum=1
 	</select>
 </mapper>

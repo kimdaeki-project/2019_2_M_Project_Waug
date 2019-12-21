@@ -22,14 +22,14 @@
 			<ul class="travel_category_ul nav nav-tabs">
 				<!-- tab1 -->
 				<label for="li_all" ></label>
-				<a href="#all" data-toggle="tab" class="active">
-					<li class="travel_category_li travel_category_li_first active" id="li_all">
+				<a href="#all" data-toggle="tab" >
+					<li class="travel_category_li travel_category_li_first" id="li_all">
 						전체
 					</li>	
 				</a>
 				<!-- tab2 -->
 				<label for="li_usimANDwifi" ></label>
-				<a href="#usimANDwifi" data-toggle="tab">
+				<a href="#usimANDwifi" data-toggle="tab" >
 					<li class="travel_category_li" id="li_usimANDwifi">
 						유심&와이파이
 					</li>
@@ -37,7 +37,7 @@
 				<!-- tab3 -->
 				<label for="li_airport_Transportation"></label>
 				<a href="#airport_Transportation" data-toggle="tab">
-					<li class="travel_category_li" id="li_airport_Transportation">
+					<li class="travel_category_li active" id="li_airport_Transportation">
 						공항 이동수단
 					</li>
 				</a>
@@ -58,15 +58,16 @@
 			</ul>
 			<div class="tab-content">
 				<!-- test -->
-				<div id="all" class="tab-pane fade in active">
+				<div id="all" class="tab-pane fade">
 					<div class="travel_category_title">전체</div>
 					<div class="travel_category_subtitle">어디로 떠나시나요?</div>
+					
 					<div class="travel_category_select_wrapper">
 						<div class="travel_category_selectBox_lg">여행지 선택</div>
 					</div>
 					
 					<div class="travel_item_container">
-						<div class="travel_item_list_title">유심&와이파이</div>
+						<div class="travel_item_list_title" id="usim">유심&와이파이</div>
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_usim}" var="vo">
@@ -93,7 +94,7 @@
 						</div>
 					</div>
 					<div class="travel_item_container" style="margin-top: 20px;">
-						<div class="travel_item_list_title">공항 이동수단</div>
+						<div class="travel_item_list_title" id="airport">공항 이동수단</div>
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_airport}" var="vo">
@@ -120,7 +121,7 @@
 						</div>
 					</div>
 					<div class="travel_item_container" style="margin-top: 20px;">
-						<div class="travel_item_list_title">일본 교통패스</div>
+						<div class="travel_item_list_title" id="jr">일본 교통패스</div>
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_jr}" var="vo">
@@ -147,7 +148,7 @@
 						</div>
 					</div>
 					<div class="travel_item_container" style="margin-top: 20px;">
-						<div class="travel_item_list_title">유레일 패스</div>
+						<div class="travel_item_list_title" id="eurail">유레일 패스</div>
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_eurail}" var="vo">
@@ -172,12 +173,9 @@
 							<!-- more Box -->
 							<div class="travel_moreBox_wrapper">더보기</div>
 						</div>
-					</div>
-					
-
-					
-					
+					</div>			
 				</div>
+				
 				<div id="usimANDwifi" class="tab-pane fade">
 					<div class="travel_category_title">유심&와이파이</div>
 					<div class="travel_category_subtitle">전세계 어디서나 데이터 및 통화 서비스를 이용하세요.</div>
@@ -338,6 +336,7 @@
 			</div>
 	</div>
 	</div>
+	<input type="text" value="${param.type}" id="type" hidden="hidden">
 </div>
 <!-- modals - total area -->
 <div class="travel_modal_totalArea">
@@ -355,6 +354,27 @@
 
 
 <script type="text/javascript">
+
+	if($("#type").val()=='usim'){
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018541748.png?s=1680x640)");
+		 $("#usimANDwifi").addClass("in active"); 
+	}else if($("#type").val()=='airport'){
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018798116.png?s=1680x640)");
+		$("#airport_Transportation").addClass("in active");
+		
+	}else if($("#type").val()=='jr'){
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018926570.png?s=1680x640)");
+		$("#japenPath").addClass("in active");
+		
+	}else if($("#type").val()=='eurail'){
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591019070628.png?s=1680x640)");
+		$("#UrailPath").addClass("in active");
+		
+	}else if($("#type").val()=='all'){
+		$('#backimg').css("background-image","url(https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15591018315959.png?s=1680x640)");
+		$("#all").addClass("in active");
+	} 
+
 	//w3schools : tab
 	//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs
 

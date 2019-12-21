@@ -105,8 +105,10 @@
 					</button>
 					<div class="modal-body">
 						<p class="notice pwd-notice">가입하셨던 이메일 주소를 입력하시면 비밀번호 재설정 URL을 전송해드립니다.</p>
-						<input type="email" class="login-form-box" placeholder="이메일 주소">
-						<button type="button" class="btn btn-find-pwd login-form-box">비밀번호 재설정 URL 보내기</button>
+						<form action="./findpassword">
+							<input type="email" name="email" class="login-form-box" placeholder="이메일 주소">
+							<button class="btn btn-find-pwd login-form-box">비밀번호 재설정 URL 보내기</button>
+						</form>
 					</div>
 				</div>
 			</div>

@@ -10,6 +10,8 @@ import com.wg.p1.model.MemberVO;
 @Repository
 public class MemberDAOImpl implements MemberDAO{
 	
+	
+
 	@Inject
 	private SqlSession sqlSession;
 	private final static String NAMESPACE="memberMapper.";
@@ -39,5 +41,18 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.insert(NAMESPACE+"socialJoin", memberVO);
 	}
 
+	@Override
+	public int passwordUpdate(MemberVO memberVO) throws Exception {
+		return sqlSession.update(NAMESPACE+"passwordUpdate", memberVO);
+	}
 
+
+	@Override
+	public MemberVO memberFind(MemberVO memberVO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"memberFind", memberVO);
+	}
+	@Override
+	public MemberVO memberFind2(MemberVO memberVO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"memberFind2", memberVO);
+	}
 }

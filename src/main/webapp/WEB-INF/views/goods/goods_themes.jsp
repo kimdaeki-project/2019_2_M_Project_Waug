@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title class="next-head">겨울 여행 유럽은 어때?</title>
+<title class="next-head">${ThemeVO.t_title}</title>
 <link rel="shortcut icon" href="../resources/favicon-32x32.png"
 	type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -25,47 +26,51 @@
 <c:import url="../layout/CityList.jsp" />
 	<div class="theme-header">
 		<div class="theme-header-wrapper">
-			<div class="theme-header-background-image pc" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/theme/2019/11/27/15748230677427.jpg');">
+			<div class="theme-header-background-image pc" style="display=block; background: url('${ThemeVO.t_img}');">
 			</div>
 		<div class="theme-header-opacity">
 		</div>
 		<div class="theme-header-description">
-			<div class="theme-header-title">겨울 여행 유럽은 어때?111
+			<div class="theme-header-title">${ThemeVO.t_title}
 			</div>
 		</div>
 		</div>
 	</div>
 	<div class="theme-page-container">
 		<div class="theme-goods-title-container">
-			<div class="theme-goods-title">겨울 여행 유럽은 어때?</div>
-			<div class="theme-goods-sub-title">2019 유럽 투어 할인전!</div>
+			<div class="theme-goods-title">${ThemeVO.t_title}</div>
+			<div class="theme-goods-sub-title">${ThemeVO.t_subtitle}</div>
 		</div>
+		
+		
 		<div class="theme-goods-list-container">
-			<div class="theme-goods-card-container">
-				<div class="theme-goods-card-content">
-					<div class="theme-goods-card">
-						<div class="good-card-wrapper onclick-cursor-pointer">
-							<div class="good-card-background-image-cover" style="background-image: url('https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/14/15737072725025.png?s=370x244');">
-								<div class="good-card-wish-btn onclick-cursor-pointer">
+			<c:forEach items="${goodsVO}" var="vo">
+				<div class="theme-goods-card-container">
+					<div class="theme-goods-card-content">
+						<div class="theme-goods-card">
+							<div class="good-card-wrapper onclick-cursor-pointer">
+								<div class="good-card-background-image-cover" style="background-image: url('${vo.img}?s=370x244');">
+									<div class="good-card-wish-btn onclick-cursor-pointer">
+									</div>
 								</div>
-							</div>
-							<div class="good-card-text-wrapper">
-								<div class="good-card-available-date">12월 06일부터 사용가능
-								</div>
-								<div class="good-card-title">몽생미셸 &amp; 옹플뢰르 &amp; 에트르타 야경 투어
-								</div>
-								<div class="good-card-original-price">₩ 200,000
-								</div>
-								<div class="good-card-price">₩ 109,000
-								</div>
-								<div class="good-card-buy-cnt">20,254 예약
+								<div class="good-card-text-wrapper">
+									<div class="good-card-available-date">${vo.able}일 부터 사용가능
+									</div>
+									<div class="good-card-title">${vo.title}
+									</div>
+									<div class="good-card-original-price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/>
+									</div>
+									<div class="good-card-price"><fmt:formatNumber type="currency" value="${(vo.price-vo.price*vo.discount/100)}" currencySymbol="₩ "/>
+									</div>
+									<div class="good-card-buy-cnt">20,254 예약
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="theme-goods-card-container">
+			</c:forEach>
+			<!-- <div class="theme-goods-card-container">
 				<div class="theme-goods-card-content">
 					<div class="theme-goods-card">
 						<div class="good-card-wrapper onclick-cursor-pointer">
@@ -211,7 +216,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<script type="text/javascript">

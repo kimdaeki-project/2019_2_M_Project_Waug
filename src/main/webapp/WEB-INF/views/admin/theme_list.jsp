@@ -8,26 +8,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/admin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<style type="text/css">
-th {
-text-align: center;
-}
-
-</style>
 </head>
 <body>
-
-	<div class="container">
-		
-		<div class="jumbotron page-header">
-			<h1>Theme List</h1>
-		</div>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView col-md-10">
+	<div class="col-md-10 container">
+		<h3>테마 리스트</h3>
 		<form action="theme_delete" method="post" id="delete">	
-		<table class="table"  >
+		<table class="table table-striped"  >
 			<thead >
-				<tr class="info">
+				<tr>
 					<th><input type="checkbox" id="checkAll"></th>
 					<th>이미지</th>
 					<th>테마명</th>
@@ -47,7 +41,7 @@ text-align: center;
 						<td>${vo.t_title}</td>
 						<td>${vo.t_subtitle}</td>
 						<td>${vo.t_subject}</td>
-						<td><input type="button" value="정보 수정" onclick="location.href='./theme_update?t_num=${vo.t_num}'"></td>
+						<td><input type="button" value="정보 수정" class="btn btn-default" onclick="location.href='./theme_update?t_num=${vo.t_num}'"></td>
 					</tr>
 				</c:forEach>
 
@@ -59,6 +53,8 @@ text-align: center;
 					<button class="btn btn-danger" id="pro_del" style="float: right;">상품 삭제</button>
 				</div>
 				
+	</div>
+	</div>
 	</div>
 <script type="text/javascript">
 $('#checkAll').click(function(){

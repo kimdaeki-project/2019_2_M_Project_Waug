@@ -10,18 +10,18 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <!-- <link rel="stylesheet" href="resources/css/home.css"> -->
 <link rel="stylesheet" href="../resources/css/goods.css">
-<link rel="stylesheet" href="../resources/css/nav.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+
 </head>
 
 <body>
-<input type="text" disabled="disabled" name="goods_num" value="7" id="goods_num">	
-<c:import url="../layout/nav.jsp"/>
+<input type="text" disabled="disabled" name="goods_num" value="${goods_num}" id="goods_num">	
+<c:import url="../layout/good_nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
 <div class="good_contents_titles">
 
@@ -35,17 +35,17 @@
       <div class="good_img_titleBox">
          <div class="good_btn_wishlist good_like"></div>
          
-         <div class="good_img_title"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" onclick="openModal();currentSlide(1)"></div>
+         <div class="good_img_title"><img src="${goods.img }" onclick="openModal();currentSlide(1)"></div>
         
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" onclick="openModal();currentSlide(2)"></div>
-         <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" onclick="openModal();currentSlide(3)"></div>      
+         <div class="good_img_small"><img src="${goods.img1 }" onclick="openModal();currentSlide(2)"></div>
+         <div class="good_img_small"><img src="${goods.img2 }" onclick="openModal();currentSlide(3)"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" onclick="openModal();currentSlide(4)"></div>
-        <div class="good_img_small"><img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" onclick="openModal();currentSlide(5)"></div> 
+        <div class="good_img_small"><img src="${goods.img3 }" onclick="openModal();currentSlide(4)"></div>
+        <div class="good_img_small"><img src="${goods.img4 }" onclick="openModal();currentSlide(5)"></div> 
       </div>
       </div>
    </div>
@@ -110,7 +110,9 @@
          		<div class="good_bookInfo">
          			<div class="good_priceBox">₩ ${goods.price}</div>
          			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> ${goods.sell} 예약</div>
+         			<a href="../order/calendar?goods_num=${goods.goods_num}">
          			<div class="good_reservation_btn">예약하기</div>
+         			</a>
          		</div>
          	</div>
          </div>
@@ -130,14 +132,18 @@
    				</div>
    				<div class="good_detail_infoBox">
    					<div class="good_detail_title">이용 후기</div>
-   					<div class="good_comentBox">
-   						<div class="good_coment_rate">${review.rv_avg}</div>
-   						<div class="good_coment_rateInfo">
-   							<div class="good_coment_star"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach></div>
-   							<div class="good_coment_count">후기 ${review.rv_total}개</div>
+   					<c:if test="${review.rv_total gt 0}">
+   						<div class="good_comentBox">
+   							<div class="good_coment_rate">${review.rv_avg}</div>
+   							<div class="good_coment_rateInfo">
+   								<div class="good_coment_star"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach></div>
+   								<div class="good_coment_count">후기 ${review.rv_total}개</div>
+   							</div>
    						</div>
-
-   					</div>
+   					</c:if>
+   					<c:if test="${review.rv_total eq 0}">
+   						<div class="good_coment_text">아직 후기가 없습니다. 첫 후기를 작성해 주세요.</div>
+   					</c:if>
    					<div class="good_coment_sample">
    						<div class="good_coment_sampleInfo">
    							<p class="good_coment_sample_user">${review2.rv_writer}</p><p class="good_coment_sample_date">${review2.rv_reg_date}</p>
@@ -145,7 +151,7 @@
    						<div class="good_coment_star"><c:forEach begin="1" end="${review2.rv_score}">★</c:forEach></div>
    						<div class="good_coment_text">${review2.rv_contents}</div>
    					</div>
-   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list';">모든 후기 보러가기</div>
+   					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list?goods_num=${goods.goods_num}';">모든 후기 보러가기</div>
    				</div>
    				<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
@@ -264,23 +270,23 @@
   <div class="modal-content">
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587">
+      <img src="${goods.img }">
     </div>
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295">
+      <img src="${goods.img1 }">
     </div>
 
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295">
+      <img src="${goods.img2 }">
     </div>
     
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295">
+      <img src="${goods.img3 }">
     </div>
     
     <div class="mySlides" style="width: 100%;">
-      <img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295">
+      <img src="${goods.img4 }">
     </div>
     
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -288,19 +294,19 @@
 
 
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734582161481.png?s=1024x587" style="height: 130px;" onclick="currentSlide(1)">
+      <img class="demo cursor" src="${goods.img }" style="height: 130px;" onclick="currentSlide(1)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/13/15736270782979.png?s=450x295" style="height: 130px;" onclick="currentSlide(2)">
+      <img class="demo cursor" src="${goods.img1 }" style="height: 130px;" onclick="currentSlide(2)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736898.png?s=450x295" style="height: 130px;"  onclick="currentSlide(3)">
+      <img class="demo cursor" src="${goods.img2}" style="height: 130px;"  onclick="currentSlide(3)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734557918090.png?s=450x295" style="height: 130px;" onclick="currentSlide(4)">
+      <img class="demo cursor" src="${goods.img3 }" style="height: 130px;" onclick="currentSlide(4)">
     </div>
     <div class="column" style="float: left;">
-      <img class="demo cursor" src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/11/11/15734568736875.jpg?s=450x295" style="height: 130px;" onclick="currentSlide(5)">
+      <img class="demo cursor" src="${goods.img4 }" style="height: 130px;" onclick="currentSlide(5)">
     </div>
   </div>
 </div>
@@ -308,7 +314,7 @@
 <script>
       var map;
       function initMap() {
-    	var uluru = {lat: 37.5565, lng: 126.9195};
+    	var uluru = {lat:${goods.horizontal}, lng:${goods.vertical}};
     	var map = new google.maps.Map(
     		document.getElementById('map'), {zoom: 16, center: uluru});
     		// The marker, positioned at Uluru
@@ -316,7 +322,7 @@
      	 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOARpuS-ZWgj5gXhzLHOQTQ1-swU_VrFo&callback=initMap"
-    async defer></script>   
+    async defer></script>
    
 <script type="text/javascript">
 function openModal() {
@@ -377,14 +383,14 @@ function openModal() {
     });  
 
   
-
+/* 
    $('.good_reservation_btn').click(function(){
       alert('book clicked!!');
       location.href='../order/calendar?goods_num='+$('#goods_num').val();
       // $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
       // onclick="location.href='goods';"
    });
-
+ */
    
 
    //스크롤 내리면 tabs보이기

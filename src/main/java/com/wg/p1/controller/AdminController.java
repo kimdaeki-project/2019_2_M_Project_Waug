@@ -36,9 +36,10 @@ public class AdminController {
 	private GoodsService goodsService;
 	@Inject
 	private AdminService adminService;
+	
+	
 	@RequestMapping("admin_main")
 	public String admin_main() throws Exception{
-		
 		return "admin/admin_main";
 	}
 	
@@ -144,8 +145,8 @@ public class AdminController {
 	}
 	
 	@PostMapping("goods_add")
-	public ModelAndView goods_add(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session) throws Exception{
-		int result=adminService.addGoods(goodsVO, file, infoVO, session);
+	public ModelAndView goods_add(GoodsVO goodsVO, InfoVO infoVO,HttpSession session) throws Exception{
+		int result=adminService.addGoods(goodsVO, infoVO, session);
 		ModelAndView mv=new ModelAndView();
 		String path="../admin/goods_list";
 		String msg="goods 추가 성공";
@@ -284,14 +285,14 @@ public class AdminController {
 	}
 	
 	@PostMapping("goods_update")
-	public ModelAndView goods_update(GoodsVO goodsVO, MultipartFile[] file, InfoVO infoVO,HttpSession session)throws Exception{
+	public ModelAndView goods_update(GoodsVO goodsVO, InfoVO infoVO,HttpSession session)throws Exception{
 		System.out.println("**************************************controller test");
 		System.out.println("adminController.goods_num : "+goodsVO.getGoods_num());
 		System.out.println("goodsVO.getImg() : "+goodsVO.getImg());
 		System.out.println("goodsVO.getCity_name() : "+goodsVO.getCity_name());
 		System.out.println("goodsVO.getCity_num() : "+goodsVO.getCity_num());
 		//goods update
-		int goods=adminService.goodsUpdate_goods(goodsVO, file, session);
+		int goods=adminService.goodsUpdate_goods(goodsVO, session);
 		System.out.println("goods update result : "+goods);
 		//info update
 		int info=adminService.goodsUpdate_info(infoVO);

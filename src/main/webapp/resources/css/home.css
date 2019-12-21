@@ -130,6 +130,9 @@
 	font-weight: 500;
 	color: white;
 }
+.searchresult-container-display{
+	display: flex !important;
+}
 .searchresult-container{
 	width: 540px;
 	height: 483px;
@@ -424,15 +427,14 @@ display: inline-flex;}
 	width: 24px;
 	height: 24px;
 	background-size: cover;
-	left: 50%;
-	top: 50%;
+	top: 0px;
 	margin-top: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-bottom: 10px;
 	position: relative;
 	left: 217px;
-	top : 0px;
+	z-index: 10;
 }
 .good-card-wish-btn-whis{
 	background-image: url("https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15653296786777.svg");
@@ -564,5 +566,54 @@ display: inline-flex;}
 	border-radius: 0.3em;
 	float: right;
 	
+}
+
+
+
+
+/* ----------------------------------------홈네비---------------------------------------- */
+
+.popup-currency{
+	width: 210px;
+	height: 794.574px;
+	border-radius: 4px;
+	margin-top: 30px;
+	height: auto;
+	top: 40px;
+	right: 80px;
+	border: 1px solid #e5e5e5;
+	background-color: rgb(255,255,255);
+	position: fixed;
+	z-index: 10;
+	display: none;
+}
+.popup-currency-popup{
+	display: block;
+}
+.currency-wrapper{
+	color: rgb(51,51,51);
+	font-size: 13px;
+	cursor: pointer;
+}
+.currency-title{
+	border-bottom: 1px solid #333333;
+	font-size: 15px;
+	padding: 12px 0px;
+	margin: 12px;
+	width: 186px;
+	height: 46px;
+}
+.currency-list{
+	color: #999999;
+	font-size: 13px;
+}
+.currency-item{
+	width: 210px;
+	height: 42px;
+	padding: 12px;
+	border-bottom: 1px dotted rgb(229,229,229);
+}
+.active{
+	color: #D91C84;
 }
 

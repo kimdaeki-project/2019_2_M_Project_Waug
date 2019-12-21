@@ -66,7 +66,7 @@ time, mark, audio, video {
    width: 100%;
    background: green;
    display: flex;
-   margin-top:70px;
+   margin-top:44px;
    padding: 0px;
 }
 .good_img_titleBox{
@@ -112,6 +112,7 @@ time, mark, audio, video {
    background:blue;
    border-left: 8px solid black;
    border-bottom: 8px solid black;
+   
 }
 .good_img_small img{
    width: 100%;
@@ -130,6 +131,7 @@ time, mark, audio, video {
    height: 655px;
    margin: 0 auto;
 }
+
 .good_info_wrapper{
    width: 585px;
    height: 655px;

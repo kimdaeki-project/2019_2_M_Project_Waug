@@ -6,30 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
-<c:import url="../layout/bootstrap.jsp"/>
-<style type="text/css">
-	.b{
-		color: red;
-	}
-	.a{
-		color: blue;
-	}
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/admin.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1 style="text-align: center;">도시 추가 페이지</h1>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView col-md-10">
+	<div class="width1600px">
 
-
-
-
-<div class="container">
-
-  <form action="./city_add" method="POST">
-    <div class="form-group">
+<h3>도시 추가, 리스트</h3>
+  <form action="./city_add" method="POST" class="form-horizontal">
+    <div class="form-group col-md-10" >
     
-      <label for="usr">대륙:</label>
+      <label for="usr" class="control-label col-sm-2">대륙:</label>
+      <div class="col-sm-10">
       	<select id="continents" name="continents" class="form-control">
       		<option value="a">대륙</option>
       		<option value="동아시아">동아시아</option>
@@ -40,23 +33,36 @@
       		<option value="오세아니아">오세아니아</option>
       		<option value="아프리카">아프리카</option>
       	</select>
-
-	<label for="usr">나라:</label>
+	</div>
+	<label for="usr" class="col-sm-2 control-label">나라:</label>
+	<div class="col-sm-10">
 	<select id = "nation" name="nation" class="form-control">
 			<option>나라</option>
 	</select>
+	</div>
 
-      <label for="usr">도시:</label>
+      <label for="usr"class="col-sm-2 control-label">도시:</label>
+      <div class="col-sm-10">
       <input type="text" class="form-control" id="city_name" name="city_name" required="required" placeholder="도시 이름을 입력 해 주세요">
       <div>
       	<p id="city_result"></p>
       </div>
-      <label for="usr">도시이미지1:</label>
-      <input type="text" class="form-control" id="usr" name="city_img" placeholder="이미지 url을 입력 해 주세요" required="required">
-      <label for="usr">도시이미지2:</label>
-      <input type="text" class="form-control" id="usr" name="city_img2" placeholder="이미지 url을 입력 해 주세요" required="required">
+      </div>
+      
+      <label for="usr" class="col-sm-2 control-label">도시이미지1:</label>
+      <div class="col-sm-10">
+      <input type="text" class="form-control vertical-center" id="usr" name="city_img" placeholder="이미지 url을 입력 해 주세요" required="required">
+     </div>
+ 
+      <label for="usr" class="col-sm-2 control-label">도시이미지2:</label>
+      <div class="col-sm-10">
+      <input type="text" class="form-control vertical-center" id="usr" name="city_img2" placeholder="이미지 url을 입력 해 주세요" required="required">
+   	  	  <button type="submit" class="btn btn-default" style="float: right;">확인</button>
+   	  </div>	
+  
+   
     </div>
-  	<button type="submit" class="btn btn-default" style="float: right;">확인</button>
+  
   </form>
 </div>
 
@@ -86,7 +92,8 @@
     </tbody>
   </table>
 </div>
-
+</div>
+</div>
 
 <script type="text/javascript">
 

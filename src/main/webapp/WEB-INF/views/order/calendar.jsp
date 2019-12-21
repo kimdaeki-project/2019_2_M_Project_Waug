@@ -14,39 +14,52 @@
 <body>
 <c:import url="../layout/nav.jsp"/>
 <c:import url="../layout/CityList.jsp"/>
+
+
 <div id="reser_page_div">
 	<!-- modal -->
 	<form action="info" id = "formId" method="POST">
 	<div id="reser_modal">
 		<div class="reser_modal_wrapper">
 			<span id="reser_modal_close">&times;</span>
-			 <input type="hidden" name="goods_num" value="7" > 
+			 <input type="hidden" name="goods_num" value="${goods.goods_num}" > 
 			<div class="reser_modal_info">
-				<div class="reser_modal_title">와그 핑크 바나힐 일일 투어 (다낭 출발)</div>
+				<div class="reser_modal_tile">${goods.title}</div>
 				<div class="reser_modal_option_selected"><!-- 3.4 진에어 --></div>
 				<div class="reser_modal_option_date">2019-12-03</div>
 			</div>
+		
+		
+			<select class="credit_select" id="checkOptionTime" name="o_time">
+
+						<option value="0" >시간을 선택해 주세요</option>
+					<c:forEach  var="i" begin="1" end="23">
+						<option>${i}:00~${i+1}:00</option>
+					</c:forEach>
+
+			</select>
+			<br><br>
 			<div class="reser_numberOfUserBox">
 				<div class="reser_user_adult">성인</div>
 				<div class="reser_user_number">
 					<div class="user_num_controll" id="minus" onclick="minus()"> - </div>
-					<div id="user_num_show">0</div>
+					<div id="user_num_show"></div>
 					<div class="user_num_controll" id="plus" onclick="plus()"> + </div>
 				</div>
 			</div>
 			<div class="reservation_btn_wrapper">
-			<div id="reservation_users_order_total_price"></div>
-				<button id="cart_btn" type="submit">장바구니</button>
-				<button id="reservation_btn">예약하기</button>
+			<div id="reservation_users_order_total_price">TOTAL PRICE</div>
+				<input type="button"  id="cart_btn" value="장바구니">
+				<input type="button"   id="reservation_btn" value="예약하기">
 			</div>
 		</div>
 	</div>
-	</form>
+	<input type="text" id="people" name="o_people" value="0" hidden="hidden">
 	<!-- modal -->
 	<div class="reser-flex-box">
 		<div class="reser_title_wrapper">
 			<div class="reser_title">
-				와그 핑크 바나힐 일일 투어 (다낭 출발)
+				${goods.title}
 			</div>
 		</div>
 		<div class="reser_division">
@@ -71,9 +84,10 @@
 			<div class="reser_option_title">
 				<!-- 날짜를 먼저 선택해주세요. -->
 				<div class="reser_option_selected_date" >2020-02-08aaa</div>
+				<input type="text" value="">
 				<div class="reser_option_list">
 					<div class="reser_option_item">
-						<div class="reser_option_item_title">바나힐 핑크 패키지 투어 (다낭 시내)222</div>
+						<div class="reser_option_item_title">${goods.title}</div>
 						<div class="reser_option_item_price">34000HHHHHaaa</div>
 					</div>
 				</div>
@@ -81,34 +95,38 @@
 		</div>
 		</div>
 	</div>
+	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
+	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
+	<input type="text" value="${goods.discount}" id="goodsPrice" name="discount" hidden="hidden">			<!-- 여기 수정 -->
+	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden" >
+	<input type="date" id="date1" name="o_date" hidden="hidden">
+<!-- 	<input type="text" id="time1" name="o_time"> -->
+	</form>
 </div>
+
+
 <script type="text/javascript">
-
+	//장바구니에 상품넣기
 	$("#cart_btn").click(function() {
-		$("#formId").attr("action","../my/cart");
-		
+		$("#formId").attr("action","../my/cartadd");
+		$("#formId").submit();
 	});
-
-
-
+	
 	//창띄우면 popup 숨기기
 	$(window).ready(function(){
 		$('.reser_modal').hide();
 	});
-
 	//show modal popup
 	var item=document.getElementsByClassName("reser_option_item")[0];
 	var modalBox=document.getElementById("reser_modal");
 	var close=document.getElementById("reser_modal_close");
 	//var span = document.getElementsByClassName("close")[0];
-
 	//눌렀을 때 modal 띄우기
 	item.onclick=function(){
 		modalBox.style.display = "block";
 	}
 	
-	function showModal(event,year,month,date){
-		
+	function showModal(event,year,month,date){	
 		event.stopPropagation();
 		modalBox.style.display = "block";
 		/* <div class="reser_modal_info">
@@ -117,27 +135,19 @@
 			<div class="reser_modal_option_date">2019-12-03</div>
 		</div> */
 		$('.reser_modal_option_date').html(year+"-"+month+"-"+date);
-		
 	}
-
 	//다른곳 눌렀을때 modal 닫기
 	window.onclick=function(event){
 		if(event.target==modalBox){
 			modalBox.style.display="none";
 		}
 	}
-
 	//x표시 눌렀을때 modal 닫기
 	close.onclick=function(){
 		modalBox.style.display="none";
 	}
-
-$('#reservation_btn').click(function(){
-	alert('dfkjldsafkljdkj');
-})
-
 	var cal=new Date();
-
+	
 	function makeCalendar(){
 		$('#showMonth').html(cal.getMonth()+1);
 		$('#showYear').html(cal.getFullYear());
@@ -176,12 +186,10 @@ $('#reservation_btn').click(function(){
 			choosedDate(tmp);	
 		});
 	}
-
 	function prevMonth(){
 		cal=new Date(cal.getFullYear(),cal.getMonth()-1,cal.getDate());
 		makeCalendar();
 	}
-
 	function nextMonth(){
 		cal=new Date(cal.getFullYear(),cal.getMonth()+1,cal.getDate());
 		makeCalendar();
@@ -218,6 +226,7 @@ $('#reservation_btn').click(function(){
 		console.log("choosedDate test year : "+year);
 		console.log("choosedDate test month : "+month);
 		console.log("choosedDate test date : "+date);
+		document.getElementById("date1").value = year+"-"+month+"-"+date;
 		fillDate(year,month,date);
 	}
 	
@@ -246,8 +255,8 @@ $('#reservation_btn').click(function(){
 		var reser_option_item=document.createElement("div");
 		var reser_option_item_title=document.createElement("div");	//바나힐 핑크 패키지 투어 (다낭 시내)
 		var reser_option_item_price=document.createElement("div");	//34000
-		reser_option_item_title.innerHTML="바나힐 핑크 패키지 투어 (다낭 시내)";
-		reser_option_item_price.innerHTML="34000";
+		reser_option_item_title.innerHTML=$('#goodsTitle').val();
+		reser_option_item_price.innerHTML=$('#goodsPrice').val();;
 		
 		reser_option_list.className+="reser_option_list";
 		reser_option_item.className+="reser_option_item";
@@ -285,28 +294,31 @@ $('#reservation_btn').click(function(){
 		
 		function minus(){
 			var curNum=0;
-			 curNum=$('#user_num_show').html();
+			 curNum=$('#people').val();
 			if(curNum<=0){
-				$('#user_num_show').html("0");
+				$('#people').val(0);				///문제될시 타입 확인
 			}else{
 				curNum--;
 			}
-			$('#user_num_show').html(curNum);
+			$('#people').val(curNum);
+			$('#user_num_show').html($('#people').val());
 			showTotalPrice();
 		}
 		
 		function plus(){
-			var curNum=$('#user_num_show').html();
+			var curNum=$('#people').val();
 			curNum++;
-			$('#user_num_show').html(curNum);
+			$('#people').val(curNum);
+			$('#user_num_show').html($('#people').val());
 			showTotalPrice();
 		}
 		
 		function showTotalPrice(){
-			var people=$('#user_num_show').html();
-			var price=$('.reser_option_item_price').html();
+			var people=$('#people').val();
+			var price=$('#goodsPrice').val();
 			var totalPrice=people*price;
 			var commaNum=numberWithCommas(totalPrice);
+			$('#people_forInfo').val(people);
 			$('#reservation_users_order_total_price').html(commaNum);
 			console.log("commaNum type : "+typeof commaNum);
 		}
@@ -314,6 +326,31 @@ $('#reservation_btn').click(function(){
 		function numberWithCommas(x) {
 		    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
+		//flag check
+		var checkPeople=false;		
+		var checkOptionTime=false;
+		
+		
+		
+		$('#reservation_btn').click(function(){
+			console.log($('#checkOptionTime').val());
+			console.log("typeof"+typeof $('#checkOptionTime').val());
+			console.log("############################");
+			console.log($('#people').val());
+		
+			if($('#checkOptionTime').val()!="0"){
+				checkOptionTime=true;
+			}
+			if($('#people').val()!=0){
+				checkPeople=true;
+			}
+			if(checkOptionTime&&checkPeople){
+				$("#formId").submit();
+			}
+			else{
+				alert('모두 선택해 주세요');
+			}
+		});
 </script>
 </body>
 </html>

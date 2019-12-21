@@ -8,22 +8,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../resources/css/admin.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-	<div class="container">
-		
-		<div class="jumbotron page-header">
-			<h1>Goods List</h1>
-		</div>
+<div class="wrapper">
+<c:import url="../layout/adminNAV.jsp"/>
+<div class="mainView col-md-10">
+	
+	<div class="col-md-10">
+	<h3>상품 리스트</h3>
 	<form action="goods_delete" method="post" id="delete">	
-		<table class="table"  >
+		<table class="table table-striped"  >
 			<thead >
-				<tr class="info">
-					<th>num</th>
-					<th><input type="checkbox" id="checkAll">Goods_Num</th>
+				<tr>
+					<th>NO</th>
+					<th>상품번호<input type="checkbox" id="checkAll"></th>
 					<th>이미지</th>
 					<th>상품명</th>
 					<th>도시</th>
@@ -40,7 +41,7 @@
 			<tbody>
 
 				<c:forEach items="${list}" var="vo" varStatus="status">
-					<tr class="warning">
+					<tr>
 						<td>${status.count}</td>
 						<td><input type="checkbox" class="productCheck" value="${vo.goods_num}" name="goods_num">${vo.goods_num}</td>
 						<td><img src="${vo.img}" style="width: 200px; height: 130px;"></td>
@@ -87,10 +88,12 @@
 				</c:if>
 			</ul>
 		</div>
-					<button class="btn btn-primary" onclick="location.href='./goods_add'">상품 등록</button>
+					<button class="btn btn-default" onclick="location.href='./goods_add'">상품 등록</button>
 					<button class="btn btn-danger" id="pro_del">상품 삭제</button>
 				
 	</div>
+</div>
+</div>
 	<script type="text/javascript">
 	var kind = '${pager.kind}';
 	if(kind==''){

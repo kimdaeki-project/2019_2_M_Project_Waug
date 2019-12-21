@@ -37,23 +37,23 @@
 			<option value="${vo.cate_num}" >${vo.cate_name}</option>
 		</c:forEach>
 	</select>
+         	<input type="text" name="img" class="img" style="width:300px; height: 30px;">
+         	<input type="text" name="img1" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img2" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img3" class="img" placeholder="이미지주소를 입력하세요">
+         	<input type="text" name="img4" class="img" placeholder="이미지주소를 입력하세요">
 	<!-- 위에가 용주형꺼 -->
 	<div class="good_img_wrapper">
-      <div class="good_img_titleBox">
-         <div class="good_img_title">
-         <div style="margin: 0 auto; line-height:536px; width:300px; height: 30px;">
-         	<input type="text" name="img" id="titleImg" style="width:300px; height: 30px;">
-         </div>
-         </div>
+      <div class="good_img_titleBox" id="img" style="display: block; width:1000px;  height: 534px; margin-left: 0px;">
       </div>
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg1" accept=".jpg"></div>
-         <div class="good_img_small"><input type="file" name="file" class="subImg" id="subImg2"></div>      
+         <div class="good_img_small" id="img1"></div>
+         <div class="good_img_small" id="img2"></div>      
       </div>
       <div class="good_img_small_wrapper">
-        <div class="good_img_small">img 4<input type="file" name="file" class="subImg" id="subImg3"></div>
-        <div class="good_img_small">img 5<input type="file" name="file" class="subImg" id="subImg4"></div> 
+        <div class="good_img_small" id="img3">img 4</div>
+        <div class="good_img_small" id="img4">img 5</div> 
       </div>
       </div>
    </div>
@@ -89,13 +89,15 @@
          					<select name="pick_up" class="st" id="pick_up">
          						<option value="0">픽업을 선택하세요</option>
          						<option>호텔 픽업</option>
-         						<option>호텔 픽업</option>
+         						<option>미팅 포인트 집결</option>
+         						<option>없음</option>
          					</select>
          				</div>
          				<div class="good_keyBox">
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674929156333.svg" />
          					<select name="people" class="st" id="people" >
          						<option value="0">인원수를 선택하세요</option>
+ 								<option>제한없음</option>
          						<option>1명</option>
          						<option>2명</option>
          						<option>3명</option>
@@ -117,6 +119,7 @@
          					<img class="good_icon" src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15674930838942.svg" />
          					<select name="delivery_time" id="delivery_time" class="st">
          						<option value="0">확정시간을 선택하세요</option>
+         						<option>바우처 즉시 제공</option>
          						<option>1시간 내 확정</option>
          						<option>2시간 내 확정</option>
          						<option>4시간 내 확정</option>
@@ -131,7 +134,7 @@
          					<select name="duration" id="duration" class="st">
          						<option value="0">사용 날짜를 선택하세요</option>
          						<option>지정일 사용</option>
-         						<option>지정일 사용</option>
+         						<option>유효기간내 사용</option>
          					</select>
          				</div>
          				<div class="good_keyBox">
@@ -150,12 +153,13 @@
          						<option>한국어</option>
          						<option>중국어</option>
          						<option>일본어</option>
+         						<option>한국어 제공, 영어 제공, 태국어 제공</option>
          					</select>
          				</div>
          			</div>
-         			ex)45.1423/45.1453<br>
-         			<input type="text" class="locationBox" name="location" placeholder="ex)45.1423/45.1453">
-         			
+         			googleMap<br>
+         			horizontal <input type="text" class="locationBox" name="horizontal" placeholder="ex)45.1423/45.1453">	<br>
+         			vertical <input type="text" class="locationBox" name="vertical" placeholder="ex)45.1423/45.1453">	
          		</div>
          	</div>
          </div>
@@ -274,37 +278,30 @@ $("#point").summernote({
 	placeholder: '매력 포인트 (ul로 작성)',
 	height : 300
 });
-
 //program
 $('#program').summernote({
 	placeholder: 'program info',
     tabsize: 5,
     height: 700
 });
-
 //included
 $('#included').summernote({
 	placeholder: ' included',
 	tabsize: 5,
 	height : 300
 });
-
 //not_included
 $('#not_included').summernote({
 	placeholder: 'not_included',
 	tabsize: 5,
 	height : 300
 });
-
 //how_to_use
 $('#how_to_use').summernote({
 	placeholder: '사용방법, 미팅 포인트, 등등',
 	
 	height : 300
 });
-
-
-
 //****************value check before submit****************
 //city, theme, category values
 var city_num=false;
@@ -323,7 +320,6 @@ var subImg1=false;
 var subImg2=false;
 var subImg3=false;
 var subImg4=false;
-
 $('#subImg1').change(function() {
 	subImg1=true;
 });
@@ -337,7 +333,6 @@ $('#subImg4').change(function() {
 	subImg4=true;
 });
 $('.good_reservation_btn').click(function(){
-
 	if($('#using_time').val()!="0"){
 		using_time=true;
 	}
@@ -381,6 +376,13 @@ $('.good_reservation_btn').click(function(){
 		alert("모두 입력해주세요");
 	}
 })
+	//사진 주소 입력시 사진 보여주기
+	$(".img").change(function() {
+		var image = $(this).val();
+		var div = $(this).attr('name');
+		$("#"+div).css({"background":"url("+image+")", 'background-repeat' : 'no-repeat', 'background-position':'center center'});
+	});
+
 	</script>
 
 </body>

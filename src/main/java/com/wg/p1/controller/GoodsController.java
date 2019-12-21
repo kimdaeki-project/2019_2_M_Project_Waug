@@ -36,15 +36,16 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	@RequestMapping("good_page")
-	public ModelAndView goods(@RequestParam(value="goods_num")int goods_num,ModelAndView mv, CartVO cartVO)throws Exception{
+
+	public ModelAndView goods(int goods_num,ModelAndView mv, CartVO cartVO)throws Exception{
 		//@RequestParam(value = "n") int num
 		//파라미터 n이 들어오는걸 num에 매핑시킨다
-		
 		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
 		InfoVO infoVO=goodsService.selectGoodsInfo(goods_num);
 		ReviewVO reviewVO = new ReviewVO();
 		ReviewVO reviewVO2 = new ReviewVO();
-		reviewVO.setGoods_num(7);
+		reviewVO.setGoods_num(goods_num);
+		reviewVO2.setGoods_num(goods_num);
 		reviewVO =reviewService.review_avg_total(reviewVO);
 		reviewVO2 = reviewService.reviewLatest(reviewVO2);
 		List<CategoryVO> cateAll=goodsService.CateAll();
@@ -55,11 +56,7 @@ public class GoodsController {
 		mv.setViewName("goods/good_page");
 		mv.addObject("goods", goodsVO);
 		mv.addObject("info", infoVO);
-		//goods 정보담기
-		
-		//mv.addObject("info", attributeValue)
-		return mv;
-		
+		return mv;		
 	}
 
 	@RequestMapping("goods_area")
@@ -69,21 +66,26 @@ public class GoodsController {
 		nationVO.setCity_num(city_num);
 		goodsVO.setGoods_num(city_num);
 		nationVO = goodsService.City(nationVO);
-		
-		mv.addObject("nation", nationVO);
-		
+		mv.addObject("nation", nationVO);		
 		return mv;
 	}
 
 
 	@RequestMapping("goods_themes")
-	public void themes() throws Exception{
+	public ModelAndView themes(ThemeVO themeVO,GoodsVO goodsVO, ModelAndView mv) throws Exception{
+		themeVO = goodsService.themeselect(themeVO);
+		List<GoodsVO> ar = goodsService.themeGoodsSelect(themeVO);
 		
+		mv.addObject("ThemeVO", themeVO);
+		mv.addObject("goodsVO", ar);
+		
+		
+		mv.setViewName("goods/goods_themes");
+		return mv;
 	}
 	
 	@GetMapping("goods_write")
-	public void goods_write(ModelAndView mv) throws Exception{
-		
+	public void goods_write(ModelAndView mv) throws Exception{		
 	}
 	
 	

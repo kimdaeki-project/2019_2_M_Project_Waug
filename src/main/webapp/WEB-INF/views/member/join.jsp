@@ -29,10 +29,12 @@
 }
 #kakao-login-btn{
    opacity: 0;
+   
 }
 .sns-login-kakao-logo{
    position: relative;
    cursor: pointer;
+   left: -30px;
 }
 
 </style>
@@ -74,16 +76,6 @@
 
 				</div>		
 
-				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
-				data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"id="facebook_login" onclick="facebook_join()">
-					 
-				<img src="https://www.waug.com/images/facebook.svg" class="sns-login-facebook-logo">
-				<span class="sns-login-text sns-login-text-facebook">회원가입</span>
-					<fb:login-button scope="public_profile, email" onlogin="checkLoginState();" id="fb-btn">
-					</fb:login-button> 
-
-
-				</div>
 				
 				<!-- 페이스북 -->	
 				<div class="btn-login-sns-box login-form-box fb-login-button" data-width="" data-size="large" 
@@ -100,7 +92,7 @@
 				<div  class="btn-login-sns-box login-form-box panel-body" >
 
 					<a id="kakao-login-btn"></a><img src="https://www.waug.com/images/kakao.svg" class="sns-login-kakao-logo">
-					<span class="sns-login-text sns-login-text-kakao" style="position: relative; ">회원가입</span>
+					<span class="sns-login-text sns-login-text-kakao" style="position: relative; left: -30px;">회원가입</span>
 
 				</div>
 				<!-- 카카오 끝 -->

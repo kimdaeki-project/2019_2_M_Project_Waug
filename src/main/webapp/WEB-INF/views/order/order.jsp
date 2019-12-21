@@ -13,43 +13,57 @@
 <body>
 <c:import url="../layout/nav.jsp"/>
 <div class="order_container">
+<form class="form" action="../kakao/kakaoPay" method="post">
 	<div class="order_row">
 		<!-- left -->
+		<input value="${goods.goods_num}" style="background:gold" hidden="hidden" name="goods_num">
+		<input value="${option.o_num}" style="background:gold" hidden="hidden" name="o_num">
 		<div class="order_col_md">
 			<div class="order_user_infoBox">
 				<div class="order_user_infoBox_title">예약자 정보</div>
 				<table class="order_user_info_table">
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
-					<tr><td>여권상 영문명</td><td>huh jaeyong</td></tr>
+					<c:forEach items="${bookerInfo}" begin="0" end="0" var="booker">				
+						<tr><td>여권상 영문명</td><td>${booker.firstName}&nbsp;${booker.lastName}</td></tr>
+						<tr><td>바우처 이메일</td><td>${booker.b_email}</td></tr>
+					</c:forEach>
 				</table>
 			</div>
 			<div class="order_user_infoBox">
 				<div class="order_user_infoBox_title">Reservation Info</div>
 				<div class="order_reser_info">
-					<img src="sample.jpg">
+					<img src="${goods.img }">
 					<div class="order_reser_info_text">
-						<b>asdfsaddsfasdfasdfasdfasdfasdff</b>
-						<p>display: inline-block;display: inline-block;</p>
+						<b>${goods.title}</b>
+						<p>${option.o_date}</p>
 					</div>
 				</div>
-				<div class="order_reser_options">
-					<div class="order_reser_option_left">left side <p>성인</p></div>
-					<div class="order_reser_option_right">4500 x 1</div>
-				</div>
-				<div class="order_reser_options">
-					<div class="order_reser_option_left">left side <p>성인</p></div>
-					<div class="order_reser_option_right">4500 x 1</div>
-				</div>
+				<c:forEach items="${bookerInfo}" var="booker" begin="1" varStatus="status">
+					<div class="order_reser_options">
+						<div class="order_reser_option_left">${booker.firstName}&nbsp;${booker.lastName} 
+							<p>
+								<c:choose>
+									<c:when test="${booker.b_gender eq 1}">남자</c:when>
+									<c:when test="${booker.b_gender eq 0}">여자</c:when>
+								</c:choose>
+							</p>
+						</div>
+						<div class="order_reser_option_right">4500 x 1</div>
+					</div>
+				
+				</c:forEach> 
 				<div class="order_reser_border"></div>
 					<div class="order_reser_options">
-						<div class="order_reser_option_left">호텔 & 리조트명</div>
-						<div class="order_reser_option_right">adsf</div>
+						<div class="order_reser_option_left">SNS 아이디</div>
+						<div class="order_reser_option_right">
+							<c:forEach items="${bookerInfo}" var="booker" begin="0" end="0">${booker.sns}</c:forEach>
+						</div>
 					</div>
 					<div class="order_reser_options">
-						<div class="order_reser_option_left">호텔 & 리조트 주소</div>
-						<div class="order_reser_option_right">asfd123142</div>
-					</div>
+						<div class="order_reser_option_left">방문시간</div>
+						<div class="order_reser_option_right">
+							<c:forEach items="${bookerInfo}" var="booker" begin="0" end="0">${booker.b_visit}</c:forEach>
+						</div>
+					</div> 
 			</div>
 		</div>
 		<!-- right -->
@@ -133,7 +147,7 @@
 		 		<div class="order_user_infoBox_title">결제 정보</div>
 		 		<div class="order_reser_info">
 		 			<div class="order_reser_option_left">총 상품 금액</div>
-		 			<div class="order_reser_option_right">₩ 149,700</div>
+		 			<div class="order_reser_option_right" id="totalPriceShow">${goods.price*option.o_people}</div>
 		 			<div class="order_reser_option_left">쿠폰</div>
 		 			<div class="order_reser_option_right"><strong>-0</strong></div>
 		 			<div class="order_reser_option_left">포인트</div>
@@ -151,8 +165,9 @@
 		 		</div>
 		 	</div>
 		 </div>
-
 	</div>
+	<input type="text" value="${goods.price*option.o_people}" hidden="hidden" name="totalprice" id="totalprice">
+</form>
 </div>
 <div class="interest_freeBox">
 	<div class="interest_freeBox_modal">
@@ -213,6 +228,8 @@
 
 	$(document).ready(function(){
 		$('.pay_credit').css("display","none");
+		
+		$('#totalPriceShow').html($('#totalprice').val());
 	});
 
 	$('.stopPropagation').click(function(e){
@@ -243,6 +260,10 @@
 		$('.card').removeClass('card_clicked');
 		$(this).toggleClass('card_clicked');
 	});
+	
+	$('.order_reser_pay_btn').click(function(){
+		$('.form').submit();
+	})
 </script>
 </body>
 </html>

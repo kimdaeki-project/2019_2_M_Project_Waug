@@ -75,7 +75,6 @@ public class GoodsDAO {
 	}
 
 	public List<GoodsVO> goodsRecomand(MemberVO memberVO) throws Exception{
-		System.out.println(memberVO.getM_pk());
 		return sqlSession.selectList(NAMESPACE+"goodsRecomand", memberVO);
 	}
 	
@@ -118,7 +117,6 @@ public class GoodsDAO {
 	}
 	public List<ThemeVO> ThemeAll() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"themeList");
-
 	}
 	
 	//메인페이지 검색창전용-도시
@@ -129,5 +127,20 @@ public class GoodsDAO {
 	public List<GoodsVO> Goodssearch(Pager pager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"searchgoods", pager);
 	}
-	
+	//테마페이지
+	public ThemeVO themeselect(ThemeVO themeVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"themeselect", themeVO);
+	} 
+	//아시아에서 즐기는 액티비티
+	public List<GoodsVO> asiaActivity() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"asiaActivity");
+	}
+	//테마 굿즈
+	public List<GoodsVO> themeGoodsSelct(ThemeVO themeVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"themeGoodsSelect", themeVO);
+	}
+	public List<GoodsVO> europeActivity(GoodsVO goodsVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"europeActivity", goodsVO);
+
+	}
 }

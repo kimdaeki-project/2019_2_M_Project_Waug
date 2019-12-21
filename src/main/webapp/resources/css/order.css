@@ -64,6 +64,10 @@
 	float: left;
 	width: 50%;
 }
+.order_reser_option_left>p{
+	color: #999;
+	font-size: 10px;
+}
 .order_reser_option_right{
 	width: 50%;
 	float: right;
@@ -346,6 +350,7 @@
 	margin-bottom: 6.5px;
 	height: 40px;
 }
+
 .order_info_fields_title{
 	height: 20px;
 	font-size: 15px;
@@ -618,7 +623,6 @@ input[type="email"].input_md{
 }
 .reservation_btn_wrapper{
 	width:100%;
-	height: 110px;
 }
 .reser_numberOfUserBox{
 	width: 100%;
@@ -716,4 +720,17 @@ input[type="email"].input_md{
 	font-weight:500;
 }
 
-
+/* 쿠폰발급페이지 */
+#event-wrapper{
+	margin-top: 70px;
+}
+#event-content img{
+	width: 100%;
+	vertical-align: middle;
+}
+.event-content-button-content{
+	margin-top:-5px;
+}
+.hidden{
+	display: none;
+}

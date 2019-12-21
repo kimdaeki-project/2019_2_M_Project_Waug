@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="optionMapper">
+  
+  <insert id="optionAdd" parameterType="OptionVO">
+  	<selectKey order="BEFORE" resultType="Integer" keyProperty="o_num">
+  		select option_seq.nextval from dual
+  	</selectKey>
+  	insert into goods_option(o_num, o_time, o_people, o_date) values(#{o_num}, #{o_time}, #{o_people},#{o_date})
+  </insert>
+  
+  <select id="optionSelectOne" parameterType="Integer" resultType="OptionVO">
+  	select * from goods_option where o_num=#{o_num}
+  </select>
+  
+    <!-- 옵션리스트 -->
+  <select id="optionList" parameterType="OptionVO" resultType="GoodsVO">
+  	select o_num, o_time, o_people, to_char(o_date,'yyyy-mm-dd') o_date from goods_option
+  </select>
+  </mapper>

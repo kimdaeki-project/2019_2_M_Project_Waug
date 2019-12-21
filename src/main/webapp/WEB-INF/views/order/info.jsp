@@ -15,8 +15,42 @@
 <c:import url="../layout/nav.jsp"/>
 <div style="margin-top:80px;">
 	<div class="order_wrapper">
+	<form action="./order1" method="post" id="formId">									<!-- <form action="order" method="post"> -->
+	<input type="text" name="goods_num" value="${goods.goods_num}" style="background:gold" hidden="hidden"> 
 		<div class="order_infoBox">
 			<div class="order_info_title">예약자 정보</div>
+			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
+			<div class="order_inputBox"><!-- input inside -->
+			<input type="text" value="${member.email}" name="email" hidden="hidden">
+				<label>
+					<div class="order_info_fields_title">이름</div>
+					<div class="order_fields_input">
+						<input type="text" name="firstName" id="fname" placeholder="first">
+						<input type="text" name="lastName" id="lname" placeholder="last">
+					</div>
+				</label>
+				<label>
+					<div class="order_info_fields_title">메일</div>
+					<div class="order_fields_input">
+						<input type="email" name="b_email" class="input_lg" id="b_email">
+					</div>
+				</label>				
+				<select name="b_gender">
+						<option value="2">예약자</option>
+					</select>
+			</div>
+			
+					<div class="order_info_fields_title">여권정보</div>
+					<div class="order_fields_input">
+						<input type="text" name="passport" class="input_lg" id="passport" value="booker_passport">
+					</div>
+				
+		</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->		
+		
+		<c:forEach begin="1" end="${option.o_people}" var="i">
+		<div class="order_infoBox">
+			<div class="order_info_title">사용자 정보</div>
 			<div class="order_info_title_text">예약자 성함과 연락처는 실제 상품을 구매하는 분의 정보를 기입해 주시기 바랍니다.</div>
 			<div class="order_inputBox"><!-- input inside -->
 				<label>
@@ -26,35 +60,29 @@
 						<input type="text" name="lastName" id="lname">
 					</div>
 				</label>
-				<label>
-					<div class="order_info_fields_title">휴대전화번호</div>
-					<div class="order_fields_input">
-						<select>
-							<option>965 Kuwait</option>
-							<option>850 Korea, Democratic People's Republic of</option>
-							<option>371 Latvia</option>
-							<option>423 Liechtenstein</option>
-							<option>423 Liechtenstein</option>
-							<option>965 Kuwait</option>
-							<option>850 Korea, Democratic People's Republic of</option>
-							<option>371 Latvia</option>
-							<option>423 Liechtenstein</option>
-						</select>
-						<input type="text" name="phone" class="phone" numberonly="true" id="phone">
-					</div>
-				</label>
+				
 				<label>
 					<div class="order_info_fields_title">여권정보</div>
 					<div class="order_fields_input">
-						<input type="email" name="passport" class="input_lg" id="passport">
+						<input type="text" name="passport" class="input_lg" id="passport">
 					</div>
 				</label>
-			</div>
+				<br>
+				<div class="order_info_fields_title">성별</div>
+					<select name="b_gender">
+						<option value="1">남자</option>
+						<option value="0">여자</option>
+					</select>
+				</div>
+				
 		</div>
+		</c:forEach>
+		
+		
 		<div class="order_infoBox">
 			<div class="order_info_title">세부 정보</div>
 			<div class="order_info_title_text">세부정보를 반드시 입력해주시기 바랍니다.</div>
-			<div class="order_info_good_title">코타키나발루 3박 4일 수트라 하버 마젤란 / 전 일정 조식 + 왕복 픽업 (오후/인천 출발)</div>
+			<div class="order_info_good_title">${goods.title }</div>
 			<div class="order_inputBox">
 				<label>
 					<div class="order_info_fields_title">메신저 ID</div>
@@ -63,62 +91,25 @@
 					</div>
 					<p>메신저 종류(카카오톡 / 라인 / 페이스북메신저)와 ID를 반드시 기재해주세요.</p>
 				</label>
+				<label>
+					<div class="order_info_fields_title">방문시간</div>
+					<div class="order_fields_input">
+						<input type="text" name="b_visit" class="input_lg" id="b_visit">
+					</div>
+				</label>
 			</div>
 		</div>
 		<div class="order_footer_wrapper">
 			<button class="order_submit" id="info_reservation_btn">예약하기</button>
 		</div>
+		<input type="text" id="o_num" name="o_num"  value="${option.o_num}" style="background:green">
+		<input type="text" id="o_tile" name="o_time"  value="${option.o_time}" style="background:tomato">
+		<input type="text" id="o_num" name="o_people"  value="${option.o_people}" style="background:gray">
+		<input type="text" id="o_date" name="o_date"  value="${option.o_date}" style="background:yellowgreen">
+		</form>
 	</div>
 </div>
 
-<script type="text/javascript">
-var checkFname=false;
-var checkLname=false;
-var checkPhone=false;
-var checkPassport=false;
-var checkSNS=false;
-$('#sns').blur(function(){
-	checkSNS=checkIsVal($('#sns').val());
-	console.log("checkSNS : "+checkSNS);
-})
-$('#passport').blur(function(){
-	checkPassport=checkIsVal($('#passport').val());
-	console.log("checkPassport : "+checkPassport);
-});
-$('#phone').blur(function(){
-	checkPhone=checkIsVal($('#phone').val());
-	console.log("checkPhone : "+checkPhone);
-});
-$('#fname').blur(function(){
-	checkFname=checkIsVal($('#fname').val());
-	console.log("fname : "+checkFname);
-})
-$('#lname').blur(function(){
-	checkLname=checkIsVal($('#lname').val());
-	console.log("checkLname : "+checkLname);
-});
-function checkIsVal(value){
-	value.trim();
-	if(value!=""){
-		return true;
-	}
-	else{return false;}
-}
 
-	//예약하기 버튼 눌렀을때 다음페이지 넘어가기
-	$('#info_reservation_btn').click(function(){
-		if(checkFname&&checkLname&&checkPhone&&checkPassport&&checkSNS){
-			location.href="./order";			
-		}
-		else{
-			alert('모두 입력해주세요');
-		}
-	});
-
-	
-	
-	
-	
-</script>	
 </body>
 </html>
