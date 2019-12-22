@@ -1,12 +1,17 @@
 package com.wg.p1.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.xml.ws.ServiceMode;
 
+import org.springframework.stereotype.Service;
+
 import com.wg.p1.dao.ReservationDAO;
+import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.ReservationVO;
 
-@ServiceMode
+@Service
 public class ReservationService {
 
 	@Inject
@@ -14,5 +19,9 @@ public class ReservationService {
 	
 	public int addReservation(ReservationVO reservationVO)throws Exception{
 		return reservationDAO.addReservation(reservationVO);
+	}
+	
+	public List<ReservationVO> selectMyOrders(MemberVO memberVO)throws Exception{
+		return reservationDAO.selectMyOrders(memberVO);
 	}
 }

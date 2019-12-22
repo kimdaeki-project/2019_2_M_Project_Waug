@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.model.CartVO;
 import com.wg.p1.model.CouponVO;
 import com.wg.p1.model.OptionVO;
+import com.wg.p1.model.ReservationVO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.MyCouponVO;
@@ -26,6 +27,7 @@ import com.wg.p1.service.CouponService;
 import com.wg.p1.service.MemberServiceImpl;
 import com.wg.p1.service.OptionService;
 import com.wg.p1.service.OrderService;
+import com.wg.p1.service.ReservationService;
 import com.wg.p1.service.WishListService;
 
 import oracle.net.aso.e;
@@ -45,6 +47,8 @@ public class MyController {
 	private CouponService couponService;
 	@Inject
 	private OptionService optionService;
+	@Inject
+	private ReservationService reservationService;
 	
 	@RequestMapping(value = "mypage")
 	public void my(HttpSession session) throws Exception{
@@ -274,8 +278,12 @@ public class MyController {
 	}
 	
 	@GetMapping("order")
-	public void myOrder() throws Exception{
+	public void myOrder(HttpSession session,Model model) throws Exception{
 		
+		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
+		System.out.println("myController.m_pk : "+memberVO.getM_pk());
+		List<ReservationVO> res=reservationService.selectMyOrders(memberVO);
+		model.addAttribute("reservation", res);
 	}
 	
 

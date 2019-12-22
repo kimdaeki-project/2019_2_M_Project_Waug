@@ -32,21 +32,24 @@
 				<div class="col-md-9" id= "sub-container">
 					<h3 class="space-5" style="font-weight: bold;">구매내역</h3>
 					<div class="row">
+					
+						<c:forEach items="${reservation}" var="res">
 						<div class="item-booking">
 							<div class="booking-img">
-								<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/good/2019/07/04/15622127704142.png?s=280x184">
+								<img src="${res.img2}">
 							</div>
 							<div class="booking-sum">
 								<span class="booking-status status-done">예약완료</span>
-								<h5 class="booking-header">보홀 발리카삭 & 버진 스노쿨링 투어</h5>
+								<h5 class="booking-header">${res.title2 }&nbsp;&nbsp;x ${res.o_people2}</h5>
 								<ul>
-									<li>2019-01-30</li>
-									<li>B코스 어쭈구쩌주꾸주주</li>
+									<li>${res.o_date2}</li>
+									<li>${res.o_time2}</li>
+									<li>결제방법 : ${res.pay}</li>
 								</ul>
 							</div>
 							<div class="booking-arrow"></div>
-													
 						</div>
+						</c:forEach>
 					</div>
 					<!-- paging 시작 -->
 					<div class="row">

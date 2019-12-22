@@ -14,6 +14,15 @@
 	 (#{res_num},#{res_date},#{o_num},#{M_PK},#{c_code},#{point},#{totalprice},#{goods_num},#{res_num},#{pay},#{tid})
  </insert>
  
+ <select id="selectMyOrders" parameterType="MemberVO" resultType="ReservationVO">
+ select res_num,res_date,o_num,M_PK,totalprice,goods_num,res_ref,pay, o_time o_time2, o_people o_people2, o_date o_date2, img img2, title title2
+from reservation
+inner join goods_option
+using(o_num)
+inner join goods
+using (goods_num)
+where M_PK=#{m_pk}
+ </select>
  </mapper>
 
 

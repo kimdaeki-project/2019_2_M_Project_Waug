@@ -57,7 +57,7 @@ public class KakaoPayService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
         params.add("cid", "TC0ONETIME");
         params.add("partner_order_id", String.valueOf(optionVO2.getO_num()));		
-        params.add("partner_user_id","w_adf@a");	// memberVO.getEmail()
+        params.add("partner_user_id",memberVO2.getM_pk());	// memberVO.getEmail()
         params.add("item_name", goodsVO2.getTitle());
         params.add("quantity", optionVO2.getO_people());
         total_amount=goodsVO2.getPrice()*Integer.parseInt(optionVO2.getO_people());
@@ -105,7 +105,7 @@ public class KakaoPayService {
 	        params.add("cid", "TC0ONETIME");
 	        params.add("tid", kakaoPayReadyVO.getTid());
 	        params.add("partner_order_id", String.valueOf(optionVO2.getO_num()));		//order_num
-	        params.add("partner_user_id", "w_adf@a");	//memberVO.getEmail()
+	        params.add("partner_user_id", memberVO2.getM_pk());	//memberVO.getEmail()
 	        params.add("pg_token", pg_token);
 	        params.add("total_amount", String.valueOf(total_amount));
 	        
@@ -134,8 +134,8 @@ public class KakaoPayService {
 	            reservation.setRes_date(kakaoPayApprovalVO.getCreated_at());
 	            reservation.setO_num(optionVO2.getO_num());
 	            System.out.println(reservation.getO_num());			//153
-	            reservation.setM_PK("w_adf@a");
-	            System.out.println(reservation.getM_PK());			//w_adf@a
+	            reservation.setM_pk("w_adf@a");
+	            System.out.println(reservation.getM_pk());			//w_adf@a
 	            reservation.setC_code("test_c_code");
 	            System.out.println(reservation.getC_code());		//test_c_code
 	            int point=(int) (kakaoPayApprovalVO.getAmount().getTotal()*0.1);	//get point

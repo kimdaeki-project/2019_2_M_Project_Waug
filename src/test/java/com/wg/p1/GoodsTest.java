@@ -10,8 +10,11 @@ import javax.inject.Inject;
 import org.junit.Test;
 
 import com.wg.p1.dao.GoodsDAO;
+import com.wg.p1.dao.ReservationDAO;
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
+import com.wg.p1.model.MemberVO;
+import com.wg.p1.model.ReservationVO;
 import com.wg.p1.model.WishListVO;
 import com.wg.p1.util.CouponMaker;
 
@@ -21,6 +24,9 @@ public class GoodsTest extends testAbstractCase{
 	private GoodsDAO goodsDAO;
 
 	private GoodsVO goodsVO;
+	
+	@Inject
+	private ReservationDAO reservationDAO;
 	
 	//@Test
 	public void selectOneGoods() throws Exception{	
@@ -68,6 +74,21 @@ public class GoodsTest extends testAbstractCase{
 		assertEquals(1, result);
 	}
 	
+	@Test
+	public void selectMyOrder()throws Exception{
+		MemberVO memberVO=new MemberVO();
+		memberVO.setM_pk("w_adf@a");
+		List<ReservationVO> reservationVOs=reservationDAO.selectMyOrders(memberVO);
+		
+		for(int i=0;i<reservationVOs.size();i++) {
+			//o_time o_time2,o_people o_people2, o_date o_date2, img img2, title title2
+			reservationVOs.get(i).getO_num();
+			System.out.println("reser_num : "+reservationVOs.get(i).getRes_num());
+			//System.out.println("reservationVOs.get(i).getRes_date() : "+reservationVOs.get(i).getRes_date());
+			//System.out.println(reservationVOs.get(i).get);
+		}
+		assertNotNull(reservationVOs);
+	}
 	
 	
 	
