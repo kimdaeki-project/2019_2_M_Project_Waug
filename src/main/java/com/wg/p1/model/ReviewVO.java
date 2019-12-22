@@ -17,9 +17,17 @@ public class ReviewVO {
 	private String rv_acontents;
 	private double rv_avg;
 	private int rv_total;
+	private String title2;
+	private String img;
 	private List<ReviewImgVO> images;
 	
 	
+	public String getTitle2() {
+		return title2;
+	}
+	public void setTitle2(String title2) {
+		this.title2 = title2;
+	}
 	public List<ReviewImgVO> getImages() {
 		return images;
 	}

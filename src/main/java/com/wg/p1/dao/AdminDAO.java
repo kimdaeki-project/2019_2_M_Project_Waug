@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.context.Theme;
 
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ReviewVO;
 import com.wg.p1.model.ThemeVO;
+import com.wg.p1.util.Pager;
 
 @Repository
 public class AdminDAO {
@@ -44,5 +46,15 @@ public class AdminDAO {
 	
 	public int theme_delete(ThemeVO themeVO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"theme_delete", themeVO);
+	}
+	
+	public List<ReviewVO> review_list(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"review_list", pager);
+	}
+	public int review_count(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"review_count", pager);
+	}
+	public int count_review_new() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"count_review_new");
 	}
 }

@@ -6,6 +6,7 @@
 								<div class="comment-content">
 									<div class="star-score-space">
 								<span class="comment-list-mem-id star-score-sort"> ${dto.rv_writer} </span>
+								<span class="comment-list-mem-id star-score-sort" style="width: 500px; cursor: pointer;" onclick="location.href='../goods/good_page?goods_num=${dto.goods_num}'">${dto.title2}</span>
 								<span class="star-score-sort">
 									<div
 										class="rating-container rating-xxs rating-animate rating-disabled star-float">
@@ -42,22 +43,15 @@
 								
 							<!-- if 작성자 아니면 안보이게 해야함 -->
 							<div class="comment-list-button-wrapper">
-								<c:if test="${memberVO.m_pk eq 'w_a@a.com'}">
 								<!-- 관리자만 보이게 -->
 								<button value="${dto.rv_num}"data-goodidx="${dto.goods_num}"
 									data-idx="${dto.rv_num}" data-toggle="modal"
 									data-target="#modal-reply"
 									class="btn btn-review-reply outline btn-sm" type="button">답변</button>
 								<!-- 관리자만 보이게 -->	
-								</c:if>
-							<c:if test="${dto.email eq memberVO.m_pk}">
-								<button name="btn-review-update" data-goodidx="${dto.goods_num}"
-									data-idx="${dto.rv_num}" data-toggle="modal"
-									data-target="#modal-update"
-									class="btn btn-review-update outline btn-sm" type="button" value="${dto.rv_num}">수정</button>
 								<button value="${dto.rv_num}" type="button"
 									class="btn btn-review-delete outline btn-sm">삭제</button>
-							</c:if>
+							
 							</div>
 							<!-- 여기까지 if문으로 감싸기 -->
 						</div>

@@ -23,9 +23,11 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
 
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ReviewVO;
 import com.wg.p1.model.ThemeVO;
 import com.wg.p1.service.AdminService;
 import com.wg.p1.service.GoodsService;
+import com.wg.p1.service.ReviewService;
 import com.wg.p1.service.adService;
 import com.wg.p1.util.Pager;
 
@@ -36,11 +38,17 @@ public class AdminController {
 	private GoodsService goodsService;
 	@Inject
 	private AdminService adminService;
-	
+	@Inject
+	private ReviewService reviewService;
 	
 	@RequestMapping("admin_main")
-	public String admin_main() throws Exception{
-		return "admin/admin_main";
+	public ModelAndView admin_main(ModelAndView mv) throws Exception{
+		int count = adminService.count_review_new();
+		
+		
+		mv.addObject("count", count);
+		mv.setViewName("admin/admin_main");
+		return mv;
 	}
 	
 
@@ -307,6 +315,38 @@ public class AdminController {
 		mv.addObject("msg", msg);
 		mv.addObject("path", path);
 		mv.setViewName("common/common_result");
+		return mv;
+	}
+	
+	@RequestMapping("review_list")
+	public ModelAndView review_list(ModelAndView mv, Pager pager) throws Exception{
+		List<ReviewVO> ar = adminService.review_list(pager);
+		mv.addObject("list", ar);
+		mv.setViewName("admin/review_list");
+		mv.addObject("totalPage", pager.getTotalPage());
+		return mv;
+	}
+	@RequestMapping("review_lists")
+	public ModelAndView review_lists(ModelAndView mv, Pager pager) throws Exception{
+		
+		List<ReviewVO> ar = adminService.review_list(pager);
+		mv.addObject("list", ar);
+		mv.setViewName("common/reviewAjax2");
+		
+		
+		return mv;
+	}
+	@RequestMapping("review_delete")
+	public ModelAndView review_delete(ModelAndView mv, ReviewVO reviewVO) throws Exception{
+		int result = reviewService.reviewDelete(reviewVO);
+		
+		String msg = "리뷰 삭제에 실패하였습니다";
+		if(result >0) {
+			msg = "리뷰를 삭제했습니다";
+		}
+		mv.addObject("result", msg);
+		mv.setViewName("common/common_ajaxResult");
+		
 		return mv;
 	}
 	

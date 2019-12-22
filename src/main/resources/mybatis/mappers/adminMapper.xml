@@ -31,4 +31,46 @@
   	<delete id="theme_delete" parameterType="ThemeVO">
   		delete theme where t_num=#{t_num}
   	</delete>
+  	
+  	<resultMap type="ReviewVO" id="reviewFile">
+		<id property="rv_num" column="rv_num"/>
+		<result property="goods_num" column="goods_num"/>
+		<result property="email" column="email"/>
+		<result property="rv_writer" column="rv_writer"/>
+		<result property="rv_contents" column="rv_contents"/>
+		<result property="rv_reg_date" column="rv_reg_date"/>
+		<result property="rv_score" column="rv_score"/>
+		<result property="rv_ex" column="rv_ex"/>
+		<result property="rv_aname" column="rv_aname"/>
+		<result property="rv_adate" column="rv_adate"/>
+		<result property="rv_acontents" column="rv_acontents"/>
+		<result property="title2" column="title2"/>
+		<result property="img" column="img"/>
+		<collection property="images" javaType="java.util.List" ofType="ReviewImgVO">
+			<id property="rv_img_num" column="rv_img_num"/>
+			<result property="rv_num" column="rv_num"/>
+			<result property="img_name" column="img_name"/>
+		</collection>
+		
+	</resultMap>
+  	
+  	<select id="review_list" parameterType="Pager" resultMap="reviewFile">
+  		select * from
+		(select *from
+		(select R.*, rownum N from
+		(select goods_num, title title2, img, rv_num, rv_writer, rv_contents, rv_score, to_char(rv_reg_date,'yyyy-mm-dd') rv_reg_date, 
+		rv_ex, rv_aname, rv_adate, rv_acontents
+		from goods inner join review1 using(goods_num) 
+		order by rv_num desc) R)
+		where N between #{startRow} and #{lastRow}) left outer join review_img using(rv_num)
+  	</select>
+  	
+  	<select id="review_count" resultType="Integer" parameterType="Pager">
+  		select count(rv_num) from review1
+  	</select>
+  	
+  	<select id="count_review_new" resultType="Integer">
+  		select count(rv_num) from review1 inner join review_check on 1=1
+		where rv_reg_date > review_check.check_date
+  	</select>
   </mapper>
