@@ -11,7 +11,7 @@
 	 insert into reservation 
 	 (RES_NUM, RES_DATE, O_NUM, M_PK, C_CODE, POINT, TOTALPRICE, GOODS_NUM, RES_REF, PAY, TID)
 	 values
-	 (#{res_num},#{res_date},#{o_num},#{M_PK},#{c_code},#{point},#{totalprice},#{goods_num},#{res_num},#{pay},#{tid})
+	 (#{res_num},#{res_date},#{o_num},#{m_pk},#{c_code},#{point},#{totalprice},#{goods_num},#{res_num},#{pay},#{tid})
  </insert>
  
  <select id="selectMyOrders" parameterType="MemberVO" resultType="ReservationVO">
@@ -22,6 +22,18 @@ using(o_num)
 inner join goods
 using (goods_num)
 where M_PK=#{m_pk}
+ </select>
+ 
+ <select id="selectMyPoint" parameterType="MemberVO" resultType="ReservationVO">
+select res_date, title title2, point, goods_num
+from reservation
+inner join goods
+using(goods_num)
+where M_PK=#{m_pk}
+ </select>
+ 
+ <select id="selectTotalPoint" resultType="Integer" parameterType="MemberVO">
+ select sum(point) from reservation where M_PK=#{m_pk}
  </select>
  </mapper>
 

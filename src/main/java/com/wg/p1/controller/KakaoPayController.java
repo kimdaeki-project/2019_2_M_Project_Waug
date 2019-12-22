@@ -1,10 +1,13 @@
 package com.wg.p1.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.KakaoPayService;
 import com.wg.p1.service.OptionService;
 import com.wg.p1.service.ReservationService;
+import com.wg.p1.util.MailSender;
 
 @Controller
 @RequestMapping("kakao/**")
@@ -41,17 +45,17 @@ public class KakaoPayController {
       System.out.println("kakaoPay post............................................");
       GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
       OptionVO optionVO=optionService.optionSelectOne(o_num);
-      MemberVO memberVO=(MemberVO)session.getServletContext().getAttribute("MemberVO");
+      MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 //      System.out.println("type : "+optionVO.getO_people());
 //      System.out.println("goodsVO.getGoods_num() : "+goodsVO.getGoods_num());
-		/* System.out.println("kakao controller : member : "+memberVO.getEmail()); */
+		System.out.println("kakao controller : member : "+memberVO.getEmail());
         return "redirect:" + kakaoPayService.kakaoPayReady(goodsVO, optionVO, memberVO);
       
     }
 	
 	
 	@GetMapping("kakaoPaySuccess")
-    public Model kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model)throws Exception {
+    public Model kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model,HttpServletRequest request,ModelMap mo, HttpSession session)throws Exception {
         System.out.println("kakaoPaySuccess get............................................");
         System.out.println("kakaoPaySuccess pg_token : " + pg_token);
        // MemberVO memberVO=(MemberVO)session.getServletContext().getAttribute("MemberVO");
@@ -59,6 +63,8 @@ public class KakaoPayController {
         //여기서 dao 디비에 저장
         //reservationService.addReservation(reservationVO);
         model.addAttribute("info",kakaoPayApprovalVO );
+        MailSender mailSender=new MailSender();
+        mailSender.mailSender(request, mo, session, kakaoPayApprovalVO.getPartner_user_id(), kakaoPayApprovalVO.getItem_name(), "goods option", "ims330k@naver.com");
         return model;
     }
 }

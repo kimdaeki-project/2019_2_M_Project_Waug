@@ -281,7 +281,6 @@ public class MyController {
 	public void myOrder(HttpSession session,Model model) throws Exception{
 		
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
-		System.out.println("myController.m_pk : "+memberVO.getM_pk());
 		List<ReservationVO> res=reservationService.selectMyOrders(memberVO);
 		model.addAttribute("reservation", res);
 	}
@@ -289,7 +288,11 @@ public class MyController {
 
 	
 	@GetMapping("point")
-	public void myPoint() throws Exception{
-		
+	public void myPoint(HttpSession session,Model model) throws Exception{
+		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
+		List<ReservationVO> res=reservationService.selectMyPoint(memberVO);
+		int totalPoint=reservationService.selectTotalPoint(memberVO);
+		model.addAttribute("reservation", res);
+		model.addAttribute("totalPoint", totalPoint);
 	}
 }

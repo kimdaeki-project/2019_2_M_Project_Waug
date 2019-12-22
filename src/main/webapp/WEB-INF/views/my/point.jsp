@@ -29,7 +29,7 @@
 						
 						<div class="row">
 							<div class="box-gray space-top-3 space-3">
-								<div class="text-center">779 p = 779.00(KRW)</div>
+								<div class="text-center">${totalPoint} p = ${totalPoint}(KRW)</div>
 							</div>
 							<table class="table-hover mypage-list">
 								<thead>
@@ -41,12 +41,14 @@
 									</tr>
 								</thead>
 								<tbody>
+								<c:forEach items="${reservation}" var="res">
 									<tr>
-										<td class="text-center">2019.02.03</td>
-										<td class="text-left"><a>dd</a></td>
+										<td class="text-center">${res.res_date }</td>
+										<td class="text-left"><a href="../goods/goods_page?goods_num=${res.goods_num}">${res.title2 }</a></td>
 										<td class="text-center">적립</td>
-										<td class="text-center">779 p</td>
+										<td class="text-center">${res.point } p</td>
 									</tr>
+								</c:forEach>
 								</tbody>
 							</table>
 						</div>

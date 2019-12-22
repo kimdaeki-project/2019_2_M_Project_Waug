@@ -24,4 +24,12 @@ public class ReservationService {
 	public List<ReservationVO> selectMyOrders(MemberVO memberVO)throws Exception{
 		return reservationDAO.selectMyOrders(memberVO);
 	}
+	
+	public List<ReservationVO> selectMyPoint(MemberVO memberVO)throws Exception{
+		return reservationDAO.selectMyPoint(memberVO);
+	}
+	
+	public int selectTotalPoint(MemberVO memberVO) throws Exception{
+		return reservationDAO.selectTotalPoint(memberVO);
+	}
 }

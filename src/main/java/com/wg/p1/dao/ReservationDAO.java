@@ -24,4 +24,12 @@ public class ReservationDAO {
 	public List<ReservationVO> selectMyOrders(MemberVO memberVO)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"selectMyOrders", memberVO);
 	}
+	
+	public List<ReservationVO> selectMyPoint(MemberVO memberVO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"selectMyPoint", memberVO);
+	}
+	
+	public int selectTotalPoint(MemberVO memberVO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectTotalPoint", memberVO);
+	}
 }

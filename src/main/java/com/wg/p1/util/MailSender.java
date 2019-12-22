@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Component
 public class MailSender {
 	
-	public void mailSender(HttpServletRequest request, ModelMap mo, HttpSession session) throws AddressException, MessagingException { 
+	public void mailSender(HttpServletRequest request, ModelMap mo, HttpSession session, String name, String goods_name, String goods_option,String email) throws AddressException, MessagingException { 
 	
 	// 네이버일 경우 smtp.naver.com 을 입력합니다. 
 	// Google일 경우 smtp.gmail.com 을 입력합니다. 
@@ -46,11 +46,11 @@ public class MailSender {
 	
 	
 	// 메일 내용
-	String name = "구매자명"; 
-	String goods_name = "구입상품명";
-	String goods_option = "상품옵션";
+	//String name = "구매자명"; 
+	//String goods_name = "구입상품명";
+	//String goods_option = "상품옵션";
 	
-	String recipient = "pyj9088@naver.com"; //받는 사람의 메일주소를 입력해주세요. 
+	String recipient = email; //받는 사람의 메일주소를 입력해주세요. 
 	String subject = "ZZAUG Voucher :"+name+"님의 예약이 확정되었습니다.<br>"; //메일 제목 입력해주세요. 
 	String body = "안녕하세요."+name+"님,<br>"+
 	"<br>"+
