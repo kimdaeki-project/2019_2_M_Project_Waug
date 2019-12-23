@@ -261,7 +261,7 @@ public class MemberController {
 			mv.addObject("path", "../member/login");
 			mv.setViewName("common/common_result");
 		}
-			return mv;
+		return mv;
 	}
 	
 	@PostMapping("password")
@@ -270,7 +270,7 @@ public class MemberController {
 		
 		String msg = "변경 실패";
 		if(result>0) {
-			msg="변경 성공";
+			msg="비밀번호를 변경하였습니다.";
 		}
 		mv.addObject("msg", msg);
 		mv.addObject("path", "../member/login");

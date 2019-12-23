@@ -190,7 +190,7 @@
 	</div>
 </div>
 <!-- 쿠폰함 모달 -->
-<div class="modal" id="modal-coupon-box"  role="dialog" style="display: none; padding-right: 10px;">
+<div class="modal" id="modal-coupon-box"  role="dialog" style="padding-right: 10px; display: block;">
 	<div id="modal-coupon-content" class="coupon-modal-content">
 		<div class="coupon-modal-outer">
 			<div class="coupon-modal-inner">

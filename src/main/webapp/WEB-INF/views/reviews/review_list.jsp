@@ -652,7 +652,6 @@
 		            	timeout: 600000,
 		            	success: function (data) {
 		                	data=data.trim();
-
 		                	var im = data.split('////');
 		                	$(".img_input_wrapper2").append(im[0]);
 		                	$("#preview-img1").append(im[1]);
