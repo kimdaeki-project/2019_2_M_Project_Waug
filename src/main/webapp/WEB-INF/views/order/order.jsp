@@ -72,11 +72,11 @@
 		 		<div class="order_user_infoBox_title">결제 수단</div>
 		 		<div class="order_reser_info">
 		 			<div class="order_reser_pay" id="waugPay">
-		 				<img src="pay_waug.svg">
+		 				<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15446039556086.svg">
 		 				<span>Waug pay</span>
 		 			</div>
 		 			<div class="order_reser_pay" id="creditCard">
-		 				<img src="pay_waug.svg">
+		 				<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15453097413462.svg">
 		 				<span>Credit card</span>
 		 				<div class="pay_credit stopPropagation">
 		 					<div class="pay_credit_title">카드 종류</div>
@@ -106,8 +106,8 @@
 		 				</div>
 		 			</div>
 		 			<div class="order_reser_pay" id="mobilePay">
-		 				<img src="pay_waug.svg">
-		 				<span>Mobile</span>
+		 				<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15638460065287.svg">
+		 				<span>toss</span>
 		 			</div>
 		 			<div class="order_reser_pay" id="kakaopay">
 		 				<img src="https://image.flaticon.com/icons/svg/2111/2111683.svg">
@@ -158,7 +158,7 @@
 		 		<div class="order_reser_info">
 		 			<!-- total -->
 		 			<div class="order_reser_option_left total_payment">최종 결제 금액</div>
-		 			<div class="order_reser_option_right total_payment_price">₩ 149,700</div>
+		 			<div class="order_reser_option_right total_payment_price">₩ <span id="total_span">total price show</span></div>
 		 		</div>
 		 		<div class="order_reser_info">
 		 			<div class="order_reser_btn_md order_reser_pay_btn">결제하기</div>
@@ -227,8 +227,7 @@
 	});
 
 	$(document).ready(function(){
-		$('.pay_credit').css("display","none");
-		
+		$('.pay_credit').css("display","none");		
 		$('#totalPriceShow').html($('#totalprice').val());
 	});
 
@@ -262,6 +261,7 @@
 	});
 	
 	$('.order_reser_pay_btn').click(function(){
+		
 		$('.form').submit();
 	})
 </script>
