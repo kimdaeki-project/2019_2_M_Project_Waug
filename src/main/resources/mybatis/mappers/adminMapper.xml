@@ -59,7 +59,7 @@
 		(select *from
 		(select R.*, rownum N from
 		(select goods_num, title title2, img, rv_num, rv_writer, rv_contents, rv_score, to_char(rv_reg_date,'yyyy-mm-dd') rv_reg_date, 
-		rv_ex, rv_aname, rv_adate, rv_acontents
+		rv_ex, rv_aname,to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents
 		from goods inner join review1 using(goods_num) 
 		order by rv_num desc) R)
 		where N between #{startRow} and #{lastRow}) left outer join review_img using(rv_num)
