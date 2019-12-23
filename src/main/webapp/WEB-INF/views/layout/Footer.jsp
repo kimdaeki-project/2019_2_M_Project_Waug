@@ -53,22 +53,22 @@
 							<div class="footerInfo-c-item-2">
 								<div class="title">고객센터</div>
 								<div>
-									<a href="/page/faq.html" target="_blank">FAQ </a>
+									<a href="/page/faq" target="_blank">FAQ </a>
 								</div>
 								<div>
-									<a href="/page/agreement.html" target="_blank">이용약관 </a>
+									<a href="/page/agreement" target="_blank">이용약관 </a>
 								</div>
 								<div>
-									<a href="/page/privacy.html" target="_blank">개인정보보호정책 </a>
+									<a href="/page/privacy" target="_blank">개인정보보호정책 </a>
 								</div>
 							</div>
 							<div class="footerInfo-c-item-3">
 								<div class="title">회사소개</div>
-								<a href="/page/aboutus.html" target="_blank"> About us </a>
+								<a href="p1/page/aboutus" target="_blank"> About us </a>
 							</div>
 							<div class="footerInfo-c-item-4">
 								<div class="title">파트너쉽</div>
-								<a href="/page/contactus.html" target="_blank">Contact us </a>
+								<a href="/page/contactus" target="_blank">Contact us </a>
 							</div>
 							<div class="footerInfo-c-item-5">
 								<div class="title">결제수단</div>

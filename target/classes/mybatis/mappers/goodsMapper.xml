@@ -4,8 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="goodsMapper">
-
-
+<!--도시별 굿즈 -->
+<select id="goodsCity" parameterType="GoodsVO" resultType="GoodsVO">
+	select * from 
+</select>
 <update id="goodsUpdate" parameterType="GoodsVO">
 	update goods 
 	set
@@ -142,7 +144,7 @@ select max(goods_num) from goods
   	select * from goods where goods_num=#{goods_num}
   </select>
 
-  
+
   <!-- 도시리스트 -->
   <select id="cityList" resultType="NationVO">
   	select * from nationinfo order by city_name

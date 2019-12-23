@@ -38,6 +38,7 @@ public class CouponListVO {
 	public void setC_discount(int c_discount) {
 		this.c_discount = c_discount;
 	}
+
 	
 	
 }
