@@ -6,7 +6,7 @@ public class CouponListVO {
 	private String c_title;
 	private String c_duration;
 	private String c_discount_info;
-	private int discount;
+	private int c_discount;
 	
 	public String getC_code() {
 		return c_code;
@@ -32,11 +32,11 @@ public class CouponListVO {
 	public void setC_discount_info(String c_discount_info) {
 		this.c_discount_info = c_discount_info;
 	}
-	public int getDiscount() {
-		return discount;
+	public int getC_discount() {
+		return c_discount;
 	}
-	public void setDiscount(int discount) {
-		this.discount = discount;
+	public void setC_discount(int c_discount) {
+		this.c_discount = c_discount;
 	}
 	
 	

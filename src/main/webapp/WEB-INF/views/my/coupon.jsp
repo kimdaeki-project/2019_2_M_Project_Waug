@@ -93,13 +93,15 @@
 							   					</tr>
 							   				</thead>
 							   				<tbody>
+							   					<c:forEach items="${listAfter}" var="vo">
 							   					<tr>
-							   						<td class="col-xs-3 text-center">회원가입 쿠폰</td>
-							   						<td class="col-xs-2 text-center"><s>RHRHRH23423</s></td>
-							   						<td class="col-xs-2 text-center">￦1,000 할인</td>
-							   						<td class="col-xs-3 text-center">2019.02.13 20:00</td>
+							   						<td class="col-xs-3 text-center">${vo.c_title}</td>
+							   						<td class="col-xs-2 text-center"><s>${vo.c_code}</s></td>
+							   						<td class="col-xs-2 text-center">${vo.c_discount_info}</td>
+							   						<td class="col-xs-3 text-center">${vo.c_duration}</td>
 							   						<td class="col-xs-2 text-center">기간만료</td>
 							   					</tr>
+							   					</c:forEach>
 							   				</tbody>
 							   			</table>
 							   		</div>			

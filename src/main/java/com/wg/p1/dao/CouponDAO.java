@@ -29,6 +29,10 @@ public class CouponDAO {
 		return sqlSession.selectList(NAMESPACE+"myCoupon", memberVO);
 	}
 	
+	public List<CouponVO> myCouponAfter(MemberVO memberVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"myCouponAfter", memberVO);
+	}
+	
 	public int myCouponBeforeCount(MemberVO memberVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"myCouponBeforeCount", memberVO);
 	}
@@ -43,4 +47,9 @@ public class CouponDAO {
 		map.put("m_pk", m_pk);
 		return sqlSession.selectOne(NAMESPACE+"couponCount", map);
 	}
+
+	public int couponUse(MyCouponVO myCouponVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"couponUse",myCouponVO);
+	}
 }
+

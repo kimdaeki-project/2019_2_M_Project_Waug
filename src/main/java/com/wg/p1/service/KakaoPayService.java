@@ -134,7 +134,7 @@ public class KakaoPayService {
 	            reservation.setRes_date(kakaoPayApprovalVO.getCreated_at());
 	            reservation.setO_num(optionVO2.getO_num());
 	            System.out.println(reservation.getO_num());			//153
-	            reservation.setM_pk("w_adf@a");
+	            reservation.setM_pk(memberVO2.getM_pk());
 	            System.out.println(reservation.getM_pk());			//w_adf@a
 	            reservation.setC_code("test_c_code");
 	            System.out.println(reservation.getC_code());		//test_c_code
