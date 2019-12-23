@@ -1,8 +1,6 @@
 package com.wg.p1.service;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-
 import javax.inject.Inject;
 
 import org.springframework.http.HttpEntity;
@@ -11,7 +9,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.wg.p1.dao.ReservationDAO;

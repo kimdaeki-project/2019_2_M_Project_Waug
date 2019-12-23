@@ -89,7 +89,6 @@
 							   						<th>쿠폰코드</th>
 							   						<th>할인금액</th>
 							   						<th>유효기간</th>
-							   						<th class="coupon-status">상태</th>
 							   					</tr>
 							   				</thead>
 							   				<tbody>
@@ -99,7 +98,6 @@
 							   						<td class="col-xs-2 text-center"><s>${vo.c_code}</s></td>
 							   						<td class="col-xs-2 text-center">${vo.c_discount_info}</td>
 							   						<td class="col-xs-3 text-center">${vo.c_duration}</td>
-							   						<td class="col-xs-2 text-center">기간만료</td>
 							   					</tr>
 							   					</c:forEach>
 							   				</tbody>
@@ -121,7 +119,6 @@
 											</div>
 											<!-- paging 끝 -->
 							</div>
-					
 					
 					<div>
 					※사용/만료 쿠폰은 사용 완료일 또는 유효기간 종료일로부터 6개월 후 까지 노출됩니다.
