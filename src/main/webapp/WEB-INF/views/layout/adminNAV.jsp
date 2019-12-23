@@ -21,7 +21,7 @@
 				<a href="city_add"><li>도시 추가</li></a>
 				<a href="goods_list"><li>상품 리스트</li></a>
 				<a href="goods_add"><li>상품 추가</li></a>
-				<a href="review_list"><li>전체 리뷰 (New<span class="badge" style="color: white;">${count}</span>)</li></a>
+				<a href="review_list"><li>전체 리뷰 (New <span class="badge" style="color: #d91c84; background-color: white;">${count}</span>)</li></a>
 				
 				
 				

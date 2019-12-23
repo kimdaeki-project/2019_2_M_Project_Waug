@@ -153,7 +153,7 @@ public class MailSender {
 				"  								</div>\r\n" + 
 				"       							<div style=\"margin-top:20px;margin-bottom:50px;width:100%;height:1px;background-color:#7e7e7f\">\r\n" + 
 				"       							</div>\r\n" + 
-				"        						<a href=\"http://211.238.142.21/p1/member/password?uuid="+uuid+"\"; style=\"color:white;text-decoration:none\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q=http://www.waug.com/new_pwd.html?token%3D8d6becc80c706dfa365075046615e8fe&amp;source=gmail&amp;ust=1576714187602000&amp;usg=AFQjCNFst_rdeJVKAR8Rc6L9FDfZLpo2CA\">\r\n" + 
+				"        						<a href=\"http://localhost/p1/member/password?uuid="+uuid+"\"; style=\"color:white;text-decoration:none\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q=http://www.waug.com/new_pwd.html?token%3D8d6becc80c706dfa365075046615e8fe&amp;source=gmail&amp;ust=1576714187602000&amp;usg=AFQjCNFst_rdeJVKAR8Rc6L9FDfZLpo2CA\">\r\n" + 
 				"        							<div style=\"margin:0 auto;margin-bottom:50px;width:200px;height:35px;border-radius:3px;background-color:#eb2d68;color:white;font-weight:bold;line-height:35px;font-size:13px;text-align:center;vertical-align:middle\">\r\n" + 
 				"       									비밀번호 재설정하기\r\n" + 
 				"       								</div>\r\n" +
