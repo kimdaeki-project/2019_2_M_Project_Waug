@@ -439,6 +439,9 @@ input[type="email"].input_md{
 }
 /*****************************************************************************************************detail input tags css*/
 
+input:focus{
+	outline-color: #d91c84;
+}
 
 .order_footer_wrapper{
 	margin: 25px 0;

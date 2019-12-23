@@ -88,7 +88,7 @@
 				<div class="reser_option_list">
 					<div class="reser_option_item">
 						<div class="reser_option_item_title">${goods.title}</div>
-						<div class="reser_option_item_price">34000HHHHHaaa</div>
+						<div class="reser_option_item_price"></div>
 					</div>
 				</div>
 			</div>
@@ -97,8 +97,8 @@
 	</div>
 	<input type="text" value="${goods.goods_num}" id="goodsNum" name="goods_num" hidden="hidden">
 	<input type="text" value="${goods.title}" id="goodsTitle" name="title" hidden="hidden">
-	<input type="text" value="${goods.price-(goods.price*goods.discount/100)}" id="goodsPrice" name="discount" hidden="hidden">			<!-- 여기 수정 -->
-
+	<%-- <input type="text" value="${goods.price-(goods.price*goods.discount/100)}" id="goodsPrice" name="discount" hidden="hidden"> --%>			<!-- 여기 수정 -->
+	<input type="text" value="${goods.price*(100-goods.discount)/100}" id="goodsPrice" name="discount" hidden="hidden">			<!-- 여기 수정 -->
 	<input type="date" value="${goods.able}" id="goodsAble" name="able" hidden="hidden" >
 	<input type="date" id="date1" name="o_date" hidden="hidden">
 <!-- 	<input type="text" id="time1" name="o_time"> -->
