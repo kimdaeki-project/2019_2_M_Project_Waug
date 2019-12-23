@@ -47,8 +47,16 @@ public class AdminController {
 	@RequestMapping("admin_main")
 	public ModelAndView admin_main(ModelAndView mv) throws Exception{
 		int count = adminService.count_review_new();
+		int[] reservation_date_s=adminService.reservation_date_s();
 		mv.addObject("count", count);
+		mv.addObject("res_4", reservation_date_s[0]);
+		mv.addObject("res_3", reservation_date_s[1]);
+		mv.addObject("res_2", reservation_date_s[2]);
+		mv.addObject("res_1", reservation_date_s[3]);
+		mv.addObject("res_0", reservation_date_s[4]);//today
 		mv.setViewName("admin/admin_main");
+		
+		
 		return mv;
 	}
 	

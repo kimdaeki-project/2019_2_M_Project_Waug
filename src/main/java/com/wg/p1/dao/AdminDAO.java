@@ -63,4 +63,19 @@ public class AdminDAO {
 	public int check_update() throws Exception{
 		return sqlSession.update(NAMESPACE+"check_update");
 	}
+	public int reservation_date_1() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reservation_date_1");
+	}
+	public int reservation_date_2() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reservation_date_2");
+	}
+	public int reservation_date_3() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reservation_date_3");
+	}
+	public int reservation_date_4() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reservation_date_4");
+	}
+	public int reservation_date_today() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reservation_date_today");
+	}
 }

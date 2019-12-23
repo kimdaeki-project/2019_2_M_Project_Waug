@@ -121,12 +121,12 @@
 		 			<div class="order_reser_coupon_title">쿠폰 사용</div>
 		 			<div class="apply_couponANDpoint">
 		 				<div id="apply_couponBox"><div class="apply_couponBox_text">text coupon</div></div>
-		 				<button id="btn_modal_coupon">쿠폰함</button>
+		 				<button type="button" id="btn_modal_coupon">쿠폰함</button>
 		 			</div>
 		 			<div class="order_reser_coupon_title">포인트 사용</div>
 		 			<div class="apply_couponANDpoint">
 		 				<div id="apply_pointBox"><div class="apply_couponBox_text">text coupon</div></div>
-		 				<button id="btn_modal_point">모두 사용</button>
+		 				<button type="button" id="btn_modal_point">모두 사용</button>
 		 			</div>
 		 			<p>보유 포인트 <strong>0 p</strong><br>※사용한 포인트는 소멸되며 예약 취소 또는 환불 시 재적립이 불가능합니다.</p>
 		 		</div>

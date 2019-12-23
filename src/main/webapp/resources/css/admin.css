@@ -424,12 +424,13 @@ th{text-align: center;}
 .mainView{
 	float:left;
 	flex-direction: column;
-	margin-left: 20px;
+	margin-left: 10px;
 }
 .width1600px{
 	width:1600px;
 	margin:0 auto;
 	display: block;
+	background:gray;
 }
 .profileWrapper{
 	height: 250px;
@@ -490,3 +491,66 @@ th{text-align: center;}
 }
 .b{color:red;}
 .a{color: blue;}
+.row{
+	display: block;
+	margin: inherit;
+	padding: inherit;
+}
+.col_4{
+	border:1px solid green;
+	background:yellowgreen;
+	border-radius:5px;
+	width:380px;
+	margin:5px;
+	height: 50px;
+	float: left;
+	display: inline-block;
+	position: relative;
+	padding: 5px 40px 5px 20px;
+}
+.gold{
+	background:gold;
+}
+#admin_backImg_member{
+	width:30px;
+	height:30px;
+	background-size:cover;
+	background-image: url("https://cdn4.iconfinder.com/data/icons/dashboard-4/26/user-512.png");
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#admin_backImg_goods{
+	width:30px;
+	height:30px;
+	background-size:cover;
+	background-image: url("https://static.thenounproject.com/png/4321-200.png");
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#admin_backImg_reservation{
+	width:30px;
+	height:30px;
+	background-size:cover;
+	background-image: url("http://cdn.onlinewebfonts.com/svg/img_393620.png");
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+#admin_backImg_sales{
+	width:30px;
+	height:30px;
+	background-size:cover;
+	background-image: url("https://cdn1.iconfinder.com/data/icons/sales-marketing-line/100/sales_marketing_money_pouch_-512.png");
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+.graph{
+	width: 1570px;
+	height:auto;
+	background:gold;
+	margin: 14px;
+	
+}

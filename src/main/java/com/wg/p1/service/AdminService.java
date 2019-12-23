@@ -172,4 +172,14 @@ public class AdminService {
 	public int check_update() throws Exception{
 		return adminDAO.check_update();
 	}
+	public int[] reservation_date_s()throws Exception{
+		int[] reservation_for5days=new int[5];
+		reservation_for5days[0]=adminDAO.reservation_date_4();
+		reservation_for5days[1]=adminDAO.reservation_date_3();
+		reservation_for5days[2]=adminDAO.reservation_date_2();
+		reservation_for5days[3]=adminDAO.reservation_date_1();
+		reservation_for5days[4]=adminDAO.reservation_date_today();
+		return reservation_for5days;
+	}
+	
 }
