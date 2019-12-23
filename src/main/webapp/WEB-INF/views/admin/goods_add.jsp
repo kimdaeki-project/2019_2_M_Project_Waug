@@ -184,7 +184,7 @@
    					<textarea id="point" name="charming"></textarea>
    				</div>
    				<br><br><br>
-   				<div class="good_detail_infoBox optionbg">
+   				<!-- <div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
                   <div>
                      <div class="good_option_wrapper">
@@ -204,19 +204,12 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
                <div class="good_detail_infoBox">
-                  <div class="good_detail_title">프로그램</div>
-               
-                  <textarea id="program" name="program"></textarea>
-                  
-                 
-               <div class="good_detail_infoBox border-top">
+                  <div class="good_detail_title">프로그램</div><textarea id="program" name="program"></textarea>
+                  <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">포함사항(ul)</div>
-                  
-                          
-               <textarea id="included" name="included"></textarea>
-              
+                  <textarea id="included" name="included"></textarea>
                </div>
                <div class="good_detail_infoBox border-top">
                   <div class="good_detail_title">불포함 사항(ul)</div>
