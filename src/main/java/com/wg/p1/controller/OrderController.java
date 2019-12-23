@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.BookerInfoVO;
-
-
+import com.wg.p1.model.CouponListVO;
+import com.wg.p1.model.CouponVO;
 import com.wg.p1.model.OptionVO;
 
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
+import com.wg.p1.model.MyCouponVO;
+import com.wg.p1.service.CouponService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.OptionService;
 import com.wg.p1.service.OrderService;
@@ -35,6 +37,8 @@ public class OrderController {
 	private OrderService orderService;
 	@Inject
 	private OptionService optionService;
+	@Inject
+	private CouponService couponService;
 	
 	private GoodsVO goodsVO;
 
@@ -43,6 +47,15 @@ public class OrderController {
 	public void coupon(String c_code) throws Exception{
 		System.out.println(c_code);  
 	}
+
+	
+	/*
+	 * @GetMapping("couponUse") public void couponUse(String c_code, CouponListVO
+	 * couponListVO) throws Exception{
+	 * 
+	 * System.out.println("couponUse  :" +c_code); couponListVO.setC_code(c_code);
+	 * int g=couponListVO.getC_discount(); System.out.println("discount :"+g); }
+	 */
 	
 	@GetMapping("calendar")
 	public Model calendar(int goods_num, Model model) throws Exception {		
@@ -51,6 +64,7 @@ public class OrderController {
 		// List<GoodsOptionVO> goodsOptionVO=orderService.selectOptionTime(); 
 		 model.addAttribute("goods",goodsVO); 
 		 //model.addAttribute("goodsOption", goodsOptionVO);
+
 		return model;
 	}
 	
@@ -108,6 +122,7 @@ public class OrderController {
 			mv.addObject("bookerInfo", bookerInfo);
 			mv.setViewName("order/order");
 		}
+
 		return mv;
 	}
 }

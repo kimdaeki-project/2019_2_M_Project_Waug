@@ -13,6 +13,9 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.KakaoPayApprovalVO;
 import com.wg.p1.model.MemberVO;
 import com.wg.p1.model.OptionVO;
+
+import com.wg.p1.model.ReservationVO;
+import com.wg.p1.service.CouponService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.KakaoPayService;
 import com.wg.p1.service.OptionService;
@@ -27,17 +30,31 @@ public class KakaoPayController {
 	private GoodsService goodsService;
 	@Inject
 	private OptionService optionService;
+
 	MemberVO member;
 	
+
+	@Inject
+	private CouponService couponService;
+	
+	
+	@GetMapping("kakaoPay")
+    public void kakaoPayGet() {
+		
+    }
+	//pay 거는거
+
 	@PostMapping("kakaoPay")
-    public String kakaoPay(int goods_num, int o_num ,HttpSession session) throws Exception{
+    public String kakaoPay(int goods_num, int o_num ,HttpSession session, String c_code) throws Exception{
       System.out.println("kakaoPay post............................................");
       GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
       OptionVO optionVO=optionService.optionSelectOne(o_num);
-      member=(MemberVO)session.getAttribute("memberVO");
-      return "redirect:" + kakaoPayService.kakaoPayReady(goodsVO, optionVO, member);
+      MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
+		System.out.println("kakao controller : member : "+memberVO.getEmail());
+        return "redirect:" + kakaoPayService.kakaoPayReady(goodsVO, optionVO, memberVO);  
     }
 	
+
 	@GetMapping("kakaoPaySuccess")
     public Model kakaoPaySuccess(@RequestParam("pg_token") String pg_token, Model model,HttpServletRequest request,ModelMap mo, HttpSession session)throws Exception {
         System.out.println("kakaoPaySuccess get............................................");

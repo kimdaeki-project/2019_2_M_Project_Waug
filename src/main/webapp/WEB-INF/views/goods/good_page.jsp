@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,8 +109,10 @@
          <div class="good_info_wrapper">
          	<div class="good_bookBox">
          		<div class="good_bookInfo">
-         			<div class="good_priceBox">₩ ${goods.price}</div>
-         			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> ${goods.sell} 예약</div>
+         			<div class="good_discount" style="font-weight: bold;">${goods.discount}% 할인</div>
+         			<div class="good_priceBox" style="float: left; margin-right: 20px;"><fmt:formatNumber type="currency" value="${goods.price - (goods.price*goods.discount/100)}" currencySymbol="￦ "/></div>
+         			<div class="good_originalpriceBox" style="text-decoration: line-through;"><fmt:formatNumber type="currency" value="${goods.price}" currencySymbol="￦ "/></div>
+         			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}"><span class="starsssss">★</span></c:forEach> ${goods.sell} 예약</div>
          			<a href="../order/calendar?goods_num=${goods.goods_num}">
          			<div class="good_reservation_btn">예약하기</div>
          			</a>
@@ -123,8 +126,8 @@
    		<div class="good_container_flex">
    			<div class="good_detail_info_wrapper">
    				<div class="good_detail_infoBox">
-   					<div class="good_detail_title">매력포인트</div>
-   					<div id="charming">
+   					<div class="good_detail_title" style="width: 760px;">매력포인트</div>
+   					<div id="charming" style="width: 760px;">
 <!--    						<ul class="good_ul"> -->
    							${goods.charming}
 <!--    						</ul> -->
@@ -153,7 +156,7 @@
    					</div>
    					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list?goods_num=${goods.goods_num}';">모든 후기 보러가기</div>
    				</div>
-   				<div class="good_detail_infoBox optionbg">
+   			<!-- 	<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
                   <div>
                      <div class="good_option_wrapper">
@@ -173,7 +176,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
                <div class="good_detail_infoBox">
                   <div class="good_detail_title">프로그램</div>
                   <div id="program">${goods.program}</div>
@@ -366,10 +369,16 @@ function openModal() {
       if($(document).scrollTop()>1050){
          $('.good_bookBox').addClass('good_bookBox_toggle');
          $('.good_reservation_btn').addClass('good_reservation_btn_fixed');
+         $('.good_discount').addClass('good_discount_down');
+         $(".good_originalpriceBox").addClass('good_originalpriceBox_down');
+         $(".starsssss").addClass('good_discount_down');
       }
       else{
          $('.good_bookBox').removeClass('good_bookBox_toggle');
          $('.good_reservation_btn').removeClass('good_reservation_btn_fixed');
+         $('.good_discount').removeClass('good_discount_down');
+         $(".good_originalpriceBox").removeClass('good_originalpriceBox_down');
+         $(".starsssss").removeClass('good_discount_down');
       }
    });
 

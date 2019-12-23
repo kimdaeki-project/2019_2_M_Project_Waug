@@ -60,7 +60,7 @@
 											</div>
 										</td>
 										<td class="col-xs-2 text-center">
-											<a href="../goods/good_page">
+											<a href="../goods/good_page?goods_num=${vo.goods_num }">
 												<div style="background-image:url('${vo.img}'); width: 170px; height: 100px; background-size: cover; background-position: center;"></div>
 											</a>
 										</td>
