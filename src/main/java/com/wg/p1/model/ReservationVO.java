@@ -15,15 +15,71 @@ public class ReservationVO {
 //	RES_REF	NUMBER(8,0)
 	
 	private int res_num;
+	public String getTitle2() {
+		return title2;
+	}
+	public void setTitle2(String title2) {
+		this.title2 = title2;
+	}
+	public String getImg2() {
+		return img2;
+	}
+	public void setImg2(String img2) {
+		this.img2 = img2;
+	}
+	public int getO_people2() {
+		return o_people2;
+	}
+	public void setO_people2(int o_people2) {
+		this.o_people2 = o_people2;
+	}
+	public String getO_date2() {
+		return o_date2;
+	}
+	public void setO_date2(String o_date2) {
+		this.o_date2 = o_date2;
+	}
+	public String getO_time2() {
+		return o_time2;
+	}
+	public void setO_time2(String o_time2) {
+		this.o_time2 = o_time2;
+	}
 	private Date res_date;
 	private int o_num;
-	private String M_PK;
+	
 	private String c_code;
 	private int point;
 	private int totalprice;
 	private int goods_num;
 	private int res_ref;
+	private String pay;
+	private String tid;
+	private String title2;
+	private String img2;
+	private int o_people2;
+	private String o_date2;
+	private String o_time2;
+	private String m_pk;
 	
+	public String getM_pk() {
+		return m_pk;
+	}
+	public void setM_pk(String m_pk) {
+		this.m_pk = m_pk;
+	}
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+	public String getTid() {
+		return tid;
+	}
+	public void setTid(String tid) {
+		this.tid = tid;
+	}
 	public int getRes_num() {
 		return res_num;
 	}
@@ -42,12 +98,7 @@ public class ReservationVO {
 	public void setO_num(int o_num) {
 		this.o_num = o_num;
 	}
-	public String getM_PK() {
-		return M_PK;
-	}
-	public void setM_PK(String m_PK) {
-		M_PK = m_PK;
-	}
+	
 	public String getC_code() {
 		return c_code;
 	}

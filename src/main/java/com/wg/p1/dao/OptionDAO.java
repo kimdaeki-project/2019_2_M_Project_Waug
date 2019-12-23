@@ -12,6 +12,7 @@ import com.wg.p1.model.OptionVO;
 
 @Repository
 public class OptionDAO {
+	
 	@Inject
 	private SqlSession sqlSession;
 	private final static String NAMESPACE="optionMapper.";
