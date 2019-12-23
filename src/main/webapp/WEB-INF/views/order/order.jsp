@@ -230,8 +230,7 @@
 																${vo.c_title}
 															</div>		
 															<div class="coupon-code-text">
-																쿠폰코드 -<span>${vo.c_code}</span>
-																${vo.c_discount}
+																쿠폰코드 -<span>${vo.c_code}</span>${vo.c_discount}
 															</div>
 															<div class="coupon-left-box-bottom">
 																<div class="coupon-terms-of-use"></div>
