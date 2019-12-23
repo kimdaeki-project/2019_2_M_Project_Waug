@@ -67,7 +67,7 @@
 </div>
 
 <div class="container">
-  <h3>도시목록</h3>
+  <h3 style="clear: both;">도시목록</h3>
           
   <table class="table table-striped">
     <thead>

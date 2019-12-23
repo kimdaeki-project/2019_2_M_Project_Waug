@@ -238,7 +238,7 @@
 					<br>
 					<br>
 					<br>
-					<div class="good_detail_infoBox optionbg">
+					<!-- <div class="good_detail_infoBox optionbg">
 						<div class="good_detail_title">상품 옵션</div>
 						<div>
 							<div class="good_option_wrapper">
@@ -262,7 +262,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="good_detail_infoBox">
 						<div class="good_detail_title">프로그램</div>
 

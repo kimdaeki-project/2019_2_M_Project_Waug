@@ -114,6 +114,7 @@ time, mark, audio, video {
    border-bottom: 8px solid black;
    
 }
+
 .good_img_small img{
    width: 100%;
    height: 264px;
@@ -272,13 +273,13 @@ img.good_icon{
 }
 .good_bookBox{
    width: 428px;
-   padding:20px;
+   padding:10px 20px;
    margin: 34px 0px 34px 105px;
    border:1px solid #999999;
    border-radius: 3px;
 }
 .good_bookInfo{
-   height: 109px;
+   height: 130px;
 }
 .good_bookInfo>a{
 	text-decoration: none;
@@ -290,6 +291,15 @@ img.good_icon{
    height: 27px;
    font-size:18px;
    font-weight:600;
+}
+.good_originalpriceBox{
+	height: 27px;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 27px;
+}
+.good_originalpriceBox_down{
+	color: #999999;
 }
 .good_reservationBox{
    height: 26.5px;
@@ -326,7 +336,9 @@ img.good_icon{
    background-size: cover;
 }
 
-
+.good_discount_down{
+	color: #d91c84;
+}
 
 }
 .container{
@@ -342,7 +354,7 @@ img.good_icon{
    width: 710px;
 }
 .good_detail_infoBox{
-      width: 600px;
+      width: 800px;
       padding:30px 20px 0 20px;
       margin: 30px 15px 0 15px;
       display: box;
@@ -664,4 +676,8 @@ img.hover-shadow {
 
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#charming ul{
+	width: 700px;
 }
