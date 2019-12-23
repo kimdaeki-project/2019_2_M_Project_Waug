@@ -116,7 +116,7 @@
 		 		</div>
 		 	</div>
 		 	<div class="order_user_infoBox">
-		 		<div class="order_user_infoBox_title">프로모션 코드 & 포인트 사용</div>
+		 		<div class="order_user_infoBox_title">프로모션 코드 , 포인트 사용</div>
 		 		<div class="order_reser_info">
 		 			<div class="order_reser_coupon_title">쿠폰 사용</div>
 		 			<div class="apply_couponANDpoint">
@@ -148,7 +148,7 @@
 		 		<div class="order_user_infoBox_title">결제 정보</div>
 		 		<div class="order_reser_info">
 		 			<div class="order_reser_option_left">총 상품 금액</div>
-		 			<div class="order_reser_option_right" id="totalPriceShow">${goods.price*option.o_people}</div>
+		 			<div class="order_reser_option_right" id="totalPriceShow"></div>
 		 			<div class="order_reser_option_left">쿠폰</div>
 		 			<div class="order_reser_option_right"><strong>-0</strong></div>
 		 			<div class="order_reser_option_left">포인트</div>
@@ -167,7 +167,7 @@
 		 	</div>
 		 </div>
 	</div>
-	<input type="text" value="${goods.price*option.o_people}" hidden="hidden" name="totalprice" id="totalprice">
+	<input type="text" value="${goods.price*((100-goods.discount)/100)*option.o_people}" hidden="hidden" name="totalprice" id="totalprice">
 </form>
 </div>
 <div class="interest_freeBox">
@@ -191,7 +191,7 @@
 	</div>
 </div>
 <!-- 쿠폰함 모달 -->
-<div class="modal" id="modal-coupon-box"  role="dialog" style="display: none; padding-right: 10px;">
+<%-- <div class="modal" id="modal-coupon-box"  role="dialog" style="display: none; padding-right: 10px;">
 	<div id="modal-coupon-content" class="coupon-modal-content">
 		<div class="coupon-modal-outer">
 			<div class="coupon-modal-inner">
@@ -288,7 +288,7 @@
 		</div>
 	
 	</div>
-</div>
+</div> --%>
 
 <script type="text/javascript">
 	//order_reser_pay
@@ -327,6 +327,7 @@
 	$(document).ready(function(){
 		$('.pay_credit').css("display","none");		
 		$('#totalPriceShow').html($('#totalprice').val());
+		$('#total_span').html($('#totalprice').val());
 	});
 
 	$('.stopPropagation').click(function(e){
@@ -358,10 +359,10 @@
 		$(this).toggleClass('card_clicked');
 	});
 	
+	
 	$('.order_reser_pay_btn').click(function(){
-		
 		$('.form').submit();
-	})
+	});
 </script>
 </body>
 </html>

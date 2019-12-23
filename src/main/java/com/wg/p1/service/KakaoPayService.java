@@ -39,7 +39,7 @@ public class KakaoPayService {
 	@Inject
 	private GoodsDAO goodsDAO;
 	
-	public String kakaoPayReady(GoodsVO goodsVO,OptionVO optionVO, MemberVO memberVO) throws Exception {
+	public String kakaoPayReady(GoodsVO goodsVO,OptionVO optionVO, MemberVO memberVO,double totalprice) throws Exception {
 		RestTemplate restTemplate = new RestTemplate();
 		// 서버로 요청할 Header
 		goodsVO2=goodsVO;optionVO2=optionVO;memberVO2=memberVO;
@@ -54,7 +54,7 @@ public class KakaoPayService {
         params.add("partner_user_id",memberVO2.getM_pk());	// memberVO.getEmail()
         params.add("item_name", goodsVO2.getTitle());
         params.add("quantity", optionVO2.getO_people());
-        total_amount=goodsVO2.getPrice()*Integer.parseInt(optionVO2.getO_people());
+        total_amount=(int)totalprice;
         params.add("total_amount", String.valueOf(total_amount));	//String.valueOf(total_amount)
         params.add("tax_free_amount", "100");
         params.add("approval_url", "http://localhost/p1/kakao/kakaoPaySuccess");		//건들것 없음

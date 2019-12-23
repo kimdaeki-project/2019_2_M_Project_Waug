@@ -45,13 +45,13 @@ public class KakaoPayController {
 	//pay 거는거
 
 	@PostMapping("kakaoPay")
-    public String kakaoPay(int goods_num, int o_num ,HttpSession session, String c_code) throws Exception{
+    public String kakaoPay(int goods_num, int o_num ,HttpSession session, String c_code,double totalprice) throws Exception{
       System.out.println("kakaoPay post............................................");
       GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
       OptionVO optionVO=optionService.optionSelectOne(o_num);
       MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		System.out.println("kakao controller : member : "+memberVO.getEmail());
-        return "redirect:" + kakaoPayService.kakaoPayReady(goodsVO, optionVO, memberVO);  
+        return "redirect:" + kakaoPayService.kakaoPayReady(goodsVO, optionVO, memberVO,totalprice);  
     }
 	
 
@@ -60,8 +60,16 @@ public class KakaoPayController {
         System.out.println("kakaoPaySuccess get............................................");
         System.out.println("kakaoPaySuccess pg_token : " + pg_token);
         KakaoPayApprovalVO kakaoPayApprovalVO=kakaoPayService.kakaoPayInfo(pg_token);
+        MemberVO member=(MemberVO)session.getAttribute("memberVO");
         model.addAttribute("info",kakaoPayApprovalVO );
         MailSender mailSender=new MailSender();
+        System.out.println("-------------------------");
+        System.out.println(request);
+        System.out.println(mo);
+        System.out.println(session);
+        System.out.println(kakaoPayApprovalVO.getPartner_user_id());
+        System.out.println(kakaoPayApprovalVO.getItem_name());
+        System.out.println(member.getEmail());
         mailSender.mailSender(request, mo, session, kakaoPayApprovalVO.getPartner_user_id(), kakaoPayApprovalVO.getItem_name(), "goods option", member.getEmail());
         return model;
     }

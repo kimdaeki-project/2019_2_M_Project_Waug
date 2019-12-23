@@ -64,7 +64,7 @@ a:hover {
 </div>
 </div>
 
-
+<p>http://thememinister.com/adminpage/theme/adminpage_rtl_v1.0/index.html</p>
 <input type="text" value="${res_4}" id="res_4">
 <input type="text" value="${res_3}" id="res_3">
 <input type="text" value="${res_2}" id="res_2">
