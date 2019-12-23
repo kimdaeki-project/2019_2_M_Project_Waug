@@ -121,7 +121,7 @@
 		 			<div class="order_reser_coupon_title">쿠폰 사용</div>
 		 			<div class="apply_couponANDpoint">
 		 				<div id="apply_couponBox"><div class="apply_couponBox_text">text coupon</div></div>
-		 				<button id="btn_modal_coupon">쿠폰함</button>
+		 				<button type="button" id="btn_modal_coupon" data-toggle="modal" data-target="#modal-coupon-box">쿠폰함</button>
 		 			</div>
 		 			<div class="order_reser_coupon_title">포인트 사용</div>
 		 			<div class="apply_couponANDpoint">
@@ -189,7 +189,104 @@
 		</div>
 	</div>
 </div>
-
+<div class="modal" id="modal-coupon-box"  role="dialog" style="display: none; padding-right: 10px;">
+	<div id="modal-coupon-content" class="coupon-modal-content">
+		<div class="coupon-modal-outer">
+			<div class="coupon-modal-inner">
+				<div class="coupon-modal-box">
+					<div class="coupon-modal-box-top-info">
+						<button type="button" class="login-modal-close-btn global-modal-cancel-btn" data-dismiss="modal" aria-laber="Close">
+							<img alt="" src="https://www.waug.com/images/close.svg" class="global-modal-cancel-ic">
+						</button>
+						<div class="coupon-box-title">보유한 쿠폰</div>
+						<div class="coupon-code-input-box-content">
+							<input type="text" class="coupon-code-input-box" id="coupon-code-value" placeholder="프로모션 코드를 입력해주세요." maxlength="20">
+							<button type="button" id="btn-register-coupon" class="coupon-code-success-btn">쿠폰등록</button>
+						</div>
+					</div>
+					<div class="coupon-list-wrap">
+						<div class="coupon-filter">
+							<div class="coupon-filter-btn tab-available active">
+								사용가능
+								<span id="available_coupon_count" data-count=0>2</span>장
+							</div>
+							<div class="coupon-filter-btn coupon-filter-impossible-text tab-available" data-target="no-coupon-available" data-value="false">
+								사용불가능
+								<span id="available_coupon_count" data-count=0>2</span>장
+							</div>
+						</div>
+						<!-- 쿠폰리스트 -->
+						<c:forEach items="${couponList}" var="vo">
+						<div class="coupon-card-content" id="coupon-available" style="display: flex;">
+							<div class="carousel slick-intitialized slick-silder">
+								<div aria-live="polite" class="slick-list">
+									<div class="slick-track" role="listbox" style="opacity: 1; width: 780px; transform: translate3d(0px,0px,0px);">
+										<div class="slick-slide slick-current slick-active">
+											<div>
+												<div class="carousel-item" style="width: 50%; display: inline-block;">
+													<div class="coupon-shape-box">
+														<div class="card-left-box">
+															<div class="coupon-title-text">
+																${vo.c_title}
+															</div>		
+															<div class="coupon-code-text">
+																쿠폰코드 -<span>${vo.c_code}</span>
+																${vo.c_discount}
+															</div>
+															<div class="coupon-left-box-bottom">
+																<div class="coupon-terms-of-use"></div>
+																<div class="coupon-validity">결제일 기준 12.31 까지</div>
+															</div>
+														</div>
+														<div class="card-right-box">
+															<div class="card-right-inner">
+																<img alt="" src="https://www.waug.com/images/tick.svg" class="coupon-using-btn-ic">
+																<div class="coupon-using-btn coupon-primary-color-text">사용하기</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						</c:forEach>
+						<div class="coupon-card-content" id="no-coupon-available" style="display: none;"></div>
+						<div class="coupon-discounted-amount">
+							<div class="coupon-discounted-amount">
+								<div class="coupon-discounted-amount-text">
+									<span>할인 금액</span>
+									<span class="coupon-primary-color-text" id="display_discount_price" style="padding-left: 4px;">$</span>
+									<span class="coupon-primary-color-text" id="display_discount_price" style="padding-left: 1px;">0</span>
+								</div>
+								<button id="btn-apply-coupon" type="button" class="coupon-code-success-btn coupon-discounted-amount-btn" >할인 적용</button>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="coupon-modal-box-foot-info">
+					<div class="coupon-notice-list-text">
+						- 유효기간이 사용 예정일 기준인 경우 상품 페이지에서 선택한 날짜에 따라 쿠폰 적용이 가능합니다.
+					</div>
+					<div class="coupon-notice-list-text">
+						- 일부 상품의 경우 할인쿠폰, 장바구니쿠폰, 결합쿠폰, 이벤트쿠폰 사용이 제외됩니다.
+					</div>
+					<div class="coupon-notice-list-text">
+						- 장바구니 쿠폰 사용 시 부분 취소가 불가합니다.
+					</div>
+					<div class="coupon-notice-list-text">
+                        - 발급된 쿠폰은 예고 없이 변경되거나 조기종료될 수 있습니다.
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	
+	</div>
+</div>
 
 
 <script type="text/javascript">
