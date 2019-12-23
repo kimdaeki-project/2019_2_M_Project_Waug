@@ -15,7 +15,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap"
 	rel="stylesheet">
-<link rel="stylesheet" href="../resources/css/review.css">
+<link rel="stylesheet" href="../resources/css/review_admin.css">
 </head>
 <body>
 <c:import url="../layout/adminNAV.jsp"/>
@@ -25,7 +25,7 @@
 				<!--  comment list begin  -->
 				<div class="row reivew-list-content-box" id="comment_space">
 					<div class="page-title review-title-text">
-						<h3>전체 후기</h3>
+						<h3>전체 후기1</h3>
 					</div>
 					<div class="add-list">
 						<c:forEach items="${list}" var="dto">
@@ -104,30 +104,16 @@
 							<div class="modal-content">
 								<div class="modal-header">답변 달기</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
-									<a href="../goods/good_page?goods_num=${goodsVO.goods_num}">
-										<div
-											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
-									</a>
+										<div class="goods_img_reply"
+											style="width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									<form action="review_reply" method="post" class="review-form3">
-									<input type="hidden" name="goods_num" value="${param.goods_num}">
 									<!-- rv_writer 멤버session에서 받아와야함-->
 										<input type="hidden" name="rv_num" class="update_rv_num">
-										<input type="text" name="rv_writer" value="pyj" style="display: none;">
-										<input type="hidden" name="email" value="pyj9088@gmail.com">
 									<!-- 이 2개 -->
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<c:choose>
-											<c:when test="${fn:length(goodsVO.title) gt 10}">
-												<h5 class="title comment-write-title">
-        											<c:out value="${fn:substring(goodsVO.title, 0, 10)}"></c:out>...
-												</h5>
-        									</c:when>
-        									<c:otherwise>
-        										<h5 class="title comment-write-title">${goodsVO.title}</h5>
-        									</c:otherwise>
-										</c:choose>
+											
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -234,7 +220,7 @@
 	/* 리뷰 삭제 */
 	$("#content").on("click", ".btn-review-delete", function() {
 		if(confirm("정말 삭제하시겠습니까?")){
-			$.get("./review_delete?rv_num="+$(this).val(), function(data) {
+			$.get("./review_delete?rv_num="+$(this).val(),function(data) {
 				data=data.trim();
 				alert(data);
 			});
@@ -242,6 +228,20 @@
 		}
 	});
 	
+	/* 리뷰 답변창 내용 받아오기 */
+	$("#content").on("click", ".btn-review-reply", function() {
+		var num = $(this).val();
+		num=num*1;
+		$.get("./reviewSelect?rv_num="+num, function(data){
+			data=data.trim();
+			console.log(data);
+			var strings = data.split('///');
+			$("#comment_write_msg3").html(strings[1]);
+				$(".update_rv_num").val(num);
+				$(".radiostar2").eq(strings[0]-1).attr("checked",true);
+
+		});
+	});
 	
 	</script>
 </body>

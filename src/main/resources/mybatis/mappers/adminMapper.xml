@@ -73,4 +73,11 @@
   		select count(rv_num) from review1 inner join review_check on 1=1
 		where rv_reg_date > review_check.check_date
   	</select>
+  	<select id="review_select" parameterType="ReviewVO" resultType="ReviewVO">
+  		select R.*, G.img, G.title title2 from review1 inner join goods using(goods_num) where rv_num=#{rv_num}
+  	</select>
+  	
+  	<update id="check_update">
+  		update review_check set check_date=sysdate
+  	</update>
   </mapper>

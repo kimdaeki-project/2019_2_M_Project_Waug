@@ -57,4 +57,10 @@ public class AdminDAO {
 	public int count_review_new() throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"count_review_new");
 	}
+	public ReviewVO review_select(ReviewVO reviewVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"review_select", reviewVO);
+	}
+	public int check_update() throws Exception{
+		return sqlSession.update(NAMESPACE+"check_update");
+	}
 }

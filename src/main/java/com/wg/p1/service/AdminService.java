@@ -166,4 +166,10 @@ public class AdminService {
 	public int count_review_new() throws Exception{
 		return adminDAO.count_review_new();
 	}
+	public ReviewVO review_select(ReviewVO reviewVO) throws Exception{
+		return adminDAO.review_select(reviewVO);
+	}
+	public int check_update() throws Exception{
+		return adminDAO.check_update();
+	}
 }
