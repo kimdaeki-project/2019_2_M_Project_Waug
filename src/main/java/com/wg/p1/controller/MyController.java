@@ -1,8 +1,7 @@
 package com.wg.p1.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -63,6 +62,9 @@ public class MyController {
 	}
 	
 
+	
+	
+	
 	@GetMapping("couponAdd")
 	public ModelAndView myCouponAdd(String c_code, HttpSession session, ModelAndView mv) throws Exception{
 		MemberVO memberVO =(MemberVO)session.getAttribute("memberVO");
@@ -108,14 +110,21 @@ public class MyController {
 		int c_count_before = couponService.myCouponBeforeCount(memberVO);
 		int c_count_after = couponService.myCouponAfterCount(memberVO);
 		List<CouponVO> ar = couponService.myCoupon(memberVO);
-		
+		List<CouponVO> ar2 = couponService.myCouponAfter(memberVO);
+
 		mv.addObject("list", ar);
+		mv.addObject("listAfter", ar2);
 		mv.addObject("c_count_before", c_count_before);
 		mv.addObject("c_count_after", c_count_after);
 		mv.setViewName("my/coupon");
 		return mv;
 	}
 
+	@GetMapping("couponUse")
+	public void couponUse(String c_code) throws Exception{
+		System.out.println("couponUse  :"  +c_code);
+	}
+	
 	//장바구니 리스트
 	@GetMapping("cart")
 	public ModelAndView cart(GoodsVO goodsVO, HttpSession session , CartVO cartVO) throws Exception{
@@ -291,7 +300,9 @@ public class MyController {
 	public void myPoint(HttpSession session,Model model) throws Exception{
 		MemberVO memberVO=(MemberVO)session.getAttribute("memberVO");
 		List<ReservationVO> res=reservationService.selectMyPoint(memberVO);
+	
 		int totalPoint=reservationService.selectTotalPoint(memberVO);
+
 		model.addAttribute("reservation", res);
 		model.addAttribute("totalPoint", totalPoint);
 	}

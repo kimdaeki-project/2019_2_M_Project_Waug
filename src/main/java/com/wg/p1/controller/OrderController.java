@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import com.wg.p1.dao.GoodsDAO;
 import com.wg.p1.model.BookerInfoVO;
-
-
+import com.wg.p1.model.CouponListVO;
+import com.wg.p1.model.CouponVO;
 import com.wg.p1.model.OptionVO;
 
 import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.MemberVO;
+import com.wg.p1.model.MyCouponVO;
+import com.wg.p1.service.CouponService;
 import com.wg.p1.service.GoodsService;
 import com.wg.p1.service.OptionService;
 import com.wg.p1.service.OrderService;
@@ -35,6 +37,8 @@ public class OrderController {
 	private OrderService orderService;
 	@Inject
 	private OptionService optionService;
+	@Inject
+	private CouponService couponService;
 	
 	private GoodsVO goodsVO;
 
@@ -43,6 +47,15 @@ public class OrderController {
 	public void coupon(String c_code) throws Exception{
 		System.out.println(c_code);  
 	}
+
+	
+	/*
+	 * @GetMapping("couponUse") public void couponUse(String c_code, CouponListVO
+	 * couponListVO) throws Exception{
+	 * 
+	 * System.out.println("couponUse  :" +c_code); couponListVO.setC_code(c_code);
+	 * int g=couponListVO.getC_discount(); System.out.println("discount :"+g); }
+	 */
 	
 	@GetMapping("calendar")
 	public Model calendar(int goods_num, Model model) throws Exception {
@@ -52,7 +65,6 @@ public class OrderController {
 		// List<GoodsOptionVO> goodsOptionVO=orderService.selectOptionTime(); 
 		 model.addAttribute("goods",goodsVO); 
 		 //model.addAttribute("goodsOption", goodsOptionVO);
-		 
 
 		return model;
 	}
@@ -98,10 +110,9 @@ public class OrderController {
 //	}
 	
 	@PostMapping("order1")
-	public ModelAndView order(OptionVO optionVO,int goods_num, ModelAndView mv,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit, String b_email)throws Exception{
+	public ModelAndView order(OptionVO optionVO,int goods_num, HttpSession session ,ModelAndView mv,String[] firstName,String[] lastName, String[] passport, int[] b_gender,String sns,String b_visit, String b_email)throws Exception{
 		System.out.println("orderController  :");
-		
-		
+
 		
 		GoodsVO goodsVO=goodsService.selectOneGoods(goods_num);
 		for(int i=0;i<b_gender.length;i++) {
@@ -110,10 +121,14 @@ public class OrderController {
 		
 		int ref=orderService.insertBookerInfo(Integer.parseInt(optionVO.getO_people()) ,firstName, lastName, passport, b_gender, sns, b_visit, b_email);
 		List<BookerInfoVO> bookerInfo=orderService.selectBookerInfo(ref);
+		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
+		List<CouponVO> ar = couponService.myCoupon(memberVO);
+		
 		System.out.println("order1Controller : date >>>"+optionVO.getO_date());
 		mv.addObject("option", optionVO);
 		mv.addObject("goods", goodsVO);
 		mv.addObject("bookerInfo", bookerInfo);
+		mv.addObject("couponList", ar);
 		mv.setViewName("order/order");
 		
 		return mv;

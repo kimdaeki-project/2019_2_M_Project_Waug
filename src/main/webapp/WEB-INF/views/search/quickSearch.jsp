@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +72,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_usim}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -82,8 +83,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -98,7 +99,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_airport}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -109,8 +110,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -125,7 +126,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_jr}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -136,8 +137,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -152,7 +153,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_eurail}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -163,8 +164,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -190,7 +191,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_usim}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -201,8 +202,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -228,7 +229,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_airport}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -239,8 +240,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -267,7 +268,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_jr}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -278,8 +279,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 
@@ -305,7 +306,7 @@
 						<div>
 							<!-- item list -->
 							<c:forEach items="${quickGoods_eurail}" var="vo">
-							<div class="travel_items">
+							<div class="travel_items" onclick="location.href='../goods/good_page?goods_num=${vo.goods_num}'">
 								<div class="travel_item_img"><img src="${vo.img}"></div>
 								<div class="travel_item_infoBox">
 									<div class="travel_item_info">
@@ -316,8 +317,8 @@
 									</div>
 									<div class="travel_item_priceBox">
 										<div class="travel_item_priceBox_wrapper">
-											<div class="travel_item_origin_price">₩ ${vo.price}</div>
-											<div class="travel_item_price">₩ ${vo.discount}</div>
+											<div class="travel_item_origin_price"><fmt:formatNumber type="currency" value="${vo.price}" currencySymbol="₩ "/></div>
+											<div class="travel_item_price"><fmt:formatNumber type="currency" value="${vo.price-(vo.price*vo.discount/100)}" currencySymbol="₩ "/></div>
 										</div>
 									</div>
 								</div> 

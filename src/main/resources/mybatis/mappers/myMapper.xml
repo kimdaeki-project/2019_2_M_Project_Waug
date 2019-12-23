@@ -13,7 +13,11 @@
 	</insert>
 	
 	<select id="myCoupon" parameterType="MemberVO" resultType="CouponVO">
-		select * from mycoupon inner join coupon_list using(c_code) where m_pk=#{m_pk}
+		select * from mycoupon inner join coupon_list using(c_code) where m_pk=#{m_pk} and c_isuse=0
+	</select>
+	
+	<select id="myCouponAfter" parameterType="MemberVO" resultType="CouponVO">
+		select * from mycoupon inner join coupon_list using(c_code) where m_pk=#{m_pk} and c_isuse=1
 	</select>
 	
 	<select id="myCouponBeforeCount" parameterType="MemberVO" resultType="Integer">
@@ -27,4 +31,7 @@
 		where m_pk=#{m_pk} and c_code=#{c_code}
 	</select>
 	
+	<update id="couponUse" parameterType="MyCouponVO">
+		update mycoupon set c_isuse=1 where c_num=#{c_num}
+	</update>
 </mapper>

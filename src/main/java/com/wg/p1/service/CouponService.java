@@ -24,6 +24,9 @@ public class CouponService {
 	public List<CouponVO> myCoupon(MemberVO memberVO) throws Exception{
 		return couponDAO.myCoupon(memberVO);
 	}
+	public List<CouponVO> myCouponAfter(MemberVO memberVO) throws Exception{
+		return couponDAO.myCouponAfter(memberVO);
+	}
 	
 	public int myCouponBeforeCount(MemberVO memberVO) throws Exception{
 		return couponDAO.myCouponBeforeCount(memberVO);
@@ -34,5 +37,9 @@ public class CouponService {
 	
 	public int couponCount(String m_pk, String c_code) throws Exception{
 		return couponDAO.couponCount(c_code, m_pk);
+	}
+	
+	public int couponUse(MyCouponVO myCouponVO) throws Exception{
+		return couponDAO.couponUse(myCouponVO);
 	}
 }
