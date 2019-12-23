@@ -102,10 +102,10 @@
 		<div class="order_footer_wrapper">
 			<button class="order_submit" id="info_reservation_btn">예약하기</button>
 		</div>
-		<input type="text" id="o_num" name="o_num"  value="${option.o_num}" style="background:green">
-		<input type="text" id="o_tile" name="o_time"  value="${option.o_time}" style="background:tomato">
-		<input type="text" id="o_num" name="o_people"  value="${option.o_people}" style="background:gray">
-		<input type="text" id="o_date" name="o_date"  value="${option.o_date}" style="background:yellowgreen">
+		<input type="text" id="o_num" name="o_num"  value="${option.o_num}" style="background:green" hidden="hidden">
+		<input type="text" id="o_tile" name="o_time"  value="${option.o_time}" style="background:tomato" hidden="hidden">
+		<input type="text" id="o_num" name="o_people"  value="${option.o_people}" style="background:gray" hidden="hidden">
+		<input type="text" id="o_date" name="o_date"  value="${option.o_date}" style="background:yellowgreen" hidden="hidden">
 		</form>
 	</div>
 </div>

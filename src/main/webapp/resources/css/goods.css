@@ -280,6 +280,12 @@ img.good_icon{
 .good_bookInfo{
    height: 109px;
 }
+.good_bookInfo>a{
+	text-decoration: none;
+}
+.good_bookInfo>a:hover{
+	text-decoration: none;
+}
 .good_priceBox{
    height: 27px;
    font-size:18px;
