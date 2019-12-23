@@ -121,7 +121,7 @@
 		 			<div class="order_reser_coupon_title">쿠폰 사용</div>
 		 			<div class="apply_couponANDpoint">
 		 				<div id="apply_couponBox"><div class="apply_couponBox_text">text coupon</div></div>
-		 				<button id="btn_modal_coupon" type="button" class="btn-form-cancel order-promotion-code-apply-btn" data-toggle="modal" data-target="#modal-coupon-box" >쿠폰함</button>
+		 				<button type="button" id="btn_modal_coupon" data-toggle="modal" data-target="#modal-coupon-box">쿠폰함</button>
 		 			</div>
 		 			<div class="order_reser_coupon_title">포인트 사용</div>
 		 			<div class="apply_couponANDpoint">
@@ -189,7 +189,6 @@
 		</div>
 	</div>
 </div>
-<!-- 쿠폰함 모달 -->
 <div class="modal" id="modal-coupon-box"  role="dialog" style="display: none; padding-right: 10px;">
 	<div id="modal-coupon-content" class="coupon-modal-content">
 		<div class="coupon-modal-outer">
@@ -287,6 +286,7 @@
 	
 	</div>
 </div>
+
 
 <script type="text/javascript">
 	//order_reser_pay
