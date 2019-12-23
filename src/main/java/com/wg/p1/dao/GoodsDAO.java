@@ -141,6 +141,8 @@ public class GoodsDAO {
 	}
 	public List<GoodsVO> europeActivity(GoodsVO goodsVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"europeActivity", goodsVO);
-
+	}
+	public int sellUpdate(GoodsVO goodsVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"sellUpdate", goodsVO);
 	}
 }

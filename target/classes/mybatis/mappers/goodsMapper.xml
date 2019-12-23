@@ -183,5 +183,8 @@ select max(goods_num) from goods
   <select id="europeActivity" parameterType="GoodsVO" resultType="GoodsVO">
   	select * from goods inner join nationinfo using(city_num) where continents like '%유럽%'  
   </select>
-  
+  <!-- sell 늘리기 -->
+  <select id="sellUpdate" parameterType="Integer">
+  	update goods set sell=#{sell},qtt=#{qtt} where goods_num=#{goods_num}
+  </select>
 </mapper>

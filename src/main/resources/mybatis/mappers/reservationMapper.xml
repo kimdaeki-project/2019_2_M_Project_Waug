@@ -15,13 +15,13 @@
  </insert>
  
  <select id="selectMyOrders" parameterType="MemberVO" resultType="ReservationVO">
- select res_num,res_date,o_num,M_PK,totalprice,goods_num,res_ref,pay, o_time o_time2, o_people o_people2, o_date o_date2, img img2, title title2
+ select res_num,res_date,o_num,m_pk,totalprice,goods_num,res_ref,pay, o_time o_time2, o_people o_people2, o_date o_date2, img img2, title title2
 from reservation
 inner join goods_option
 using(o_num)
 inner join goods
 using (goods_num)
-where M_PK=#{m_pk}
+where m_pk=#{m_pk}
 order by res_date desc
  </select>
  
