@@ -88,7 +88,7 @@
 				<div class="reser_option_list">
 					<div class="reser_option_item">
 						<div class="reser_option_item_title">${goods.title}</div>
-						<div class="reser_option_item_price">${goods.price*(100-goods.discount)/100}</div>
+						<div class="reser_option_item_price"></div>
 					</div>
 				</div>
 			</div>
