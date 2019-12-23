@@ -13,10 +13,12 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
 import com.wg.p1.util.CouponMaker;
 import com.wg.p1.util.FileSaver;
+import com.wg.p1.util.Pager;
 
 import java.util.List;
 import com.wg.p1.dao.AdminDAO;
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ReviewVO;
 import com.wg.p1.model.ThemeVO;
 
 @Service
@@ -155,5 +157,19 @@ public class AdminService {
 	}
 	public int theme_delete(ThemeVO themeVO) throws Exception{
 		return adminDAO.theme_delete(themeVO);
+	}
+	public List<ReviewVO> review_list(Pager pager) throws Exception{
+		pager.makeRow();
+		pager.makePage(adminDAO.review_count(pager));
+		return adminDAO.review_list(pager);
+	}
+	public int count_review_new() throws Exception{
+		return adminDAO.count_review_new();
+	}
+	public ReviewVO review_select(ReviewVO reviewVO) throws Exception{
+		return adminDAO.review_select(reviewVO);
+	}
+	public int check_update() throws Exception{
+		return adminDAO.check_update();
 	}
 }

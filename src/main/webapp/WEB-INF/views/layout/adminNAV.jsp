@@ -16,11 +16,14 @@
 		</div>
 		<div class="menuWrapper">
 			<ul class="menuUl">
-				<a href="theme_add"><li>테마 추가</li></a>
 				<a href="theme_list"><li>테마 리스트</li></a>
+				<a href="theme_add"><li>테마 추가</li></a>
+				<a href="city_add"><li>도시 추가</li></a>
 				<a href="goods_list"><li>상품 리스트</li></a>
 				<a href="goods_add"><li>상품 추가</li></a>
-				<a href="city_add"><li>도시 추가</li></a>
+				<a href="review_list"><li>전체 리뷰 (New <span class="badge" style="color: #d91c84; background-color: white;">${count}</span>)</li></a>
+				
+				
 				
 			</ul>
 		</div>

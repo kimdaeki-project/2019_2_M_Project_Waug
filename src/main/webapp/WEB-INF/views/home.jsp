@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page session="false"%>
 
@@ -598,13 +598,7 @@
             </div>
          </div>
       </div>
-      <button onclick="location.href='./admin/admin_main'">관리자페이지 </button>
-
-
       <c:import url="./layout/Footer.jsp"></c:import>
-
-    
-
       <form action="/p1/" method="post" id="KRWJPY">
       	<input type="hidden" class="KRWJPY" name="rate">
       	<input type="hidden" name="logo" value="¥">

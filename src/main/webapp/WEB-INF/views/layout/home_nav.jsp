@@ -28,8 +28,16 @@
 					<img src="https://d2mgzmtdeipcjp.cloudfront.net/files/upload/15680884125981.svg" class="more-icon more-icon-toggle">
 					</div>
 				<c:if test="${not empty sessionScope.memberVO}">
-					<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
-					<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/cart">장바구니</a></div>
+					<c:choose>
+						<c:when test="${memberVO.m_pk eq 'w_a@a.com'}">
+							<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/admin/admin_main">관리자페이지</a></div>
+						</c:when>
+						<c:otherwise>
+							<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/mypage">내 정보</a></div>
+							<div class="nav-cart nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/my/cart">장바구니</a></div>
+						</c:otherwise>
+					</c:choose>
+					
 					<div class="nav-logout-btn nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/member/logout">로그아웃</a></div>
 				</c:if>
 				<c:if test="${empty sessionScope.memberVO}">

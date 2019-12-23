@@ -265,7 +265,7 @@
    </div>
    
    <!--  -->
-   <div id="myModal1" class="modal">
+   <div id="myModal2" class="modal">
   <span class="close cursor" onclick="closeModal()" style="color: white;">&times;</span>
   <div class="modal-content">
 
@@ -326,11 +326,11 @@
    
 <script type="text/javascript">
 function openModal() {
-	  document.getElementById("myModal1").style.display = "block";
+	  document.getElementById("myModal2").style.display = "block";
 	}
 
 	function closeModal() {
-	  document.getElementById("myModal1").style.display = "none";
+	  document.getElementById("myModal2").style.display = "none";
 	}
 
 	var slideIndex = 1;
@@ -421,7 +421,7 @@ function openModal() {
    
    
    // Get the modal
-		var modal = document.getElementById("myModal1");
+		var modal = document.getElementById("myModal");
 		// Get the button that opens the modal
 		var btn2 = document.getElementById("myBtn");
 		// When the user clicks the button, open the modal 

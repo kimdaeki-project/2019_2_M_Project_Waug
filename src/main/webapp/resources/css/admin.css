@@ -415,6 +415,7 @@ th{text-align: center;}
 	background: linear-gradient(45deg, rgb(245, 3, 100) 1%, rgb(172, 66, 169) 100%);
 	float:left;
 	width: 250px;
+	height: inherit;
 }
 .sideViewAlpha{
 	background:rgba(0,0,0,0.2);

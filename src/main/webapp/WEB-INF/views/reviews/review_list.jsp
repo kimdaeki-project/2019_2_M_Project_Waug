@@ -118,7 +118,7 @@
 							<div class="modal-content">
 								<div class="modal-header">이용 후기</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
-									<a href="../good/?idx=107382">
+									<a href="../goods/good_page?goods_num=${goodsVO.goods_num}">
 										<div
 											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
@@ -221,7 +221,7 @@
 							<div class="modal-content">
 								<div class="modal-header">후기 수정</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
-									<a href="../good/?idx=107382">
+									<a href="../goods/good_page?goods_num=${goodsVO.goods_num}">
 										<div
 											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
@@ -235,7 +235,16 @@
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<h5 class="title comment-write-title">${goodsVO.title}</h5>
+											<c:choose>
+											<c:when test="${fn:length(goodsVO.title) gt 10}">
+												<h5 class="title comment-write-title">
+        											<c:out value="${fn:substring(goodsVO.title, 0, 10)}"></c:out>...
+												</h5>
+        									</c:when>
+        									<c:otherwise>
+        										<h5 class="title comment-write-title">${goodsVO.title}</h5>
+        									</c:otherwise>
+										</c:choose>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -313,7 +322,7 @@
 							<div class="modal-content">
 								<div class="modal-header">답변 달기</div>
 								<div class="modal-body" style="padding-bottom: 45px;">
-									<a href="../good/?idx=107382">
+									<a href="../goods/good_page?goods_num=${goodsVO.goods_num}">
 										<div
 											style="background-image: url(${goodsVO.img}); width: 160px; height: 105px; background-size: cover; background-position: center; float: left; margin-right: 10px; margin-bottom: 20px;"></div>
 									</a>
@@ -327,7 +336,16 @@
 									<div class="pull-left">
 										<div class="row">
 										<!-- 상품에 따라 바뀌게 해야함 -->
-											<h5 class="title comment-reply-title">${goodsVO.title}</h5>
+											<c:choose>
+											<c:when test="${fn:length(goodsVO.title) gt 10}">
+												<h5 class="title comment-write-title">
+        											<c:out value="${fn:substring(goodsVO.title, 0, 10)}"></c:out>...
+												</h5>
+        									</c:when>
+        									<c:otherwise>
+        										<h5 class="title comment-write-title">${goodsVO.title}</h5>
+        									</c:otherwise>
+										</c:choose>
 										</div>
 										<div class="form-group" style="margin-left: 10px;" >
 											<div class="center comment-write-starspace">
@@ -442,7 +460,7 @@
 		$(".tttt").click(function() {
 			var url = $(this).attr('id');
 			window.open('http://localhost/p1/resources/images/reviews/'+url);
-		})
+		});
 		
 		/* 별점 */
 		
@@ -461,7 +479,7 @@
 		/* 답변 달기 폼 submit */
 		$("#btn-reply-submit").click(function() {
 			$(".review-form3").submit();
-		})
+		});
 		
 		/* 리뷰 더 보기 */
 		$("#add_review").click(function() {
@@ -481,6 +499,8 @@
 		$("#content").on("click", ".btn-review-delete", function() {
 			if(confirm("정말 삭제하시겠습니까?")){
 				$.get("./review_delete?rv_num="+$(this).val(), function(data) {
+					data=data.trim();
+					alert(data);
 				});
 				location.reload();
 			}
@@ -505,7 +525,7 @@
 				//alert(strings[3]);
 				countreview = strings[3].trim();
 				countreview = countreview*1;
-				alert(countreview);
+
 				$("#comment_write_msg2").val(strings[1]);
 	
 					$(".update_rv_num").val(num);

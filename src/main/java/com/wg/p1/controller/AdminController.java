@@ -9,6 +9,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,11 +24,15 @@ import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.InfoVO;
 
 import com.wg.p1.model.NationVO;
+import com.wg.p1.model.ReviewVO;
 import com.wg.p1.model.ThemeVO;
 import com.wg.p1.service.AdminService;
 import com.wg.p1.service.GoodsService;
+import com.wg.p1.service.ReviewService;
 import com.wg.p1.service.adService;
 import com.wg.p1.util.Pager;
+
+import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("admin/**")
@@ -36,21 +41,27 @@ public class AdminController {
 	private GoodsService goodsService;
 	@Inject
 	private AdminService adminService;
-	
+	@Inject
+	private ReviewService reviewService;
 	
 	@RequestMapping("admin_main")
-	public String admin_main() throws Exception{
-		return "admin/admin_main";
+	public ModelAndView admin_main(ModelAndView mv) throws Exception{
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
+		mv.setViewName("admin/admin_main");
+		return mv;
 	}
 	
 
 	//도시추가
 	@GetMapping("city_add")
 	public ModelAndView city_add(String continents, ModelAndView mv) throws Exception{
-		
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
 		List<NationVO> ar =  adminService.city_list();
 		mv.addObject("list", ar);
 		mv.setViewName("admin/city_add");
+		
 		return mv;
 	}
 	
@@ -126,6 +137,8 @@ public class AdminController {
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
 		mv.setViewName("admin/goods_list");
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
 		return mv;
 	} 
 	
@@ -167,13 +180,19 @@ public class AdminController {
 		List<ThemeVO> ar = goodsService.ThemeAll();
 		mv.addObject("list", ar);
 		mv.setViewName("admin/theme_list");
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
 		
 		return mv;
 	}
 	//관리자 테마추가 페이지
 	@GetMapping("theme_add")
-	public void theme_add() throws Exception{
+	public ModelAndView theme_add(ModelAndView mv) throws Exception{
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
+		mv.setViewName("admin/theme_add");
 		
+		return mv;
 	}
 	@PostMapping("theme_add")
 	public ModelAndView theme_add(ModelAndView mv, ThemeVO themeVO) throws Exception{
@@ -184,6 +203,8 @@ public class AdminController {
 			msg="등록 성공";
 			
 		}
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
 		mv.addObject("msg", msg);
 		mv.addObject("path", "../admin/theme_list");
 		mv.setViewName("common/common_result");
@@ -193,7 +214,8 @@ public class AdminController {
 	@GetMapping("theme_update")
 	public ModelAndView theme_update(ThemeVO themeVO,ModelAndView mv) throws Exception{
 		themeVO = adminService.selectTheme(themeVO);
-		
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
 		mv.addObject("dto", themeVO);
 		mv.setViewName("admin/theme_update");
 		return mv;
@@ -308,6 +330,59 @@ public class AdminController {
 		mv.addObject("path", path);
 		mv.setViewName("common/common_result");
 		return mv;
+	}
+	
+	@RequestMapping("review_list")
+	public ModelAndView review_list(ModelAndView mv, Pager pager) throws Exception{
+		List<ReviewVO> ar = adminService.review_list(pager);
+		mv.addObject("list", ar);
+		mv.setViewName("admin/review_list");
+		mv.addObject("totalPage", pager.getTotalPage());
+		int count = adminService.count_review_new();
+		mv.addObject("count", count);
+		
+		adminService.check_update();
+		return mv;
+	}
+	@RequestMapping("review_lists")
+	public ModelAndView review_lists(ModelAndView mv, Pager pager) throws Exception{
+		
+		List<ReviewVO> ar = adminService.review_list(pager);
+		mv.addObject("list", ar);
+		mv.setViewName("common/reviewAjax2");
+		
+		
+		return mv;
+	}
+	@RequestMapping("review_delete")
+	public ModelAndView review_delete(ModelAndView mv, ReviewVO reviewVO) throws Exception{
+		int result = reviewService.reviewDelete(reviewVO);
+		
+		String msg = "리뷰 삭제에 실패하였습니다";
+		if(result >0) {
+			msg = "리뷰를 삭제했습니다";
+		}
+		mv.addObject("result", msg);
+		mv.setViewName("common/common_ajaxResult");
+		
+		return mv;
+	}
+	@RequestMapping("reviewSelect")
+	public ModelAndView reviewSelect(ModelAndView mv, ReviewVO reviewVO) throws Exception{
+		
+		reviewVO = reviewService.reviewSelect(reviewVO);
+		reviewVO.setRv_contents(reviewVO.getRv_contents().replace("</br>", "\r\n"));
+		mv.addObject("select", reviewVO);
+		mv.setViewName("common/reviewselectAjax");
+		
+		return mv;
+	}
+	@PostMapping("review_reply")
+	public String reviewReply(ReviewVO reviewVO) throws Exception{
+		reviewVO.setRv_acontents(reviewVO.getRv_acontents().replace("\r\n", "</br>"));
+		int result = reviewService.reviewReply(reviewVO);
+		
+		return "redirect:review_list";
 	}
 	
 }

@@ -53,13 +53,12 @@
 	<!-- 전체조회테스트 -->
 	<select id="reviewList" parameterType="Pager" resultMap="reviewFile">
 		select * from
+        (select * from
 		(select R.*, rownum N from
 		(select email, rv_num, goods_num, rv_writer, rv_contents, to_char(rv_reg_date, 'yyyy-mm-dd') rv_reg_date
-		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents, img_name from review1 full outer join
-        review_img
-        using(rv_num)
+		, rv_score, rv_ex, rv_aname, to_char(rv_adate,'yyyy-mm-dd') rv_adate, rv_acontents from review1 
         where goods_num = #{goods_num} order by rv_num desc) R)
-		where N between #{startRow} and #{lastRow}
+		where N between #{startRow} and #{lastRow}) left outer join review_img using(rv_num)
 	</select>
 	
 	<!-- 글전체 수 -->

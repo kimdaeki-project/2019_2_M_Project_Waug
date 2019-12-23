@@ -27,7 +27,7 @@ import com.wg.p1.util.Pager;
 @RequestMapping("/reviews/**")
 public class ReviewController {
 	@Inject
-	ReviewService reviewService;
+	private ReviewService reviewService;
 	@Inject
 	private CouponService couponService;
 	@Inject
@@ -52,7 +52,7 @@ public class ReviewController {
 		List<ReviewVO> ar = reviewService.reviewList(pager);
 		MemberVO memberVO = (MemberVO)session.getAttribute("memberVO");
 		mv.addObject("list", ar);
-		mv.addObject("membeVO",memberVO);
+		//mv.addObject("memberVO",memberVO);
 		mv.setViewName("common/reviewAjax");
 		return mv;
 	}
@@ -87,6 +87,12 @@ public class ReviewController {
 		int result = reviewService.reviewDelete(reviewVO);
 		ModelAndView mv = new ModelAndView();
 		
+		String msg = "리뷰 삭제에 실패하였습니다";
+		if(result >0) {
+			msg = "리뷰를 삭제했습니다";
+		}
+		mv.addObject("result", msg);
+		mv.setViewName("common/common_ajaxResult");
 		return mv;
 	}
 	
