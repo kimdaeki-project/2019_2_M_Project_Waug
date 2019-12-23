@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +109,8 @@
          <div class="good_info_wrapper">
          	<div class="good_bookBox">
          		<div class="good_bookInfo">
-         			<div class="good_priceBox">₩ ${goods.price}</div>
+         			<div class="good_priceBox" style="float: left; margin-right: 20px;">${goods.price}<%-- <fmt:formatNumber type="currency" value="${(goods.price - (goods.price*goods.discount/100))}"currencySymbol="￦ "/> --%></div>
+         			<div class="good_priceBox" style="text-decoration: line-through;">${goods.price}<%-- <fmt:formatNumber type="currency" value="${goods.price}" currencySymbol="￦ "/> --%></div>
          			<div class="good_reservationBox"><c:forEach begin="1" end="${review.rv_avg-(review.rv_avg%1)}">★</c:forEach> ${goods.sell} 예약</div>
          			<a href="../order/calendar?goods_num=${goods.goods_num}">
          			<div class="good_reservation_btn">예약하기</div>
@@ -153,7 +155,7 @@
    					</div>
    					<div class="good_container_btn" style="cursor: pointer;" onclick="location.href='../reviews/review_list?goods_num=${goods.goods_num}';">모든 후기 보러가기</div>
    				</div>
-   				<div class="good_detail_infoBox optionbg">
+   			<!-- 	<div class="good_detail_infoBox optionbg">
                   <div class="good_detail_title">상품 옵션</div>
                   <div>
                      <div class="good_option_wrapper">
@@ -173,7 +175,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> -->
                <div class="good_detail_infoBox">
                   <div class="good_detail_title">프로그램</div>
                   <div id="program">${goods.program}</div>
