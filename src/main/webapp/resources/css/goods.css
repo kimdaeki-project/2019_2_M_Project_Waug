@@ -1,3 +1,21 @@
+/* 
+@media screen and (max-width:380px){
+	.good_contents_titles,.good_container_flex,.good_detail_info_wrapper{display: none;}
+	.good_img_wrapper{width: 100%;}
+	.good_img_titleBox{width: inherit;}
+	.good_btn_wishlist,.good_like{display: none;}
+	.good_img_title{width: 350px; margin:0 auto;}
+	.good_img_title>img{width: 100%;}
+	.good_img_divideBox,
+	.good_img_small_wrapper,
+	.good_img_small,
+	.good_img_small>img
+	{display: none;}
+
+@media screen and (min-width:768px) and (max-width:959px){
+	
+} */
+
 *{margin: 0px; padding: 0px;}
 nav{
    height: 71px;
@@ -72,7 +90,6 @@ time, mark, audio, video {
 .good_img_titleBox{
    width: 50%;
    height: 544px;
-   background: green;
    border-bottom: 8px solid black;
    position: relative;
    display: inline-block;
