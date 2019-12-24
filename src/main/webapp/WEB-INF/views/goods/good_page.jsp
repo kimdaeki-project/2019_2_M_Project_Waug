@@ -7,19 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>goods_basic</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="resources/css/home.css"> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="../resources/css/goods.css">
 <link rel="stylesheet" href="../resources/css/CityList.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 <input type="text" disabled="disabled" name="goods_num" value="${goods_num}" id="goods_num">	
 <c:import url="../layout/good_nav.jsp"/>
@@ -37,8 +30,8 @@
          <div class="good_btn_wishlist good_like"></div>
          
          <div class="good_img_title"><img src="${goods.img }" onclick="openModal();currentSlide(1)"></div>
-        
       </div>
+      
       <div class="good_img_divideBox">
       <div class="good_img_small_wrapper">
          <div class="good_img_small"><img src="${goods.img1 }" onclick="openModal();currentSlide(2)"></div>
@@ -49,6 +42,7 @@
         <div class="good_img_small"><img src="${goods.img4 }" onclick="openModal();currentSlide(5)"></div> 
       </div>
       </div>
+      
    </div>
    <div class="good_detail_wrapper">
       <div class="good_detailBox">
