@@ -73,16 +73,22 @@ a:hover {
 
  
 <script type="text/javascript">
+var res_4=$('#res_4').val();
+var res_3=$('#res_3').val();
+var res_2=$('#res_2').val();
+var res_1=$('#res_1').val();
+var res_0=$('#res_0').val();
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
+          ['20',  1000,      400],
+          ['21',  1170,      460],
+          ['22',  660,       1120],
+          ['24',  1030,      540]
         ]);
 
         var options = {
