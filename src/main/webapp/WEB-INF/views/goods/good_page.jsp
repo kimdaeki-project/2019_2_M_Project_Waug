@@ -315,14 +315,16 @@
 </div>
    <!--  -->
 <script>
-      var map;
-      function initMap() {
-    	var uluru = {lat:${goods.horizontal}, lng:${goods.vertical}};
-    	var map = new google.maps.Map(
-    		document.getElementById('map'), {zoom: 16, center: uluru});
-    		// The marker, positioned at Uluru
-    		var marker = new google.maps.Marker({position: uluru, map: map});
-     	 }
+	var map;
+	function initMap() {
+	var uluru = {lat:${goods.horizontal},
+				 lng:${goods.vertical}};
+	var map = new google.maps.Map(
+		document.getElementById('map'),
+		{zoom: 16, center: uluru});
+		var marker = new google.maps.Marker(
+				{position: uluru, map: map});
+	}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOARpuS-ZWgj5gXhzLHOQTQ1-swU_VrFo&callback=initMap"
     async defer></script>
