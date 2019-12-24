@@ -2,6 +2,8 @@ package com.wg.p1;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.junit.Test;
@@ -17,7 +19,7 @@ public class AdminTest extends testAbstractCase{
 	@Inject
 	private AdminService adminService;
 	
-	@Test
+	//@Test
 	public void test() throws Exception{
 		
 		int[] arr=adminService.reservation_date_s();
@@ -27,6 +29,15 @@ public class AdminTest extends testAbstractCase{
 		}
 		
 		assertNotNull(arr);
+	}
+	
+	@Test
+	public void test2()throws Exception{
+		List<Integer> list=adminDAO.hot5_goods();
+		
+		for(int i=0;i<list.size();i++) {
+			System.out.println("list.get(i) : "+list.get(i));
+		}
 	}
 
 }

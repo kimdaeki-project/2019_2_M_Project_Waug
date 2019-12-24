@@ -48,6 +48,12 @@ public class AdminController {
 	public ModelAndView admin_main(ModelAndView mv) throws Exception{
 		int count = adminService.count_review_new();
 		int[] reservation_date_s=adminService.reservation_date_s();
+		List<Integer> goods5=adminService.hot5_goods();
+		List<String> city5=adminService.hot5_city();
+		int[] topInfo=adminService.topInfo();
+		mv.addObject("city5", city5);
+		mv.addObject("topInfo", topInfo);
+		mv.addObject("goods5", goods5);
 		mv.addObject("count", count);
 		mv.addObject("res_4", reservation_date_s[0]);
 		mv.addObject("res_3", reservation_date_s[1]);

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../resources/css/admin.css">
 <link
@@ -24,83 +24,103 @@ a:hover {
 	text-decoration: none;
 	color: #ffffff;
 }
+.admin_a:hover{
+	color: #2e6da3;
+}
 
 </style>
 </head>
 <body>
 <div class="wrapper">
 <c:import url="../layout/adminNAV.jsp"/>
-<div class="mainView" style="background:tomato;">
-	<div class="width1600px" style="border:1px solid gold;">
+<div class="mainView">
+	<div class="width1600px" >
 		<div class="row">
-			<div class="col_4 gold">
+			<div class="col_4">
 				<div id="admin_backImg_member"></div>
 				member<br>
-				<b>number of member</b>admin_backImg_goods
+				<b>${topInfo[0]}</b>
 			</div>
 			<div class="col_4">
 				<div id="admin_backImg_goods"></div>
 				goods<br>
-				<b>number of goods</b>
+				<b>${topInfo[1]}</b>
 			</div>
 			<div class="col_4">
 				<div id="admin_backImg_reservation"></div>
 				reservation<br>
-				<b>number of reservation</b>
+				<b>${topInfo[2]}</b>
 			</div>
 			<div class="col_4">
 				<div id="admin_backImg_sales"></div>
 				sales<br>
-				<b>number of sales</b>
+				<b>${topInfo[3]}</b>
 			</div>
 		</div>
 		<div class="row">
 			<div class="graph">
-				another row here!!!
-				 <div id="curve_chart" style="width: 900px; height: 500px"></div>
+			<canvas id="myChart"></canvas> 
 			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+			<h2>인기상품</h2>
+				<ul class="list-group">
+					 <c:forEach items="${goods5}" var="goods">
+  						<li class="list-group-item"><a href="../goods/good_page?goods_num=${goods}" class="admin_a">${goods}</a></li>
+  					</c:forEach> 
+  					
+  				</ul>
+			</div>
+			<div class="col-lg-6" >
+			<h2>인기도시</h2>
+				<ul class="list-group">
+					<c:forEach items="${city5}" var="city">
+  						<li class="list-group-item">${city}</li>
+  					</c:forEach>
+  				</ul>
+			</div>
+			
 		</div>
 	</div>
 </div>
 </div>
 
-<p>http://thememinister.com/adminpage/theme/adminpage_rtl_v1.0/index.html</p>
-<input type="text" value="${res_4}" id="res_4">
-<input type="text" value="${res_3}" id="res_3">
-<input type="text" value="${res_2}" id="res_2">
-<input type="text" value="${res_1}" id="res_1">
-<input type="text" value="${res_0}" id="res_0" >
+<input type="text" value="${res_4}" id="res_4" hidden="hidden">
+<input type="text" value="${res_3}" id="res_3" hidden="hidden">
+<input type="text" value="${res_2}" id="res_2" hidden="hidden">
+<input type="text" value="${res_1}" id="res_1" hidden="hidden">
+<input type="text" value="${res_0}" id="res_0"  hidden="hidden">
 
+ <script type="text/javascript">
+var cal=new Date();
  
-<script type="text/javascript">
 var res_4=$('#res_4').val();
 var res_3=$('#res_3').val();
 var res_2=$('#res_2').val();
 var res_1=$('#res_1').val();
 var res_0=$('#res_0').val();
+//ar tmpCal=new Date(cal.getFullYear(),cal.getMonth(),1);
+ var ctx = document.getElementById('myChart').getContext('2d');
+ var chart = new Chart(ctx, {
+     // The type of chart we want to create
+     type: 'line',
 
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+     // The data for our dataset
+     data: {
+         labels: [cal.getDate()-4, cal.getDate()-3, cal.getDate()-2, cal.getDate()-1, cal.getDate()-0],
+         datasets: [{
+             label: 'SALE',
+             backgroundColor: 'rgba(236, 210, 227, 0.5)',
+             borderColor: '#a21f6f',
+             data: [res_4, res_3,res_2, res_1, res_0]
+         }]
+     },
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['20',  1000,      400],
-          ['21',  1170,      460],
-          ['22',  660,       1120],
-          ['24',  1030,      540]
-        ]);
+     // Configuration options go here
+     options: {}
+ });
+ </script>
 
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
 </body>
 </html>

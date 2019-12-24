@@ -96,4 +96,22 @@
   	<select id="reservation_date_today" resultType="Integer">
   		select count(res_num) from reservation  where res_date=to_char(sysdate,'yyyy-mm-dd')
   	</select>
+  	<select id="hot5_goods" resultType="Integer">
+  		select * from (SELECT goods_num, COUNT(*) FROM reservation GROUP BY goods_num order by count(*) desc) <![CDATA[  where rownum<=5 ]]>
+  	</select>
+  	<select id="countReservation" resultType="Integer">
+  		select count(res_num) from reservation
+  	</select>
+  	<select id="countMember" resultType="Integer">
+  		select count(M_PK) from member
+  	</select>
+  	<select id="countGoods" resultType="Integer">
+  		select count(goods_num) from goods
+  	</select>
+  	<select id="sumTotalSale" resultType="Integer">
+  		select sum(totalprice) from reservation
+  	</select>
+  	<select id="hot5_city" resultType="String">
+  		select city_name  from (select * from (SELECT goods_num, COUNT(*)  FROM reservation GROUP BY goods_num order by count(*) desc) <![CDATA[ where rownum<=5]]>) inner join goods using(goods_num) inner join nationinfo using(city_num)
+  	</select>
   </mapper>

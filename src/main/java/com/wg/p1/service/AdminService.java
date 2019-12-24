@@ -181,5 +181,18 @@ public class AdminService {
 		reservation_for5days[4]=adminDAO.reservation_date_today();
 		return reservation_for5days;
 	}
-	
+	public List<Integer> hot5_goods()throws Exception{
+		return adminDAO.hot5_goods();
+	}
+	public int[] topInfo()throws Exception{
+		int[] topInfo=new int[4];
+		topInfo[0]=adminDAO.countMember();
+		topInfo[1]=adminDAO.countGoods();
+		topInfo[2]=adminDAO.countReservation();
+		topInfo[3]=adminDAO.sumTotalSale();
+		return topInfo;
+	}
+	public List<String> hot5_city()throws Exception{
+		return adminDAO.hot5_city();
+	}
 }

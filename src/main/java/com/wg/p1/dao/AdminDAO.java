@@ -78,4 +78,23 @@ public class AdminDAO {
 	public int reservation_date_today() throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"reservation_date_today");
 	}
+	public List<Integer> hot5_goods()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"hot5_goods");
+	}
+	public int countReservation()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"countReservation");
+	}
+	public int countMember()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"countMember");
+	}
+	public int countGoods()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"countGoods");
+	}
+	public int sumTotalSale()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"sumTotalSale");
+	}
+	public List<String> hot5_city()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"hot5_city");
+	}
+	
 }
