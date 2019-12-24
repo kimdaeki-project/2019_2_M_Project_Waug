@@ -48,7 +48,7 @@
    <div id="main-wrapper">
       <div id="main-header">
          <div id="main-header-items">
-            <div class="text2">겨울 여행은 어디로 떠날까요?12</div>
+            <div class="text2">겨울 여행은 어디로 떠날까요?</div>
             <div class="search">
                <div class="bar">
                   <div class="searchbar-input-container">
