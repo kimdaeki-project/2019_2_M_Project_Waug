@@ -66,8 +66,8 @@ a:hover {
 			<div class="col-lg-6">
 			<h2>인기상품</h2>
 				<ul class="list-group">
-					 <c:forEach items="${goods5}" var="goods">
-  						<li class="list-group-item"><a href="../goods/good_page?goods_num=${goods}" class="admin_a">${goods}</a></li>
+					 <c:forEach items="${goodsbest}" var="goods">
+  						<li class="list-group-item"><a href="../goods/good_page?goods_num=${goods.goods_num}" class="admin_a">${goods.title}</a></li>
   					</c:forEach> 
   					
   				</ul>

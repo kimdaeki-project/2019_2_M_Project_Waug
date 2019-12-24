@@ -114,4 +114,7 @@
   	<select id="hot5_city" resultType="String">
   		select city_name  from (select * from (SELECT goods_num, COUNT(*)  FROM reservation GROUP BY goods_num order by count(*) desc) <![CDATA[ where rownum<=5]]>) inner join goods using(goods_num) inner join nationinfo using(city_num)
   	</select>
+  	<select id="hot5_goodsss" resultType="GoodsVO">
+  		select * from(select goods_num, title, sell from goods order by sell desc) <![CDATA[ where rownum<=5]]>
+  	</select>
   </mapper>
