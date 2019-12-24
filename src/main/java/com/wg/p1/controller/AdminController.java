@@ -50,6 +50,7 @@ public class AdminController {
 		int[] reservation_date_s=adminService.reservation_date_s();
 		List<Integer> goods5=adminService.hot5_goods();
 		List<String> city5=adminService.hot5_city();
+		List<GoodsVO> goodsar = adminService.hot5_goodsss();
 		int[] topInfo=adminService.topInfo();
 		mv.addObject("city5", city5);
 		mv.addObject("topInfo", topInfo);
@@ -60,6 +61,7 @@ public class AdminController {
 		mv.addObject("res_2", reservation_date_s[2]);
 		mv.addObject("res_1", reservation_date_s[3]);
 		mv.addObject("res_0", reservation_date_s[4]);//today
+		mv.addObject("goodsbest", goodsar);
 		mv.setViewName("admin/admin_main");
 		
 		

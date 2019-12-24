@@ -18,10 +18,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-<script src="https://unpkg.com/swiper/js/swiper.js"></script>
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+
+<link rel="stylesheet" href="resources/css/swiper.css">
+<link rel="stylesheet" href="resources/css/swiper.min.css">
+<script src="resources/css/swiper.js"></script>
+<script src="resources/css/swiper.min.js"></script>
+
 <link rel="stylesheet" href="resources/css/home.css">
 <link rel="stylesheet" href="resources/css/Footer.css">
 <link rel="stylesheet" href="resources/css/CityList.css">

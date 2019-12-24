@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.context.Theme;
 
+import com.wg.p1.model.GoodsVO;
 import com.wg.p1.model.NationVO;
 import com.wg.p1.model.ReviewVO;
 import com.wg.p1.model.ThemeVO;
@@ -96,5 +97,7 @@ public class AdminDAO {
 	public List<String> hot5_city()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"hot5_city");
 	}
-	
+	public List<GoodsVO> hot5_goodsss() throws Exception{
+		return sqlSession.selectList(NAMESPACE+"hot5_goodsss");
+	}
 }

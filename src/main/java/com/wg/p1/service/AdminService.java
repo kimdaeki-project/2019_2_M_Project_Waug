@@ -195,4 +195,7 @@ public class AdminService {
 	public List<String> hot5_city()throws Exception{
 		return adminDAO.hot5_city();
 	}
+	public List<GoodsVO> hot5_goodsss() throws Exception{
+		return adminDAO.hot5_goodsss();
+	}
 }
