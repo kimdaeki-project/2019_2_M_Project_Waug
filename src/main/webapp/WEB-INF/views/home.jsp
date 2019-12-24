@@ -48,7 +48,7 @@
    <div id="main-wrapper">
       <div id="main-header">
          <div id="main-header-items">
-            <div class="text2">겨울 여행은 어디로 떠날까요?12</div>
+            <div class="text2">겨울 여행은 어디로 떠날까요?</div>
             <div class="search">
                <div class="bar">
                   <div class="searchbar-input-container">
@@ -369,7 +369,7 @@
       </div>
       <div class="main-item-container">
          <div class="main-itemtitle">
-            <div class="main-itemtitle-title">이런 여행은 어때요1?</div>
+            <div class="main-itemtitle-title">이런 여행은 어때요?</div>
             <div class="main-itemtitle-sub">와그 에디터가 추천하는 여행을 만나보세요</div>
          </div>
          <div class="swiper-list-container container4">

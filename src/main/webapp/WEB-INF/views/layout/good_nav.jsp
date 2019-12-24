@@ -38,7 +38,7 @@
 					</div>
 				<c:if test="${not empty sessionScope.memberVO}">
 					<c:choose>
-						<c:when test="${memberVO.m_pk eq 'w_a@a.com'}">
+						<c:when test="${memberVO.m_pk eq 'w_b@b.com'}">
 							<div class="nav-my-page nav-sub-menu-item onclick-cursor-pointer"><a href="${pageContext.request.contextPath}/admin/admin_main">관리자페이지</a></div>
 						</c:when>
 						<c:otherwise>
