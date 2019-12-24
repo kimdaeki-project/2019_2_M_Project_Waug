@@ -1,0 +1,348 @@
+-------------------------------------멤버테이블-------------------------------------
+CREATE TABLE member
+(
+    m_pk           VARCHAR2(400)    primary key,
+    social         VARCHAR2(400)    NOT NULL,
+    email          VARCHAR2(400)    NOT NULL, 
+    pw             VARCHAR2(20)     NULL, 
+    name           VARCHAR2(20)     NOT NULL, 
+    ename_first    VARCHAR2(20)     NULL, 
+    ename_last     VARCHAR2(20)     NULL, 
+    phone          VARCHAR2(20)     NULL, 
+    img            VARCHAR2(20)     NULL
+)
+
+create SEQUENCE m_seq
+start with 1
+increment by 1
+NOMAXVALUE
+NOCACHE
+NOCYCLE
+
+
+insert into member VALUES('w_a@a.com','w','a@a.com', '1','admin', 'ad','min','010-1234-5678','');
+insert into member VALUES('w_b@b.com','w','b@b.com', '2','admin2', 'admin', 'admin','010-1234-5678','');
+insert into member VALUES('w_b@b.com','w','b@b.com', '2','admin3', 'admin', 'admin','010-1234-5678','');
+insert into member VALUES('w_b@b.com','w','b@b.com', '2','admin4', 'admin', 'admin','010-1234-5678','');
+insert into member VALUES('w_b@b.com','w','b@b.com', '2','admin5', 'admin', 'admin','010-1234-5678','');
+
+
+-------------------------------------국가테이블-------------------------------------
+CREATE TABLE nationInfo
+(
+    city_num      NUMBER(8)        NOT NULL, 
+    confinents    VARCHAR2(100)    NULL, 
+    nation        VARCHAR2(100)    NULL, 
+    city_name     VARCHAR2(100)    NULL, 
+    city_img      VARCHAR2(100)    NULL, 
+    CONSTRAINT NATIONINFO_PK PRIMARY KEY (city_num)
+)
+
+CREATE SEQUENCE nationInfo_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+
+-------------------------------------옵션테이블-------------------------------------
+CREATE TABLE goods_option
+(
+    o_num       NUMBER(8)       NOT NULL, 
+    o_time      VARCHAR2(20)    NULL, 
+    o_people    VARCHAR2(20)    NULL, 
+    o_date      DATE            NULL, 
+    CONSTRAINT OPTION_PK PRIMARY KEY (o_num)
+)
+
+
+CREATE SEQUENCE option_SEQ
+START WITH 1
+INCREMENT BY 1;
+commit
+
+
+-------------------------------------테마 테이블-------------------------------------
+CREATE TABLE theme
+(
+    t_num      NUMBER(8)       NOT NULL, 
+    t_title    VARCHAR2(20)    NULL, 
+    CONSTRAINT THEME_PK PRIMARY KEY (t_num)
+)
+
+
+CREATE SEQUENCE theme_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+
+-------------------------------------굿즈 테이블-------------------------------------
+CREATE TABLE goods
+(
+    goods_num       NUMBER(8)              NOT NULL, 
+    price           number(8)              NULL, 
+    discount        NUMBER(2)              NULL, 
+    coupon          VARCHAR2(20)           NULL, 
+    location        VARCHAR2(20)           NULL, 
+    able            DATE                   NULL, 
+    city_num        NUMBER(8)              NULL, 
+    qtt             NUMBER(8)              NULL, 
+    title           VARCHAR2(20)           NULL, 
+    t_num           NUMBER(8)              NULL, 
+    img             VARCHAR2(20)           NULL, 
+    cate_num        NUMBER(8)              NULL, 
+    wish            NUMBER(8,0)            NULL, 
+    PROGRAM         VARCHAR2(4000 BYTE)    NULL, 
+    CHARMING        VARCHAR2(4000 BYTE)    NULL, 
+    INCLUDED        VARCHAR2(4000 BYTE)    NULL, 
+    NOT_INCLUDED    VARCHAR2(4000 BYTE)    NULL, 
+    HOW_TO_USE      VARCHAR2(4000 BYTE)    NULL, 
+    REMEMBER        VARCHAR2(4000 BYTE)    NULL, 
+    CANCEL          VARCHAR2(4000 BYTE)    NULL, 
+    IMG1            VARCHAR2(100 BYTE)     NULL, 
+    IMG2            VARCHAR2(100 BYTE)     NULL, 
+    IMG3            VARCHAR2(100 BYTE)     NULL, 
+    IMG4            VARCHAR2(100 BYTE)     NULL, 
+    SELL            NUMBER(8,0)            NULL, 
+    HORIZONTAL      NUMBER(12,8)           NULL, 
+    VERTICAL        NUMBER(12,8)           NULL, 
+    CONSTRAINT GOODS_PK PRIMARY KEY (goods_num)
+)
+
+CREATE SEQUENCE goods_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE goods
+    ADD CONSTRAINT FK_goods_city_num_nationInfo_c FOREIGN KEY (city_num)
+        REFERENCES nationInfo (city_num)
+
+ALTER TABLE goods
+    ADD CONSTRAINT FK_goods_t_num_theme_t_num FOREIGN KEY (t_num)
+        REFERENCES theme (t_num)
+
+ALTER TABLE goods
+    ADD CONSTRAINT FK_goods_cate_num_category_cat FOREIGN KEY (cate_num)
+        REFERENCES category (cate_num)
+
+-------------------------------------위시리스트 테이블-------------------------------------
+create table wishlist(
+    w_num NUMBER(8) primary key,
+    goods_num NUMBER(8),
+    email VARCHAR2(100),
+    constraint w_fk_goods_num foreign key(goods_num) references goods(goods_num),
+    constraint w_fk_email foreign key(email) references member(m_pk)
+)
+
+CREATE SEQUENCE wish_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+
+ALTER TABLE wishlist
+    ADD CONSTRAINT FK_wishlist_goods_num_goods_go FOREIGN KEY (goods_num)
+        REFERENCES goods (goods_num)
+
+
+ALTER TABLE wishlist
+    ADD CONSTRAINT FK_wishlist_M_PK_member_M_PK FOREIGN KEY (M_PK)
+        REFERENCES member (M_PK)
+
+-------------------------------------장바구니 테이블-------------------------------------
+
+CREATE TABLE cart
+(
+    cart_num     NUMBER(8)        NOT NULL, 
+    goods_num    NUMBER(8)        NOT NULL, 
+    o_num        number(8)     NOT NULL, 
+    email         VARCHAR2(100)    NOT NULL, 
+    CONSTRAINT CART_PK PRIMARY KEY (cart_num)
+)
+CREATE SEQUENCE cart_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+
+ALTER TABLE cart
+    ADD CONSTRAINT FK_cart_M_PK_member_M_PK FOREIGN KEY (M_PK)
+        REFERENCES member (M_PK)
+
+
+ALTER TABLE cart
+    ADD CONSTRAINT FK_cart_goods_num_goods_goods_ FOREIGN KEY (goods_num)
+        REFERENCES goods (goods_num)
+
+
+ALTER TABLE cart
+    ADD CONSTRAINT FK_cart_o_num_goods_option_o_n FOREIGN KEY (o_num)
+        REFERENCES goods_option (o_num)
+
+-------------------------------------쿠폰 테이블(2개)-------------------------------------
+
+CREATE TABLE coupon_List
+(
+    c_code             VARCHAR2(20)    NOT NULL, 
+    c_title            VARCHAR2(400)    NOT NULL, 
+    c_duration         VARCHAR2(20)    NOT NULL, 
+    c_discount_info    VARCHAR2(20)    NOT NULL, 
+    c_discount         NUMBER(8)       NOT NULL, 
+    CONSTRAINT COUPON_LIST_PK PRIMARY KEY (c_code)
+)
+
+CREATE TABLE mycoupon
+(
+    c_num      NUMBER(8)        NOT NULL, 
+    M_PK       VARCHAR2(100)    NOT NULL, 
+    c_code     VARCHAR2(20)     NOT NULL, 
+    c_isuse    NUMBER(1)        NOT NULL, 
+    CONSTRAINT COUPON_PK PRIMARY KEY (c_num)
+)
+
+CREATE SEQUENCE cp_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE coupon
+    ADD CONSTRAINT FK_coupon_M_PK_member_M_PK FOREIGN KEY (M_PK)
+        REFERENCES member (M_PK)
+
+
+ALTER TABLE coupon
+    ADD CONSTRAINT FK_coupon_c_code_coupon_List_c FOREIGN KEY (c_code)
+        REFERENCES coupon_List (c_code)
+
+-------------------------------------굿즈옵션 테이블-------------------------------------
+
+CREATE TABLE goods_option
+(
+    o_num       NUMBER(8)       NOT NULL, 
+    o_time      VARCHAR2(20)    NOT NULL, 
+    o_people    VARCHAR2(20)    NOT NULL, 
+    o_date      DATE            NOT NULL, 
+    CONSTRAINT GOODS_OPTION_PK PRIMARY KEY (o_num)
+)
+
+---------------------------------------info 테이블----------------------------------------
+
+CREATE TABLE info
+(
+    goods_num        NUMBER(8)        NOT NULL, 
+    delivery_time    VARCHAR2(100)    NULL, 
+    duration         VARCHAR2(100)    NULL, 
+    language         VARCHAR2(100)    NULL, 
+    boucher          VARCHAR2(100)    NULL, 
+    cancel           VARCHAR2(100)    NULL, 
+    using_time       VARCHAR2(100)    NULL, 
+    pick_up          VARCHAR2(100)    NULL, 
+    people           VARCHAR2(100)    NULL, 
+    CONSTRAINT INFO_PK PRIMARY KEY (goods_num)
+)
+
+ALTER TABLE info
+    ADD CONSTRAINT FK_info_goods_num_goods_goods_ FOREIGN KEY (goods_num)
+        REFERENCES goods (goods_num) 
+
+---------------------------------------리뷰 테이블----------------------------------------
+CREATE TABLE review
+(
+    rv_num          NUMBER(8)         NOT NULL, 
+    goods_num       NUMBER(8)         NOT NULL, 
+    email           VARCHAR2(100)     NOT NULL, 
+    rv_writer       VARCHAR2(20)      NOT NULL, 
+    rv_contents     VARCHAR2(1000)    NOT NULL, 
+    rv_reg_date     DATE              NOT NULL, 
+    rv_score        NUMBER(1)         NOT NULL, 
+    rv_ex           NUMBER(1)         NOT NULL, 
+    rv_aname        VARCHAR2(100)     NOT NULL, 
+    rv_adate        DATE              NOT NULL, 
+    rv_acontents    VARCHAR2(1000)    NOT NULL, 
+    CONSTRAINT REVIEW_PK PRIMARY KEY (rv_num)
+)
+
+CREATE SEQUENCE review_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE review
+    ADD CONSTRAINT FK_review_goods_num_goods_good FOREIGN KEY (goods_num)
+        REFERENCES goods (goods_num)
+
+ALTER TABLE review
+    ADD CONSTRAINT FK_review_email_member_M_PK FOREIGN KEY (email)
+        REFERENCES member (M_PK)
+
+--------------------------------------- 리뷰 체크 테이블----------------------------------------
+CREATE TABLE review_check
+(
+    CHECK_DATE    DATE    NOT NULL, 
+    CONSTRAINT REVIEW_CHECK_PK PRIMARY KEY (CHECK_DATE)
+)
+
+--------------------------------------- 리뷰 이미지 테이블----------------------------------------
+CREATE TABLE review_img
+(
+    rv_img_num    NUMBER(8)        NOT NULL, 
+    rv_num        NUMBER(8)        NOT NULL, 
+    img_name      VARCHAR2(100)    NOT NULL, 
+    CONSTRAINT REVIEW_IMG_PK PRIMARY KEY (rv_img_num)
+)
+
+ALTER TABLE review_img
+    ADD CONSTRAINT FK_review_img_rv_num_review_rv FOREIGN KEY (rv_num)
+        REFERENCES review (rv_num)
+
+
+--------------------------------------- 예약 테이블----------------------------------------
+CREATE TABLE reservation
+(
+    res_num       NUMBER(8)             NOT NULL, 
+    res_date      DATE                  NOT NULL, 
+    o_num         VARCHAR2(20)          NOT NULL, 
+    M_PK          VARCHAR2(100)         NOT NULL, 
+    c_code        VARCHAR2(20)          NULL, 
+    point         NUMBER(8)             NULL, 
+    totalprice    NUMBER(100)           NOT NULL, 
+    goods_num     NUMBER(8)             NOT NULL, 
+    RES_REF       NUMBER(8,0)           NULL, 
+    PAY           VARCHAR2(100 BYTE)    NULL, 
+    TID           VARCHAR2(100 BYTE)    NULL, 
+    CONSTRAINT RESERVATION_PK PRIMARY KEY (res_num)
+)
+
+CREATE SEQUENCE reservation_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+ALTER TABLE reservation
+    ADD CONSTRAINT FK_reservation_o_num_goods_opt FOREIGN KEY (o_num)
+        REFERENCES goods_option (o_num)
+
+ALTER TABLE reservation
+    ADD CONSTRAINT FK_reservation_goods_num_goods FOREIGN KEY (goods_num)
+        REFERENCES goods (goods_num)
+
+ALTER TABLE reservation
+    ADD CONSTRAINT FK_reservation_M_PK_member_M_P FOREIGN KEY (M_PK)
+        REFERENCES member (M_PK)
+
+--------------------------------------- booker info 테이블----------------------------------------
+
+CREATE TABLE booker_info
+(
+    b_num        NUMBER(8)             NOT NULL, 
+    b_name       VARCHAR2(20)          NULL, 
+    b_email      VARCHAR2(20)          NULL, 
+    sns_email    VARCHAR2(20)          NULL, 
+    b_visit      VARCHAR2(20)          NULL, 
+    b_gender     NUMBER(1)             NULL, 
+    b_ref        VARCHAR2(20)          NULL, 
+    FIRSTNAME    VARCHAR2(50 BYTE)     NULL, 
+    LASTNAME     VARCHAR2(50 BYTE)     NULL, 
+    PASSPORT     VARCHAR2(100 BYTE)    NULL, 
+    CONSTRAINT BOOKER_INFO_PK PRIMARY KEY (b_num)
+)
+
+CREATE SEQUENCE booker_info_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+
+
